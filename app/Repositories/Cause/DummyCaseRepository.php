@@ -55,9 +55,11 @@ class DummyCaseRepository implements RepositoryInterface {
         $json = [];
         for($day=$from->copy();$day<=$to->copy();$day->addDay())
         {
+            $total = rand(10, 100);
             $json[] = [
                 'day'   => $day->format("d M"),
-                'total' => rand(10, 100),
+                'total_current' => $total,
+                'total_previous' => $total + rand(-50, 50),
             ];
         }
 

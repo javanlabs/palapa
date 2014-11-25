@@ -9,6 +9,11 @@
                 <div class="input-prepend input-group" style="margin-top: 35px">
                     <span class="add-on input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" name="period" id="chartPeriod" value="{{ $from }} - {{ $to }}" class="form-control" />
                 </div>
+                <div class="checkbox">
+                  <label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" checked="checked"> Bandingkan dengan periode sebelumnya
+                </label>
+                </div>
             </div>
         </div>
         <div id="dailyCase" style="width: 100%; height: 300px"></div>
@@ -35,7 +40,7 @@
         $("#dailyCase").dxChart({
             commonSeriesSettings: {
                 argumentField: "day",
-                type:'bar',
+                type:'line',
                 point: {size:2}
             },
             legend: {
@@ -48,9 +53,14 @@
             dataSource: {!! $data !!},
             series: [
                 {
-                    valueField: "total",
-                    name: "Jumlah Kasus",
-                    color: '{{ Config::get('color.primary') }}'
+                    valueField: "total_current",
+                    name: "Periode Terpilih",
+                    color: '{{ Config::get('color.blue-dark') }}'
+                },
+                {
+                    valueField: "total_previous",
+                    name: "Periode Sebelumnya",
+                    color: '{{ Config::get('color.yellow') }}'
                 },
             ],
             tooltip: {
