@@ -22,7 +22,7 @@
 body {
   font-family: 'Lato', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #434a54;
-  background-color: white;
+  background-color: #f8f8f8;
 }
 
 a {
@@ -411,6 +411,8 @@ blockquote {
   -webkit-box-shadow: none;
      -moz-box-shadow: none;
           box-shadow: none;
+    height: 5px;
+    border-radius: 0;
 }
 .progress-bar {
   background-color: #3bafda;

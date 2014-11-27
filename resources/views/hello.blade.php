@@ -1,8 +1,8 @@
 @extends('layouts.frontend')
 @section('content')
-<div style="padding: 150px 0 50px" class="clearfix">
+<div style="padding: 150px 0 100px" class="clearfix">
     <div class="container text-center">
-        <h1>Pencarian Cepat</h1>
+        <h1 style="font-weight: 300">Pencarian Cepat</h1>
 
                     <div class="input-group">
                       <div class="input-group-btn">
@@ -23,11 +23,12 @@
 </div>
 
 <div class="container">
-    <p class="lead">3.421 kasus ditemukan</p>
-    <table class="table table-hover">
+    <div class="panel panel-default">
+        <div class="panel-heading">3.421 kasus ditemukan</div>
+    <table class="table table-hover table-bordered">
         <thead>
             <tr>
-                <th width="250px">Kasus</th>
+                <th width="250px">Nama Kasus</th>
                 <th>Tersangka</th>
                 <th>Jaksa</th>
                 <th>Penyidik</th>
@@ -39,10 +40,10 @@
         </thead>
         @forelse($cases as $item)
         <tr>
-            <td><a href="">{{ $item['name'] }}</a></td>
-            <td><a href="">{{ $item['suspect_name'] }}</a></td>
-            <td><a href="">{{ $item['prosecutor_name'] }}</a></td>
-            <td><a href="">{{ $item['investigator_name'] }}</a></td>
+            <td style="background-color: #fffcef"><h5>{{ $item['name'] }}</h5></td>
+            <td>{{ $item['suspect_name'] }}</td>
+            <td>{{ $item['prosecutor_name'] }}</td>
+            <td>{{ $item['investigator_name'] }}</td>
             <td colspan="3">
                 <div class="progress">
                     <div class="progress-bar progress-bar-{{ $item['status_spdp'] }}" role="progressbar" style="width: 33%"></div>
@@ -56,6 +57,8 @@
         <tr><td colspan="8">Kasus tidak ditemukan</td></tr>
         @endforelse
     </table>
+    </div>
+
 </div>
 
 <div class="modal fade" id="modal-detail">
@@ -213,6 +216,18 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+@stop
+
+@section('style-head')
+<style>
+    table th {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .9em;
+    color: #999;
+    background-color: #eef1f5;
+    }
+</style>
 @stop
 
 @section('script-end')

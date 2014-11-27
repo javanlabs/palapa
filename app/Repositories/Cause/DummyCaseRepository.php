@@ -12,7 +12,7 @@ class DummyCaseRepository implements RepositoryInterface {
         foreach(range(1,20) as $item)
         {
             $cases[] = [
-                'name'  => $faker->sentence(),
+                'name'  => "Korupsi Dana CSR Perta...",
                 'suspect_name'  => $faker->name,
                 'investigator_name'  => $faker->name,
                 'prosecutor_name'  => $faker->name,

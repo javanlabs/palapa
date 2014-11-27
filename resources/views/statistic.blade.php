@@ -3,7 +3,7 @@
     <div class="container" style="margin-top: 100px">
         <div class="row">
             <div class="col-md-8">
-                <h3>Jumlah kasus harian</h3>
+                <h2 class="lead">Jumlah kasus harian</h2>
             </div>
             <div class="col-md-4">
                 <div class="input-prepend input-group" style="margin-top: 35px">
