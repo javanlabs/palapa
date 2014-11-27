@@ -44,11 +44,11 @@
             <td>{{ $item['suspect_name'] }}</td>
             <td>{{ $item['prosecutor_name'] }}</td>
             <td>{{ $item['investigator_name'] }}</td>
-            <td colspan="3">
+            <td colspan="3" style="padding-top: 25px">
                 <div class="progress">
-                    <div class="progress-bar progress-bar-{{ $item['status_spdp'] }}" role="progressbar" style="width: 33%"></div>
-                    <div class="progress-bar progress-bar-{{ $item['status_penuntutan'] }}" role="progressbar" style="width: 33%"></div>
-                    <div class="progress-bar progress-bar-{{ $item['status_intel'] }}" role="progressbar" style="width: 34%"></div>
+                    <div class="progress-bar progress-bar-{{ $item['status_spdp'] }}" role="progressbar" style="width: 33%" data-toggle="popover" title="SPDP"></div>
+                    <div class="progress-bar progress-bar-{{ $item['status_penuntutan'] }}" role="progressbar" style="width: 33%" data-toggle="popover" title="Penuntutan"></div>
+                    <div class="progress-bar progress-bar-{{ $item['status_intel'] }}" role="progressbar" style="width: 34%" data-toggle="popover" title="Eksekusi"></div>
                 </div>
             </td>
             <td><small class="text-muted">{{ $item['last_update'] }}</small></td>
@@ -227,6 +227,10 @@
     color: #999;
     background-color: #eef1f5;
     }
+    table tbody tr td{cursor: pointer}
+    .progress .progress-bar{
+        margin-right: 2px;
+    }
 </style>
 @stop
 
@@ -237,6 +241,15 @@ $(function(){
         e.preventDefault();
         $('#modal-detail').modal('show');
     });
+
+    $(function () {
+        $('.progress .progress-bar').popover({
+            trigger: 'hover',
+            placement: 'top',
+            html: true,
+            content: "<h6>9 September 2014</h6><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque esse et nulla obcaecati optio quis vero vitae voluptas</p>"
+        });
+    })
 });
 </script>
 @stop

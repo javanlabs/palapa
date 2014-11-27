@@ -1,4 +1,6 @@
 <nav class="navbar navbar-fixed-top navbar-home" role="navigation">
+  <img style="height:50px; float: left; margin:0 25px 0 50px" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
+
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7">
@@ -7,7 +9,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <img class="navbar-brand" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
       <span class="navbar-brand">SIMSOP</span>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
