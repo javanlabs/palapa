@@ -10,7 +10,7 @@
         </h2>
         </div>
         <label for="inputEmail" class="sr-only">User ID</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="User ID" required autofocus>
+        <input type="text" id="inputEmail" class="form-control" placeholder="User ID" required autofocus>
         <label for="inputPassword" class="sr-only">Kata Sandi</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Kata Sandi" required>
         <div class="checkbox">
