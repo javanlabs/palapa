@@ -11,7 +11,11 @@
 |
 */
 
-$router->get('/', 'HomeController@index');
+$router->get('/', 'SiteController@getLogin');
+$router->post('login', 'SiteController@postLogin');
+$router->get('logout', 'SiteController@getLogout');
+
+$router->get('kasus', 'HomeController@index');
 $router->get('statistik', 'HomeController@statistic');
 
 /*

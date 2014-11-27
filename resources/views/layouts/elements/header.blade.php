@@ -17,7 +17,7 @@
       </p>
       <p class="navbar-text navbar-right">
         <a class="navbar-link" href="">Bayu Hendra</a>
-        <a class="navbar-link" href="">Logout</a>
+        <a class="navbar-link" href="{{ url('logout') }}">Logout</a>
       </p>
     </div>
   </div>

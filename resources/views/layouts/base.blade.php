@@ -9,7 +9,7 @@
     <title>{{ Config::get('meta.title') }}</title>
 
     <!-- Bootstrap -->
-    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:400,700'>
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:300, 400,700'>
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootflat/css/bootflat.css') }}">
 
