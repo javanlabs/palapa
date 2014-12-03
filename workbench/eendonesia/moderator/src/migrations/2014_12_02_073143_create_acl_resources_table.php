@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EnmodCreateAclPermissionsTable extends Migration {
+class CreateAclResourcesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class EnmodCreateAclPermissionsTable extends Migration {
 	 */
     public function up()
     {
-        Schema::create('acl_permissions', function ($table) {
+        Schema::create('acl_resources', function ($table) {
 
             $table->increments('id');
             $table->string('name', 255);
@@ -30,7 +30,7 @@ class EnmodCreateAclPermissionsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('acl_permissions');
+        Schema::drop('acl_resources');
     }
 
 }

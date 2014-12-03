@@ -1,5 +1,6 @@
 <?php namespace Eendonesia\Moderator;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class ModeratorServiceProvider extends ServiceProvider {
@@ -21,6 +22,7 @@ class ModeratorServiceProvider extends ServiceProvider {
 		$this->package('eendonesia/moderator');
 
         include __DIR__.'/../../routes.php';
+        include __DIR__.'/../../helpers.php';
 	}
 
 	/**
@@ -30,7 +32,11 @@ class ModeratorServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app->bind('Eendonesia\Moderator\RepositoryInterface', 'Eendonesia\Moderator\EloquentRepository');
+
+        $this->app->register('Illuminate\Html\HtmlServiceProvider');
+        AliasLoader::getInstance()->alias('Form', 'Illuminate\Html\FormFacade');
+        AliasLoader::getInstance()->alias('HTML', 'Illuminate\Html\HtmlFacade');
 	}
 
 	/**

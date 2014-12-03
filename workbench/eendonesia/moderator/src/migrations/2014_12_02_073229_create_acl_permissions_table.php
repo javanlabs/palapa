@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EnmodCreateAclGroupPermissionsTable extends Migration {
+class CreateAclPermissionsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class EnmodCreateAclGroupPermissionsTable extends Migration {
 	 */
     public function up()
     {
-        Schema::create('acl_group_permissions', function ($table) {
+        Schema::create('acl_permissions', function ($table) {
 
             $table->integer('group_id', false);
-            $table->integer('permission_id', false);
+            $table->integer('resource_id', false);
 
         });
     }
@@ -27,7 +27,7 @@ class EnmodCreateAclGroupPermissionsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('acl_group_permissions');
+        Schema::drop('acl_permissions');
     }
 
 }

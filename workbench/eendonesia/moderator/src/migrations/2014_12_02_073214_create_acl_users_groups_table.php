@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EnmodCreateAclUserGroupsTable extends Migration {
+class CreateAclUsersGroupsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class EnmodCreateAclUserGroupsTable extends Migration {
 	 */
     public function up()
     {
-        Schema::create('acl_user_groups', function ($table) {
+        Schema::create('acl_users_groups', function ($table) {
 
             $table->integer('user_id', false);
             $table->integer('group_id', false);
@@ -27,7 +27,7 @@ class EnmodCreateAclUserGroupsTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('acl_user_groups');
+        Schema::drop('acl_users_groups');
     }
 
 
