@@ -1,0 +1,26 @@
+{
+    "name": "eendonesia/gapura",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bayu Hendra Winata",
+            "email": "uyab.exe@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*",
+        "adamwathan/bootforms": "v0.2"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/seeds",
+            "src/controllers"
+        ],
+        "psr-0": {
+            "Eendonesia\\Gapura\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,24 @@
+{
+    "name": "eendonesia/moderator",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bayu Hendra Winata",
+            "email": "uyab.exe@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers"
+        ],
+        "psr-0": {
+            "Eendonesia\\Moderator\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -41,7 +41,7 @@ class Authenticate implements Middleware {
 			}
 			else
 			{
-				return redirect()->guest('auth/login');
+				return redirect()->guest('gapura/login');
 			}
 		}
 

@@ -1,0 +1,23 @@
+{
+    "name": "eendonesia/mural",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bayu Hendra Winata",
+            "email": "uyab.exe@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Eendonesia\\Mural\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

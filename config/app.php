@@ -78,7 +78,7 @@ return [
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'KFI6aeUmHBHvpzHAUvl81x8oI6sYDNFl',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -111,13 +111,6 @@ return [
 	'providers' => [
 
 		/*
-		 * Application Service Providers...
-		 */
-		'App\Providers\AppServiceProvider',
-		'App\Providers\EventServiceProvider',
-		'App\Providers\RouteServiceProvider',
-
-		/*
 		 * Laravel Framework Service Providers...
 		 */
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
@@ -140,6 +133,20 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+
+		/*
+		 * Workbench Service Providers...
+		 */
+        'Eendonesia\Dekor\DekorServiceProvider',
+        'Eendonesia\Moderator\ModeratorServiceProvider',
+        'Eendonesia\Gapura\GapuraServiceProvider',
+
+		/*
+		 * Application Service Providers...
+		 */
+		'App\Providers\AppServiceProvider',
+		'App\Providers\EventServiceProvider',
+		'App\Providers\RouteServiceProvider',
 
 	],
 
