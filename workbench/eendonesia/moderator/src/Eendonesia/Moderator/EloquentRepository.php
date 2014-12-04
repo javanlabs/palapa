@@ -78,6 +78,6 @@ class EloquentRepository implements RepositoryInterface{
 
     public function assignPermissions($groupId, $resources)
     {
-        // TODO: Implement assignPermissions() method.
+        $this->group->findOrFail($groupId)->resources()->sync((array) $resources);
     }
 }

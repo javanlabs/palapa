@@ -18,6 +18,8 @@ Route::group(['namespace' => 'Eendonesia\Moderator\Controllers', 'prefix' => Con
     {
         Route::resource('groups', 'GroupsController', ['names' => prefixedNames('moderator.groups')]);
         Route::resource('resources', 'ResourcesController', ['names' => prefixedNames('moderator.resources')]);
-        Route::resource('permissions', 'PermissionsController', ['names' => prefixedNames('moderator.permissions')]);
+
+        Route::get('permissions/{id?}', ['as' => 'moderator.permissions.index', 'uses' => 'PermissionsController@index']);
+        Route::post('permissions/assign', ['as' => 'moderator.permissions.assign', 'uses' => 'PermissionsController@assign']);
     });
 });
