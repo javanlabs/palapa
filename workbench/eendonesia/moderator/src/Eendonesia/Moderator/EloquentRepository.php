@@ -2,6 +2,7 @@
 
 use Eendonesia\Moderator\Models\Group;
 use Eendonesia\Moderator\Models\Resource;
+use Illuminate\Support\Facades\Config;
 
 class EloquentRepository implements RepositoryInterface{
 
@@ -19,6 +20,9 @@ class EloquentRepository implements RepositoryInterface{
     {
         $this->group = $group;
         $this->resource = $resource;
+
+        $userClass = Config::get('auth.model');
+        $this->user = new $userClass;
     }
 
     public function groups()
@@ -71,9 +75,9 @@ class EloquentRepository implements RepositoryInterface{
         return $this->resource->findOrFail($id)->delete();
     }
 
-    public function assignGroups($userId, $group)
+    public function assignGroups($userId, $groups)
     {
-        // TODO: Implement assignGroups() method.
+        $this->user->findOrFail($userId)->groups()->sync((array) $groups);
     }
 
     public function assignPermissions($groupId, $resources)

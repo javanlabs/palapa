@@ -36,7 +36,7 @@ class PermissionsController extends Controller {
     public function assign()
     {
         $id = Input::get('id');
-        $this->repo->assignPermissions($id, Input::get('resources'));
+        $this->repo->assignPermissions($id, Input::get('groups'));
 
         return redirect()->route('moderator.permissions.index', [$id]);
     }
