@@ -8,7 +8,7 @@
         <div class="col-md-4">
             <div class="list-group">
                 @foreach($groups as $group)
-                <a href="{{ route('moderator.permissions.index', [$group->id]) }}" class="list-group-item">
+                <a href="{{ route('moderator.permissions.index', [$group->id]) }}" class="list-group-item {{ ($selectedGroup && $group->id == $selectedGroup->id)?'active':'' }}">
                     <h4 class="list-group-item-heading">{{ $group->name }}</h4>
                     <p class="list-group-item-text">{{ $group->description }}</p>
                 </a>
@@ -17,7 +17,9 @@
         </div>
         @if($selectedGroup)
         <div class="col-md-8">
-            <h3>Allowed Access</h3>
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>{{ $selectedGroup->name }}</strong> <small>allow to access following resources:</small></div>
+                <div class="panel-body">
             {{ BootForm::open()->action(route('moderator.permissions.assign')) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
             <input type="hidden" name="id" value="{{ $selectedGroup->id }}"/>
@@ -30,6 +32,9 @@
             @endforeach
             {{ BootForm::submit('Save') }}
             {{ BootForm::close() }}
+
+                </div>
+            </div>
         </div>
         @endif
     </div>
