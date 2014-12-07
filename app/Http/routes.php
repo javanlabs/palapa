@@ -11,7 +11,15 @@
 |
 */
 
-$router->get('/', 'SiteController@getLogin');
+$router->get('/', 'Frontend\HomeController@getIndex');
+$router->controller('home', 'Frontend\HomeController', [
+    'getSearch'  => 'frontend.search',
+    'getProfile'  => 'frontend.profile',
+    'getOrganization'  => 'frontend.organization',
+    'getOfficer'  => 'frontend.officer',
+]);
+
+$router->get('login', 'SiteController@getLogin');
 $router->post('login', 'SiteController@postLogin');
 $router->get('logout', 'SiteController@getLogout');
 
@@ -29,6 +37,6 @@ $router->get('statistik', 'HomeController@statistic');
 |
 */
 
-$router->controller('auth', 'AuthController');
+//$router->controller('auth', 'AuthController');
 
-$router->controller('password', 'PasswordController');
+//$router->controller('password', 'PasswordController');
