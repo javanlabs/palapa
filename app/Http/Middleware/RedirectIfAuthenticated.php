@@ -4,6 +4,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\Routing\Middleware;
+use Illuminate\Support\Facades\Config;
 
 class RedirectIfAuthenticated implements Middleware {
 
@@ -36,7 +37,7 @@ class RedirectIfAuthenticated implements Middleware {
 	{
 		if ($this->auth->check())
 		{
-			return redirect()->route('gapura.home');
+			return redirect()->route(Config::get('gapura::default_auth'));
 		}
 
 		return $next($request);
