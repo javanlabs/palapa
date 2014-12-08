@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => false,
+	'debug' => (bool) getenv('APP_DEBUG') ?: false,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -140,6 +140,7 @@ return [
         'Eendonesia\Dekor\DekorServiceProvider',
         'Eendonesia\Moderator\ModeratorServiceProvider',
         'Eendonesia\Gapura\GapuraServiceProvider',
+        'Eendonesia\Skrip\SkripServiceProvider',
 
 		/*
 		 * Application Service Providers...
