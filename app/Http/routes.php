@@ -19,6 +19,18 @@ $router->controller('home', 'Frontend\HomeController', [
     'getOfficer'  => 'frontend.officer',
 ]);
 
+//BACKEND
+$router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($router){
+
+    $router->controller('officer', 'OfficerController', [
+        'getIndex'  => 'officer.index',
+    ]);
+    $router->get('dashboard/index', ['as' => 'dashboard.index', 'uses' => 'DashboardController@getIndex']);
+    $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@getIndex']);
+
+});
+
+// GLOBAL ROUTE
 $router->get('login', 'SiteController@getLogin');
 $router->post('login', 'SiteController@postLogin');
 $router->get('logout', 'SiteController@getLogout');
