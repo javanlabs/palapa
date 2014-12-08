@@ -1,10 +1,16 @@
 <?php namespace Eendonesia\Moderator;
 
+use Eendonesia\Moderator\Models\User;
 use Eendonesia\Moderator\Models\Group;
 use Eendonesia\Moderator\Models\Resource;
-use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Hash;
 
 class EloquentRepository implements RepositoryInterface{
+
+    /**
+     * @type User
+     */
+    private $user;
 
     /**
      * @type Group
@@ -16,13 +22,46 @@ class EloquentRepository implements RepositoryInterface{
      */
     private $resource;
 
-    function __construct(Group $group, Resource $resource)
+    function __construct(User $user, Group $group, Resource $resource)
     {
+        $this->user = $user;
         $this->group = $group;
         $this->resource = $resource;
+    }
 
-        $userClass = Config::get('auth.model');
-        $this->user = new $userClass;
+    public function users()
+    {
+        return $this->user->all();
+    }
+
+    public function findUserById($id)
+    {
+        return $this->user->findOrFail($id);
+    }
+
+    public function addUser($input)
+    {
+        $input['password'] = Hash::make($input['password']);
+        $user = $this->user->create($input);
+        $user->groups()->sync(array_get($input, 'groups'));
+    }
+
+    public function updateUser($id, $input)
+    {
+        $user = $this->user->findOrFail($id);
+        $saved = $user->update($input);
+
+        if($saved)
+        {
+            $user->groups()->sync(array_get($input, 'groups'));
+        }
+
+        return $user;
+    }
+
+    public function deleteUser($id)
+    {
+        return $this->user->findOrFail($id)->delete();
     }
 
     public function groups()

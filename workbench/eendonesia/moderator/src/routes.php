@@ -16,6 +16,7 @@ Route::group(['namespace' => 'Eendonesia\Moderator\Controllers', 'prefix' => Con
 {
     Route::group(['middleware' => ['auth']], function()
     {
+        Route::resource('users', 'UsersController', ['names' => prefixedNames('moderator.users')]);
         Route::resource('groups', 'GroupsController', ['names' => prefixedNames('moderator.groups')]);
         Route::resource('resources', 'ResourcesController', ['names' => prefixedNames('moderator.resources')]);
 

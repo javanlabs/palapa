@@ -2,6 +2,16 @@
 
 interface RepositoryInterface {
 
+    public function users();
+
+    public function findUserById($id);
+
+    public function addUser($input);
+
+    public function updateUser($id, $input);
+
+    public function deleteUser($id);
+
     public function groups();
 
     public function findGroupById($id);
