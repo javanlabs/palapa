@@ -1,6 +1,5 @@
 <?php namespace Eendonesia\Moderator\Controllers;
 
-use App\User;
 use Eendonesia\Moderator\RepositoryInterface;
 use Illuminate\Routing\Controller;
 use Input;
@@ -19,7 +18,7 @@ class RolesController extends Controller {
 
     public function index($userId = null)
     {
-        $users = User::all();
+        $users = $this->repo->users();
         $groups = null;
         $selectedUser = null;
         $userGroups = [];
