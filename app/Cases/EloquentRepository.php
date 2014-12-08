@@ -15,14 +15,14 @@ class EloquentRepository implements RepositoryInterface {
 
     public function all()
     {
-        return $this->officer->all();
+        return $this->case->all();
     }
 
-    public function create($input)
+    public function create($input, $user)
     {
-        $officer = $this->officer->create($input);
-
-        return $officer;
+        $case = $this->case->create($input);
+        $case->author()->associate($user)->save();
+        return $case;
     }
 
     public function update($id, $input)

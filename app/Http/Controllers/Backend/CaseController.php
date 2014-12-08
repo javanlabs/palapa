@@ -1,8 +1,10 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Lookup\Form;
+use App\Cases\Form;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Cases\RepositoryInterface;
+use App\Officer\RepositoryInterface as OfficerRepository;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class CaseController extends BackendController {
@@ -15,12 +17,27 @@ class CaseController extends BackendController {
      * @type LookupRepository
      */
     private $lookup;
+    /**
+     * @type OfficerRepository
+     */
+    private $officer;
+    /**
+     * @type \Eendonesia\Moderator\RepositoryInterface
+     */
+    private $moderator;
 
-    function __construct(RepositoryInterface $repo, LookupRepository $lookup)
+    function __construct(
+        RepositoryInterface $repo,
+        OfficerRepository $officer,
+        \Eendonesia\Moderator\RepositoryInterface $moderator,
+        LookupRepository $lookup
+    )
     {
         $this->repo = $repo;
         View::share('page', '');
         $this->lookup = $lookup;
+        $this->officer = $officer;
+        $this->moderator = $moderator;
     }
 
     public function index()
@@ -31,16 +48,17 @@ class CaseController extends BackendController {
 
     public function create()
     {
-        $jaksaLookup = $this->lookup->lists('pangkat');
-        $staffLookup = $this->lookup->lists('jabatan');
+        $jaksaLookup = $this->officer->jaksa();
+        $staffLookup = $this->moderator->usersByGroups('staff')->lists('name', 'id');
+
         return view('backend.cases.create', compact('jaksaLookup', 'staffLookup'));
     }
 
     public function store(Form $form)
     {
-        $this->repo->create($form->all());
+        $this->repo->create($form->all(), Auth::user());
 
-        return redirect()->route('backend.officers.index');
+        return redirect()->route('backend.cases.index');
     }
 
     public function edit($id)

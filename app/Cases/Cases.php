@@ -9,35 +9,20 @@ class Cases extends Model {
 
     protected $table = 'cases';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'date', 'suspect_name', 'suspect_pob', 'suspect_dob', 'suspect_religion', 'suspect_address', 'suspect_city_id', 'jaksa_id', 'staff_id'];
 
-    public function pangkat()
+    public function author()
     {
-        return $this->belongsTo('App\Lookup\Lookup', 'pangkat_id');
+        return $this->belongsTo('Eendonesia\Moderator\Models\User', 'author_id');
     }
 
-    public function jabatan()
+    public function jaksa()
     {
-        return $this->belongsTo('App\Lookup\Lookup', 'jabatan_id');
+        return $this->belongsTo('App\Officer', 'jaksa_id');
     }
 
-    public function getPangkatNameAttribute()
+    public function staff()
     {
-        if($this->pangkat)
-        {
-            return $this->pangkat['name'];
-        }
-
-        return null;
-    }
-
-    public function getJabatanNameAttribute()
-    {
-        if($this->jabatan)
-        {
-            return $this->jabatan['name'];
-        }
-
-        return null;
+        return $this->belongsTo('Eendonesia\Moderator\Models\User', 'staff_id');
     }
 }

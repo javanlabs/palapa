@@ -4,6 +4,8 @@ interface RepositoryInterface {
 
     public function users();
 
+    public function usersByGroups($roles);
+
     public function findUserById($id);
 
     public function addUser($input);

@@ -14,12 +14,11 @@ class CreateTableCases extends Migration {
 	{
         Schema::create('cases', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->string('spdp_number');
             $table->text('pasal');
             $table->text('kasus');
             $table->date('date');
-            $table->enum('phase', ['spdp', 'tahap-1', 'tahap-2', 'penuntutan', 'persidangan', 'selesai']);
+            $table->enum('phase', ['spdp', 'tahap-1', 'tahap-2', 'penuntutan', 'persidangan', 'selesai'])->default('spdp');
 
             $table->string('suspect_name');
             $table->string('suspect_pob');

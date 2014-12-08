@@ -4,7 +4,7 @@ interface RepositoryInterface {
 
     public function all();
 
-    public function create($input);
+    public function create($input, $user);
 
     public function update($id, $input);
 

@@ -39,5 +39,16 @@ class EloquentRepository implements RepositoryInterface {
     {
         return $this->officer->findOrFail($id)->delete();
     }
+
+    public function jaksa()
+    {
+        return $this->officer->lists('name', 'id');
+    }
+
+    public function staff()
+    {
+        // TODO: Implement staff() method.
+    }
+
 }
 

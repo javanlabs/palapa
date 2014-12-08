@@ -34,6 +34,15 @@ class EloquentRepository implements RepositoryInterface{
         return $this->user->all();
     }
 
+    public function usersByGroups($groups)
+    {
+        $groups = (array) $groups;
+
+        return $this->user->whereHas('groups', function($q) use ($groups) {
+            return $q->whereIn('name', $groups);
+        });
+    }
+
     public function findUserById($id)
     {
         return $this->user->findOrFail($id);
