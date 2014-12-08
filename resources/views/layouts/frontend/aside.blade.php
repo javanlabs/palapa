@@ -11,6 +11,7 @@
 <a class="list-group-item" href="{{ route('gapura.login') }}">Login</a>
 @else
 <a class="list-group-item {{ ($page == 'backend-dashboard')?'active':'' }}" href="{{ route('dashboard.index') }}">Dashboard</a>
+<a class="list-group-item {{ ($page == 'backend-cases')?'active':'' }}" href="{{ route('backend.cases.create') }}"><i class="fa fa-plus"></i> Tambah Kasus</a>
 <a class="list-group-item {{ ($page == 'backend-officer')?'active':'' }}" href="{{ route('backend.officers.index') }}">Manajemen SDM</a>
 <a class="list-group-item {{ ($page == 'backend-setting')?'active':'' }}" href="{{ route('setting.index') }}">Konfigurasi</a>
 <a class="list-group-item" href="{{ route('gapura.logout') }}">Logout</a>

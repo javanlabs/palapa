@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('dekor::layouts.base')
 @section('body')
     @include('layouts.elements.header')
     <div class="container" style="margin-top: 120px">
