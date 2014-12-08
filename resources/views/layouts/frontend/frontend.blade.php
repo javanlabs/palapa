@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('body')
-    @include('layouts.frontend.header')
-    <div class="container">
+    @include('layouts.elements.header')
+    <div class="container" style="margin-top: 120px">
         <div class="col-md-3">
             @include('layouts.frontend.aside')
         </div>

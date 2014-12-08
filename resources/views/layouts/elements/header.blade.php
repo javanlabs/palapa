@@ -3,24 +3,7 @@
 
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">SIMSOP</span>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
-      <p class="navbar-text navbar-left">
-        <a class="navbar-link" href="{{ url('/kasus') }}">Cari Kasus</a>
-        <a class="navbar-link" href="{{ url('/statistik') }}">Statistik</a>
-        <a class="navbar-link add" href="" data-toggle="modal" data-target="#modal-add">Tambah Kasus</a>
-      </p>
-      <p class="navbar-text navbar-right">
-        <a class="navbar-link" href="">Bayu Hendra</a>
-        <a class="navbar-link" href="{{ url('logout') }}">Logout</a>
-      </p>
+      <span class="navbar-brand">Monitoring Kasus - Kejaksaan Negeri Jember</span>
     </div>
   </div>
 </nav>
