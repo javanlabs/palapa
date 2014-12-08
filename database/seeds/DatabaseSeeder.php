@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,6 +18,7 @@ class DatabaseSeeder extends Seeder {
 
 		 $this->call('PangkatSeeder');
 		 $this->call('JabatanSeeder');
+		 $this->call('OfficerSeeder');
 
         Model::reguard();
 	}
@@ -59,5 +61,31 @@ class JabatanSeeder extends Seeder {
             ['name'  => 'Jaksa Penuntut Khusus', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
         ];
         return DB::table('lookups')->insert($pangkat);
+    }
+}
+
+class OfficerSeeder extends Seeder {
+
+    public function run()
+    {
+        $now = Carbon::now()->toDateTimeString();
+        $faker = Factory::create();
+
+        DB::table('officers')->truncate();
+
+        $officers = [];
+        for($i=0;$i<20;$i++)
+        {
+            $officers[] = [
+                'name'       => $faker->name,
+                'nip'        => $faker->randomNumber(9),
+                'pangkat_id' => rand(1, 9),
+                'jabatan_id' => rand(10, 11),
+                'created_at' => $now,
+                'updated_at' => $now
+            ];
+        }
+
+        return DB::table('officers')->insert($officers);
     }
 }

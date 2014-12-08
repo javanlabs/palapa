@@ -22,9 +22,8 @@ $router->controller('home', 'Frontend\HomeController', [
 //BACKEND
 $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($router){
 
-    $router->controller('officer', 'OfficerController', [
-        'getIndex'  => 'officer.index',
-    ]);
+    $router->resource('officers', 'OfficerController');
+
     $router->get('dashboard/index', ['as' => 'dashboard.index', 'uses' => 'DashboardController@getIndex']);
     $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@getIndex']);
 
