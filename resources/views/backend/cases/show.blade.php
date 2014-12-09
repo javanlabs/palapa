@@ -34,15 +34,15 @@
 <div class="col-md-5">
         <h4>Progress Kasus</h4>
 <div class="panel panel-default">
-    @foreach($sop as $phase => $checklist)
-    <div class="panel-heading">{{ $phase }}</div>
+    @foreach($phases as $phase)
+    <div class="panel-heading">{{ $phase['name'] }}</div>
     <ul class="list-group">
-        @foreach($checklist as $item)
+        @foreach($phase['checklist'] as $item)
         <li class="list-group-item">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox"/>
-                    {{ $item['checklist'] }}
+                    <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
+                    {{ $item['name'] }}
                 </label>
             </div>
         </li>
@@ -59,5 +59,8 @@
 <style>
     .case-info {font-size: 1.2em;}
     .case-info dd, .case-info dt {line-height: 2em;}
+    .list-group-item {
+        padding: 5px 10px;
+    }
 </style>
 @stop

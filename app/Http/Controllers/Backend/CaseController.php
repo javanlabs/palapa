@@ -4,6 +4,8 @@ use App\Cases\Form;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Cases\RepositoryInterface;
 use App\Officer\RepositoryInterface as OfficerRepository;
+use App\Sop\RepositoryInterface as SopRepository;
+use Eendonesia\Moderator\RepositoryInterface as ModeratorRepository;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -24,15 +26,20 @@ class CaseController extends BackendController {
      */
     private $officer;
     /**
-     * @type \Eendonesia\Moderator\RepositoryInterface
+     * @type ModeratorRepository
      */
     private $moderator;
+    /**
+     * @type SopRepository
+     */
+    private $sopRepo;
 
     function __construct(
         RepositoryInterface $repo,
         OfficerRepository $officer,
-        \Eendonesia\Moderator\RepositoryInterface $moderator,
-        LookupRepository $lookup
+        ModeratorRepository $moderator,
+        LookupRepository $lookup,
+        SopRepository $sopRepo
     )
     {
         $this->repo = $repo;
@@ -40,6 +47,7 @@ class CaseController extends BackendController {
         $this->lookup = $lookup;
         $this->officer = $officer;
         $this->moderator = $moderator;
+        $this->sopRepo = $sopRepo;
     }
 
     public function index()
@@ -68,10 +76,10 @@ class CaseController extends BackendController {
     public function show($id)
     {
         $case = $this->repo->find($id);
-        $sop = (new Collection(Config::get('sop')))->groupBy('phase');
+        $phases = $this->sopRepo->all();
         $activities = $this->repo->histories($case->id);
 
-        return view('backend.cases.show', compact('case', 'sop', 'activities'));
+        return view('backend.cases.show', compact('case', 'phases', 'activities'));
     }
 
     //public function edit($id)

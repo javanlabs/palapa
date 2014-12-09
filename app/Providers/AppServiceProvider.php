@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Officer\RepositoryInterface', 'App\Officer\EloquentRepository');
 		$this->app->bind('App\Lookup\RepositoryInterface', 'App\Lookup\EloquentRepository');
 		$this->app->bind('App\Cases\RepositoryInterface', 'App\Cases\EloquentRepository');
+		$this->app->bind('App\Sop\RepositoryInterface', 'App\Sop\EloquentRepository');
 	}
 
 }
