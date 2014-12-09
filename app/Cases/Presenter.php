@@ -23,13 +23,25 @@ trait Presenter {
         return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
     }
 
-    public function getStatusIntelAttribute()
+    public function getStatusTahap1Attribute()
+    {
+        $faker = \Faker\Factory::create();
+        return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
+    }
+
+    public function getStatusTahap2Attribute()
     {
         $faker = \Faker\Factory::create();
         return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
     }
 
     public function getStatusPenuntutanAttribute()
+    {
+        $faker = \Faker\Factory::create();
+        return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
+    }
+
+    public function getStatusPersidanganAttribute()
     {
         $faker = \Faker\Factory::create();
         return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);

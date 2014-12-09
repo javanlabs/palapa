@@ -4,21 +4,21 @@
     <div class="container-fluid text-center" style="margin-bottom: 20px">
         <h1 style="font-weight: 300">Pencarian Cepat</h1>
 
-        {{ Form::open(['route' => 'frontend.search', 'method' => 'get']) }}
-                    <div class="input-group">
-                      <div class="input-group-btn">
-                        <button type="button" class="btn btn-primary btn-lg" tabindex="-1">Pidana Umum</button>
-                        <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                          <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Semua</a></li>
-                          <li><a href="#">Pidana Umum</a></li>
-                          <li><a href="#">Pidana Khusus</a></li>
-                          <li><a href="#">Intel</a></li>
-                        </ul>
-                      </div>
-                      <input type="text" class="form-control input-lg" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama tersangka atau nama kasus...">
+        {{ Form::open(['route' => 'frontend.search', 'method' => 'get', 'role' => 'form']) }}
+                    <div class="form-group">
+                      {{--<div class="input-group-btn">--}}
+                        {{--<button type="button" class="btn btn-primary btn-lg" tabindex="-1">Pidana Umum</button>--}}
+                        {{--<button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" tabindex="-1">--}}
+                          {{--<span class="caret"></span>--}}
+                        {{--</button>--}}
+                        {{--<ul class="dropdown-menu">--}}
+                          {{--<li><a href="#">Semua</a></li>--}}
+                          {{--<li><a href="#">Pidana Umum</a></li>--}}
+                          {{--<li><a href="#">Pidana Khusus</a></li>--}}
+                          {{--<li><a href="#">Intel</a></li>--}}
+                        {{--</ul>--}}
+                      {{--</div>--}}
+                      <input type="text" class="form-control input-lg input-block" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama tersangka atau nama kasus...">
                     </div>
 
         {{ Form::close() }}
@@ -27,36 +27,40 @@
 <div class="container-fluid">
     <div class="panel panel-default">
         <div class="panel-heading">{{ count($cases) }} kasus ditemukan</div>
+        @if(count($cases) > 0)
     <table class="table table-hover table-bordered">
         <thead>
             <tr>
                 <th width="250px">Nama Kasus</th>
                 <th>Tersangka</th>
                 <th>Jaksa</th>
-                <th width="100px" class="text-center">SPDP</th>
-                <th width="100px" class="text-center">Penuntutan</th>
-                <th width="100px" class="text-center">Eksekusi</th>
-                <th>Update Terakhir</th>
+                <th width="75px" class="text-center" data-toggle="tooltip" data-placement="top" title="SPDP"><i class="fa fa-file-text-o"></i></th>
+                <th width="75px" class="text-center" data-toggle="tooltip" data-placement="top" title="Tahap 1"><strong>1</strong></th>
+                <th width="75px" class="text-center" data-toggle="tooltip" data-placement="top" title="Tahap 2"><strong>2</strong></th>
+                <th width="75px" class="text-center" data-toggle="tooltip" data-placement="top" title="Penuntutan"><i class="fa fa-random"></i></th>
+                <th width="75px" class="text-center" data-toggle="tooltip" data-placement="top" title="Persidangan"><i class="fa fa-gavel"></i></th>
+                <th width="150px">Terakhir Update</th>
             </tr>
         </thead>
-        @forelse($cases as $item)
+        @foreach($cases as $item)
         <tr>
             <td style="background-color: #fffcef"><h5>{{ $item['name'] }}</h5></td>
             <td>{{ $item['suspect_name'] }}</td>
             <td>{{ $item['prosecutor_name'] }}</td>
-            <td colspan="3" style="padding-top: 25px">
+            <td colspan="5" style="padding-top: 25px">
                 <div class="progress">
-                    <div class="progress-bar progress-bar-{{ $item['status_spdp'] }}" role="progressbar" style="width: 33%" data-toggle="popover" title="SPDP"></div>
-                    <div class="progress-bar progress-bar-{{ $item['status_penuntutan'] }}" role="progressbar" style="width: 33%" data-toggle="popover" title="Penuntutan"></div>
-                    <div class="progress-bar progress-bar-{{ $item['status_intel'] }}" role="progressbar" style="width: 34%" data-toggle="popover" title="Eksekusi"></div>
+                    <div class="progress-bar progress-bar-{{ $item['status_spdp'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="SPDP"></div>
+                    <div class="progress-bar progress-bar-{{ $item['status_tahap1'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Tahap 1"></div>
+                    <div class="progress-bar progress-bar-{{ $item['status_tahap2'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Tahap 2"></div>
+                    <div class="progress-bar progress-bar-{{ $item['status_penuntutan'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Penuntutan"></div>
+                    <div class="progress-bar progress-bar-{{ $item['status_persidangan'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Persidangan"></div>
                 </div>
             </td>
             <td><small class="text-muted">{{ $item['last_update'] }}</small></td>
         </tr>
-        @empty
-        <tr><td colspan="8">Kasus tidak ditemukan</td></tr>
-        @endforelse
+        @endforeach
     </table>
+    @endif
     </div>
 
 </div>
@@ -217,4 +221,13 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+@stop
+
+@section('script-end')
+    @parent
+    <script>
+    $(function(){
+        $('[data-toggle="tooltip"]').tooltip({container:'body'})
+    });
+    </script>
 @stop
