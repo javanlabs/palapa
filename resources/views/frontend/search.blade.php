@@ -18,7 +18,7 @@
                           {{--<li><a href="#">Intel</a></li>--}}
                         {{--</ul>--}}
                       {{--</div>--}}
-                      <input type="text" class="form-control input-lg input-block" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama tersangka atau nama kasus...">
+                      <input type="text" class="form-control input-lg input-block" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama tersangka, nama kasus atau nomor SPDP...">
                     </div>
 
         {{ Form::close() }}
@@ -31,7 +31,7 @@
     <table class="table table-hover table-bordered">
         <thead>
             <tr>
-                <th width="250px">Nama Kasus</th>
+                <th width="250px">Kasus</th>
                 <th>Tersangka</th>
                 <th>Jaksa</th>
                 <th width="75px" class="text-center" data-toggle="tooltip" data-placement="top" title="SPDP"><i class="fa fa-file-text-o"></i></th>
@@ -44,7 +44,10 @@
         </thead>
         @foreach($cases as $item)
         <tr>
-            <td style="background-color: #fffcef"><h5>{{ $item['name'] }}</h5></td>
+            <td style="background-color: #fffcef">
+                <h5>{{ $item['name'] }}</h5>
+                <small>SPDP: {{ $item['spdp_number'] }}</small>
+            </td>
             <td>{{ $item['suspect_name'] }}</td>
             <td>{{ $item['prosecutor_name'] }}</td>
             <td colspan="5" style="padding-top: 25px">

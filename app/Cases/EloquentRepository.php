@@ -47,7 +47,7 @@ class EloquentRepository implements RepositoryInterface {
         $query = $this->case->orderBy('updated_at', 'DESC');
 
         if($keyword)
-            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('suspect_name', 'LIKE', '%'.$keyword.'%');
+            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('suspect_name', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
 
         return $query->paginate();
     }
