@@ -14,6 +14,7 @@
   /*.dow {
 		border-top: 1px solid #ddd !important;
 	}*/
+  z-index: 1050 !important;
 }
 .datepicker-inline {
   width: 220px;
@@ -762,7 +763,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 1000;
+  z-index: 10000 !important;
   float: left;
   display: none;
   min-width: 160px;

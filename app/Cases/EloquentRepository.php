@@ -1,5 +1,6 @@
 <?php namespace App\Cases;
 
+use Carbon\Carbon;
 use Faker\Factory;
 
 class EloquentRepository implements RepositoryInterface {
@@ -52,17 +53,19 @@ class EloquentRepository implements RepositoryInterface {
         return $query->paginate();
     }
 
-    public function histories($id)
+    public function activities($case)
     {
-        $faker = Factory::create();
-        $histories = [
-            ['name' => 'SPDP diteriman', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
-            ['name' => 'P18', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
-            ['name' => 'P21', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
-            ['name' => 'Penuntutan', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Terlambat', 'label' => 'danger']],
-        ];
+        $activities = [];
+        foreach($case->checklist as $checklist)
+        {
+            $activities[] = [
+                'date'  => Carbon::createFromFormat('Y-m-d', $checklist->pivot->date)->format('j F Y'),
+                'name'  => $checklist['name'],
+                'note'  => $checklist->pivot->note
+            ];
+        }
 
-        return $histories;
+        return $activities;
     }
 
     public function dailyCaseStatistic($from, $to)

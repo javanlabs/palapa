@@ -14,7 +14,7 @@ interface RepositoryInterface {
 
     public function search($keyword, $type);
 
-    public function histories($id);
+    public function activities($case);
 
     public function dailyCaseStatistic($from, $to);
 

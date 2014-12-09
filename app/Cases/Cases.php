@@ -33,4 +33,8 @@ class Cases extends Model {
         return $this->belongsTo('App\Sop\Phase', 'phase_id');
     }
 
+    public function checklist()
+    {
+        return $this->belongsToMany('App\Sop\Checklist', 'cases_checklist', 'case_id', 'checklist_id')->withPivot('date', 'note')->orderBy('date', 'desc');
+    }
 }
