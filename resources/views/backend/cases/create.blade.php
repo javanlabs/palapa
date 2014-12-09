@@ -16,8 +16,8 @@
             <h4>SPDP</h4>
             {{ BootForm::text('Nomor SPDP', 'spdp_number') }}
             {{ BootForm::text('Tanggal', 'date')->addClass('datepicker')->data('provide', 'datepicker')->data('orientation', 'bottom auto') }}
-            {{ BootForm::textarea('Kasus', 'kasus') }}
-            {{ BootForm::textarea('Pasal yang disangkakan', 'pasal') }}
+            {{ BootForm::text('Kasus', 'kasus') }}
+            {{ BootForm::textarea('Pasal yang disangkakan', 'pasal')->rows(3) }}
             </fieldset>
 
             <fieldset>

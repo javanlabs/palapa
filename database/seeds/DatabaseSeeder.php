@@ -16,12 +16,75 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
+		 $this->call('RootSeeder');
+		 $this->call('StaffSeeder');
+		 $this->call('GroupSeeder');
+		 $this->call('RoleSeeder');
 		 $this->call('PangkatSeeder');
 		 $this->call('JabatanSeeder');
 		 $this->call('OfficerSeeder');
+		 $this->call('SopSeeder');
 
         Model::reguard();
 	}
+
+}
+
+class RootSeeder extends Seeder {
+
+    public function run()
+    {
+        $user = [
+            'name'  => 'Root',
+            'email'  => 'root@palapa.dev',
+            'password'  => Hash::make('root')
+        ];
+        DB::table('users')->truncate();
+        return DB::table('users')->insert($user);
+    }
+
+}
+
+class StaffSeeder extends Seeder {
+
+    public function run()
+    {
+        $user = [
+            'name'  => 'Staff',
+            'email'  => 'staff@palapa.dev',
+            'password'  => Hash::make('staff')
+        ];
+        return DB::table('users')->insert($user);
+    }
+
+}
+
+class GroupSeeder extends Seeder {
+
+    public function run()
+    {
+        $groups = [
+            ['name' => 'root', 'description' => 'Super user'],
+            ['name' => 'staff', 'description' => 'Staff Administrasi'],
+            ['name' => 'jaksa', 'description' => 'Jaksa'],
+        ];
+        DB::table('acl_groups')->truncate();
+        return DB::table('acl_groups')->insert($groups);
+    }
+
+}
+
+class RoleSeeder extends Seeder {
+
+    public function run()
+    {
+        $roles = [
+            ['user_id'  => 1, 'group_id'  => 1],
+            ['user_id'  => 2, 'group_id'  => 2],
+        ];
+        DB::table('acl_users_groups')->truncate();
+        return DB::table('acl_users_groups')->insert($roles);
+    }
 
 }
 
@@ -87,5 +150,51 @@ class OfficerSeeder extends Seeder {
         }
 
         return DB::table('officers')->insert($officers);
+    }
+}
+
+class SopSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('sop_phase')->truncate();
+        DB::table('sop_checklist')->truncate();
+
+        DB::table('sop_phase')->insert(
+            [
+                ['id' => 1, 'name' => 'SPDP', 'ordinal' => 1],
+                ['id' => 2, 'name' => 'Tahap 1', 'ordinal' => 2],
+                ['id' => 3, 'name' => 'Tahap 2', 'ordinal' => 3],
+                ['id' => 4, 'name' => 'Penuntutan', 'ordinal' => 4],
+                ['id' => 5, 'name' => 'Persidangan', 'ordinal' => 5],
+            ]
+        );
+
+        DB::table('sop_checklist')->insert(
+            [
+                ['phase_id' => 1, 'name' => 'Menggandakan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 1, 'name' => 'Labelisasi dan mencatat ke buku registrasi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 1, 'name' => 'Data entry ke DISKRIMTI', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 1, 'name' => 'P16 - Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
+
+                ['phase_id' => 2, 'name' => 'P18', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 2, 'name' => 'P19', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 2, 'name' => 'P21', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 2, 'name' => 'P21 A', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
+                ['phase_id' => 2, 'name' => 'Kasus ditolak', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
+
+                ['phase_id' => 3, 'name' => 'BA pendapat penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+
+                ['phase_id' => 4, 'name' => 'Pelimpahan perkara ke pengadilan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 4, 'name' => 'Pembacaan surat dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 4, 'name' => 'Pembacaan surat dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 4, 'name' => 'Tanggapan terhadap eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+
+                ['phase_id' => 5, 'name' => 'Banding', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 5, 'name' => 'Kasasi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 5, 'name' => 'Putusan Pengadilan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+            ]
+        );
+        return true;
     }
 }

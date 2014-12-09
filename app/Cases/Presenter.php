@@ -1,6 +1,13 @@
 <?php namespace App\Cases;
 
+use Carbon\Carbon;
+
 trait Presenter {
+
+    public function getPermalinkAttribute()
+    {
+        return route('backend.cases.show', [$this->id]);
+    }
 
     public function getNameAttribute()
     {
@@ -19,14 +26,13 @@ trait Presenter {
 
     public function getStatusSpdpAttribute()
     {
-        $faker = \Faker\Factory::create();
-        return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
+        return false;
     }
 
     public function getStatusTahap1Attribute()
     {
-        $faker = \Faker\Factory::create();
-        return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
+        //$faker = \Faker\Factory::create();
+        //return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
     }
 
     public function getStatusTahap2Attribute()
@@ -47,4 +53,13 @@ trait Presenter {
         return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
     }
 
+    public function getStatusNameAttribute()
+    {
+        return $this->phase->name;
+    }
+
+    public function getAgeAttribute()
+    {
+        return $this->date->diffInDays(Carbon::now());
+    }
 }

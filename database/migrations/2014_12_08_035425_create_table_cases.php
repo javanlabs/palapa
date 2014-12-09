@@ -18,7 +18,7 @@ class CreateTableCases extends Migration {
             $table->text('pasal');
             $table->text('kasus');
             $table->date('date');
-            $table->enum('phase', ['spdp', 'tahap-1', 'tahap-2', 'penuntutan', 'persidangan', 'selesai'])->default('spdp');
+            $table->unsignedInteger('phase_id')->default(1);
 
             $table->string('suspect_name');
             $table->string('suspect_pob');

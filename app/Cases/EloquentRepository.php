@@ -56,10 +56,10 @@ class EloquentRepository implements RepositoryInterface {
     {
         $faker = Factory::create();
         $histories = [
-            ['name' => 'Penyidik', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
-            ['name' => 'SPDP', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
-            ['name' => 'Penuntutan', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
-            ['name' => 'Eksekusi', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Terlambat', 'label' => 'danger']],
+            ['name' => 'SPDP diteriman', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
+            ['name' => 'P18', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
+            ['name' => 'P21', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Tepat Waktu', 'label' => 'success']],
+            ['name' => 'Penuntutan', 'date' => '1 Januari 2014', 'note' => $faker->sentence(), 'status' => ['name' => 'Terlambat', 'label' => 'danger']],
         ];
 
         return $histories;

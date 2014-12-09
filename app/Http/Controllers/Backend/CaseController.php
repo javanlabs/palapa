@@ -4,7 +4,9 @@ use App\Cases\Form;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Cases\RepositoryInterface;
 use App\Officer\RepositoryInterface as OfficerRepository;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 
 class CaseController extends BackendController {
@@ -63,26 +65,35 @@ class CaseController extends BackendController {
         return redirect()->route('frontend.search');
     }
 
-    public function edit($id)
+    public function show($id)
     {
-        $officer = $this->repo->find($id);
-        $pangkatLookup = $this->lookup->lists('pangkat');
-        $jabatanLookup = $this->lookup->lists('jabatan');
+        $case = $this->repo->find($id);
+        $sop = (new Collection(Config::get('sop')))->groupBy('phase');
+        $activities = $this->repo->histories($case->id);
 
-        return view('backend.officers.edit', compact('officer', 'pangkatLookup', 'jabatanLookup'));
+        return view('backend.cases.show', compact('case', 'sop', 'activities'));
     }
 
-    public function update(Form $form, $id)
-    {
-        $this->repo->update($id, $form->all());
-
-        return redirect()->route('backend.officers.index');
-    }
-
-    public function destroy($id)
-    {
-        $this->repo->delete($id);
-
-        return redirect()->route('backend.officers.index');
-    }
+    //public function edit($id)
+    //{
+    //    $officer = $this->repo->find($id);
+    //    $pangkatLookup = $this->lookup->lists('pangkat');
+    //    $jabatanLookup = $this->lookup->lists('jabatan');
+    //
+    //    return view('backend.officers.edit', compact('officer', 'pangkatLookup', 'jabatanLookup'));
+    //}
+    //
+    //public function update(Form $form, $id)
+    //{
+    //    $this->repo->update($id, $form->all());
+    //
+    //    return redirect()->route('backend.officers.index');
+    //}
+    //
+    //public function destroy($id)
+    //{
+    //    $this->repo->delete($id);
+    //
+    //    return redirect()->route('backend.officers.index');
+    //}
 }
