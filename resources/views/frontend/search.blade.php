@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container-fluid text-center" style="margin-bottom: 20px">
-        <h1 style="font-weight: 300">Pencarian Cepat</h1>
+        <h1 style="font-weight: 300">Cari Kasus</h1>
 
         {{ Form::open(['route' => 'frontend.search', 'method' => 'get', 'role' => 'form']) }}
                     <div class="form-group">
@@ -18,7 +18,7 @@
                           {{--<li><a href="#">Intel</a></li>--}}
                         {{--</ul>--}}
                       {{--</div>--}}
-                      <input type="text" class="form-control input-lg input-block" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama tersangka, nama kasus atau nomor SPDP...">
+                      <input type="text" class="form-control input-lg input-block" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
                     </div>
 
         {{ Form::close() }}
