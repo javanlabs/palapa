@@ -10,9 +10,8 @@ class HomeController extends Controller {
 	public function getSearch(Request $request, CasesRepository $repository)
 	{
         $cases = $repository->search($request->get('q'), $request->get('type'));
-        $histories = $repository->histories(1);
 
-		return view('frontend.search', compact('cases', 'histories'))->with('page', 'search');
+		return view('frontend.search', compact('cases'))->with('page', 'search');
 	}
 
 	public function getOrganization()

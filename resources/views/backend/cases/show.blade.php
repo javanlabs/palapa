@@ -1,72 +1,82 @@
 @extends('layouts.single')
 
 @section('content')
-<div style="padding: 40px 20px">
+<div style="padding: 40px">
 
-    <div class="col-md-7">
-        <div class="alert alert-success">
-        <dl class="dl-horizontal case-info">
-            <dt>Kasus :</dt>
-            <dd><p class="lead">{{ $case['name'] }}</p></dd>
-            <dt>Tersangka :</dt>
-            <dd>{{ $case['suspect_name'] }}</dd>
-            <dt>Jaksa :</dt>
-            <dd>{{ $case['prosecutor_name'] }}</dd>
-            <dt>Usia Kasus :</dt>
-            <dd>{{ $case['age'] }} hari</dd>
-            <dt>Status :</dt>
-            <dd><span class="label label-primary">{{ $case['status_name'] }}</span></dd>
-        </dl>
+    <div class="row">
+        <div class="col-md-8">
+            <h3><i class="fa fa-check-square-o"></i> SOP Checklist</h3>
         </div>
+        <div class="col-md-4 text-right">
+            <button class="btn btn-default" onclick="javascript:window.close();"><i class="fa fa-times"></i> Tutup Halaman Ini</button>
+        </div>
+    </div>
+        <hr/>
+
+    <div class="row">
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            @foreach($phases as $phase)
+            <div class="panel-heading">{{ $phase['name'] }}</div>
+            <ul class="list-group">
+                @foreach($phase['checklist'] as $item)
+
+                    @if(in_array($item['id'], $checklistIds))
+                        <li class="list-group-item">
+                            <div class="checkbox">
+                                <i class="fa fa-check"></i>
+                                {{ $item['name'] }}
+                            </div>
+                        </li>
+                    @else
+                        <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.activity', [$case['id'], $item['id']]) }}">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
+                                    {{ $item['name'] }}
+                                </label>
+                            </div>
+                        </li>
+                    @endif
+
+                @endforeach
+            </ul>
+            @endforeach
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="well">
+            <dl class="dl-horizontal case-info">
+                <dt>Kasus :</dt>
+                <dd><p class="lead">{{ $case['name'] }}</p></dd>
+                <dt>Tersangka :</dt>
+                <dd>{{ $case['suspect_name'] }}</dd>
+                <dt>Jaksa :</dt>
+                <dd>{{ $case['prosecutor_name'] }}</dd>
+                <dt>Usia Kasus :</dt>
+                <dd>{{ $case['age'] }} hari</dd>
+                <dt>Status :</dt>
+                <dd><span class="label label-primary">{{ $case['status_name'] }}</span></dd>
+            </dl>
+        </div>
+
         <hr/>
 
         <table class="table table-striped">
-        <caption>Riwayat Aktivitas</caption>
-        @foreach($activities as $item)
-        <tr>
-            <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
-            <td>
-                <strong>{{ $item['name'] }}</strong>
-                <p>{{ $item['note'] }}</p>
-            </td>
-        </tr>
-        @endforeach
+            <caption>Riwayat Aktivitas</caption>
+            @foreach($activities as $item)
+            <tr>
+                <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
+                <td>
+                    <strong>{{ $item['name'] }}</strong>
+                    <p>{{ $item['note'] }}</p>
+                </td>
+            </tr>
+            @endforeach
         </table>
-
+    </div>
     </div>
 
-<div class="col-md-5">
-
-<h3><i class="fa fa-check-square-o"></i> SOP Checklist</h3>
-<hr/>
-<div class="panel panel-default">
-    @foreach($phases as $phase)
-    <div class="panel-heading">{{ $phase['name'] }}</div>
-    <ul class="list-group">
-        @foreach($phase['checklist'] as $item)
-
-            @if(in_array($item['id'], $checklistIds))
-                <li class="list-group-item">
-                    <div class="checkbox">
-                        <i class="fa fa-check"></i>
-                        {{ $item['name'] }}
-                    </div>
-                </li>
-            @else
-                <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.activity', [$case['id'], $item['id']]) }}">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
-                            {{ $item['name'] }}
-                        </label>
-                    </div>
-                </li>
-            @endif
-
-        @endforeach
-    </ul>
-    @endforeach
-    </div>
 </div>
 
 <div id="ajax-modal" class="modal fade" tabindex="-1" style="display: none;"></div>
