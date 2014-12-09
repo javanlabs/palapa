@@ -15,7 +15,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function all()
     {
-        return $this->officer->all();
+        return $this->officer->orderBy('name', 'asc')->get();
     }
 
     public function create($input)
