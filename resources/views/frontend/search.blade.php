@@ -36,9 +36,8 @@
                 <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="SPDP"><i class="fa fa-file-text-o"></i></th>
                 <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Tahap 1"><strong>1</strong></th>
                 <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Tahap 2"><strong>2</strong></th>
-                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Penuntutan"><i class="fa fa-random"></i></th>
-                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Persidangan"><i class="fa fa-gavel"></i></th>
-                <th width="150px">Terakhir Update</th>
+                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Penuntutan"><i class="fa fa-legal"></i></th>
+                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Persidangan"><i class="fa fa-institution"></i></th>
                 <th width="100px">Aksi</th>
             </tr>
         </thead>
@@ -52,17 +51,17 @@
                 <div>{{ $item['prosecutor_name'] }}</div>
                 <small class="text-muted">No SPDP {{ $item['spdp_number'] }}</small>
             </td>
-            <td colspan="5" style="padding-top: 25px">
-                <div class="progress">
+            <td colspan="5" style="padding: 20px 10px">
+                <div class="progress" style="margin-bottom: 0">
                     <div class="progress-bar progress-bar-{{ $item['status_spdp'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="SPDP"></div>
                     <div class="progress-bar progress-bar-{{ $item['status_tahap1'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Tahap 1"></div>
                     <div class="progress-bar progress-bar-{{ $item['status_tahap2'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Tahap 2"></div>
                     <div class="progress-bar progress-bar-{{ $item['status_penuntutan'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Penuntutan"></div>
                     <div class="progress-bar progress-bar-{{ $item['status_persidangan'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Persidangan"></div>
                 </div>
+                <small class="text-muted">Update terakhir: {{ $item['last_update'] }}</small>
             </td>
-            <td><small class="text-muted">{{ $item['last_update'] }}</small></td>
-            <td>
+            <td class="text-center">
                 <a class="btn btn-default btn-sm" href="{{ $item['permalink'] }}" target="_blank">Edit <i class="fa fa-chevron-right"></i></a>
             </td>
 
