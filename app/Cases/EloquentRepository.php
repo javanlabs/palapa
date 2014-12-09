@@ -1,5 +1,6 @@
 <?php namespace App\Cases;
 
+use App\Sop\Phase;
 use Carbon\Carbon;
 use Faker\Factory;
 
@@ -9,11 +10,16 @@ class EloquentRepository implements RepositoryInterface {
      * @type case
      */
     private $case;
+    /**
+     * @type Phase
+     */
+    private $phase;
 
-    function __construct(Cases $case)
+    function __construct(Cases $case, Phase $phase)
     {
 
         $this->case = $case;
+        $this->phase = $phase;
     }
 
     public function all()
@@ -25,6 +31,11 @@ class EloquentRepository implements RepositoryInterface {
     {
         $case = $this->case->create($input);
         $case->author()->associate($user)->save();
+
+        $firstPhase = $this->phase->orderBy('ordinal')->first();
+        $attributes = ['start_date' => $input['start_date']];
+        $case->phaseHistory()->attach($firstPhase->id, $attributes);
+
         return $case;
     }
 

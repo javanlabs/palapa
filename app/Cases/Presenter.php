@@ -26,31 +26,27 @@ trait Presenter {
 
     public function getStatusSpdpAttribute()
     {
-        return false;
+        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 1)->first());
     }
 
     public function getStatusTahap1Attribute()
     {
-        //$faker = \Faker\Factory::create();
-        //return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
+        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 2)->first());
     }
 
     public function getStatusTahap2Attribute()
     {
-        $faker = \Faker\Factory::create();
-        return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
+        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 3)->first());
     }
 
     public function getStatusPenuntutanAttribute()
     {
-        $faker = \Faker\Factory::create();
-        return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
+        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 4)->first());
     }
 
     public function getStatusPersidanganAttribute()
     {
-        $faker = \Faker\Factory::create();
-        return $faker->randomElement(['success', 'success', 'success', 'warning', 'danger']);
+        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 5)->first());
     }
 
     public function getStatusNameAttribute()
@@ -60,6 +56,44 @@ trait Presenter {
 
     public function getAgeAttribute()
     {
-        return $this->date->diffInDays(Carbon::now());
+        return $this->start_date->diffInDays(Carbon::now());
+    }
+
+    protected function getPhaseStatus($phase)
+    {
+        if(!$phase)
+        {
+            return false;
+        }
+
+        $startDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->start_date);
+
+        if($phase->pivot->finish_date == null)
+        {
+            $duration = Carbon::now()->diffInDays($startDate);
+        }
+        else
+        {
+            $finishDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->finish_date);
+            $duration = $startDate->diffInDays($finishDate);
+        }
+
+        $baseDuration = $phase->duration;
+
+        $delta = $baseDuration - $duration;
+        if($delta > 2)
+        {
+            $status = 'success';
+        }
+        elseif($delta >= 0)
+        {
+            $status = 'warning';
+        }
+        else
+        {
+            $status = 'danger';
+        }
+
+        return $status;
     }
 }

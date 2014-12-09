@@ -17,7 +17,8 @@ class CreateTableCases extends Migration {
             $table->string('spdp_number');
             $table->text('pasal');
             $table->text('kasus');
-            $table->date('date');
+            $table->date('start_date');
+            $table->date('finish_date')->nullable();;
             $table->unsignedInteger('phase_id')->default(1);
 
             $table->string('suspect_name');
