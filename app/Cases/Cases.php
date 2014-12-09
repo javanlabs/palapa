@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cases extends Model {
 
-    use SoftDeletes;
+    use SoftDeletes, Presenter;
 
     protected $table = 'cases';
 
@@ -18,11 +18,12 @@ class Cases extends Model {
 
     public function jaksa()
     {
-        return $this->belongsTo('App\Officer', 'jaksa_id');
+        return $this->belongsTo('App\Officer\Officer', 'jaksa_id');
     }
 
     public function staff()
     {
         return $this->belongsTo('Eendonesia\Moderator\Models\User', 'staff_id');
     }
+
 }

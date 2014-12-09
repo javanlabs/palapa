@@ -1,18 +1,17 @@
 <?php namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Cases\RepositoryInterface;
 
 class HomeController extends Controller {
 
-	public function getIndex()
+	public function getSearch(Request $request, RepositoryInterface $repository)
 	{
-		return redirect()->route('frontend.search');
-	}
+        $cases = $repository->search($request->get('q'), $request->get('type'));
+        $histories = $repository->histories(1);
 
-	public function getSearch()
-	{
-		return view('frontend.search')->with('page', 'case');
+		return view('frontend.search', compact('cases', 'histories'))->with('page', 'search');
 	}
 
 	public function getOrganization()

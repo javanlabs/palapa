@@ -11,4 +11,11 @@ interface RepositoryInterface {
     public function find($id);
 
     public function delete($id);
+
+    public function search($keyword, $type);
+
+    public function histories($id);
+
+    public function dailyCaseStatistic($from, $to);
+
 }

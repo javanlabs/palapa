@@ -60,7 +60,7 @@ class CaseController extends BackendController {
     {
         $this->repo->create($form->all(), Auth::user());
 
-        return redirect()->route('backend.cases.index');
+        return redirect()->route('frontend.search');
     }
 
     public function edit($id)
