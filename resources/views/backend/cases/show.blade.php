@@ -14,36 +14,6 @@
         <hr/>
 
     <div class="row">
-    <div class="col-md-5">
-        <div class="panel panel-default">
-            @foreach($phases as $phase)
-            <div class="panel-heading">{{ $phase['name'] }}</div>
-            <ul class="list-group">
-                @foreach($phase['checklist'] as $item)
-
-                    @if(in_array($item['id'], $checklistIds))
-                        <li class="list-group-item">
-                            <div class="checkbox">
-                                <i class="fa fa-check"></i>
-                                {{ $item['name'] }}
-                            </div>
-                        </li>
-                    @else
-                        <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.activity', [$case['id'], $item['id']]) }}">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
-                                    {{ $item['name'] }}
-                                </label>
-                            </div>
-                        </li>
-                    @endif
-
-                @endforeach
-            </ul>
-            @endforeach
-        </div>
-    </div>
     <div class="col-md-7">
         <div class="well">
             <dl class="dl-horizontal case-info">
@@ -75,6 +45,37 @@
             @endforeach
         </table>
     </div>
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            @foreach($phases as $phase)
+            <div class="panel-heading">{{ $phase['name'] }}</div>
+            <ul class="list-group">
+                @foreach($phase['checklist'] as $item)
+
+                    @if(in_array($item['id'], $checklistIds))
+                        <li class="list-group-item">
+                            <div class="checkbox">
+                                <i class="fa fa-check"></i>
+                                {{ $item['name'] }}
+                            </div>
+                        </li>
+                    @else
+                        <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.activity', [$case['id'], $item['id']]) }}">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
+                                    {{ $item['name'] }}
+                                </label>
+                            </div>
+                        </li>
+                    @endif
+
+                @endforeach
+            </ul>
+            @endforeach
+        </div>
+    </div>
+
     </div>
 
 </div>
