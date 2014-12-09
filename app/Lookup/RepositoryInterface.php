@@ -4,4 +4,7 @@ interface RepositoryInterface {
 
     public function lists($type);
 
+    public function religions();
+
+    public function cities();
 }

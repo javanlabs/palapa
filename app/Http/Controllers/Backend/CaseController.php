@@ -50,8 +50,10 @@ class CaseController extends BackendController {
     {
         $jaksaLookup = $this->officer->jaksa();
         $staffLookup = $this->moderator->usersByGroups('staff')->lists('name', 'id');
+        $cities = $this->lookup->cities();
+        $religions = $this->lookup->religions();
 
-        return view('backend.cases.create', compact('jaksaLookup', 'staffLookup'));
+        return view('backend.cases.create', compact('jaksaLookup', 'staffLookup', 'cities', 'religions'));
     }
 
     public function store(Form $form)

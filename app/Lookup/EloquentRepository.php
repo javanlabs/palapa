@@ -18,4 +18,14 @@ class EloquentRepository implements RepositoryInterface {
         return $this->lookup->whereType($type)->lists('name', 'id');
     }
 
+    public function religions()
+    {
+        $religions = ['Islam', 'Kristen Protestan', 'Katolik', 'Hindu', 'Buddha', 'Kong Hu Cu'];
+        return array_combine($religions, $religions);
+    }
+
+    public function cities()
+    {
+        return \DB::table('wilayah_kabupaten')->orderBy('nama')->lists('nama', 'id');
+    }
 }
