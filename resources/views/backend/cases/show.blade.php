@@ -18,7 +18,7 @@
         <div class="well">
             <dl class="dl-horizontal case-info">
                 <dt>No SPDP :</dt>
-                <dd>{{ $case['spdp_number'] }}</dd>                
+                <dd>{{ $case['spdp_number'] }}</dd>
                 <dt>Kasus :</dt>
                 <dd>{{ $case['name'] }}</dd>
                 <dt>Pasal yang Disangkakan :</dt>
@@ -28,7 +28,7 @@
                 <dt>Jaksa :</dt>
                 <dd>{{ $case['prosecutor_name'] }}</dd>
                 <dt>Staff Administrasi :</dt>
-                <dd>{{ $case['prosecutor_name'] }}</dd>                
+                <dd>{{ $case['staff_name'] }}</dd>
                 <dt>Usia Kasus :</dt>
                 <dd>{{ $case['age'] }} hari</dd>
                 <dt>Status :</dt>
@@ -50,27 +50,48 @@
             </tr>
             @endforeach
         </table>
+
+            {{ Form::open(['route' => ['backend.cases.activity', $case['id']], 'method' => 'post', 'role'=>'form']) }}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            <div class="form-group">
+                {{ Form::textarea('content', '', ['class' => 'form-control', 'rows' => 3]) }}
+            </div>
+            <div class="text-right">
+                {{ Form::submit('Tambah Catatan', ['class' => 'btn btn-primary']) }}
+            </div>
+            {{ Form::close() }}
+
+
     </div>
     <div class="col-md-5">
         <div class="panel panel-default">
             @foreach($phases as $phase)
             <div class="panel-heading">{{ $phase['name'] }}</div>
-            <ul class="list-group {{ ($phase->id != $case['phase_id'])?'disabled':'' }}">
+            <ul class="list-group {{ (($phase->id > $case['phase']['id']) && $phase->id != $case['phase_id'])?'disabled':'' }}">
                 @foreach($phase['checklist'] as $item)
 
                     @if(in_array($item['id'], $checklistIds))
-                        <li class="list-group-item">
+                        <li class="list-group-item list-group-item-success">
                             <div class="checkbox">
                                 <i class="fa fa-check"></i>
                                 {{ $item['name'] }}
                             </div>
                         </li>
                     @else
-                        <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.activity', [$case['id'], $item['id']]) }}">
+                        <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.checklist', [$case['id'], $item['id']]) }}">
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
                                     {{ $item['name'] }}
+                                    @if($phase->id == $case['phase_id'])
+                                        <?php $remaining = $case->checklistRemaining($item) ?>
+                                        &nbsp;&nbsp;
+                                        @if($remaining > 0)
+                                        <small class="label label-success">{{ $remaining }} hari lagi</small>
+                                        @else
+                                        <small class="label label-danger">lewat {{ abs($remaining) }} hari</small>
+                                        @endif
+                                    @endif
                                 </label>
                             </div>
                         </li>

@@ -92,7 +92,7 @@ class CaseController extends BackendController {
         return redirect()->route('frontend.search');
     }
 
-    public function getActivity($caseId, $checklistId)
+    public function getChecklist($caseId, $checklistId)
     {
         $case = $this->repo->find($caseId);
         $checklist = Checklist::findOrFail($checklistId);
@@ -100,24 +100,23 @@ class CaseController extends BackendController {
         return view('backend.cases.activity', compact('case', 'checklist'));
     }
 
-    public function postActivity(Request $request, $caseId, $checklistId)
+    public function postChecklist(Request $request, $caseId, $checklistId)
     {
         $case = $this->repo->find($caseId);
         $checklist = Checklist::findOrFail($checklistId);
 
-        $attributes = [
-            'date'  => $request->get('date'),
-            'note'  => $request->get('note')
-        ];
-        $case->checklist()->attach($checklistId, $attributes);
-
-        if($checklist->is_next)
-        {
-            $this->sopRepo->incrementPhase($case, $checklist);
-        }
+        $this->sopRepo->addChecklist($case, $checklist, $request->only('date', 'note'));
 
         $data['status'] = 1;
 
         return response()->json($data);
+    }
+
+    public function postActivity(Request $request, $caseId)
+    {
+        $case = $this->repo->find($caseId);
+        $this->repo->addActivity($case, $request->only('content'));
+
+        return redirect()->back();
     }
 }

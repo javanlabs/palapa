@@ -1,6 +1,8 @@
 <?php namespace App\Sop;
 
 
+use Carbon\Carbon;
+
 class EloquentRepository implements RepositoryInterface {
 
     /**
@@ -24,6 +26,21 @@ class EloquentRepository implements RepositoryInterface {
         return $this->phase->orderBy('ordinal')->get();
     }
 
+    public function addChecklist($case, $checklist, $attributes)
+    {
+        $checklistAttributes = ['date' => array_get($attributes, 'date'), 'note' => array_get($attributes, 'note')];
+        $case->checklist()->attach($checklist, $checklistAttributes);
+
+        $case->addActivity($checklist->name, $checklistAttributes['note'], $checklist);
+
+        if($checklist->is_next)
+        {
+            $this->incrementPhase($case, $checklist);
+        }
+
+        return true;
+    }
+
     public function incrementPhase($case, $checklist)
     {
         $currentPhase = $checklist->phase;
@@ -31,8 +48,14 @@ class EloquentRepository implements RepositoryInterface {
 
         if($nextPhase)
         {
+            // close current phase
+            $case->closeCurrentPhase();
+
+            // update current phase
             $case->phase()->associate($nextPhase)->save();
-            $case->phaseHistory()->save($nextPhase);
+
+            // add new phase to history
+            $case->phaseHistory()->attach($nextPhase, ['start_date' => new Carbon()]);
         }
         else
         {
