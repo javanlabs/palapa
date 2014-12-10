@@ -23,7 +23,7 @@
             <h4>Data Diri Tersangka</h4>
             {{ BootForm::text('Name', 'suspect_name') }}
             {{ BootForm::select('Tempat Lahir', 'suspect_pob')->options($cities) }}
-            {{ BootForm::text('Tanggal Lahir', 'suspect_dob')->addClass('datepicker')->data('provide', 'datepicker') }}
+            {{ BootForm::text('Tanggal Lahir', 'suspect_dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2) }}
             {{ BootForm::select('Agama', 'suspect_religion')->options($religions) }}
             {{ BootForm::textarea('Alamat', 'suspect_address') }}
             {{ BootForm::select('Kota', 'suspect_city_id')->options($cities) }}
