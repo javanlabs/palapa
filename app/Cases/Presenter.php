@@ -19,6 +19,11 @@ trait Presenter {
         return $this->jaksa->name;
     }
 
+    public function getStaffNameAttribute()
+    {
+        return $this->staff->name;
+    }
+
     public function getLastUpdateAttribute()
     {
         return $this->updated_at->format('j F Y');

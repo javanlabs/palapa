@@ -18,7 +18,7 @@
         <div class="well">
             <dl class="dl-horizontal case-info">
                 <dt>No SPDP :</dt>
-                <dd>{{ $case['spdp_number'] }}</dd>                
+                <dd>{{ $case['spdp_number'] }}</dd>
                 <dt>Kasus :</dt>
                 <dd>{{ $case['name'] }}</dd>
                 <dt>Pasal yang Disangkakan :</dt>
@@ -28,7 +28,7 @@
                 <dt>Jaksa :</dt>
                 <dd>{{ $case['prosecutor_name'] }}</dd>
                 <dt>Staff Administrasi :</dt>
-                <dd>{{ $case['prosecutor_name'] }}</dd>                
+                <dd>{{ $case['staff_name'] }}</dd>
                 <dt>Usia Kasus :</dt>
                 <dd>{{ $case['age'] }} hari</dd>
                 <dt>Status :</dt>
