@@ -44,6 +44,11 @@ class Cases extends Model {
         return $this->belongsToMany('App\Sop\Phase', 'cases_phases_history', 'case_id', 'phase_id')->withPivot('start_date', 'finish_date')->orderBy('start_date');
     }
 
+    public function activePhase()
+    {
+        return $this->belongsToMany('App\Sop\Phase', 'cases_phases_history', 'case_id', 'phase_id')->withPivot('start_date', 'finish_date')->orderBy('start_date')->whereNull('finish_date');
+    }
+
     public function close()
     {
         $this->finish_date = Carbon::now()->toDateString();
@@ -64,8 +69,7 @@ class Cases extends Model {
 
     public function checklistRemaining($checklist)
     {
-        $phaseAge = Carbon::createFromFormat('Y-m-d', $this->phaseHistory->first()->pivot->start_date)->diffInDays(new Carbon());
-
+        $phaseAge = Carbon::createFromFormat('Y-m-d', $this->activePhase()->first()->pivot->start_date)->diffInDays(new Carbon());
         return $checklist['duration'] - $phaseAge;
     }
 
