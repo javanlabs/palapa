@@ -73,6 +73,7 @@
                                     {{ $item['name'] }}
                                     @if($phase->id == $case['phase_id'])
                                         <?php $remaining = $case->checklistRemaining($item) ?>
+                                        &nbsp;&nbsp;
                                         @if($remaining > 0)
                                         <small class="label label-success">{{ $remaining }} hari lagi</small>
                                         @else
