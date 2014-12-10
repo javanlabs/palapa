@@ -49,7 +49,7 @@
         <div class="panel panel-default">
             @foreach($phases as $phase)
             <div class="panel-heading">{{ $phase['name'] }}</div>
-            <ul class="list-group">
+            <ul class="list-group {{ ($phase->id != $case['phase_id'])?'disabled':'' }}">
                 @foreach($phase['checklist'] as $item)
 
                     @if(in_array($item['id'], $checklistIds))
@@ -97,6 +97,10 @@
             padding: 1px 10px;
         }
         .fa-check {color: #090}
+        .list-group.disabled *{
+            opacity: .5;
+            cursor: not-allowed;
+        }
     </style>
 @stop
 
@@ -111,7 +115,7 @@
     $(function(){
         var $modal = $('#ajax-modal');
         $('.item-checklist').on('click', function(e){
-
+            e.preventDefault();
             // create the backdrop and wait for next modal to be triggered
             $('body').modalmanager('loading');
 

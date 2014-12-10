@@ -24,4 +24,8 @@ class EloquentRepository implements RepositoryInterface {
         return $this->phase->orderBy('ordinal')->get();
     }
 
+    public function incrementPhase($case, $phase)
+    {
+
+    }
 }

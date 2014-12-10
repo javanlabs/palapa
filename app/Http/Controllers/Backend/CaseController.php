@@ -110,6 +110,12 @@ class CaseController extends BackendController {
             'note'  => $request->get('note')
         ];
         $case->checklist()->attach($checklistId, $attributes);
+
+        if($checklist->is_next)
+        {
+            $this->sopRepo->incrementPhase($case, $checklist);
+        }
+
         $data['status'] = 1;
 
         return response()->json($data);

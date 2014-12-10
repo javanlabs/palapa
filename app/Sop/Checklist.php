@@ -11,4 +11,8 @@ class Checklist extends Model {
         return $this->belongsTo('App\Sop\Phase', 'phase_id');
     }
 
+    public function getIsNextAttribute()
+    {
+        return $this->direction == 'next';
+    }
 }
