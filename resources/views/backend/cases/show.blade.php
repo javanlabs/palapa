@@ -55,7 +55,7 @@
         <div class="panel panel-default">
             @foreach($phases as $phase)
             <div class="panel-heading">{{ $phase['name'] }}</div>
-            <ul class="list-group {{ ($phase->id != $case['phase_id'])?'disabled':'' }}">
+            <ul class="list-group {{ (($phase->id > $case['phase']['id']) && $phase->id != $case['phase_id'])?'disabled':'' }}">
                 @foreach($phase['checklist'] as $item)
 
                     @if(in_array($item['id'], $checklistIds))
