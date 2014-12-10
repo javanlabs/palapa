@@ -10,7 +10,8 @@
     "require": {
         "php": ">=5.4.0",
         "illuminate/support": "5.0.*",
-        "adamwathan/bootforms": "v0.2"},
+        "adamwathan/bootforms": "v0.2"
+    },
     "autoload": {
         "classmap": [
             "src/migrations",
