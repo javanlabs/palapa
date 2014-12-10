@@ -149,6 +149,11 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		/*
+		 * 3rd Party Service Providers...
+		 */
+        'AdamWathan\BootForms\BootFormsServiceProvider',
+
 	],
 
 	/*
@@ -207,6 +212,7 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
+        'BootForm' => 'AdamWathan\BootForms\Facades\BootForm',
 	],
 
 ];
