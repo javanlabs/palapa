@@ -49,4 +49,16 @@ class Cases extends Model {
         $this->finish_date = Carbon::now()->toDateString();
         return $this->save();
     }
+
+    public function closeCurrentPhase()
+    {
+        foreach($this->phaseHistory as $phase)
+        {
+            if($phase->pivot->finish_date === null)
+            {
+                $phase->pivot->finish_date = Carbon::now()->toDateString();
+                $phase->pivot->save();
+            }
+        }
+    }
 }

@@ -1,5 +1,6 @@
 <?php namespace App\Sop;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Phase extends Model {
@@ -14,5 +15,11 @@ class Phase extends Model {
     public function nextPhase()
     {
         return $this->where('ordinal', '>', $this->ordinal)->orderBy('ordinal', 'asc')->first();
+    }
+
+    public function close()
+    {
+        $this->finish_date = Carbon::now()->toDateString();
+        return $this->save();
     }
 }

@@ -1,6 +1,8 @@
 <?php namespace App\Sop;
 
 
+use Carbon\Carbon;
+
 class EloquentRepository implements RepositoryInterface {
 
     /**
@@ -31,8 +33,14 @@ class EloquentRepository implements RepositoryInterface {
 
         if($nextPhase)
         {
+            // close current phase
+            $case->closeCurrentPhase();
+
+            // update current phase
             $case->phase()->associate($nextPhase)->save();
-            $case->phaseHistory()->save($nextPhase);
+
+            // add new phase to history
+            $case->phaseHistory()->attach($nextPhase, ['start_date' => new Carbon()]);
         }
         else
         {
