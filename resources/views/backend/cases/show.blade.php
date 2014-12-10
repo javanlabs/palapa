@@ -53,7 +53,7 @@
                 @foreach($phase['checklist'] as $item)
 
                     @if(in_array($item['id'], $checklistIds))
-                        <li class="list-group-item">
+                        <li class="list-group-item list-group-item-success">
                             <div class="checkbox">
                                 <i class="fa fa-check"></i>
                                 {{ $item['name'] }}
