@@ -21,11 +21,13 @@
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>
     <script>
+
         $(function()
-        {
+        {        
             $('#content').redactor({
                 minHeight: 400,
-                plugins: ['table', 'fullscreen']
+                plugins: ['table', 'fullscreen'],
+                imageUpload: '/skrip/uploadImage?_token={{ csrf_token() }}',                
             });
         });
     </script>
