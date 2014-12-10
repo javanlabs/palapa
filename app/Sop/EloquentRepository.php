@@ -26,6 +26,21 @@ class EloquentRepository implements RepositoryInterface {
         return $this->phase->orderBy('ordinal')->get();
     }
 
+    public function addChecklist($case, $checklist, $attributes)
+    {
+        $checklistAttributes = ['date' => array_get($attributes, 'date'), 'note' => array_get($attributes, 'note')];
+        $case->checklist()->attach($checklist, $checklistAttributes);
+
+        $case->addActivity($checklist->name, $checklistAttributes['note'], $checklist);
+
+        if($checklist->is_next)
+        {
+            $this->incrementPhase($case, $checklist);
+        }
+
+        return true;
+    }
+
     public function incrementPhase($case, $checklist)
     {
         $currentPhase = $checklist->phase;

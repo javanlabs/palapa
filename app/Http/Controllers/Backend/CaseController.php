@@ -105,16 +105,7 @@ class CaseController extends BackendController {
         $case = $this->repo->find($caseId);
         $checklist = Checklist::findOrFail($checklistId);
 
-        $attributes = [
-            'date'  => $request->get('date'),
-            'note'  => $request->get('note')
-        ];
-        $case->checklist()->attach($checklistId, $attributes);
-
-        if($checklist->is_next)
-        {
-            $this->sopRepo->incrementPhase($case, $checklist);
-        }
+        $this->sopRepo->addChecklist($case, $checklist, $request->only('date', 'note'));
 
         $data['status'] = 1;
 

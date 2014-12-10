@@ -39,6 +39,11 @@ class Cases extends Model {
         return $this->belongsToMany('App\Sop\Checklist', 'cases_checklist', 'case_id', 'checklist_id')->withPivot('date', 'note')->orderBy('date', 'desc');
     }
 
+    public function activities()
+    {
+        return $this->hasMany('App\Cases\Activity', 'case_id');
+    }
+
     public function phaseHistory()
     {
         return $this->belongsToMany('App\Sop\Phase', 'cases_phases_history', 'case_id', 'phase_id')->withPivot('start_date', 'finish_date')->orderBy('start_date');
@@ -73,4 +78,20 @@ class Cases extends Model {
         return $checklist['duration'] - $phaseAge;
     }
 
+    public function addActivity($title, $content, $checklist = null)
+    {
+        $attributes = [
+            'title' => $title,
+            'content'   => $content
+        ];
+
+        $activity = $this->activities()->create($attributes);
+
+        if($checklist)
+        {
+            $activity->checklist()->associate($checklist)->save();
+        }
+
+        return true;
+    }
 }

@@ -70,7 +70,7 @@ class EloquentRepository implements RepositoryInterface {
         foreach($case->checklist as $checklist)
         {
             $activities[] = [
-                'date'  => Carbon::createFromFormat('Y-m-d', $checklist->pivot->date)->format('j F Y'),
+                'date'  => Carbon::createFromFormat('Y-m-d', $checklist->pivot->date)->formatLocalized('%d %B %Y'),
                 'name'  => $checklist['name'],
                 'note'  => $checklist->pivot->note
             ];
