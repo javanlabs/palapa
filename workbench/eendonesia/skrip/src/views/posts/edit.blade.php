@@ -25,7 +25,8 @@
         {
             $('#content').redactor({
                 minHeight: 400,
-                plugins: ['table', 'fullscreen']
+                plugins: ['table', 'fullscreen'],
+                imageUpload: '/skrip/uploadImage?_token={{ csrf_token() }}',                
             });
         });
     </script>
