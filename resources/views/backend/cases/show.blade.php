@@ -17,12 +17,18 @@
     <div class="col-md-7">
         <div class="well">
             <dl class="dl-horizontal case-info">
+                <dt>No SPDP :</dt>
+                <dd>{{ $case['spdp_number'] }}</dd>                
                 <dt>Kasus :</dt>
-                <dd><p class="lead">{{ $case['name'] }}</p></dd>
+                <dd>{{ $case['name'] }}</dd>
+                <dt>Pasal yang Disangkakan :</dt>
+                <dd>{{ $case['pasal'] }}</dd>
                 <dt>Tersangka :</dt>
                 <dd>{{ $case['suspect_name'] }}</dd>
                 <dt>Jaksa :</dt>
                 <dd>{{ $case['prosecutor_name'] }}</dd>
+                <dt>Staff Administrasi :</dt>
+                <dd>{{ $case['prosecutor_name'] }}</dd>                
                 <dt>Usia Kasus :</dt>
                 <dd>{{ $case['age'] }} hari</dd>
                 <dt>Status :</dt>
