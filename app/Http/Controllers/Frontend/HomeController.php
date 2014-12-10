@@ -7,6 +7,11 @@ use App\Officer\RepositoryInterface as OfficerRepository;
 
 class HomeController extends Controller {
 
+    public function getIndex()
+    {
+        return redirect()->route('frontend.search');
+    }
+
 	public function getSearch(Request $request, CasesRepository $repository)
 	{
         $cases = $repository->search($request->get('q'), $request->get('type'));
