@@ -8,12 +8,11 @@
 
 @section('content')
     <div class="container-fluid">
-        <h2>Input Kasus</h2>
         {{ BootForm::open()->action(route('backend.cases.store')) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
             <fieldset>
-            <h4>SPDP</h4>
+            <h4>Penerimaan SPDP</h4>
             {{ BootForm::text('Nomor SPDP', 'spdp_number') }}
             {{ BootForm::text('Tanggal', 'start_date')->addClass('datepicker')->data('provide', 'datepicker')->data('orientation', 'bottom auto') }}
             {{ BootForm::text('Kasus', 'kasus') }}
