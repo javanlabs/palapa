@@ -67,16 +67,21 @@ class EloquentRepository implements RepositoryInterface {
     public function activities($case)
     {
         $activities = [];
-        foreach($case->checklist as $checklist)
+        foreach($case->activities as $activity)
         {
             $activities[] = [
-                'date'  => Carbon::createFromFormat('Y-m-d', $checklist->pivot->date)->formatLocalized('%d %B %Y'),
-                'name'  => $checklist['name'],
-                'note'  => $checklist->pivot->note
+                'date'  => $activity->created_at->diffForHumans(),
+                'name'  => $activity['title'],
+                'note'  => $activity['content']
             ];
         }
 
         return $activities;
+    }
+
+    public function addActivity($case, $attributes)
+    {
+        return $case->activities()->create($attributes);
     }
 
     public function dailyCaseStatistic($from, $to)

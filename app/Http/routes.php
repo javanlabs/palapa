@@ -25,8 +25,10 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
     $router->resource('officers', 'OfficerController');
 
     $router->resource('cases', 'CaseController');
-    $router->get('cases/activity/{caseId}/{checklistId}', ['as' => 'backend.cases.activity', 'uses' => 'CaseController@getActivity']);
-    $router->post('cases/activity/{caseId}/{checklistId}', ['as' => 'backend.cases.activity', 'uses' => 'CaseController@postActivity']);
+    $router->get('cases/checklist/{caseId}/{checklistId}', ['as' => 'backend.cases.checklist', 'uses' => 'CaseController@getChecklist']);
+    $router->post('cases/checklist/{caseId}/{checklistId}', ['as' => 'backend.cases.checklist', 'uses' => 'CaseController@postChecklist']);
+
+    $router->post('cases/{caseId}/activities', ['as' => 'backend.cases.activity', 'uses' => 'CaseController@postActivity']);
 
     $router->get('dashboard/index', ['as' => 'dashboard.index', 'uses' => 'DashboardController@getIndex']);
     $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@getIndex']);

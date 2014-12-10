@@ -50,6 +50,18 @@
             </tr>
             @endforeach
         </table>
+
+            {{ Form::open(['route' => ['backend.cases.activity', $case['id']], 'method' => 'post', 'role'=>'form']) }}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            <div class="form-group">
+                {{ Form::textarea('content', '', ['class' => 'form-control', 'rows' => 3]) }}
+            </div>
+            <div class="text-right">
+                {{ Form::submit('Tambah Catatan', ['class' => 'btn btn-primary']) }}
+            </div>
+            {{ Form::close() }}
+
+
     </div>
     <div class="col-md-5">
         <div class="panel panel-default">
@@ -66,7 +78,7 @@
                             </div>
                         </li>
                     @else
-                        <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.activity', [$case['id'], $item['id']]) }}">
+                        <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.checklist', [$case['id'], $item['id']]) }}">
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
