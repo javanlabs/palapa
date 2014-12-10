@@ -22,4 +22,5 @@ class Phase extends Model {
         $this->finish_date = Carbon::now()->toDateString();
         return $this->save();
     }
+
 }

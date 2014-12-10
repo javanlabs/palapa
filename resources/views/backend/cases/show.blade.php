@@ -71,6 +71,14 @@
                                 <label>
                                     <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
                                     {{ $item['name'] }}
+                                    @if($phase->id == $case['phase_id'])
+                                        <?php $remaining = $case->checklistRemaining($item) ?>
+                                        @if($remaining > 0)
+                                        <small class="label label-success">{{ $remaining }} hari lagi</small>
+                                        @else
+                                        <small class="label label-danger">lewat {{ abs($remaining) }} hari</small>
+                                        @endif
+                                    @endif
                                 </label>
                             </div>
                         </li>

@@ -61,4 +61,12 @@ class Cases extends Model {
             }
         }
     }
+
+    public function checklistRemaining($checklist)
+    {
+        $phaseAge = Carbon::createFromFormat('Y-m-d', $this->phaseHistory->first()->pivot->start_date)->diffInDays(new Carbon());
+
+        return $checklist['duration'] - $phaseAge;
+    }
+
 }
