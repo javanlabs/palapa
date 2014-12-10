@@ -6,7 +6,7 @@ class Checklist extends Model {
 
     protected $table = 'sop_checklist';
 
-    public function checklist()
+    public function phase()
     {
         return $this->belongsTo('App\Sop\Phase', 'phase_id');
     }

@@ -10,7 +10,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
     <div class="form-group">
         <label for="">Tanggal</label>
-        {{ Form::text('date', '', ['class' => 'form-control datepicker', 'id' => 'activity-date']) }}
+        {{ Form::text('date', date('Y-m-d'), ['class' => 'form-control datepicker', 'id' => 'activity-date']) }}
     </div>
     <div class="form-group">
         <label for="">Catatan</label>

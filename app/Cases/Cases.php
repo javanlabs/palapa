@@ -1,5 +1,6 @@
 <?php namespace App\Cases;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,5 +42,11 @@ class Cases extends Model {
     public function phaseHistory()
     {
         return $this->belongsToMany('App\Sop\Phase', 'cases_phases_history', 'case_id', 'phase_id')->withPivot('start_date', 'finish_date')->orderBy('start_date');
+    }
+
+    public function close()
+    {
+        $this->finish_date = Carbon::now()->toDateString();
+        return $this->save();
     }
 }

@@ -24,8 +24,21 @@ class EloquentRepository implements RepositoryInterface {
         return $this->phase->orderBy('ordinal')->get();
     }
 
-    public function incrementPhase($case, $phase)
+    public function incrementPhase($case, $checklist)
     {
+        $currentPhase = $checklist->phase;
+        $nextPhase = $currentPhase->nextPhase();
 
+        if($nextPhase)
+        {
+            $case->phase()->associate($nextPhase)->save();
+            $case->phaseHistory()->save($nextPhase);
+        }
+        else
+        {
+            $case->close();
+        }
+
+        return true;
     }
 }
