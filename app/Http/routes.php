@@ -19,6 +19,8 @@ $router->controller('home', 'Frontend\HomeController', [
     'getOfficer'  => 'frontend.officer',
 ]);
 
+$router->get('post/show/{id}', ['as'=>'frontend.post', 'uses'=>'Frontend\PostController@showPage']);
+
 //BACKEND
 $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($router){
 

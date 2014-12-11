@@ -11,6 +11,8 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
             {{ BootForm::text('Title', 'title') }}
             {{ BootForm::textarea('Content', 'content', ['id' => 'content']) }}
+            {{ BootForm::select('Position', 'position')->options($post->getPossiblePosition())}}
+            {{ BootForm::select('Status', 'status')->options($post->getPossibleStatus()) }}
             {{ BootForm::submit('Submit') }}
         {{ BootForm::close() }}
     </div>

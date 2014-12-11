@@ -4,14 +4,7 @@ Route::group(['namespace' => 'Eendonesia\Skrip\Controllers', 'prefix' => Config:
 {
     Route::group(['middleware' => ['auth']], function()
     {
-        Route::resource('posts', 'PostsController');
-        Route::get("uploadedImage", function(){
-        	echo 'uploadedImage';
-        });
-        Route::get("uploadImage", function(){
-        	echo 'uploadImage';
-        });
-        
+        Route::resource('posts', 'PostsController');        
     });
 
     Route::post("uploadImage", function(){

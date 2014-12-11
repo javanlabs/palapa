@@ -1,6 +1,7 @@
 <?php namespace Eendonesia\Skrip\Controllers;
 
 use Eendonesia\Skrip\Post\Form;
+use Eendonesia\Skrip\Post\Post;
 use Eendonesia\Skrip\Post\RepositoryInterface;
 use Illuminate\Routing\Controller;
 use Auth;
@@ -25,7 +26,8 @@ class PostsController extends Controller {
 
     public function create()
     {
-        return view('skrip::posts.create');
+        $post = new Post();
+        return view('skrip::posts.create', compact('post'));
     }
 
     public function store(Form $form)
@@ -43,7 +45,7 @@ class PostsController extends Controller {
 
     public function update(Form $form, $id)
     {
-        $this->repo->update($id, $form->only('title', 'content'));
+        $this->repo->update($id, $form->only('title', 'content', 'position', 'status'));
 
         return redirect()->route('skrip.posts.index');
     }

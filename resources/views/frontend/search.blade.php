@@ -18,7 +18,7 @@
                           {{--<li><a href="#">Intel</a></li>--}}
                         {{--</ul>--}}
                       {{--</div>--}}
-                      <input type="text" class="form-control input-lg input-block" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
+                      <input type="text" class="form-control input-lg input-block" name="q" value="{{ ($keyword)?$keyword:Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
                     </div>
 
         {{ Form::close() }}

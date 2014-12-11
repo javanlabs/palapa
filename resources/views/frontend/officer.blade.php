@@ -20,6 +20,9 @@
                 <dd>{{ $jaksa->jabatan_name }}</dd>
             </dl>
         </td>
+        <td>
+            <a href="{{route('frontend.search')}}?type=jaksa&q={{$jaksa->id}}">Daftar Kasus Aktif</a>
+        </td>
     </tr>
     @endforeach
     </tbody>

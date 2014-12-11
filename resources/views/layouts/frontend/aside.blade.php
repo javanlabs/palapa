@@ -4,7 +4,14 @@
     <a class="list-group-item {{ ($page == 'organization')?'active':'' }}" href="{{ route('frontend.organization') }}">Struktur Organisasi</a>
     <a class="list-group-item {{ ($page == 'officer')?'active':'' }}" href="{{ route('frontend.officer') }}">Daftar Jaksa</a>
     <a class="list-group-item {{ ($page == 'profile')?'active':'' }}" href="{{ route('frontend.profile') }}">Profil Kejari Jember</a>
+<?php
+$posts = \Eendonesia\Skrip\Post\Post::where('position','=','main')->where('status','=','published')->get();
+foreach ($posts as $val):		
+?>
+    <a class="list-group-item {{ ($page == $val->id)?'active':'' }}" href="{{ route('frontend.post',[$val->id]) }}">{{$val->title}}</a>
+    <?php endforeach;?>
 </ul>
+
 
 @if(Auth::check())
 <ul class="list-group">
