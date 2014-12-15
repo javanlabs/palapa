@@ -6,14 +6,12 @@
 
 @section('content')
     <div class="container">
-        <h2>Write Post</h2>
-        {{ BootForm::open()->put()->action(route('skrip.posts.update', [$post->id])) }}
+        <h2>Ubah Template</h2>
+        {{ BootForm::open()->put()->action(route('backend.templates.update', [$template->id])) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-            {{ BootForm::text('Title', 'title')->value($post->title) }}
-            {{ BootForm::textarea('Content', 'content', ['id' => 'content'])->value($post->content) }}
-            {{ BootForm::select('Position', 'position')->options($post->getPossiblePosition())->select($post->position)}}
-            {{ BootForm::select('Status', 'status')->options($post->getPossibleStatus())->select($post->status)}}
-            {{ BootForm::submit('Submit') }}
+            {{ BootForm::text('Title', 'title')->value($template->title) }}
+            {{ BootForm::textarea('Content', 'content', ['id' => 'content'])->value($template->content) }}
+            {{ BootForm::submit('Simpan') }}
         {{ BootForm::close() }}
     </div>
 @stop

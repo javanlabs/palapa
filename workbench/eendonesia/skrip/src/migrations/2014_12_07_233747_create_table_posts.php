@@ -17,11 +17,14 @@ class CreateTablePosts extends Migration {
             $table->unsignedInteger('author_id');
             $table->string('title');
             $table->text('content');
+            $table->enum('status', array('published','draft'));
+            $table->enum('position', array('main','manual'));
             $table->timestamps();
             $table->softDeletes();
             $table->engine = 'MyISAM';
         });
         DB::statement('ALTER TABLE posts ADD FULLTEXT search(title, content)');
+        DB::statement("ALTER TABLE `posts` ADD `position` ENUM('main','manual') NOT NULL AFTER `status`");
     }
     /**
      * Reverse the migrations.

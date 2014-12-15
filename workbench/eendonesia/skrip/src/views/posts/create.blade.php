@@ -1,4 +1,4 @@
-@extends('skrip::layouts.default')
+@extends('layouts.frontend.frontend')
 
 @section('style-head')
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />

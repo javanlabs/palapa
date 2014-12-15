@@ -35,6 +35,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
     $router->get('dashboard/index', ['as' => 'dashboard.index', 'uses' => 'DashboardController@getIndex']);
     $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@getIndex']);
 
+    $router->resource('templates', 'TemplatesController');
 });
 
 // GLOBAL ROUTE
