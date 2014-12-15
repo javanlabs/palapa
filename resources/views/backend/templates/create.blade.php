@@ -6,14 +6,12 @@
 
 @section('content')
     <div class="container">
-        <h2>Write Post</h2>
-        {{ BootForm::open()->put()->action(route('skrip.posts.update', [$post->id])) }}
+        <h2>Buat Template</h2>
+        {{ BootForm::open()->action(route('backend.templates.store')) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-            {{ BootForm::text('Title', 'title')->value($post->title) }}
-            {{ BootForm::textarea('Content', 'content', ['id' => 'content'])->value($post->content) }}
-            {{ BootForm::select('Position', 'position')->options($post->getPossiblePosition())->select($post->position)}}
-            {{ BootForm::select('Status', 'status')->options($post->getPossibleStatus())->select($post->status)}}
-            {{ BootForm::submit('Submit') }}
+            {{ BootForm::text('Title', 'title') }}
+            {{ BootForm::textarea('Content', 'content', ['id' => 'content']) }}
+            {{ BootForm::submit('Simpan') }}
         {{ BootForm::close() }}
     </div>
 @stop
@@ -23,8 +21,9 @@
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>
     <script>
+
         $(function()
-        {
+        {        
             $('#content').redactor({
                 minHeight: 400,
                 plugins: ['table', 'fullscreen'],

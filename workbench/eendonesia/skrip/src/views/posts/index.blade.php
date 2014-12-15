@@ -1,4 +1,4 @@
-@extends('skrip::layouts.default')
+@extends('layouts.frontend.frontend')
 
 @section('content')
 <div class="container">

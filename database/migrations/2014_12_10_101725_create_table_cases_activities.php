@@ -16,6 +16,7 @@ class CreateTableCasesActivities extends Migration {
             $table->increments('id');
             $table->string('title');
             $table->text('content');
+            $table->unsignedInteger('case_id')->nullable();
             $table->unsignedInteger('checklist_id')->nullable();
             $table->timestamps();
         });
