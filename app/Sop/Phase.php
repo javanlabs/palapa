@@ -23,4 +23,8 @@ class Phase extends Model {
         return $this->save();
     }
 
+    public function getColorAttribute()
+    {
+        return '#' . rand(111111, 999999);
+    }
 }

@@ -5,21 +5,9 @@
         <h1 style="font-weight: 300">Cari Kasus</h1>
 
         {{ Form::open(['route' => 'frontend.search', 'method' => 'get', 'role' => 'form']) }}
-                    <div class="form-group">
-                      {{--<div class="input-group-btn">--}}
-                        {{--<button type="button" class="btn btn-primary btn-lg" tabindex="-1">Pidana Umum</button>--}}
-                        {{--<button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-toggle="dropdown" tabindex="-1">--}}
-                          {{--<span class="caret"></span>--}}
-                        {{--</button>--}}
-                        {{--<ul class="dropdown-menu">--}}
-                          {{--<li><a href="#">Semua</a></li>--}}
-                          {{--<li><a href="#">Pidana Umum</a></li>--}}
-                          {{--<li><a href="#">Pidana Khusus</a></li>--}}
-                          {{--<li><a href="#">Intel</a></li>--}}
-                        {{--</ul>--}}
-                      {{--</div>--}}
-                      <input type="text" class="form-control input-lg input-block" name="q" value="{{ ($keyword)?$keyword:Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
-                    </div>
+        <div class="form-group">
+            <input type="text" class="form-control input-lg input-block" name="q" value="{{ ($keyword)?$keyword:Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
+        </div>
 
         {{ Form::close() }}
     </div>
@@ -38,13 +26,15 @@
                 <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Tahap 2"><strong>2</strong></th>
                 <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Penuntutan"><i class="fa fa-legal"></i></th>
                 <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Persidangan"><i class="fa fa-institution"></i></th>
+                @if(Auth::check())
                 <th width="100px">Aksi</th>
+                @endif
             </tr>
         </thead>
         @foreach($cases as $item)
         <tr>
             <td>
-                <a href="{{ $item['permalink'] }}"><strong>{{ $item['name'] }}</strong></a>
+                <a href="{{ $item['permalink'] }}" target="_blank"><strong>{{ $item['name'] }}</strong></a>
                 <div>{{ $item['suspect_name'] }}</div>
             </td>
             <td>
@@ -61,10 +51,11 @@
                 </div>
                 <small class="text-muted">Update terakhir: {{ $item['last_update'] }}</small>
             </td>
+            @if(Auth::check())
             <td class="text-center">
                 <a class="btn btn-default btn-sm" href="{{ $item['permalink'] }}" target="_blank">Edit <i class="fa fa-chevron-right"></i></a>
             </td>
-
+            @endif
         </tr>
         @endforeach
     </table>
