@@ -42,7 +42,7 @@
                 {
                     valueField: 'close',
                     name: 'Kasus Ditutup',
-                    color: '{{ Config::get('color.gray-dark') }}'
+                    color: '{{ Config::get('color.yellow') }}'
                 }
             ],
             tooltip: {
