@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 
 class Phase extends Model {
 
@@ -25,6 +26,7 @@ class Phase extends Model {
 
     public function getColorAttribute()
     {
-        return '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+        $colors = Config::get('color');
+        return $colors[array_rand(array_slice($colors, $this->id - 1, 1), 1)];
     }
 }

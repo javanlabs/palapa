@@ -18,7 +18,7 @@ interface RepositoryInterface {
 
     public function statisticByPhase($year);
 
-    public function statisticByStatus();
+    public function statisticByStatus($year);
 
     public function statisticByJaksa();
 

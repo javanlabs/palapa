@@ -9,10 +9,15 @@ class DashboardController extends BackendController {
      * @type EloquentRepository
      */
     private $caseRepo;
+    /**
+     * @type \App\Officer\RepositoryInterface
+     */
+    private $officerRepo;
 
-    function __construct(RepositoryInterface $caseRepo)
+    function __construct(RepositoryInterface $caseRepo, \App\Officer\RepositoryInterface $officerRepo)
     {
         $this->caseRepo = $caseRepo;
+        $this->officerRepo = $officerRepo;
     }
 
     public function getIndex()
@@ -20,9 +25,12 @@ class DashboardController extends BackendController {
         return redirect()->route('dashboard.byPhase');
     }
 
-    public function getByStatus()
+    public function getByStatus(Request $request)
     {
-        return view('backend.dashboard.index')->with('page', 'backend-dashboard');
+        $year = $request->get('year', date('Y'));
+        $stat = $this->caseRepo->statisticByStatus($year);
+
+        return view('backend.dashboard.byStatus', compact('stat'))->with('page', 'backend-dashboard');
     }
 
     public function getByPhase(Request $request)
@@ -35,7 +43,9 @@ class DashboardController extends BackendController {
 
     public function getByJaksa()
     {
-        return view('backend.dashboard.index')->with('page', 'backend-dashboard');
+        $officers = $this->officerRepo->jaksaByCase();
+
+        return view('backend.dashboard.byJaksa', compact('officers'))->with('page', 'backend-dashboard');
     }
 
 }

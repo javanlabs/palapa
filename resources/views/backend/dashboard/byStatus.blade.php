@@ -1,7 +1,7 @@
 @extends('layouts.frontend.frontend')
 @section('content')
     <h2>Statistik Kasus</h2>
-    @include('backend.dashboard.tab', ['active' => 'byPhase'])
+    @include('backend.dashboard.tab', ['active' => 'byStatus'])
 
     <div id="chart" style="width: 100%; height: 300px"></div>
 @stop
