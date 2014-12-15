@@ -21,6 +21,16 @@ class Officer extends Model {
         return $this->belongsTo('App\Lookup\Lookup', 'jabatan_id');
     }
 
+    public function cases()
+    {
+        return $this->hasMany('App\Cases\Cases', 'jaksa_id');
+    }
+
+    public function activeCases()
+    {
+        return $this->hasMany('App\Cases\Cases', 'jaksa_id')->whereNull('cases.finish_date');
+    }
+
     public function getPangkatNameAttribute()
     {
         if($this->pangkat)

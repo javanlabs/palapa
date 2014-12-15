@@ -152,27 +152,14 @@ class EloquentRepository implements RepositoryInterface {
 
         return ['series' => json_encode($series), 'data' => json_encode(array_values($json))];
     }
-    public function statisticByStatus()
+
+    public function statisticByStatus($year)
     {
-        $json = [];
-
-        $phases = $this->phase->all();
-        $cases = $this->case->groupBy('phase_id')->all();
-
-        dd($cases);
-
-        return json_encode($json);
+        return $this->statisticByPhase($year);
     }
+
     public function statisticByJaksa()
     {
-        $json = [];
-
-        $phases = $this->phase->all();
-        $cases = $this->case->groupBy('phase_id')->all();
-
-        dd($cases);
-
-        return json_encode($json);
     }
 }
 

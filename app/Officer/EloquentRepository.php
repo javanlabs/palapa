@@ -50,5 +50,13 @@ class EloquentRepository implements RepositoryInterface {
         // TODO: Implement staff() method.
     }
 
+    public function jaksaByCase()
+    {
+        $officer = $this->officer->all();
+
+        return $officer->sort(function($elm1, $elm2){
+            return $elm1->activeCases->count() < $elm2->activeCases->count();
+        });
+    }
 }
 
