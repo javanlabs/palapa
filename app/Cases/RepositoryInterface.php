@@ -16,6 +16,10 @@ interface RepositoryInterface {
 
     public function activities($case);
 
-    public function dailyCaseStatistic($from, $to);
+    public function statisticByPhase($year);
+
+    public function statisticByStatus();
+
+    public function statisticByJaksa();
 
 }

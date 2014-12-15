@@ -3,6 +3,7 @@
 use App\Sop\Phase;
 use Carbon\Carbon;
 use Faker\Factory;
+use Illuminate\Support\Facades\DB;
 
 class EloquentRepository implements RepositoryInterface {
 
@@ -65,7 +66,7 @@ class EloquentRepository implements RepositoryInterface {
         }
         else
             if($keyword)
-            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('suspect_name', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');       
+            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('suspect_name', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
         return $query->paginate();
     }
 
@@ -89,29 +90,87 @@ class EloquentRepository implements RepositoryInterface {
         return $case->activities()->create($attributes);
     }
 
-    public function dailyCaseStatistic($from, $to)
+    public function statisticByPhase($year)
     {
-        if(!$from)
-            $from = Carbon::now()->subMonth();
-        else
-            $from = Carbon::parse($from);
-
-        if(!$to)
-            $to = Carbon::now();
-        else
-            $to = Carbon::parse($to);
-
-        // initiate
         $json = [];
-        for($day=$from->copy();$day<=$to->copy();$day->addDay())
+        $phases = $this->phase->orderBy('ordinal')->get();
+
+        //initialization
+        foreach(range(1,12) as $month)
         {
-            $total = rand(10, 100);
-            $json[] = [
-                'day'   => $day->format("d M"),
-                'total_current' => $total,
-                'total_previous' => $total + rand(-50, 50),
+            $data = ['month' => Carbon::createFromDate(null, $month, null)->formatLocalized('%B')];
+            foreach($phases as $phase)
+            {
+                $data[$phase->name] = 0;
+            }
+            $json[$month] = $data;
+        }
+
+        $cases = $this->case
+            ->select([
+                    'phase_id',
+                    DB::raw('COUNT(1) as count'),
+                    DB::raw('MONTH(start_date) as month'),
+                    DB::raw('YEAR(start_date) as year')
+                ])
+            ->join('sop_phase', 'phase_id', '=', 'sop_phase.id')
+            ->whereRaw('YEAR(start_date) = ' . $year)
+            ->groupBy(['phase_id', DB::raw('MONTH(start_date)'), DB::raw('YEAR(start_date)')])
+            ->get();
+
+        foreach(range(1,12) as $month)
+        {
+            foreach($phases as $phase)
+            {
+                $id = $phase->id;
+                $name = $phase->name;
+
+                $data = array_first($cases, function($key, $element) use ($month, $id){
+
+                    if($element['month'] == $month && ($element['phase_id'] == $id))
+                    {
+                        return true;
+                    }
+                });
+
+                if($data)
+                {
+                    $json[$month][$name] = (int) $data['count'];
+                }
+            }
+        }
+
+        $series = [];
+        foreach($phases as $phase)
+        {
+            $series[] = [
+                'valueField'    => $phase->name,
+                'name'          => $phase->name,
+                'color'         => $phase->color
             ];
         }
+
+        return ['series' => json_encode($series), 'data' => json_encode(array_values($json))];
+    }
+    public function statisticByStatus()
+    {
+        $json = [];
+
+        $phases = $this->phase->all();
+        $cases = $this->case->groupBy('phase_id')->all();
+
+        dd($cases);
+
+        return json_encode($json);
+    }
+    public function statisticByJaksa()
+    {
+        $json = [];
+
+        $phases = $this->phase->all();
+        $cases = $this->case->groupBy('phase_id')->all();
+
+        dd($cases);
 
         return json_encode($json);
     }
