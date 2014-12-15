@@ -24,7 +24,6 @@ class CreateTablePosts extends Migration {
             $table->engine = 'MyISAM';
         });
         DB::statement('ALTER TABLE posts ADD FULLTEXT search(title, content)');
-        DB::statement("ALTER TABLE `posts` ADD `position` ENUM('main','manual') NOT NULL AFTER `status`");
     }
     /**
      * Reverse the migrations.
