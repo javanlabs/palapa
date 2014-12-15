@@ -155,11 +155,67 @@ class EloquentRepository implements RepositoryInterface {
 
     public function statisticByStatus($year)
     {
-        return $this->statisticByPhase($year);
+        $json = [];
+
+        //initialization
+        foreach(range(1,12) as $month)
+        {
+            $json[$month]['month'] = Carbon::createFromDate(null, $month, null)->formatLocalized('%B');
+            $json[$month]['open'] = 0;
+            $json[$month]['close'] = 0;
+        }
+
+        $openCases = $this->case
+            ->select([
+                    DB::raw('COUNT(1) as count'),
+                    DB::raw('MONTH(start_date) as month'),
+                ])
+            ->whereRaw('YEAR(start_date) = ' . $year)
+            ->groupBy([DB::raw('MONTH(start_date)')])
+            ->get();
+
+        $closedCases = $this->case
+            ->select([
+                    DB::raw('COUNT(1) as count'),
+                    DB::raw('MONTH(start_date) as month'),
+                ])
+            ->whereRaw('YEAR(start_date) = ' . $year)
+            ->whereNotNull('finish_date')
+            ->groupBy([DB::raw('MONTH(finish_date)')])
+            ->get();
+
+
+        foreach(range(1,12) as $month)
+        {
+            $openCase = array_first($openCases, function($key, $element) use ($month){
+
+                if($element['month'] == $month)
+                {
+                    return true;
+                }
+            });
+
+            if($openCase)
+            {
+                $json[$month]['open'] = $openCase['count'];
+            }
+
+            $closedCase = array_first($closedCases, function($key, $element) use ($month){
+
+                if($element['month'] == $month)
+                {
+                    return true;
+                }
+            });
+
+            if($closedCase)
+            {
+                $json[$month]['close'] = $closedCase['count'];
+            }
+        }
+
+        return json_encode(array_values($json));
     }
 
-    public function statisticByJaksa()
-    {
-    }
 }
 

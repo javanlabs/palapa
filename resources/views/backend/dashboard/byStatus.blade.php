@@ -32,8 +32,19 @@
             valueAxis: [
                 {label:{format:'fixedPoint'}},
             ],
-            dataSource: {{ $stat['data'] }},
-            series: {{ $stat['series'] }},
+            dataSource: {{ $stat }},
+            series: [
+                {
+                    valueField: 'open',
+                    name: 'Kasus Baru',
+                    color: '{{ Config::get('color.green') }}'
+                },
+                {
+                    valueField: 'close',
+                    name: 'Kasus Ditutup',
+                    color: '{{ Config::get('color.gray-dark') }}'
+                }
+            ],
             tooltip: {
                 enabled: true,
                 format:'fixedPoint'
