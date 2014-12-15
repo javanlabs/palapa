@@ -51,6 +51,7 @@
             @endforeach
         </table>
 
+        @if(Auth::check()))
             {{ Form::open(['route' => ['backend.cases.activity', $case['id']], 'method' => 'post', 'role'=>'form']) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
             <div class="form-group">
@@ -60,7 +61,7 @@
                 {{ Form::submit('Tambah Catatan', ['class' => 'btn btn-primary']) }}
             </div>
             {{ Form::close() }}
-
+        @endif
 
     </div>
     <div class="col-md-5">
@@ -111,6 +112,7 @@
 
 @stop
 
+
 @section('style-head')
     @parent
     <link href="{{ asset('vendor/bootstrap-modal/bootstrap-modal-bs3patch.css') }}" rel="stylesheet" />
@@ -130,6 +132,8 @@
         }
     </style>
 @stop
+
+@if(Auth::check()))
 
 @section('script-end')
     @parent
@@ -151,15 +155,12 @@
 
                 $('#activity-date').datepicker({
                     format: 'yyyy-mm-dd',
-        //            startView: 2,
                     autoclose: true,
                     todayHighlight: true
                 });
-
             });
-
-});
-
+        });
     });
     </script>
 @stop
+@endif
