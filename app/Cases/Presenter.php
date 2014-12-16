@@ -29,29 +29,45 @@ trait Presenter {
         return $this->updated_at->formatLocalized('%d %B %Y');
     }
 
-    public function getStatusSpdpAttribute()
+    public function getPhaseHistoryStatus($phaseId)
     {
-        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 1)->first());
+        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', $phaseId)->first());
     }
 
-    public function getStatusTahap1Attribute()
+    public function getPhaseHistoryDescription($phaseId)
     {
-        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 2)->first());
-    }
+        $phaseHistory = $this->phaseHistory()->where('phase_id', '=', $phaseId)->first();
 
-    public function getStatusTahap2Attribute()
-    {
-        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 3)->first());
-    }
+        if($phaseHistory)
+        {
+            $startDate = Carbon::createFromFormat('Y-m-d', $phaseHistory->pivot->start_date);
 
-    public function getStatusPenuntutanAttribute()
-    {
-        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 4)->first());
-    }
+            if($phaseHistory->pivot->finish_date)
+            {
+                $finishDate = Carbon::createFromFormat('Y-m-d', $phaseHistory->pivot->finish_date);
+            }
+            else
+            {
+                $finishDate = Carbon::now();
+            }
 
-    public function getStatusPersidanganAttribute()
-    {
-        return $this->getPhaseStatus($this->phaseHistory()->where('phase_id', '=', 5)->first());
+            $finishDateDisplayed = '-';
+            if($phaseHistory->pivot->finish_date)
+            {
+                $finishDateDisplayed = $finishDate->formatLocalized('%d %B %Y');
+            }
+
+            $phaseStatus = $this->getPhaseStatus($phaseHistory);
+
+            $msg = "<div>Mulai: " . $startDate->formatLocalized('%d %B %Y') . "</div>";
+            $msg .= "<div>Selesai: " . $finishDateDisplayed . "</div>";
+            $msg .= "<div>Durasi: <span class='label label-{$phaseStatus}'>" . $finishDate->diffInDays($startDate) . " hari</span></div>";
+            $msg .= "<div>Standard pelayanan: " . $phaseHistory->duration . " hari</div>";
+
+            return $msg;
+        }
+
+        return 'Belum diproses';
     }
 
     public function getStatusNameAttribute()
@@ -86,11 +102,11 @@ trait Presenter {
         $baseDuration = $phase->duration;
 
         $delta = $baseDuration - $duration;
-        if($delta > 2)
+        if($delta > 0)
         {
             $status = 'success';
         }
-        elseif($delta >= 0)
+        elseif($delta == 0)
         {
             $status = 'warning';
         }

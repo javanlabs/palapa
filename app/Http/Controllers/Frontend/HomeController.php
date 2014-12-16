@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Frontend;
 
 use App\Officer\Officer;
+use App\Sop\RepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Cases\RepositoryInterface as CasesRepository;
@@ -13,7 +14,7 @@ class HomeController extends Controller {
         return redirect()->route('frontend.search');
     }
 
-	public function getSearch(Request $request, CasesRepository $repository)
+	public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop)
 	{
 		$keyword = null;
         if($request->get('type')=='jaksa'){
@@ -22,8 +23,9 @@ class HomeController extends Controller {
         		$keyword = $jaksa->name;
         }
         $cases = $repository->search($request->get('q'), $request->get('type'));
+        $phases = $sop->all();
 
-		return view('frontend.search', compact('cases'))->with('page', 'search')->with('keyword',$keyword);
+		return view('frontend.search', compact('cases', 'phases'))->with('page', 'search')->with('keyword',$keyword);
 	}
 
 	public function getOrganization()

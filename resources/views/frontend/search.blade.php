@@ -21,11 +21,9 @@
             <tr>
                 <th width="200px">Kasus</th>
                 <th width="200px">Jaksa</th>
-                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="SPDP"><i class="fa fa-file-text-o"></i></th>
-                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Tahap 1"><strong>1</strong></th>
-                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Tahap 2"><strong>2</strong></th>
-                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Penuntutan"><i class="fa fa-legal"></i></th>
-                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="Persidangan"><i class="fa fa-institution"></i></th>
+                @foreach($phases as $phase)
+                <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="{{ $phase['name'] }}">{{ $phase['icon'] }}</th>
+                @endforeach
                 @if(Auth::check())
                 <th width="100px">Aksi</th>
                 @endif
@@ -43,11 +41,9 @@
             </td>
             <td colspan="5" style="padding: 20px 10px">
                 <div class="progress" style="margin-bottom: 0">
-                    <div class="progress-bar progress-bar-{{ $item['status_spdp'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="SPDP"></div>
-                    <div class="progress-bar progress-bar-{{ $item['status_tahap1'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Tahap 1"></div>
-                    <div class="progress-bar progress-bar-{{ $item['status_tahap2'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Tahap 2"></div>
-                    <div class="progress-bar progress-bar-{{ $item['status_penuntutan'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Penuntutan"></div>
-                    <div class="progress-bar progress-bar-{{ $item['status_persidangan'] }}" role="progressbar" style="width: 20%" data-toggle="popover" title="Persidangan"></div>
+                    @foreach($phases as $phase)
+                    <div class="progress-bar progress-bar-{{ $item->getPhaseHistoryStatus($phase->id) }}" role="progressbar" style="width: {{ 100/count($phases) }}%" data-toggle="popover" title="{{ $phase->name }}" data-content="{{ $item->getPhaseHistoryDescription($phase->id) }}"></div>
+                    @endforeach
                 </div>
                 <small class="text-muted">Update terakhir: {{ $item['last_update'] }}</small>
             </td>
@@ -70,6 +66,7 @@
     <script>
     $(function(){
         $('[data-toggle="tooltip"]').tooltip({container:'body'})
+        $('.progress-bar').popover({trigger: 'hover', placement:'top', html:true})
     });
     </script>
 @stop
