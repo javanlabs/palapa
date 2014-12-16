@@ -12,7 +12,7 @@ class AddIconToSopPhase extends Migration {
 	 */
 	public function up()
 	{
-        Schema::table('users', function($table)
+        Schema::table('sop_phase', function($table)
         {
             $table->string('icon');
         });
@@ -25,7 +25,7 @@ class AddIconToSopPhase extends Migration {
 	 */
 	public function down()
 	{
-        Schema::table('users', function($table)
+        Schema::table('sop_phase', function($table)
         {
             $table->dropColumn('icon');
         });
