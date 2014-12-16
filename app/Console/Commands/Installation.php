@@ -42,6 +42,7 @@ class Installation extends Command {
 		Artisan::call('migrate', ['--bench' => 'eendonesia/gapura']);
 		Artisan::call('migrate', ['--bench' => 'eendonesia/moderator']);
 		Artisan::call('migrate', ['--bench' => 'eendonesia/skrip']);
+		Artisan::call('migrate', ['--bench' => 'eendonesia/wilayah']);
 		Artisan::call('db:seed');
 	}
 
