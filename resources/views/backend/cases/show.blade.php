@@ -23,8 +23,24 @@
                 <dd>{{ $case['name'] }}</dd>
                 <dt>Pasal yang Disangkakan :</dt>
                 <dd>{{ nl2br($case['pasal']) }}</dd>
+                <dt>Penyidik :</dt>
+                <dd>{{ $case['penyidik'] }}</dd>
                 <dt>Tersangka :</dt>
                 <dd>{{ $case['suspect_name'] }}</dd>
+                <dt>Tempat, Tanggal Lahir :</dt>
+                <dd>{{ $case['suspect_pob'] }}, {{ $case['suspect_dob'] }}</dd>
+                <dt>Agama :</dt>
+                <dd>{{ $case['suspect_religion'] }}</dd>
+                <dt>Alamat :</dt>
+                <dd>{{ $case['suspect_address'] }}<br/>
+                    {{ $case['suspect_city_id'] }}<br/>                    
+                </dd>
+                <dt>Kewarganegaraan :</dt>
+                <dd>{{ $case['suspect_nationality'] }}</dd>
+                <dt>Pendidikan :</dt>
+                <dd>{{ $case['suspect_education'] }}</dd>
+                <dt>Pekerjaan :</dt>
+                <dd>{{ $case['suspect_job'] }}</dd>
                 <dt>Jaksa :</dt>
                 <dd>{{ $case['prosecutor_name'] }}</dd>
                 <dt>Staff Administrasi :</dt>
