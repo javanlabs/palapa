@@ -4,6 +4,28 @@
     @include('backend.dashboard.tab', ['active' => 'byStatus'])
 
     <div id="chart" style="width: 100%; height: 300px"></div>
+
+    <hr/>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Bulan</th>
+                <th>Kasus Baru</th>
+                <th>Kasus Ditutup</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($stat as $row)
+            <tr>
+                <td>{{ $row['month'] }} {{ $row['year'] }}</td>
+                <td>{{ $row['open'] }}</td>
+                <td>{{ $row['close'] }}</td>
+            </tr>
+            @endforeach
+            <tr></tr>
+        </tbody>
+    </table>
 @stop
 
 
@@ -32,7 +54,7 @@
             valueAxis: [
                 {label:{format:'fixedPoint'}},
             ],
-            dataSource: {{ $stat }},
+            dataSource: {{ json_encode($stat) }},
             series: [
                 {
                     valueField: 'open',

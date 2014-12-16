@@ -98,7 +98,7 @@ class EloquentRepository implements RepositoryInterface {
         //initialization
         foreach(range(1,12) as $month)
         {
-            $data = ['month' => Carbon::createFromDate(null, $month, null)->formatLocalized('%B')];
+            $data = ['month' => Carbon::createFromDate(null, $month, null)->formatLocalized('%B'), 'year' => $year];
             foreach($phases as $phase)
             {
                 $data[$phase->name] = 0;
@@ -106,16 +106,10 @@ class EloquentRepository implements RepositoryInterface {
             $json[$month] = $data;
         }
 
-        $cases = $this->case
-            ->select([
-                    'phase_id',
-                    DB::raw('COUNT(1) as count'),
-                    DB::raw('MONTH(start_date) as month'),
-                    DB::raw('YEAR(start_date) as year')
-                ])
-            ->join('sop_phase', 'phase_id', '=', 'sop_phase.id')
-            ->whereRaw('YEAR(start_date) = ' . $year)
-            ->groupBy(['phase_id', DB::raw('MONTH(start_date)'), DB::raw('YEAR(start_date)')])
+        $stat = DB::table('v_monthly_case_phase')
+            ->select([DB::raw('count(case_id) count'), 'phase_id', 'month'])
+            ->where('year', '=', $year)
+            ->groupBy(['phase_id', 'month'])
             ->get();
 
         foreach(range(1,12) as $month)
@@ -125,9 +119,9 @@ class EloquentRepository implements RepositoryInterface {
                 $id = $phase->id;
                 $name = $phase->name;
 
-                $data = array_first($cases, function($key, $element) use ($month, $id){
+                $data = array_first($stat, function($key, $element) use ($month, $id){
 
-                    if($element['month'] == $month && ($element['phase_id'] == $id))
+                    if($element->month == $month && ($element->phase_id == $id))
                     {
                         return true;
                     }
@@ -135,7 +129,7 @@ class EloquentRepository implements RepositoryInterface {
 
                 if($data)
                 {
-                    $json[$month][$name] = (int) $data['count'];
+                    $json[$month][$name] = (int) $data->count;
                 }
             }
         }
@@ -150,7 +144,7 @@ class EloquentRepository implements RepositoryInterface {
             ];
         }
 
-        return ['series' => json_encode($series), 'data' => json_encode(array_values($json))];
+        return ['series' => $series, 'data' => array_values($json)];
     }
 
     public function statisticByStatus($year)
@@ -161,6 +155,7 @@ class EloquentRepository implements RepositoryInterface {
         foreach(range(1,12) as $month)
         {
             $json[$month]['month'] = Carbon::createFromDate(null, $month, null)->formatLocalized('%B');
+            $json[$month]['year'] = $year;
             $json[$month]['open'] = 0;
             $json[$month]['close'] = 0;
         }
@@ -214,7 +209,7 @@ class EloquentRepository implements RepositoryInterface {
             }
         }
 
-        return json_encode(array_values($json));
+        return array_values($json);
     }
 
 }

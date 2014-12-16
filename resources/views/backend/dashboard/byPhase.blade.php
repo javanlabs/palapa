@@ -4,6 +4,29 @@
     @include('backend.dashboard.tab', ['active' => 'byPhase'])
 
     <div id="chart" style="width: 100%; height: 300px"></div>
+
+    <hr/>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Bulan</th>
+                @foreach($stat['series'] as $row)
+                <th>{{ $row['name'] }}</th>
+                @endforeach
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($stat['data'] as $row)
+            <tr>
+                <td>{{ $row['month'] }} {{ $row['year'] }}</td>
+                @foreach($stat['series'] as $phase)
+                <td>{{ $row[$phase['name']] }}</td>
+                @endforeach
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 @stop
 
 
@@ -32,8 +55,8 @@
             valueAxis: [
                 {label:{format:'fixedPoint'}},
             ],
-            dataSource: {{ $stat['data'] }},
-            series: {{ $stat['series'] }},
+            dataSource: {{ json_encode($stat['data']) }},
+            series: {{ json_encode($stat['series']) }},
             tooltip: {
                 enabled: true,
                 format:'fixedPoint'
