@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-md-8">
-            <h3><i class="fa fa-check-square-o"></i> SOP Checklist</h3>
+            <h3><i class="fa fa-check-square-o"></i> #{{ $case['spdp_number'] }}</h3>
         </div>
         <div class="col-md-4 text-right">
             <button class="btn btn-default" onclick="javascript:window.close();"><i class="fa fa-times"></i> Tutup Halaman Ini</button>
@@ -22,7 +22,7 @@
                 <dt>Kasus :</dt>
                 <dd>{{ $case['name'] }}</dd>
                 <dt>Pasal yang Disangkakan :</dt>
-                <dd>{{ $case['pasal'] }}</dd>
+                <dd>{{ nl2br($case['pasal']) }}</dd>
                 <dt>Tersangka :</dt>
                 <dd>{{ $case['suspect_name'] }}</dd>
                 <dt>Jaksa :</dt>
@@ -50,8 +50,9 @@
             </tr>
             @endforeach
         </table>
+        
 
-        @if(Auth::check()))
+        @if(Auth::check())
             {{ Form::open(['route' => ['backend.cases.activity', $case['id']], 'method' => 'post', 'role'=>'form']) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
             <div class="form-group">
@@ -62,7 +63,30 @@
             </div>
             {{ Form::close() }}
         @endif
-
+    <table class="table table-striped">
+            <caption>Dokumen</caption>
+            @foreach($activities as $item)
+            <tr>
+                <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
+                <td>
+                    <strong>{{ $item['name'] }}</strong>
+                    <p>{{ $item['note'] }}</p>
+                </td>
+            </tr>
+            @endforeach
+        </table>
+            @if(Auth::check())
+            {{ Form::open(["url"=>'/backend/document/create', 'method' => 'get', 'role'=>'form']) }}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            {{Form::hidden('case_id',$case->id)}}
+            <div class="form-group">
+                {{ Form::select('template_id', $templates , ['class' => 'form-control', 'rows' => 3]) }}
+            </div>
+            <div class="text-right">
+                {{ Form::submit('Buat', ['class' => 'btn btn-primary']) }}
+            </div>
+            {{ Form::close() }}
+        @endif
     </div>
     <div class="col-md-5">
         <div class="panel panel-default">
@@ -76,6 +100,9 @@
                             <div class="checkbox">
                                 <i class="fa fa-check"></i>
                                 {{ $item['name'] }}
+                                @foreach($item->templates as $row)
+                                    {{$row->title}}
+                                @endforeach
                             </div>
                         </li>
                     @else
@@ -84,6 +111,7 @@
                                 <label>
                                     <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
                                     {{ $item['name'] }}
+                                    
                                     @if($phase->id == $case['phase_id'])
                                         <?php $remaining = $case->checklistRemaining($item) ?>
                                         &nbsp;&nbsp;
@@ -97,7 +125,7 @@
                             </div>
                         </li>
                     @endif
-
+                    
                 @endforeach
             </ul>
             @endforeach

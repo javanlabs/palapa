@@ -40,6 +40,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
     $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@getIndex']);
 
     $router->resource('templates', 'TemplatesController');
+    $router->resource('document', 'DocumentController');
 });
 
 // GLOBAL ROUTE

@@ -5,6 +5,7 @@ use Eendonesia\Skrip\Post\Post;
 use Eendonesia\Skrip\Post\RepositoryInterface;
 use Illuminate\Routing\Controller;
 use App\Model\Template;
+use App\Sop\Checklist;
 use Auth;
 
 class TemplatesController extends Controller {
@@ -28,13 +29,14 @@ class TemplatesController extends Controller {
     public function create()
     {
         $template = new Template();
-        return view('backend.templates.create', compact('post'));
+        $checklists = Checklist::availableChecklists();        
+        return view('backend.templates.create', compact('post','checklists'));
     }
 
     public function store(Form $form)
     {
     
-        $template = Template::create($form->only('title', 'content'));
+        $template = Template::create($form->only('title', 'content', 'checklist_id'));
         $template->author()->associate(Auth::user())->save();
         return redirect()->route('backend.templates.index');
     }
@@ -42,12 +44,13 @@ class TemplatesController extends Controller {
     public function edit($id)
     {
         $template = Template::find($id);
-        return view('backend.templates.edit', compact('template'));
+        $checklists = Checklist::availableChecklists();
+        return view('backend.templates.edit', compact('template','checklists'));
     }
 
     public function update(Form $form, $id)
     {        
-        Template::findOrFail($id)->update($form->only('title', 'content'));
+        Template::findOrFail($id)->update($form->only('title', 'content', 'checklist_id'));
         return redirect()->route('backend.templates.index');
     }
 

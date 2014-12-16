@@ -9,6 +9,7 @@
         <h2>Buat Template</h2>
         {{ BootForm::open()->action(route('backend.templates.store')) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            {{ BootForm::select('Checklist', 'checklist_id')->options($checklists) }}
             {{ BootForm::text('Title', 'title') }}
             {{ BootForm::textarea('Content', 'content', ['id' => 'content']) }}
             {{ BootForm::submit('Simpan') }}

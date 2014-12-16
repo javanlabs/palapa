@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
+use App\Model\Template;
 
 class CaseController extends BackendController {
 
@@ -80,9 +81,9 @@ class CaseController extends BackendController {
         $case = $this->repo->find($id);
         $phases = $this->sopRepo->all();
         $activities = $this->repo->activities($case);
-        $checklistIds = $case->checklist->lists('id');
-
-        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds'));
+        $checklistIds = $case->checklist->lists('id');  
+        $templates = Template::optionsSelect();      
+        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates'));
     }
 
     public function destroy($id)

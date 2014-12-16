@@ -1,18 +1,15 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.single')
 
 @section('style-head')
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
 @stop
 
 @section('content')
-    <div class="container">
-        <h2>Ubah Template</h2>
-        {{ BootForm::open()->put()->action(route('backend.templates.update', [$template->id])) }}
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-            {{ BootForm::select('Checklist', 'checklist_id')->options($checklists)->select($template->checklist_id) }}
-            {{ BootForm::text('Title', 'title')->value($template->title) }}
-            {{ BootForm::textarea('Content', 'content', ['id' => 'content'])->value($template->content) }}
-            {{ BootForm::submit('Simpan') }}
+    <div class="container">        
+        {{ BootForm::open()->action(route('skrip.posts.store')) }}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>            
+            {{ BootForm::textarea($template->title, 'content', ['id' => 'content'])->value($content) }}
+            {{ BootForm::submit('Submit') }}
         {{ BootForm::close() }}
     </div>
 @stop
@@ -22,8 +19,9 @@
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>
     <script>
+
         $(function()
-        {
+        {        
             $('#content').redactor({
                 minHeight: 400,
                 plugins: ['table', 'fullscreen'],

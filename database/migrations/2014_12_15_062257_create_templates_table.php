@@ -15,14 +15,14 @@ class CreateTemplatesTable extends Migration {
 		Schema::create('templates', function(Blueprint $table)
 		{	
             $table->increments('id');         
+            $table->unsignedInteger('author_id');
             $table->unsignedInteger('checklist_id');
             $table->string('title');            
-            $table->text('content');            
+            $table->text('content');
             $table->timestamps();
             $table->softDeletes();
             $table->engine = 'MyISAM';       	
 		});
-		DB::statetemen("ALTER TABLE `templates` ADD `checklist_id` INT NOT NULL AFTER `id`;");
 	}
 
 	/**

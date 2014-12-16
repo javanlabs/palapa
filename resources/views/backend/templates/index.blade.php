@@ -14,17 +14,19 @@
             </tr>
         </thead>
         <tbody>
+        @if(count($templates))
         @foreach($templates as $template)
         <tr>
             <td>{{ $template->id }}</td>
             <td>{{ $template->title }}</td>
-            <td>{{ $template->author->name }}</td>
+            <td>{{ $template->author?$template->author->name:'' }}</td>
             <td>
                 <a href="{{ route('backend.templates.edit', [$template->id]) }}" class="btn btn-link">Edit</a>
                 {{ Form::delete(route('backend.templates.destroy', [$template->id]), 'Delete', [], ['class' => 'btn-link']) }}
             </td>
         </tr>
         @endforeach
+        @endif
         </tbody>
     </table>
 </div>
