@@ -10,7 +10,7 @@ class Cases extends Model {
 
     protected $table = 'cases';
 
-    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date', 'suspect_name', 'suspect_pob', 'suspect_dob', 'suspect_religion', 'suspect_address', 'suspect_city_id', 'jaksa_id', 'staff_id'];
+    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date', 'suspect_name', 'suspect_pob', 'suspect_dob', 'suspect_religion', 'suspect_address', 'suspect_city_id', 'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik'];
 
     protected $dates = ['start_date', 'finish_date'];
 
