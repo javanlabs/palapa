@@ -6,9 +6,8 @@
 
 @section('content')
     <div class="container">        
-        {{ BootForm::open()->action(route('backend.document.store')) }}
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>    
-           	<input type='hidden' name='case_id' value='{{$case->id}}'/>        
+        {{ BootForm::open()->action('/backend/document/update') }}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>            
             {{ BootForm::textarea($template->title, 'content', ['id' => 'content'])->value($content) }}
             {{ BootForm::submit('Submit') }}
         {{ BootForm::close() }}
