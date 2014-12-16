@@ -58,7 +58,7 @@ trait Presenter {
             }
 
             $phaseStatus = $this->getPhaseStatus($phaseHistory);
-            
+
             $msg = "<div>Mulai: " . $startDate->formatLocalized('%d %B %Y') . "</div>";
             $msg .= "<div>Selesai: " . $finishDateDisplayed . "</div>";
             $msg .= "<div>Durasi: <span class='label label-{$phaseStatus}'>" . $finishDate->diffInDays($startDate) . " hari</span></div>";
