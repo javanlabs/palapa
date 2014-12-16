@@ -84,10 +84,15 @@ class EloquentRepository implements RepositoryInterface {
         $currentPhase = $case->phase;
         $prevPhase = $currentPhase->prevPhase();
 
+        if(!$currentPhase)
+        {
+            return false;
+        }
+
         if($prevPhase)
         {
             // delete current phase history
-            $case->activePhase()->delete();
+            $case->phaseHistory()->detach($currentPhase->id);
 
             // update current phase
             $case->phase()->associate($prevPhase)->save();
