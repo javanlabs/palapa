@@ -1,9 +1,31 @@
 @extends('layouts.frontend.frontend')
 @section('content')
-    <h2>Statistik Kasus</h2>
+
     @include('backend.dashboard.tab', ['active' => 'byStatus'])
 
     <div id="chart" style="width: 100%; height: 300px"></div>
+
+    <hr/>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>Bulan</th>
+                <th>Kasus Baru</th>
+                <th>Kasus Ditutup</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($stat as $row)
+            <tr>
+                <td>{{ $row['month'] }} {{ $row['year'] }}</td>
+                <td>{{ $row['open'] }}</td>
+                <td>{{ $row['close'] }}</td>
+            </tr>
+            @endforeach
+            <tr></tr>
+        </tbody>
+    </table>
 @stop
 
 
@@ -32,8 +54,19 @@
             valueAxis: [
                 {label:{format:'fixedPoint'}},
             ],
-            dataSource: {{ $stat['data'] }},
-            series: {{ $stat['series'] }},
+            dataSource: {{ json_encode($stat) }},
+            series: [
+                {
+                    valueField: 'open',
+                    name: 'Kasus Baru',
+                    color: '{{ Config::get('color.green') }}'
+                },
+                {
+                    valueField: 'close',
+                    name: 'Kasus Ditutup',
+                    color: '{{ Config::get('color.yellow') }}'
+                }
+            ],
             tooltip: {
                 enabled: true,
                 format:'fixedPoint'
