@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddIconToSopPhase extends Migration {
+class AlterTableCasesChecklistAddCreatedAt extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class AddIconToSopPhase extends Migration {
 	 */
 	public function up()
 	{
-        Schema::table('sop_phase', function($table)
+        Schema::table('cases_checklist', function($table)
         {
-            $table->string('icon');
+            $table->timestamps();
         });
 	}
 
@@ -25,9 +25,9 @@ class AddIconToSopPhase extends Migration {
 	 */
 	public function down()
 	{
-        Schema::table('sop_phase', function($table)
+        Schema::table('cases_checklist', function($table)
         {
-            $table->dropColumn('icon');
+            $table->dropColumn('created_at', 'updated_at');;
         });
 	}
 

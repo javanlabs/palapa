@@ -66,7 +66,7 @@
             </tr>
             @endforeach
         </table>
-        
+
 
         @if(Auth::check())
             {{ Form::open(['route' => ['backend.cases.activity', $case['id']], 'method' => 'post', 'role'=>'form']) }}
@@ -107,19 +107,25 @@
     <div class="col-md-5">
         <div class="panel panel-default">
             @foreach($phases as $phase)
-            <div class="panel-heading">{{ $phase['name'] }}</div>
+            <div class="panel-heading"><strong>{{ $phase['name'] }}</strong></div>
             <ul class="list-group {{ (($phase->id > $case['phase']['id']) && $phase->id != $case['phase_id'])?'disabled':'' }}">
                 @foreach($phase['checklist'] as $item)
 
                     @if(in_array($item['id'], $checklistIds))
                         <li class="list-group-item list-group-item-success">
-                            <div class="checkbox">
-                                <i class="fa fa-check"></i>
-                                {{ $item['name'] }}
-                                @foreach($item->templates as $row)
-                                    {{$row->title}}
-                                @endforeach
-                            </div>
+
+                            @if($case->isLatestChecklist($item))
+                            {{ Form::open(['route' => ['backend.cases.unchecklist', $case->id, $item['id']], 'method' => 'post', 'class' => 'pull-right']) }}
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                            {{ Form::submit('Batal', ['class' => 'btn btn-link']) }}
+                            {{ Form::close() }}
+                            @endif
+
+                            <i class="fa fa-check"></i>
+                            {{ $item['name'] }}
+                            @foreach($item->templates as $row)
+                                {{$row->title}}
+                            @endforeach
                         </li>
                     @else
                         <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.checklist', [$case['id'], $item['id']]) }}">
@@ -127,7 +133,7 @@
                                 <label>
                                     <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
                                     {{ $item['name'] }}
-                                    
+
                                     @if($phase->id == $case['phase_id'])
                                         <?php $remaining = $case->checklistRemaining($item) ?>
                                         &nbsp;&nbsp;
@@ -141,7 +147,7 @@
                             </div>
                         </li>
                     @endif
-                    
+
                 @endforeach
             </ul>
             @endforeach
@@ -166,7 +172,7 @@
     <style>
         .case-info {font-size: 1.2em;}
         .case-info dd, .case-info dt {line-height: 2em;}
-        .list-group-item {
+        .list-group-item.item-checklist {
             padding: 1px 10px;
         }
         .fa-check {color: #090}
@@ -177,7 +183,7 @@
     </style>
 @stop
 
-@if(Auth::check()))
+@if(Auth::check())
 
 @section('script-end')
     @parent
