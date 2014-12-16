@@ -1,6 +1,5 @@
 <?php namespace App\Providers;
 
-use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
@@ -27,6 +26,7 @@ class AppServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Lookup\RepositoryInterface', 'App\Lookup\EloquentRepository');
 		$this->app->bind('App\Cases\RepositoryInterface', 'App\Cases\EloquentRepository');
 		$this->app->bind('App\Sop\RepositoryInterface', 'App\Sop\EloquentRepository');
+
 	}
 
 }
