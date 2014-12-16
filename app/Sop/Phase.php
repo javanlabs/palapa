@@ -18,6 +18,11 @@ class Phase extends Model {
         return $this->where('ordinal', '>', $this->ordinal)->orderBy('ordinal', 'asc')->first();
     }
 
+    public function prevPhase()
+    {
+        return $this->where('ordinal', '<', $this->ordinal)->orderBy('ordinal', 'desc')->first();
+    }
+
     public function close()
     {
         $this->finish_date = Carbon::now()->toDateString();

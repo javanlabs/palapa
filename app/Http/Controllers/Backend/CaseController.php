@@ -81,8 +81,8 @@ class CaseController extends BackendController {
         $case = $this->repo->find($id);
         $phases = $this->sopRepo->all();
         $activities = $this->repo->activities($case);
-        $checklistIds = $case->checklist->lists('id');  
-        $templates = Template::optionsSelect();      
+        $checklistIds = $case->checklist->lists('id');
+        $templates = Template::optionsSelect();
         return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates'));
     }
 
@@ -111,6 +111,16 @@ class CaseController extends BackendController {
         $data['status'] = 1;
 
         return response()->json($data);
+    }
+
+    public function postUnchecklist($caseId, $checklistId)
+    {
+        $case = $this->repo->find($caseId);
+        $checklist = Checklist::findOrFail($checklistId);
+
+        $this->sopRepo->removeChecklist($case, $checklist);
+
+        return redirect()->back();
     }
 
     public function postActivity(Request $request, $caseId)

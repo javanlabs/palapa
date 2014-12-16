@@ -36,7 +36,7 @@ class Cases extends Model {
 
     public function checklist()
     {
-        return $this->belongsToMany('App\Sop\Checklist', 'cases_checklist', 'case_id', 'checklist_id')->withPivot('date', 'note')->orderBy('date', 'desc');
+        return $this->belongsToMany('App\Sop\Checklist', 'cases_checklist', 'case_id', 'checklist_id')->withPivot('date', 'note')->withTimestamps();
     }
 
     public function activities()
@@ -76,10 +76,41 @@ class Cases extends Model {
         }
     }
 
+    public function reopenPhase($phase)
+    {
+        foreach($this->phaseHistory as $history)
+        {
+            if($history->id === $phase->id)
+            {
+                $history->pivot->finish_date = null;
+                $history->pivot->save();
+            }
+        }
+    }
+
     public function checklistRemaining($checklist)
     {
-        $phaseAge = Carbon::createFromFormat('Y-m-d', $this->activePhase()->first()->pivot->start_date)->diffInDays(new Carbon());
-        return $checklist['duration'] - $phaseAge;
+        $activePhase = $this->activePhase()->first();
+
+        if($activePhase)
+        {
+            $phaseAge = Carbon::createFromFormat('Y-m-d', $activePhase->pivot->start_date)->diffInDays(new Carbon());
+            return $checklist['duration'] - $phaseAge;
+        }
+
+        return false;
+    }
+
+    public function isLatestChecklist($checklist)
+    {
+        $lastChecklist = $this->checklist()->orderBy('created_at', 'desc')->first();
+
+        if($lastChecklist)
+        {
+            return $lastChecklist->id == $checklist->id;
+        }
+
+        return false;
     }
 
     public function addActivity($title, $content, $checklist = null)
@@ -97,5 +128,10 @@ class Cases extends Model {
         }
 
         return true;
+    }
+
+    public function removeActivity($checklist)
+    {
+        return $this->activities()->where('checklist_id', '=', $checklist->id)->delete();
     }
 }

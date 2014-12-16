@@ -41,6 +41,20 @@ class EloquentRepository implements RepositoryInterface {
         return true;
     }
 
+    public function removeChecklist($case, $checklist)
+    {
+        $case->checklist()->detach($checklist);
+
+        $case->removeActivity($checklist);
+
+        if($checklist->is_next)
+        {
+            $this->decrementPhase($case, $checklist);
+        }
+
+        return true;
+    }
+
     public function incrementPhase($case, $checklist)
     {
         $currentPhase = $checklist->phase;
@@ -56,6 +70,30 @@ class EloquentRepository implements RepositoryInterface {
 
             // add new phase to history
             $case->phaseHistory()->attach($nextPhase, ['start_date' => new Carbon()]);
+        }
+        else
+        {
+            $case->close();
+        }
+
+        return true;
+    }
+
+    public function decrementPhase($case, $checklist)
+    {
+        $currentPhase = $case->phase;
+        $prevPhase = $currentPhase->prevPhase();
+
+        if($prevPhase)
+        {
+            // delete current phase history
+            $case->activePhase()->delete();
+
+            // update current phase
+            $case->phase()->associate($prevPhase)->save();
+
+            // set current phase finish_date to null
+            $case->reopenPhase($prevPhase);
         }
         else
         {
