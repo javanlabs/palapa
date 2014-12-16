@@ -167,7 +167,7 @@
     </style>
 @stop
 
-@if(Auth::check()))
+@if(Auth::check())
 
 @section('script-end')
     @parent
