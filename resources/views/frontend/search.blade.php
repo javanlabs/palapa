@@ -14,7 +14,17 @@
 
 <div class="container-fluid">
     <div class="panel panel-default">
-        <div class="panel-heading">{{ count($cases) }} kasus ditemukan</div>
+        <div class="panel-heading">
+            {{ count($cases) }} kasus ditemukan
+            <div class="pull-right" style="font-size: .9em">
+                <i class="fa fa-square success" style="color: {{ Config::get('color.green') }}"></i> Tepat Waktu
+                &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-square warning" style="color: {{ Config::get('color.yellow') }}"></i> Hampir Terlambat
+                &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-square danger" style="color: {{ Config::get('color.red') }}"></i> Terlambat
+            </div>
+        </div>
+
         @if(count($cases) > 0)
     <table class="table table-bordered">
         <thead>
