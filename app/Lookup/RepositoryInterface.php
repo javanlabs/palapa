@@ -6,5 +6,4 @@ interface RepositoryInterface {
 
     public function religions();
 
-    public function cities();
 }

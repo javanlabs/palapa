@@ -58,6 +58,11 @@ class Cases extends Model {
         return $this->belongsToMany('App\Sop\Phase', 'cases_phases_history', 'case_id', 'phase_id')->withPivot('start_date', 'finish_date')->orderBy('start_date')->whereNull('finish_date');
     }
 
+    public function suspectCity()
+    {
+        return $this->belongsTo('Eendonesia\Wilayah\Kabupaten', 'suspect_city_id');
+    }
+
     public function close()
     {
         $this->finish_date = Carbon::now()->toDateString();

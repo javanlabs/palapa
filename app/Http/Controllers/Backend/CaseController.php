@@ -7,10 +7,9 @@ use App\Officer\RepositoryInterface as OfficerRepository;
 use App\Sop\Checklist;
 use App\Sop\RepositoryInterface as SopRepository;
 use Eendonesia\Moderator\RepositoryInterface as ModeratorRepository;
+use Eendonesia\Wilayah\Kabupaten;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\View;
 use App\Model\Template;
 
@@ -63,7 +62,7 @@ class CaseController extends BackendController {
     {
         $jaksaLookup = $this->officer->jaksa();
         $staffLookup = $this->moderator->usersByGroups('staff')->lists('name', 'id');
-        $cities = $this->lookup->cities();
+        $cities = Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
 
         return view('backend.cases.create', compact('jaksaLookup', 'staffLookup', 'cities', 'religions'));

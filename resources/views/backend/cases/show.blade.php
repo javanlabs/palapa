@@ -33,8 +33,12 @@
                 <dd>{{ $case['suspect_religion'] }}</dd>
                 <dt>Alamat :</dt>
                 <dd>{{ $case['suspect_address'] }}<br/>
-                    {{ $case['suspect_city_id'] }}<br/>                    
+                    {{ $case['suspect_city_id'] }}<br/>
                 </dd>
+                <dt>Kota :</dt>
+                <dd>{{ $case['suspect_city_name'] }}</dd>
+                <dt>Provinsi :</dt>
+                <dd>{{ $case['suspect_province_name'] }}</dd>
                 <dt>Kewarganegaraan :</dt>
                 <dd>{{ $case['suspect_nationality'] }}</dd>
                 <dt>Pendidikan :</dt>

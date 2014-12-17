@@ -117,4 +117,24 @@ trait Presenter {
 
         return $status;
     }
+
+    public function getSuspectCityNameAttribute()
+    {
+        if($this->suspect_city)
+        {
+            return $this->suspect_city->nama;
+        }
+
+        return false;
+    }
+
+    public function getSuspectProvinceNameAttribute()
+    {
+        if($this->suspect_city && $this->suspect_city->provinsi)
+        {
+            return $this->suspect_city->provinsi->nama;
+        }
+
+        return false;
+    }
 }

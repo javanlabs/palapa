@@ -24,8 +24,4 @@ class EloquentRepository implements RepositoryInterface {
         return array_combine($religions, $religions);
     }
 
-    public function cities()
-    {
-        return \DB::table('wilayah_kabupaten')->orderBy('nama')->lists('nama', 'id');
-    }
 }
