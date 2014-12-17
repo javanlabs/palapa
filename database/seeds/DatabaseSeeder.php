@@ -192,7 +192,7 @@ class OfficerSeeder extends Seeder {
                 'name'       => $faker->name,
                 'nip'        => $faker->randomNumber(9),
                 'pangkat_id' => rand(1, 9),
-                'jabatan_id' => rand(10, 11),
+                'jabatan_id' => rand(101, 102),
                 'created_at' => $now,
                 'updated_at' => $now
             ];
