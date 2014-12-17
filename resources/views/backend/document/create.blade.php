@@ -31,9 +31,10 @@
     <div class="col-md-10">
         <div style="width:215mm; height:330mm; margin: 0 auto">
             <h2 class="hidden-print">{{ $template->title }}</h2>
-            {{ BootForm::open()->action(route('backend.document.store'))->attribute('class', 'hidden-print') }}
+            {{ BootForm::open()->action(route('backend.document.store'))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 <input type='hidden' name='case_id' value='{{$case->id}}'/>
+                <input type='hidden' name='title' value='{{ $title }}'/>
                 {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($content) }}
                 {{ BootForm::submit('Submit') }}
             {{ BootForm::close() }}
@@ -43,7 +44,7 @@
         </div>
     </div>
     <div class="col-md-2 hidden-print" style="padding-top: 100px">
-        <a class="btn btn-primary btn-block" href="#">Simpan</a>
+        <a class="btn btn-primary btn-block btn-save" href="#">Simpan</a>
         <hr />
         <a class="btn btn-default btn-block" href="#" id="btnPreview" data-toggle="modal" data-target=".modal-preview"><i class="fa fa-eye"></i> Preview</a>
         <a class="btn btn-success btn-block btn-print" href="#"><i class="fa fa-print"></i> Print</a>
@@ -85,6 +86,11 @@
                 $('.preview-container').html($('#content').redactor('code.get'))
                 window.print();
             })
+
+            $('.btn-save').on('click', function(e){
+                e.preventDefault();
+                $('#formEditor').submit();
+            });
 
             $('#btnPreview').on('click', function (e) {
                 e.preventDefault();

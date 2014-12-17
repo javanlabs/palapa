@@ -83,27 +83,28 @@
             </div>
             {{ Form::close() }}
         @endif
-    <table class="table table-striped">
+
+        <table class="table table-striped">
             <caption>Dokumen</caption>
-            @foreach($activities as $item)
+            @foreach($documents as $item)
             <tr>
-                <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
+                <td width="130px"><small class="text-muted">{{ $item['created_at'] }}</small></td>
                 <td>
-                    <strong>{{ $item['name'] }}</strong>
-                    <p>{{ $item['note'] }}</p>
+                    <strong>{{ $item['title'] }}</strong>
                 </td>
             </tr>
             @endforeach
         </table>
+
             @if(Auth::check())
             {{ Form::open(["url"=>'/backend/document/create', 'method' => 'get', 'role'=>'form']) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
             {{Form::hidden('case_id',$case->id)}}
-            <div class="form-group">
+            <div class="pull-left">
                 {{ Form::select('template_id', $templates , ['class' => 'form-control', 'rows' => 3]) }}
             </div>
-            <div class="text-right">
-                {{ Form::submit('Buat', ['class' => 'btn btn-primary']) }}
+            <div class="pull-right">
+                {{ Form::submit('Buat Dokumen', ['class' => 'btn btn-primary']) }}
             </div>
             {{ Form::close() }}
         @endif
