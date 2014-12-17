@@ -79768,7 +79768,7 @@ DROP TABLE IF EXISTS `wilayah_kabupaten`;
 
 CREATE TABLE `wilayah_kabupaten` (
   `id` varchar(4) NOT NULL,
-  `id_prov` varchar(2) NOT NULL,
+  `id_provinsi` varchar(2) NOT NULL,
   `nama` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
 )  DEFAULT CHARSET=latin1;
@@ -79776,7 +79776,7 @@ CREATE TABLE `wilayah_kabupaten` (
 LOCK TABLES `wilayah_kabupaten` WRITE;
 /*!40000 ALTER TABLE `wilayah_kabupaten` DISABLE KEYS */;
 
-INSERT INTO `wilayah_kabupaten` (`id`, `id_prov`, `nama`)
+INSERT INTO `wilayah_kabupaten` (`id`, `id_provinsi`, `nama`)
 VALUES
 	('1101','11','Kab. Simeulue'),
 	('1102','11','Kab. Aceh Singkil'),
