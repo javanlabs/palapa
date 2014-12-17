@@ -1,10 +1,19 @@
 <?php namespace App\Http\Controllers\Backend;
 
+use App\Setting;
+use Illuminate\Http\Request;
+
 class SettingController extends BackendController {
 
-    public function getIndex()
+    public function index()
     {
-        return view('backend.setting.index')->with('page', 'backend-setting');
+        $setting = Setting::lists('value', 'key');
+        return view('backend.setting.index', compact('setting'))->with('page', 'backend-setting');
     }
 
+    public function store(Request $request)
+    {
+        with(new Setting())->saveAll($request->all());
+        return redirect()->back();
+    }
 }

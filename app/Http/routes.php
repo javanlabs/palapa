@@ -38,7 +38,8 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
     $router->get('dashboard/byStatus', ['as' => 'dashboard.byStatus', 'uses' => 'DashboardController@getByStatus']);
     $router->get('dashboard/byJaksa', ['as' => 'dashboard.byJaksa', 'uses' => 'DashboardController@getByJaksa']);
 
-    $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@getIndex']);
+    $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@index']);
+    $router->post('setting', ['as' => 'setting.store', 'uses' => 'SettingController@store']);
 
     $router->resource('templates', 'TemplatesController');
     $router->resource('document', 'DocumentController');
