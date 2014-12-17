@@ -137,4 +137,9 @@ trait Presenter {
 
         return false;
     }
+
+    public function getTypeNameAttribute()
+    {
+        return $this->type->name;
+    }
 }

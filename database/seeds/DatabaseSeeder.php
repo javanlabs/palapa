@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder {
 		 $this->call('RoleSeeder');
 		 $this->call('PangkatSeeder');
 		 $this->call('JabatanSeeder');
+		 $this->call('JenisKasusSeeder');
 		 $this->call('OfficerSeeder');
 		 $this->call('SopSeeder');
          $this->call('TemplateSeeder');
@@ -151,8 +152,25 @@ class JabatanSeeder extends Seeder {
 
         DB::table('lookups')->whereType($type)->delete();
         $pangkat = [
-            ['name'  => 'Jaksa Penuntut Umum', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['name'  => 'Jaksa Penuntut Khusus', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 101, 'name'  => 'Jaksa Penuntut Umum', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 102, 'name'  => 'Jaksa Penuntut Khusus', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+        ];
+        return DB::table('lookups')->insert($pangkat);
+    }
+}
+
+class JenisKasusSeeder extends Seeder {
+
+    public function run()
+    {
+        $now = Carbon::now()->toDateTimeString();
+        $type = 'kasus';
+
+        DB::table('lookups')->whereType($type)->delete();
+        $pangkat = [
+            ['id' => 201, 'name'  => 'Pidana Umum', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 202, 'name'  => 'Perdata', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 204, 'name'  => 'Pidana Khusus', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
         ];
         return DB::table('lookups')->insert($pangkat);
     }

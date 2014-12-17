@@ -29,6 +29,11 @@ class Cases extends Model {
         return $this->belongsTo('Eendonesia\Moderator\Models\User', 'staff_id');
     }
 
+    public function type()
+    {
+        return $this->belongsTo('App\Lookup\Lookup', 'type_id');
+    }
+
     public function phase()
     {
         return $this->belongsTo('App\Sop\Phase', 'phase_id');

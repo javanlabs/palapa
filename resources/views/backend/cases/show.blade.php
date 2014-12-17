@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-md-8">
-            <h3><i class="fa fa-check-square-o"></i> #{{ $case['spdp_number'] }}</h3>
+            <h3><i class="fa fa-check-square-o"></i> #{{ $case['spdp_number'] }} <span class="label label-primary">{{ $case['type_name'] }}</span></h3>
         </div>
         <div class="col-md-4 text-right">
             <button class="btn btn-default" onclick="javascript:window.close();"><i class="fa fa-times"></i> Tutup Halaman Ini</button>
