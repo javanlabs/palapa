@@ -181,22 +181,92 @@ class OfficerSeeder extends Seeder {
     public function run()
     {
         $now = Carbon::now()->toDateTimeString();
-        $faker = Factory::create();
 
         DB::table('officers')->truncate();
 
-        $officers = [];
-        for($i=0;$i<20;$i++)
-        {
-            $officers[] = [
-                'name'       => $faker->name,
-                'nip'        => $faker->randomNumber(9),
-                'pangkat_id' => rand(1, 9),
-                'jabatan_id' => rand(101, 102),
+        $officers = [
+            [
+                'name'       => "Eko Wahyudi, S.H., M.H.",
+                'nip'        => "19800506 200501 1 006",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
                 'created_at' => $now,
                 'updated_at' => $now
-            ];
-        }
+            ],
+            [
+                'name'       => "Reza Prasetya Nitisasmita, S.H.",
+                'nip'        => "197807726 200212 1 004",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "Endah Puspitorini, SH.",
+                'nip'        => "19820419 20050 1 2010",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "Adik Sri Sumarsih, S.H., M.M.",
+                'nip'        => "19710916 199803 2 002",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "Anak Agung Gede Hendrawan, S.H.",
+                'nip'        => "19811023 200603 1 002",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "Lusiana, S.H.",
+                'nip'        => "19730725 200003 2 002",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "I Made Adi Sudiantara, S.H.",
+                'nip'        => "19691110 199803 1 001",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "Danni Arthana, S.H.",
+                'nip'        => "19801209 200702 1 001",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "Eko Tjahjono, S.H., M.H.",
+                'nip'        => "19671229 198803 1 002",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "Tendik Wicaksono, S.H., M.H.",
+                'nip'        => "19781024 200501 1 004",
+                'pangkat_id' => "",
+                'jabatan_id' => "",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+
+        ];
 
         return DB::table('officers')->insert($officers);
     }
