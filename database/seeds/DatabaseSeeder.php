@@ -32,6 +32,12 @@ class DatabaseSeeder extends Seeder {
 
 }
 
+class PostSeeder extends Seeder{
+    public function run(){
+
+    }
+}
+
 class TemplateSeeder extends Seeder{
     public function run(){
         DB::table('templates')->truncate();
@@ -82,7 +88,7 @@ class StaffSeeder extends Seeder {
     public function run()
     {
         $user = [
-            'name'  => 'Staff',
+            'name'  => 'Staff Administrasi',
             'email'  => 'staff@palapa.dev',
             'password'  => Hash::make('staff')
         ];
@@ -188,80 +194,80 @@ class OfficerSeeder extends Seeder {
             [
                 'name'       => "Eko Wahyudi, S.H., M.H.",
                 'nip'        => "19800506 200501 1 006",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "3",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "Reza Prasetya Nitisasmita, S.H.",
                 'nip'        => "197807726 200212 1 004",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "1",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "Endah Puspitorini, SH.",
                 'nip'        => "19820419 20050 1 2010",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "3",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "Adik Sri Sumarsih, S.H., M.M.",
                 'nip'        => "19710916 199803 2 002",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "4",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "Anak Agung Gede Hendrawan, S.H.",
                 'nip'        => "19811023 200603 1 002",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "3",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "Lusiana, S.H.",
                 'nip'        => "19730725 200003 2 002",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "4",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "I Made Adi Sudiantara, S.H.",
                 'nip'        => "19691110 199803 1 001",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "4",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "Danni Arthana, S.H.",
                 'nip'        => "19801209 200702 1 001",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "2",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "Eko Tjahjono, S.H., M.H.",
                 'nip'        => "19671229 198803 1 002",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "5",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'name'       => "Tendik Wicaksono, S.H., M.H.",
                 'nip'        => "19781024 200501 1 004",
-                'pangkat_id' => "",
-                'jabatan_id' => "",
+                'pangkat_id' => "3",
+                'jabatan_id' => "101",
                 'created_at' => $now,
                 'updated_at' => $now
             ],
