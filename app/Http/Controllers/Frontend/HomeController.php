@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Frontend;
 
+use App\Lookup\Lookup;
 use App\Officer\Officer;
 use App\Sop\RepositoryInterface;
 use Illuminate\Http\Request;
@@ -22,10 +23,13 @@ class HomeController extends Controller {
         	if($jaksa)
         		$keyword = $jaksa->name;
         }
-        $cases = $repository->search($request->get('q'), $request->get('type'));
+
+        $cases = $repository->search($request->get('q'), $request->get('type', 'all'));
         $phases = $sop->all();
 
-		return view('frontend.search', compact('cases', 'phases'))->with('page', 'search')->with('keyword',$keyword);
+		$caseType = Lookup::whereType(Lookup::TYPE_KASUS)->lists('name', 'id');
+
+		return view('frontend.search', compact('cases', 'phases', 'caseType'))->with('page', 'search')->with('keyword',$keyword);
 	}
 
 	public function getOrganization()

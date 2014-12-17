@@ -4,12 +4,28 @@
     <div class="container-fluid text-center" style="margin-bottom: 20px">
         <h1 style="font-weight: 300">Cari Kasus</h1>
 
-        {{ Form::open(['route' => 'frontend.search', 'method' => 'get', 'role' => 'form']) }}
-        <div class="form-group">
-            <input type="text" class="form-control input-lg input-block" name="q" value="{{ ($keyword)?$keyword:Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
-        </div>
+            {{ Form::open(['route' => 'frontend.search', 'method' => 'get', 'role' => 'form']) }}
+		    <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">Semua Kasus</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach($caseType as $id => $name)
+                        <li><a href="#">{{ $name }}</a></li>
+                        @endforeach
+                    </ul>
 
-        {{ Form::close() }}
+                </div>
+                <input type="hidden" name="type" value="all" id="searchType">
+                <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
+
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+            {{ Form::close() }}
+
     </div>
 
 <div class="container-fluid">
