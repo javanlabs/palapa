@@ -13,12 +13,13 @@ class CreateTableLookups extends Migration {
 	public function up()
 	{
         Schema::create('lookups', function(Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedInteger('id');
             $table->string('type');
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();
 
+            $table->index('id');
             $table->index('type');
         });
 	}
