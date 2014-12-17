@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Model\Template;
+use Input;
 
 class CaseController extends BackendController {
 
@@ -73,6 +74,21 @@ class CaseController extends BackendController {
         $this->repo->create($form->all(), Auth::user());
 
         return redirect()->route('frontend.search');
+    }
+
+    public function edit($id){
+        $case = $this->repo->find($id);
+        $jaksaLookup = $this->officer->jaksa();
+        $staffLookup = $this->moderator->usersByGroups('staff')->lists('name', 'id');
+        $cities = Kabupaten::lists('nama', 'id');
+        $religions = $this->lookup->religions();
+
+        return view('backend.cases.edit', compact('case', 'jaksaLookup', 'staffLookup', 'cities', 'religions'));
+    }   
+
+    public function update(Form $form, $id){        
+        $this->repo->update($id, $form->all());
+        return redirect()->route('backend.cases.show', $id);
     }
 
     public function show($id)
