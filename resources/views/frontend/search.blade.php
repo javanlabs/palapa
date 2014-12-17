@@ -77,6 +77,7 @@
             @if(Auth::check())
             <td class="text-center">
                 <a class="btn btn-default btn-sm" href="{{ $item['permalink'] }}" target="_blank">Edit <i class="fa fa-chevron-right"></i></a>
+                {{ Form::delete(route('backend.cases.delete', $item['id']), 'Hapus', [], ['class' => 'btn btn-link btn-xs']) }}
             </td>
             @endif
         </tr>
