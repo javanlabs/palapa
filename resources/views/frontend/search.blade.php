@@ -4,24 +4,25 @@
     <div class="container-fluid text-center" style="margin-bottom: 20px">
         <h1 style="font-weight: 300">Cari Kasus</h1>
 
-            {{ Form::open(['route' => 'frontend.search', 'method' => 'get', 'role' => 'form']) }}
+            {{ Form::open(['route' => 'frontend.search', 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
 		    <div class="input-group">
                 <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    	<span id="search_concept">Semua Kasus</span> <span class="caret"></span>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width: 150px">
+                    	<span class="type-label">{{ $typeLabel }}</span> <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
+                        <li><a href="#" data-id="all">Semua Kasus</a></li>
                         @foreach($caseType as $id => $name)
-                        <li><a href="#">{{ $name }}</a></li>
+                        <li><a href="#" data-id="{{ $id }}">{{ $name }}</a></li>
                         @endforeach
                     </ul>
 
                 </div>
-                <input type="hidden" name="type" value="all" id="searchType">
+                <input type="hidden" name="type" value="all">
                 <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
 
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-default" type="submit"><span class="fa fa-search"></span></button>
                 </span>
             </div>
             {{ Form::close() }}
@@ -93,6 +94,12 @@
     $(function(){
         $('[data-toggle="tooltip"]').tooltip({container:'body'})
         $('.progress-bar').popover({trigger: 'hover', placement:'top', html:true})
+
+        $('#formSearch').on('click', '.dropdown-menu li a', function(e){
+            e.preventDefault();
+            $('#formSearch input[name=type]').val($(this).data('id'));
+            $('#formSearch .type-label').html($(this).html());
+        });
     });
     </script>
 @stop

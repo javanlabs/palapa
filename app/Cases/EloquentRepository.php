@@ -64,6 +64,11 @@ class EloquentRepository implements RepositoryInterface {
         }
         else
         {
+            if($type != 'all')
+            {
+                $query->where('type_id', '=', $type);
+            }
+
             if($keyword)
             {
                 $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('suspect_name', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');

@@ -28,8 +28,13 @@ class HomeController extends Controller {
         $phases = $sop->all();
 
 		$caseType = Lookup::whereType(Lookup::TYPE_KASUS)->lists('name', 'id');
+		$typeLabel = 'Semua Kasus';
+		if(isset($caseType[$request->get('type')]))
+		{
+			$typeLabel = $caseType[$request->get('type')];
+		}
 
-		return view('frontend.search', compact('cases', 'phases', 'caseType'))->with('page', 'search')->with('keyword',$keyword);
+		return view('frontend.search', compact('cases', 'phases', 'caseType', 'typeLabel'))->with('page', 'search')->with('keyword',$keyword);
 	}
 
 	public function getOrganization()
