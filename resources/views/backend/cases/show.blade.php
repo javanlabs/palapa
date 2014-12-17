@@ -54,6 +54,7 @@
                 <dt>Status :</dt>
                 <dd><span class="label label-primary">{{ $case['status_name'] }}</span></dd>
             </dl>
+            <a href="/backend/cases/edit/{{$case->id}}">Ubah Data</a>
         </div>
 
         <hr/>
