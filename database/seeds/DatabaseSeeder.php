@@ -211,11 +211,11 @@ class SopSeeder extends Seeder {
 
         DB::table('sop_phase')->insert(
             [
-                ['id' => 1, 'name' => 'SPDP', 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 2, 'name' => 'Tahap 1', 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
-                ['id' => 3, 'name' => 'Tahap 2', 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
-                ['id' => 4, 'name' => 'Penuntutan', 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
-                ['id' => 5, 'name' => 'Persidangan', 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 1, 'name' => 'SPDP', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
+                ['id' => 2, 'name' => 'Tahap 1', 'duration' => 7, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
+                ['id' => 3, 'name' => 'Tahap 2', 'duration' => 7, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
+                ['id' => 4, 'name' => 'Penuntutan', 'duration' => 30, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
+                ['id' => 5, 'name' => 'Persidangan', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
             ]
         );
 
