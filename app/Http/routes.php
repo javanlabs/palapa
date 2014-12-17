@@ -34,6 +34,8 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
 
     $router->post('cases/{caseId}/activities', ['as' => 'backend.cases.activity', 'uses' => 'CaseController@postActivity']);
 
+    $router->delete('cases/{caseId}', ['as' => 'backend.cases.delete', 'uses' => 'CaseController@destroy']);
+
     $router->get('dashboard/index', ['as' => 'dashboard.index', 'uses' => 'DashboardController@getIndex']);
     $router->get('dashboard/byPhase', ['as' => 'dashboard.byPhase', 'uses' => 'DashboardController@getByPhase']);
     $router->get('dashboard/byStatus', ['as' => 'dashboard.byStatus', 'uses' => 'DashboardController@getByStatus']);
