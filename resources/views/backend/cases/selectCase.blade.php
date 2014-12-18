@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                {{ Form::open(['route' => 'backend.cases.create', 'method' => 'get']) }}
+                {{ Form::open(['route' => 'backend.cases.create', 'method' => 'get', 'id' => 'formSelectCase']) }}
                 {{ Form::hidden('type', '', ['id' => 'inputType']) }}
                 <button class="btn btn-default btn-next" disabled type="submit">Lanjut <i class="fa fa-chevron-right"></i></button>
                 {{ Form::close() }}
@@ -76,6 +76,11 @@
 
                 $('#modalSelectCase .btn-next').removeAttr('disabled');
                 $('#inputType').val($(this).data('id'));
+            });
+
+            $('#modalSelectCase a.list-group-item').dblclick(function(e) {
+                $('#inputType').val($(this).data('id'));
+                $('#formSelectCase').submit();
             });
         });
     </script>

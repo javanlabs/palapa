@@ -39,7 +39,9 @@
 @stop
 
 @section('script-end')
+    @parent
     <script src="{{ asset('vendor/redactor/redactor.min.js') }}"></script>
+    <script src="{{ asset('vendor/redactor/plugins/underline.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>
     <script>
@@ -48,7 +50,7 @@
             $('#content').redactor({
                 minHeight: 400,
                 buttonSource: true,
-                plugins: ['table', 'fullscreen'],
+                plugins: ['underline', 'table', 'fullscreen'],
                 imageUpload: '/skrip/uploadImage?_token={{ csrf_token() }}',
             });
 
