@@ -16,7 +16,8 @@ class CreateCasesDocumentsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->unsignedInteger('case_id');
-			$table->string('title');            
+			$table->unsignedInteger('template_id');
+			$table->string('title');
             $table->text('content');
 			$table->timestamps();
 		});
@@ -28,7 +29,7 @@ class CreateCasesDocumentsTable extends Migration {
 	 * @return void
 	 */
 	public function down()
-	{		
+	{
 		Schema::table('cases_documents', function(Blueprint $table) {
             $table->drop();
         });
