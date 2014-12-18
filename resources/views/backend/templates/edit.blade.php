@@ -39,6 +39,7 @@
 @stop
 
 @section('script-end')
+    @parent
     <script src="{{ asset('vendor/redactor/redactor.min.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>
