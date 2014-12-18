@@ -98,7 +98,7 @@ class CaseController extends BackendController {
         $phases = $this->sopRepo->all();
         $activities = $this->repo->activities($case);
         $checklistIds = $case->checklist->lists('id');
-        $templates = Template::optionsSelect();
+        $templates = Template::optionsSelect($case->type_id);
         $documents = $case->documents;
 
         return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'documents'));
