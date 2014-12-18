@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <h2>Ubah Template</h2>
         {{ BootForm::open()->put()->action(route('backend.templates.update', [$template->id])) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
@@ -27,7 +27,7 @@
             $('#content').redactor({
                 minHeight: 400,
                 plugins: ['table', 'fullscreen'],
-                imageUpload: '/skrip/uploadImage?_token={{ csrf_token() }}',                
+                imageUpload: '/skrip/uploadImage?_token={{ csrf_token() }}',
             });
         });
     </script>

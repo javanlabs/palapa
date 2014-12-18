@@ -1,7 +1,7 @@
 @extends('layouts.frontend.frontend')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <h2>Template Surat</h2>
     <a href="{{ route('backend.templates.create') }}">Buat Template</a>
     <table class="table">
@@ -9,7 +9,7 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
-                <th>Author</th>               
+                <th>Author</th>
                 <th>Aksi</th>
             </tr>
         </thead>
