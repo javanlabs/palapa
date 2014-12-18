@@ -1,6 +1,7 @@
 @extends('layouts.frontend.frontend')
 
 @section('style-head')
+    @parent
      <link rel="stylesheet" type="text/css" media="all" href="{{ asset('vendor/bootstrap-datepicker/css/datepicker3.css') }}" />
      <link rel="stylesheet" type="text/css" media="all" href="{{ asset('vendor/select2/select2.css') }}" />
      <link rel="stylesheet" type="text/css" media="all" href="{{ asset('vendor/select2/select2-bootstrap.css') }}" />
@@ -10,6 +11,7 @@
     <div class="container-fluid">
         {{ BootForm::open()->action(route('backend.cases.store')) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            <input type="hidden" name="type_id" value="{{ Input::get('type') }}"/>
 
             <fieldset>
             <h4>Penerimaan SPDP</h4>

@@ -8,3 +8,15 @@
 .progress-bar-{
     background-color: #f5f5f5;
 }
+
+#modalSelectCase .list-group-item .fa-check{
+    color: #ddd;
+    margin-right: 5px;
+}
+#modalSelectCase .list-group-item.active {
+    background-color: #3bafda;
+    color: #fff;
+}
+#modalSelectCase .list-group-item.active .fa-check {
+    color: #fff;
+}

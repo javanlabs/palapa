@@ -4,7 +4,7 @@
     <a class="list-group-item {{ (isset($page) && $page == 'officer')?'active':'' }}" href="{{ route('frontend.officer') }}">Daftar Jaksa</a>
 <?php
 $posts = \Eendonesia\Skrip\Post\Post::where('position','=','main')->where('status','=','published')->get();
-foreach ($posts as $val):		
+foreach ($posts as $val):
 ?>
     <a class="list-group-item {{ (isset($page) && $page == $val->id)?'active':'' }}" href="{{ route('frontend.post',[$val->id]) }}">{{$val->title}}</a>
     <?php endforeach;?>
@@ -13,8 +13,9 @@ foreach ($posts as $val):
 
 @if(Auth::check())
 <ul class="list-group">
-    <a class="list-group-item list-group-item-success {{ (isset($page) && $page == 'backend-cases')?'active':'' }}" href="{{ route('backend.cases.create') }}"><i class="fa fa-plus"></i> Tambah Kasus</a>
+    <a class="list-group-item list-group-item-success {{ (isset($page) && $page == 'backend-cases')?'active':'' }}" href="#" data-toggle="modal" data-target="#modalSelectCase"><i class="fa fa-plus"></i> Tambah Kasus</a>
 </ul>
+    @include('backend.cases.selectCase')
 @endif
 
 <ul class="list-group">
