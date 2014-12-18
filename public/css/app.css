@@ -20,3 +20,5 @@
 #modalSelectCase .list-group-item.active .fa-check {
     color: #fff;
 }
+
+.panel fieldset{margin-bottom: 40px}

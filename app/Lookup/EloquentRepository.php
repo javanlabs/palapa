@@ -13,6 +13,11 @@ class EloquentRepository implements RepositoryInterface {
         $this->lookup = $lookup;
     }
 
+    public function find($id)
+    {
+        return $this->lookup->findOrFail($id);
+    }
+
     public function lists($type)
     {
         return $this->lookup->whereType($type)->lists('name', 'id');

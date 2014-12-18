@@ -65,8 +65,9 @@ class CaseController extends BackendController {
         $staffLookup = $this->moderator->usersByGroups('staff')->lists('name', 'id');
         $cities = Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
+        $type = $this->lookup->find(Input::get('type', 201));
 
-        return view('backend.cases.create', compact('jaksaLookup', 'staffLookup', 'cities', 'religions'));
+        return view('backend.cases.create', compact('jaksaLookup', 'staffLookup', 'cities', 'religions', 'type'));
     }
 
     public function store(Form $form)
@@ -84,9 +85,9 @@ class CaseController extends BackendController {
         $religions = $this->lookup->religions();
 
         return view('backend.cases.edit', compact('case', 'jaksaLookup', 'staffLookup', 'cities', 'religions'));
-    }   
+    }
 
-    public function update(Form $form, $id){        
+    public function update(Form $form, $id){
         $this->repo->update($id, $form->all());
         return redirect()->route('backend.cases.show', $id);
     }
