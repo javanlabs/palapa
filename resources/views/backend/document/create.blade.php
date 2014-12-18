@@ -4,8 +4,8 @@
     @parent
 
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
-    <link rel="stylesheet" media="print" href="{{ asset('css/document-print.css') }}">
-    <link rel="stylesheet" media="screen" href="{{ asset('css/document.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/document.css') }}">
+
     <style>
         #previewContainer{
             display: none;

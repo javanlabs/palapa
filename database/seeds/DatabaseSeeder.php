@@ -50,12 +50,12 @@ class TemplateSeeder extends Seeder{
             [
             'checklist_id' => 1,
             'title' => 'Surat Perintah Penunjukan Petugas Administrasi',
-            'content' => file_get_contents(dirname(__FILE__) . '/templates/p16a.php')            
+            'content' => file_get_contents(dirname(__FILE__) . '/templates/p16a.php')
             ],
             [
             'checklist_id' => 1,
             'title' => 'P19',
-            'content' => '<p><strong>KEJAKSAAN NEGERI JEMBER</strong><b><br> <strong> "UNTUK KEADILAN"</strong></b></p> <table> <tbody><tr> <td> <table> <tbody><tr> <td> <p>Nomor</p> </td> <td> <p>:</p> </td> <td>  </td> </tr> <tr> <td> <p>Sifat</p> </td> <td> <p>:</p> </td> <td> <p>Biasa</p> </td> </tr> <tr> <td> <p>Lampiran</p> </td> <td> <p>:</p> </td> <td> <p>-</p> </td> </tr> <tr> <td> <p>Perihal</p> </td> <td> <p>:</p> </td> <td> <p>Pengembalian perkara pidana atas nama {case.tersangka} melanggar {case.pasal}, untuk dilengkapi</p> </td> </tr> </tbody></table>  </td> <td> <p>Jember, </p><p>KEPADA YTH.</p><p>KEPALA KEPOLISIAN </p><p>DI </p> </td> </tr> </tbody></table> <p>Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {case.tersangka}, Berkas Perkara Nomor: {case.spdp_number} tanggal {case.start_date} yang kami terima tanggal {case.created_at} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:</p><p>Demikian untuk dilaksanakan</p> <table> <tbody><tr> <td>  </td> <td> <p>Dikeluarkan di : Jember</p><p>Pada tanggal : {now()}</p><p>KEPALA KEJAKSAAN NEGERI JEMBER</p> </td> </tr> <tr> <td> <p>Tembusan:</p> <ul><li>1.Yth. Kepala KejaksaanTinggi Jawa Timur</li> <li>2.Yth. Kepala Kepolisian ….</li> <li>3.Arsip.</li></ul> </td> <td>  </td> </tr></tbody></table>'
+            'content' => file_get_contents(dirname(__FILE__) . '/templates/p19.php')
             ],
             [
             'checklist_id' => 1,
