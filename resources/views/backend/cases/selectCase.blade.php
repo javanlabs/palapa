@@ -17,10 +17,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>PERDATA</strong></div>
                             <div class="list-group">
-                                <a class="list-group-item" href="" data-id="202"><i class="fa fa-check"></i> BANKUM</a>
-                                <a class="list-group-item" href="" data-id="203"><i class="fa fa-check"></i> THL</a>
-                                <a class="list-group-item" href="" data-id="204"><i class="fa fa-check"></i> TIMKUM</a>
-                                <a class="list-group-item" href="" data-id="205"><i class="fa fa-check"></i> YANKUM</a>
+                                <a class="list-group-item" href="" data-id="211"><i class="fa fa-check"></i> BANKUM</a>
+                                <a class="list-group-item" href="" data-id="212"><i class="fa fa-check"></i> THL</a>
+                                <a class="list-group-item" href="" data-id="213"><i class="fa fa-check"></i> TIMKUM</a>
+                                <a class="list-group-item" href="" data-id="214"><i class="fa fa-check"></i> YANKUM</a>
                             </div>
                         </div>
                     </div>
@@ -30,11 +30,11 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>PPH</strong></div>
                             <div class="list-group">
-                                <a class="list-group-item" href="" data-id="206"><i class="fa fa-check"></i> BANKUM LITIGASI</a>
-                                <a class="list-group-item" href="" data-id="207"><i class="fa fa-check"></i> BANKUM NON LITIGASI</a>
-                                <a class="list-group-item" href="" data-id="208"><i class="fa fa-check"></i> THL</a>
-                                <a class="list-group-item" href="" data-id="209"><i class="fa fa-check"></i> TIMKUM</a>
-                                <a class="list-group-item" href="" data-id="210"><i class="fa fa-check"></i> YANKUM</a>
+                                <a class="list-group-item" href="" data-id="221"><i class="fa fa-check"></i> BANKUM LITIGASI</a>
+                                <a class="list-group-item" href="" data-id="222"><i class="fa fa-check"></i> BANKUM NON LITIGASI</a>
+                                <a class="list-group-item" href="" data-id="223"><i class="fa fa-check"></i> THL</a>
+                                <a class="list-group-item" href="" data-id="224"><i class="fa fa-check"></i> TIMKUM</a>
+                                <a class="list-group-item" href="" data-id="225"><i class="fa fa-check"></i> YANKUM</a>
                             </div>
 
                         </div>
@@ -44,10 +44,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>TUN</strong></div>
                             <div class="list-group">
-                                <a class="list-group-item" href="" data-id="211"><i class="fa fa-check"></i> BANKUM</a>
-                                <a class="list-group-item" href="" data-id="212"><i class="fa fa-check"></i> THL</a>
-                                <a class="list-group-item" href="" data-id="213"><i class="fa fa-check"></i> TIMKUM</a>
-                                <a class="list-group-item" href="" data-id="214"><i class="fa fa-check"></i> YANKUM</a>
+                                <a class="list-group-item" href="" data-id="231"><i class="fa fa-check"></i> BANKUM</a>
+                                <a class="list-group-item" href="" data-id="232"><i class="fa fa-check"></i> THL</a>
+                                <a class="list-group-item" href="" data-id="233"><i class="fa fa-check"></i> TIMKUM</a>
+                                <a class="list-group-item" href="" data-id="234"><i class="fa fa-check"></i> YANKUM</a>
                             </div>
 
                         </div>
