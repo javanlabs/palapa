@@ -1,18 +1,21 @@
 <?php namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class Installation extends Command {
+class Reinstall extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'app:install';
+	protected $name = 'app:reinstall';
 
 	/**
 	 * The console command description.
@@ -38,12 +41,24 @@ class Installation extends Command {
 	 */
 	public function fire()
 	{
-		Artisan::call('migrate');
-		Artisan::call('migrate', ['--bench' => 'eendonesia/gapura']);
-		Artisan::call('migrate', ['--bench' => 'eendonesia/moderator']);
-		Artisan::call('migrate', ['--bench' => 'eendonesia/skrip']);
-		Artisan::call('migrate', ['--bench' => 'eendonesia/wilayah']);
-		Artisan::call('db:seed');
+		$tables = DB::select(DB::raw("select * from information_schema.tables where table_schema = 'palapa'"));
+
+		foreach($tables as $table)
+		{
+			if($table->TABLE_TYPE == 'BASE TABLE')
+			{
+				DB::statement('DROP TABLE ' . $table->TABLE_NAME);
+				$this->info('Drop table ' . $table->TABLE_NAME);
+			}
+			else
+			{
+				DB::statement('DROP VIEW ' . $table->TABLE_NAME);
+				$this->info('Drop view ' . $table->TABLE_NAME);
+			}
+		}
+
+		$this->info('Run app:install ');
+		Artisan::call('app:install');
 	}
 
 	/**

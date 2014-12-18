@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected $commands = [
 		'App\Console\Commands\InspireCommand',
-		'App\Console\Commands\Installation',
+		'App\Console\Commands\Install',
+		'App\Console\Commands\Reinstall',
 	];
 
 	/**
