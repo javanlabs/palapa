@@ -1,4 +1,4 @@
-<aside>
+<aside class="hidden-print">
 <ul class="list-group">
     <a class="list-group-item {{ (isset($page) && $page == 'case')?'active':'' }}" href="{{ route('frontend.search') }}">Cari Kasus</a>
     <a class="list-group-item {{ (isset($page) && $page == 'officer')?'active':'' }}" href="{{ route('frontend.officer') }}">Daftar Jaksa</a>

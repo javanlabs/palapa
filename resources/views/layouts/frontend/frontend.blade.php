@@ -6,7 +6,7 @@
 
 @section('body')
     @include('layouts.elements.header')
-    <div class="container" style="margin-top: 120px">
+    <div class="container">
         <div class="col-md-2">
             @include('layouts.frontend.aside')
         </div>

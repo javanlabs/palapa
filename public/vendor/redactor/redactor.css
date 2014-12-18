@@ -111,7 +111,7 @@ body .redactor-box-fullscreen {
   white-space: normal;
   border: 1px solid #eee;
   font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6em;
 }
 .redactor-editor:focus {
@@ -146,7 +146,7 @@ body .redactor-box-fullscreen {
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
   line-height: 1 !important;
   background: #fff;
   border: none;
@@ -207,8 +207,8 @@ body .redactor-box-fullscreen {
   color: #444;
 }
 .redactor-toolbar li a.redactor-btn-image {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -244,7 +244,7 @@ body .redactor-box-fullscreen {
 }
 .re-icon i:before {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
 }
 .re-video:before {
   content: "\e600";
@@ -373,7 +373,7 @@ body .redactor-box-fullscreen {
   overflow: auto;
   background-color: #fff;
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.25);
-  font-size: 14px;
+  font-size: 16px;
   font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
   line-height: 1.6em;
 }
@@ -553,7 +553,7 @@ body .redactor-box-fullscreen {
   padding: 0;
   background: #fff;
   color: #000;
-  font-size: 14px !important;
+  font-size: 16px !important;
   font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
   box-shadow: 0 1px 70px rgba(0, 0, 0, 0.5);
 }
@@ -595,7 +595,7 @@ body .redactor-box-fullscreen {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
   color: #333;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
   -moz-transition: border 0.3s ease-in;
   transition: border 0.3s ease-in;
@@ -693,7 +693,7 @@ body .redactor-box-fullscreen {
 #redactor-modal footer button {
   position: relative;
   width: 100%;
-  padding: 14px 16px;
+  padding: 16px 16px;
   margin: 0;
   outline: none;
   border: none;
@@ -789,7 +789,7 @@ body .redactor-box-fullscreen {
 .redactor-editor dl,
 .redactor-editor blockquote,
 .redactor-editor pre {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6em;
 }
 .redactor-editor a {

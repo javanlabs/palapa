@@ -1,20 +1,18 @@
 @extends('layouts.single')
 
 @section('style-head')
+    @parent
+
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
+    <link rel="stylesheet" media="print" href="{{ asset('css/document-print.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('css/document.css') }}">
     <style>
         #previewContainer{
-            /*margin-top: 20px;*/
-            /*padding: 20px;*/
-            /*border: 1px solid #eee;*/
             display: none;
         }
     </style>
 
     <style media="print">
-        @page {
-            margin-top: -5mm;  /* this affects the margin in the printer settings */
-        }
         #previewContainer {
             display: block;
             margin:0;
@@ -29,7 +27,7 @@
 
 <div class="container-fluid">
     <div class="col-md-10">
-        <div style="width:215mm; height:330mm; margin: 0 auto">
+        <div class="editor-f4">
             <h2 class="hidden-print">{{ $template->title }}</h2>
             {{ BootForm::open()->action(route('backend.document.store'))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
@@ -52,7 +50,7 @@
 </div>
 
 <div class="modal fade modal-preview hidden-print" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" style="width:210mm; height:330mm; margin: 0 auto">
+  <div class="modal-dialog modal-lg preview-f4 paper-f4">
     <div class="modal-content">
         <div class="modal-body preview-container">
 

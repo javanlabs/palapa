@@ -29,13 +29,13 @@ class TemplatesController extends Controller {
     public function create()
     {
         $template = new Template();
-        $checklists = Checklist::availableChecklists();        
+        $checklists = Checklist::availableChecklists();
         return view('backend.templates.create', compact('post','checklists'));
     }
 
     public function store(Form $form)
     {
-    
+
         $template = Template::create($form->only('title', 'content', 'checklist_id'));
         $template->author()->associate(Auth::user())->save();
         return redirect()->route('backend.templates.index');
@@ -49,13 +49,13 @@ class TemplatesController extends Controller {
     }
 
     public function update(Form $form, $id)
-    {        
+    {
         Template::findOrFail($id)->update($form->only('title', 'content', 'checklist_id'));
-        return redirect()->route('backend.templates.index');
+        return redirect()->route('backend.templates.edit', $id);
     }
 
     public function destroy($id)
-    {        
+    {
         Template::findOrFail($id)->delete();
         return redirect()->route('backend.templates.index');
     }

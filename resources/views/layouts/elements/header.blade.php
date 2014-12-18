@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top navbar-home" role="navigation">
+<nav class="navbar navbar-home" role="navigation">
   <img style="height:50px; float: left; margin:0 25px 0 50px" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
 
   <div class="container">
