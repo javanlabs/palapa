@@ -37,6 +37,11 @@ class EloquentRepository implements RepositoryInterface {
             $type = (array) $type;
         }
 
+        if (empty($type))
+        {
+            return [];
+        }
+
         return $this->phase->whereIn('case_type_id', $type)->orderBy('ordinal')->get();
     }
 

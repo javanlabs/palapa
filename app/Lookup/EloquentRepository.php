@@ -18,9 +18,16 @@ class EloquentRepository implements RepositoryInterface {
         return $this->lookup->findOrFail($id);
     }
 
-    public function lists($type)
+    public function lists($type, $empty = null)
     {
-        return $this->lookup->whereType($type)->lists('name', 'id');
+        $list = $this->lookup->whereType($type)->lists('name', 'id');
+
+        if($empty)
+        {
+            $list = ['' => $empty] + $list;
+        }
+
+        return $list;
     }
 
     public function religions()

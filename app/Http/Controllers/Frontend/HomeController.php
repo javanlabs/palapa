@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Frontend;
 
-use App\Lookup\Lookup;
+use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Officer\Officer;
 use App\Sop\RepositoryInterface;
 use Illuminate\Http\Request;
@@ -15,23 +15,26 @@ class HomeController extends Controller {
         return redirect()->route('frontend.search');
     }
 
-	public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, $type='pidum')
+	public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, LookupRepository $lookup)
 	{
 		//dd($type);
 
-		$keyword = null;
-        if($request->get('type') == 'jaksa'){
-        	$jaksa = Officer::findOrFail($request->get('q'));
-        	if($jaksa)
-        		$keyword = $jaksa->name;
-        }
+        //$keyword = null;
+        //if($request->get('type') == 'jaksa'){
+        //	$jaksa = Officer::findOrFail($request->get('q'));
+        //	if($jaksa)
+        //		$keyword = $jaksa->name;
+        //}
 
 		$keyword = $request->get('q');
+		$type = $request->get('type');
 
         $cases = $repository->search($keyword, $type);
         $phases = $sop->byType($type);
 
-		return view('frontend.search', compact('cases', 'phases', 'type', 'keyword'))->with('page', 'search')->with('keyword',$keyword);
+		$types = $lookup->lists('kasus', '--Pilih Jenis Kasus--');
+
+		return view('frontend.search', compact('cases', 'phases', 'type', 'keyword', 'types'))->with('page', 'search')->with('keyword',$keyword);
 	}
 
 	public function getOrganization()
