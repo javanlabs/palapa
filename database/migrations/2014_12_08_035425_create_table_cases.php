@@ -20,7 +20,7 @@ class CreateTableCases extends Migration {
             $table->date('start_date');
             $table->date('finish_date')->nullable();;
             $table->unsignedInteger('type_id')->default(201);
-            $table->unsignedInteger('phase_id')->default(1);
+            $table->unsignedInteger('phase_id');
 
             $table->string('suspect_name');
             $table->string('suspect_pob');

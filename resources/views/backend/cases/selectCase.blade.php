@@ -1,9 +1,6 @@
-<div id="modalSelectCase" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+<div id="modalSelectCase" data-width="600px" class="modal container-fluid fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-header"><h4>Jenis Kasus Apa Yang Ingin Anda Buat?</h4></div>
             <div class="modal-body">
-                <div class="container-fluid">
                     <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading"><strong>PIDANA UMUM</strong></div>
@@ -51,8 +48,6 @@
                             </div>
 
                         </div>
-
-                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -61,8 +56,6 @@
                 <button class="btn btn-default btn-next" disabled type="submit">Lanjut <i class="fa fa-chevron-right"></i></button>
                 {{ Form::close() }}
             </div>
-        </div>
-    </div>
 </div>
 
 @section('script-end')

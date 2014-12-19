@@ -42,7 +42,20 @@ class EloquentRepository implements RepositoryInterface {
 
     public function create($input, $user)
     {
+
         $case = $this->case->create($input);
+
+        $defaultPhase = $this->phase->where('case_type_id', '=', $case->type_id)->orderBy('ordinal')->first();
+
+        if($defaultPhase)
+        {
+            $case->phase()->associate($defaultPhase)->save();
+        }
+        else
+        {
+            return false;
+        }
+
         $case->author()->associate($user)->save();
 
         $firstPhase = $this->phase->orderBy('ordinal')->first();
