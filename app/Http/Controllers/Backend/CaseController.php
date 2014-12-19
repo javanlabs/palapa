@@ -95,7 +95,7 @@ class CaseController extends BackendController {
     public function show($id)
     {
         $case = $this->repo->find($id);
-        $phases = $this->sopRepo->all();
+        $phases = $this->sopRepo->byType($case->type_id);
         $activities = $this->repo->activities($case);
         $checklistIds = $case->checklist->lists('id');
         $templates = $case->templates();
