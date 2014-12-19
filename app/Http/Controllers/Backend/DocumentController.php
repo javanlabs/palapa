@@ -32,7 +32,8 @@ class DocumentController extends Controller {
 	{
 		$document = Document::findOrFail($id);
 		$content = $this->fillParams($document->content, $document->cases, Setting::lists('value', 'key'));
-		return view('backend.document.edit', compact('document', 'content'));
+		$case = $document->case;
+		return view('backend.document.edit', compact('document', 'content', 'case'));
 	}
 
 

@@ -1,11 +1,20 @@
 @extends('layouts.single')
 
 @section('style-head')
-    @parent
+    {{--@parent--}}
 
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/document.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    <style>
+        body {background-color: #f8f8f8}
+        .paper {
+        background-color: #fff;
+        border: 1px solid #eee;
+        }
+    </style>
+    
     <style>
         #previewContainer{
             display: none;
@@ -32,7 +41,6 @@
             {{ BootForm::open()->put()->action(route('backend.document.update', [$document->id]))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($content) }}
-                {{ BootForm::submit('Submit') }}
             {{ BootForm::close() }}
 
             <div id="previewContainer" class="preview-container"></div>
@@ -44,6 +52,8 @@
         <hr />
         <a class="btn btn-default btn-block" href="#" id="btnPreview" data-toggle="modal" data-target=".modal-preview"><i class="fa fa-eye"></i> Preview</a>
         <a class="btn btn-success btn-block btn-print" href="#"><i class="fa fa-print"></i> Print</a>
+        <hr />
+        <a class="btn btn-default btn-block btn-save" href="{{ route('backend.cases.show', [$case['id']]) }}">Batal</a>
     </div>
 </div>
 
