@@ -99,7 +99,7 @@
                         @if(in_array($item['id'], $documentsIds))
                             <div class="btn-group">
                                 <a class="btn btn-xs btn-link" href="{{ route('backend.document.edit', [$item['id']]) }}">Edit</a>
-                                <a class="btn btn-xs btn-link" href="{{ route('backend.document.destroy', [$item['id']]) }}">Hapus</a>
+                                {{ Form::delete(route('backend.document.destroy', [$item['id']]), 'Hapus', [], ['class' => 'btn btn-xs btn-link']) }}
                             </div>
                         @else
                             <a class="btn btn-xs btn-default" href="{{ route('backend.document.create', ['template_id' => $item['id'], 'case_id' => $case['id']]) }}">Buat Dokumen</a>

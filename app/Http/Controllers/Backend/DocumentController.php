@@ -44,11 +44,15 @@ class DocumentController extends Controller {
 		return redirect()->route('backend.cases.show', $document->cases->id);
 	}
 
-	public function delete(){
+	public function destroy($id)
+	{
+		Document::findOrFail($id)->delete();
 
+		return redirect()->back();
 	}
 
-	public function fillParams($template, $case, $config){
+	public function fillParams($template, $case, $config)
+	{
 		$template = str_replace("{case.spdp_number}", $case->spdp_number, $template);
 		$template = str_replace("{case.pasal}", $case->pasal, $template);
 		$template = str_replace("{case.kasus}", $case->kasus, $template);
