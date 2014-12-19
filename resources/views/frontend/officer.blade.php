@@ -21,7 +21,7 @@
             </dl>
         </td>
         <td>
-            <a class="btn btn-sm btn-default" href="{{route('frontend.search')}}?type=jaksa&q={{$jaksa->id}}"><span class="label label-info">{{ $jaksa['active_cases_count'] }}</span> Kasus Aktif</a>
+            <a class="btn btn-sm btn-default btn-case-count" href="{{route('backend.cases.byJaksa', [$jaksa->id])}}"><span class="label label-info">{{ $jaksa['active_cases_count'] }}</span> Kasus Aktif</a>
         </td>
     </tr>
     @endforeach
@@ -30,4 +30,24 @@
 
     </div>
 
+<div id="ajax-modal" class="modal fade" tabindex="-1" style="display: none;"></div>
+@stop
+
+@section('script-end')
+    @parent
+    <script>
+        $(function(){
+            var $modal = $('#ajax-modal');
+            $(document).on('click', '.btn-case-count', function(e){
+                e.preventDefault();
+
+                // create the backdrop and wait for next modal to be triggered
+                $('body').modalmanager('loading');
+
+                $modal.load($(this).attr('href'), '', function(){
+                    $modal.modal();
+                });
+            });
+        });
+    </script>
 @stop

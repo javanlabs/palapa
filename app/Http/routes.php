@@ -31,6 +31,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
     $router->get('cases/{caseId}/check/{checklistId}', ['as' => 'backend.cases.checklist', 'uses' => 'CaseController@getChecklist']);
     $router->post('cases/{caseId}/check/{checklistId}', ['as' => 'backend.cases.checklist', 'uses' => 'CaseController@postChecklist']);
     $router->post('cases/{caseId}/uncheck/{checklistId}', ['as' => 'backend.cases.unchecklist', 'uses' => 'CaseController@postUnchecklist']);
+    $router->get('cases/byJaksa/{id}', ['as'=>'backend.cases.byJaksa', 'uses' => 'CaseController@getByJaksa']);
 
     $router->post('cases/{caseId}/activities', ['as' => 'backend.cases.activity', 'uses' => 'CaseController@postActivity']);
 

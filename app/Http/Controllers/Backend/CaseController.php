@@ -148,4 +148,12 @@ class CaseController extends BackendController {
 
         return redirect()->back();
     }
+
+    public function getByJaksa($id)
+    {
+        $cases = $this->repo->byJaksa($id);
+        $officer = $this->officer->find($id);
+
+        return view('backend.cases.byJaksa', compact('cases', 'officer'));
+    }
 }

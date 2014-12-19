@@ -196,6 +196,7 @@
         var $modal = $('#ajax-modal');
         $('.item-checklist').on('click', function(e){
             e.preventDefault();
+
             // create the backdrop and wait for next modal to be triggered
             $('body').modalmanager('loading');
 
