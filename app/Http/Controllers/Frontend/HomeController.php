@@ -15,26 +15,23 @@ class HomeController extends Controller {
         return redirect()->route('frontend.search');
     }
 
-	public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop)
+	public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, $type='pidum')
 	{
+		//dd($type);
+
 		$keyword = null;
-        if($request->get('type')=='jaksa'){
+        if($request->get('type') == 'jaksa'){
         	$jaksa = Officer::findOrFail($request->get('q'));
         	if($jaksa)
         		$keyword = $jaksa->name;
         }
 
-        $cases = $repository->search($request->get('q'), $request->get('type', 'all'));
+		$keyword = $request->get('q');
+
+        $cases = $repository->search($keyword, $type);
         $phases = $sop->all();
 
-		$caseType = Lookup::whereType(Lookup::TYPE_KASUS)->lists('name', 'id');
-		$typeLabel = 'Semua Kasus';
-		if(isset($caseType[$request->get('type')]))
-		{
-			$typeLabel = $caseType[$request->get('type')];
-		}
-
-		return view('frontend.search', compact('cases', 'phases', 'caseType', 'typeLabel'))->with('page', 'search')->with('keyword',$keyword);
+		return view('frontend.search', compact('cases', 'phases', 'type', 'keyword'))->with('page', 'search')->with('keyword',$keyword);
 	}
 
 	public function getOrganization()
