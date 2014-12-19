@@ -13,11 +13,16 @@ class DashboardController extends BackendController {
      * @type \App\Officer\RepositoryInterface
      */
     private $officerRepo;
+    /**
+     * @type \App\Lookup\RepositoryInterface
+     */
+    private $lookup;
 
-    function __construct(RepositoryInterface $caseRepo, \App\Officer\RepositoryInterface $officerRepo)
+    function __construct(RepositoryInterface $caseRepo, \App\Officer\RepositoryInterface $officerRepo, \App\Lookup\RepositoryInterface $lookup)
     {
         $this->caseRepo = $caseRepo;
         $this->officerRepo = $officerRepo;
+        $this->lookup = $lookup;
     }
 
     public function getIndex()
@@ -36,10 +41,10 @@ class DashboardController extends BackendController {
     public function getByPhase(Request $request)
     {
         $year = $request->get('year', date('Y'));
-        $type = $request->get('type');
+        $type = $request->get('type', 201);
 
         $stat = $this->caseRepo->statisticByPhase($year, $type);
-        $types = $this->caseRepo->getParentTypeList();
+        $types = $this->lookup->lists('kasus');
 
         return view('backend.dashboard.byPhase', compact('stat', 'types', 'year', 'type'))->with('page', 'backend-dashboard');
     }

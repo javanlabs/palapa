@@ -241,15 +241,5 @@ class EloquentRepository implements RepositoryInterface {
 
         return array_values($json);
     }
-
-    public function getParentTypeList()
-    {
-        return [
-            implode(',', $this->getChildTypeIds('pidum')) => 'Pidana Umum',
-            implode(',', $this->getChildTypeIds('perdata')) => 'Perdata',
-            implode(',', $this->getChildTypeIds('pph')) => 'PPH',
-            implode(',', $this->getChildTypeIds('tun')) => 'TUN',
-        ];
-    }
 }
 
