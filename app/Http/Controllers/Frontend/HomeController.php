@@ -29,7 +29,7 @@ class HomeController extends Controller {
 		$keyword = $request->get('q');
 
         $cases = $repository->search($keyword, $type);
-        $phases = $sop->all();
+        $phases = $sop->byType($type);
 
 		return view('frontend.search', compact('cases', 'phases', 'type', 'keyword'))->with('page', 'search')->with('keyword',$keyword);
 	}

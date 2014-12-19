@@ -21,7 +21,7 @@
             </dl>
         </td>
         <td>
-            <a href="{{route('frontend.search')}}?type=jaksa&q={{$jaksa->id}}">Daftar Kasus Aktif</a>
+            <a class="btn btn-sm btn-default" href="{{route('frontend.search')}}?type=jaksa&q={{$jaksa->id}}"><span class="label label-info">{{ $jaksa['active_cases_count'] }}</span> Kasus Aktif</a>
         </td>
     </tr>
     @endforeach

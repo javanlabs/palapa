@@ -170,10 +170,6 @@
 
 @section('style-head')
     @parent
-    <link href="{{ asset('vendor/bootstrap-modal/bootstrap-modal-bs3patch.css') }}" rel="stylesheet" />
-    <link href="{{ asset('vendor/bootstrap-modal/bootstrap-modal.css') }}" rel="stylesheet" />
-    <link href="{{ asset('vendor/bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet"  />
-
     <style>
         .case-info {font-size: 1.2em;}
         .case-info dd, .case-info dt {line-height: 2em;}
@@ -192,10 +188,6 @@
 
 @section('script-end')
     @parent
-    <script type="text/javascript" src="{{ asset('vendor/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
-
-    <script src="{{ asset('vendor/bootstrap-modal/bootstrap-modalmanager.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap-modal/bootstrap-modal.js') }}"></script>
 
     <script>
     $(function(){

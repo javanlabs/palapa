@@ -28,7 +28,15 @@ class EloquentRepository implements RepositoryInterface {
 
     public function byType($type)
     {
-        $type = (array) $type;
+        if(in_array($type, ['pidum', 'perdata', 'pph', 'tun']))
+        {
+            $type = $this->getChildTypeIds($type);
+        }
+        else
+        {
+            $type = (array) $type;
+        }
+
         return $this->phase->whereIn('case_type_id', $type)->orderBy('ordinal')->get();
     }
 
@@ -113,4 +121,28 @@ class EloquentRepository implements RepositoryInterface {
 
         return true;
     }
+
+    protected function getChildTypeIds($type)
+    {
+        $types = [];
+
+        switch($type)
+        {
+            case 'pidum':
+                $types = range(201, 201);
+                break;
+            case 'perdata':
+                $types = range(211, 220);
+                break;
+            case 'pph':
+                $types = range(221, 230);
+                break;
+            case 'tun':
+                $types = range(231, 240);
+                break;
+        }
+
+        return $types;
+    }
+
 }

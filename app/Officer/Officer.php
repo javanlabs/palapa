@@ -50,4 +50,9 @@ class Officer extends Model {
 
         return null;
     }
+
+    public function getActiveCasesCountAttribute()
+    {
+        return $this->activeCases->count();
+    }
 }
