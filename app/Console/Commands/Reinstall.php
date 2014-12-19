@@ -41,7 +41,8 @@ class Reinstall extends Command {
 	 */
 	public function fire()
 	{
-		$tables = DB::select(DB::raw("select * from information_schema.tables where table_schema = 'palapa'"));
+		$db = DB::connection()->getDatabaseName();
+		$tables = DB::select(DB::raw("select * from information_schema.tables where table_schema = '$db'"));
 
 		foreach($tables as $table)
 		{
@@ -57,7 +58,7 @@ class Reinstall extends Command {
 			}
 		}
 
-		$this->info('Run app:install ');
+		$this->info('Run app:install, please be patient....');
 		Artisan::call('app:install');
 	}
 
