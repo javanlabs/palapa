@@ -3,6 +3,13 @@
 
     @include('backend.dashboard.tab', ['active' => 'byPhase'])
 
+    <label for="">Pilih Jenis Kasus:</label>
+    {{ Form::open(['id' => 'formType', 'method' => 'GET']) }}
+    {{ Form::select('type', $types, $type, ['id' => 'selectType', 'style' => 'width: 300px;']) }}
+    {{ Form::hidden('year', $year) }}
+    {{ Form::close() }}
+    <hr />
+
     <div id="chart" style="width: 100%; height: 300px"></div>
 
     <hr/>
@@ -61,6 +68,10 @@
                 enabled: true,
                 format:'fixedPoint'
             }
+        });
+
+        $(document).on('change', '#selectType', function(e){
+            $('#formType').submit();
         });
 
     });
