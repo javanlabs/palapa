@@ -13,6 +13,11 @@ class Phase extends Model {
         return $this->hasMany('App\Sop\Checklist', 'phase_id');
     }
 
+    public function documents()
+    {
+        return $this->hasManyThrough('App\Cases\Document', 'App\Sop\Checklist');
+    }
+
     public function nextPhase()
     {
         return $this->where('ordinal', '>', $this->ordinal)->orderBy('ordinal', 'asc')->first();

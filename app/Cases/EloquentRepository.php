@@ -58,16 +58,14 @@ class EloquentRepository implements RepositoryInterface {
     public function search($keyword, $type)
     {
         $query = $this->case->orderBy('updated_at', 'DESC');
+        $types = $this->getTypes($type);
 
         if($type=='jaksa'){
             $query->where('jaksa_id','=',$keyword);
         }
         else
         {
-            if($type != 'all')
-            {
-                $query->where('type_id', '=', $type);
-            }
+            $query->whereIn('type_id', $types);
 
             if($keyword)
             {
@@ -220,5 +218,27 @@ class EloquentRepository implements RepositoryInterface {
         return array_values($json);
     }
 
+    protected function getTypes($type)
+    {
+        $types = [];
+
+        switch($type)
+        {
+            case 'pidum':
+                $types = range(201, 201);
+                break;
+            case 'perdata':
+                $types = range(211, 220);
+                break;
+            case 'pph':
+                $types = range(221, 230);
+                break;
+            case 'tun':
+                $types = range(231, 240);
+                break;
+        }
+
+        return $types;
+    }
 }
 

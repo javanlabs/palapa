@@ -86,33 +86,35 @@
             </div>
             {{ Form::close() }}
         @endif
-
-        <table class="table table-striped">
-            <caption>Dokumen</caption>
-            @foreach($documents as $item)
-            <tr>
-                <td width="130px"><small class="text-muted">{{ $item['created_at'] }}</small></td>
-                <td>
-                    <strong>{{ $item['title'] }}</strong>
-                </td>
-            </tr>
-            @endforeach
-        </table>
-
-            @if(Auth::check())
-            {{ Form::open(["url"=>'/backend/document/create', 'method' => 'get', 'role'=>'form']) }}
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-            {{Form::hidden('case_id',$case->id)}}
-            <div class="pull-left">
-                {{ Form::select('template_id', $templates , ['class' => 'form-control', 'rows' => 3]) }}
-            </div>
-            <div class="pull-right">
-                {{ Form::submit('Buat Dokumen', ['class' => 'btn btn-primary']) }}
-            </div>
-            {{ Form::close() }}
-        @endif
     </div>
     <div class="col-md-5">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Dokumen</div>
+            <table class="table">
+                @foreach($templates as $item)
+                <tr>
+                    <td>
+                        <strong>{{ $item['title'] }}</strong>
+                    </td>
+                    <td width="100px">
+                        @if(in_array($item['id'], $documentsIds))
+                            <div class="btn-group">
+                                <a class="btn btn-xs btn-link" href="{{ route('backend.document.edit', [$item['id']]) }}">Edit</a>
+                                {{ Form::delete(route('backend.document.destroy', [$item['id']]), 'Hapus', [], ['class' => 'btn btn-xs btn-link']) }}
+                            </div>
+                        @else
+                            <a class="btn btn-xs btn-default" href="{{ route('backend.document.create', ['template_id' => $item['id'], 'case_id' => $case['id']]) }}">Buat Dokumen</a>
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+            </table>
+
+        </div>
+
+        <hr />
+
         <div class="panel panel-default">
             @foreach($phases as $phase)
             <div class="panel-heading"><strong>{{ $phase['name'] }}</strong></div>
@@ -131,9 +133,11 @@
 
                             <i class="fa fa-check"></i>
                             {{ $item['name'] }}
-                            @foreach($item->templates as $row)
-                                {{$row->title}}
+
+                            @foreach($item['templates'] as $template)
+                                <i class="fa fa-file-text"></i>
                             @endforeach
+
                         </li>
                     @else
                         <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.checklist', [$case['id'], $item['id']]) }}">
@@ -141,6 +145,10 @@
                                 <label>
                                     <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
                                     {{ $item['name'] }}
+
+                                    @foreach($item['templates'] as $template)
+                                        <i class="fa fa-file-o"></i>
+                                    @endforeach
 
                                     @if($phase->id == $case['phase_id'])
                                         <?php $remaining = $case->checklistRemaining($item) ?>

@@ -1,5 +1,7 @@
 <?php namespace App\Cases;
 
+use App\Model\Template;
+use App\Sop\Phase;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -51,6 +53,14 @@ class Cases extends Model {
 
     public function documents(){
         return $this->hasMany('App\Cases\Document', 'case_id');
+    }
+
+    public function templates(){
+
+        return Template::join('sop_phase', 'phase_id', '=', 'sop_phase.id')
+            ->select('templates.*')
+            ->where('case_type_id', '=', $this->type_id)
+            ->get();
     }
 
     public function phaseHistory()

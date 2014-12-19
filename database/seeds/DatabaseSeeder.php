@@ -44,21 +44,25 @@ class TemplateSeeder extends Seeder{
         $template = [
             [
             'checklist_id' => 1,
+            'phase_id' => 1,
             'title' => 'P16 - Surat Perintah Penunjukan Penuntut Umum',
             'content' => file_get_contents(dirname(__FILE__) . '/templates/p16.php')
             ],
             [
             'checklist_id' => 1,
+            'phase_id' => 1,
             'title' => 'Surat Perintah Penunjukan Petugas Administrasi',
             'content' => file_get_contents(dirname(__FILE__) . '/templates/p16a.php')
             ],
             [
             'checklist_id' => 1,
+            'phase_id' => 1,
             'title' => 'P19',
             'content' => file_get_contents(dirname(__FILE__) . '/templates/p19.php')
             ],
             [
             'checklist_id' => 1,
+            'phase_id' => 1,
             'title' => 'P21',
             'content' => '<p><strong>KEJAKSAAN NEGERI JEMBER</strong><b><br> <strong> "UNTUK KEADILAN"</strong></b></p> <table> <tbody><tr> <td> <table> <tbody><tr> <td> <p>Nomor</p> </td> <td> <p>:</p> </td> <td>  </td> </tr> <tr> <td> <p>Sifat</p> </td> <td> <p>:</p> </td> <td> <p>Biasa</p> </td> </tr> <tr> <td> <p>Lampiran</p> </td> <td> <p>:</p> </td> <td> <p>-</p> </td> </tr> <tr> <td> <p>Perihal</p> </td> <td> <p>:</p> </td> <td> <p>Pemberitahuan hasil penyidikan perkara pidana atas nama Tersangka {case.suspect_name} melanggar {case.pasal} sudah lengkap</p> </td> </tr> </tbody></table>  </td> <td> <p>Jember, </p><p>KEPADA YTH.</p><p>KEPALA KEPOLISIAN </p><p>DI </p> </td> </tr> </tbody></table> <p>Sehubungan dengan penyerahan berkas perkara pidana atas nama Tersangka {case.suspect_name} Nomor: {case.spdp_number} Tanggal {case.start_date} yang kami terima tanggal {case.created_at} setelah dilakukan penelitian ternyata hasil penyidikannya sudah lengkap.</p><p>Sesuai dengan ketentuan pasal 8 ayat (3) huruf b, pasal 138 ayat (1) dan pasal 139 KUHAP supaya Saudara menyerahkan tanggung jawab tersangka dan barang bukti kepada kami, guna menentukan apakah perkara tersebut sudah menenuhi persyaratan untuk dapat atau tidak dilimpahkan ke Pengadilan.</p><p>Demikian untuk dimaklumi</p> <table> <tbody><tr> <td>  </td> <td> <p>Dikeluarkan di : Jember</p><p>Pada tanggal : {now()}</p><p>KEPALA KEJAKSAAN NEGERI JEMBER</p> </td> </tr> <tr> <td> <p>Tembusan:</p> <ul><li>1.Yth. Kepala KejaksaanTinggi Jawa Timur</li> <li>2.Yth. Kepala Kepolisian ….</li> <li>3.Arsip.</li></ul> </td> <td>  </td> </tr></tbody></table>'
             ],
@@ -301,11 +305,11 @@ class SopSeeder extends Seeder {
 
         DB::table('sop_phase')->insert(
             [
-                ['id' => 1, 'name' => 'SPDP', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 2, 'name' => 'Tahap 1', 'duration' => 7, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
-                ['id' => 3, 'name' => 'Tahap 2', 'duration' => 7, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
-                ['id' => 4, 'name' => 'Penuntutan', 'duration' => 30, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
-                ['id' => 5, 'name' => 'Persidangan', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 1, 'case_type_id' => 201, 'name' => 'SPDP', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
+                ['id' => 2, 'case_type_id' => 201, 'name' => 'Tahap 1', 'duration' => 7, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
+                ['id' => 3, 'case_type_id' => 201, 'name' => 'Tahap 2', 'duration' => 7, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
+                ['id' => 4, 'case_type_id' => 201, 'name' => 'Penuntutan', 'duration' => 30, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
+                ['id' => 5, 'case_type_id' => 201, 'name' => 'Persidangan', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
             ]
         );
 

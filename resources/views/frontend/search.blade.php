@@ -2,32 +2,27 @@
 @section('content')
 
     <div class="container-fluid text-center" style="margin-bottom: 20px">
-        <h1 style="font-weight: 300">Cari Kasus</h1>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" style="margin-bottom: 40px">
+            <li role="presentation" class="{{ ($type == 'pidum')?'active':'' }}"><a href="{{ route('frontend.search', ['type' => 'pidum']) }}?q={{ $keyword }}" aria-controls="profile" role="tab">Pidana Umum</a></li>
+            <li role="presentation" class="{{ ($type == 'perdata')?'active':'' }}"><a href="{{ route('frontend.search', ['type' => 'perdata']) }}?q={{ $keyword }}" aria-controls="messages" role="tab">Perdata</a></li>
+            <li role="presentation" class="{{ ($type == 'pph')?'active':'' }}"><a href="{{ route('frontend.search', ['type' => 'pph']) }}?q={{ $keyword }}" aria-controls="settings" role="tab">PPH</a></li>
+            <li role="presentation" class="{{ ($type == 'tun')?'active':'' }}"><a href="{{ route('frontend.search', ['type' => 'tun']) }}?q={{ $keyword }}" aria-controls="settings" role="tab">TUN</a></li>
+        </ul>
 
-            {{ Form::open(['route' => 'frontend.search', 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
-		    <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="width: 150px">
-                    	<span class="type-label">{{ $typeLabel }}</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" data-id="all">Semua Kasus</a></li>
-                        @foreach($caseType as $id => $name)
-                        <li><a href="#" data-id="{{ $id }}">{{ $name }}</a></li>
-                        @endforeach
-                    </ul>
+        {{ Form::open(['route' => ['frontend.search', 'type' => $type], 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
+        <div class="input-group">
+            <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus, nomor kasus, atau nama tersangka">
 
-                </div>
-                <input type="hidden" name="type" value="all">
-                <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus, nomor SPDP, atau nama tersangka">
-
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><span class="fa fa-search"></span></button>
-                </span>
-            </div>
-            {{ Form::close() }}
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span> Cari Kasus</button>
+            </span>
+        </div>
+        {{ Form::close() }}
 
     </div>
+
+@if(count($cases) > 0)
 
 <div class="container-fluid">
     <div class="panel panel-default">
@@ -42,7 +37,6 @@
             </div>
         </div>
 
-        @if(count($cases) > 0)
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -83,9 +77,9 @@
         </tr>
         @endforeach
     </table>
-    @endif
     </div>
 </div>
+@endif
 
 @stop
 
