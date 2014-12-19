@@ -21,14 +21,16 @@
                 <dd>{{ $case['spdp_number'] }}</dd>
                 <dt>Kasus :</dt>
                 <dd>{{ $case['name'] }}</dd>
-                <dt>Pasal yang Disangkakan :</dt>
+                <dt>Pasal :</dt>
                 <dd>{{ nl2br($case['pasal']) }}</dd>
                 <dt>Penyidik :</dt>
                 <dd>{{ $case['penyidik'] }}</dd>
                 <dt>Tersangka :</dt>
                 <dd>{{ $case['suspect_name'] }}</dd>
-                <dt>Tempat, Tanggal Lahir :</dt>
-                <dd>{{ $case['suspect_pob'] }}, {{ $case['suspect_dob'] }}</dd>
+                <dt>Tempat Lahir :</dt>
+                <dd>{{ $case['suspect_pob'] }}</dd>
+                <dt>Tanggal Lahir :</dt>
+                <dd>{{ $case['suspect_dob'] }}</dd>
                 <dt>Agama :</dt>
                 <dd>{{ $case['suspect_religion'] }}</dd>
                 <dt>Alamat :</dt>

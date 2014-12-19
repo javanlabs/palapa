@@ -19,8 +19,8 @@ class Template extends Model {
         return $this->belongsTo('App\Sop\Checklist', 'checklist_id');
     }
 
-    public static function optionsSelect(){
-    	$rows = Template::all();
+    public static function optionsSelect($case_id){
+    	$rows = Template::where('type_id','=',$case_id)->get();
     	$result = array();
     	foreach($rows as $row){
     		$result[$row->id] = $row->title;
