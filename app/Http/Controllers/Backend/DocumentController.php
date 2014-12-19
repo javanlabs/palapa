@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Backend;
 
 use App\Cases\EloquentRepository;
+use App\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Model\Template;
@@ -10,35 +11,37 @@ use App\Cases\Document;
 use Input;
 
 class DocumentController extends Controller {
-	public function create(){
+
+	public function create()
+	{
 		$case = Cases::findOrFail(Input::get('case_id'));
 		$template = Template::findOrFail(Input::get('template_id'));
-		$title = $template->title;
-		$config = null;
-		$content = $this->fillParams($template->content, $case, $config);
-		
-		return view('backend.document.create', compact('case', 'template', 'title', 'content'));
+
+		$document = Document::create([
+			'title'		=> $template->title,
+			'content'	=> $template->content
+		]);
+
+		$document->cases()->associate($case)->save();
+		$document->template()->associate($template)->save();
+
+		return redirect()->route('backend.document.edit', [$document->id]);
 	}
 
-	public function edit(){
-		$document = Document::findOrFail(Input::get('id'));
-		return view('backend.document.edit', compact('case', 'template', 'content'));
+	public function edit($id)
+	{
+		$document = Document::findOrFail($id);
+		$content = $this->fillParams($document->content, $document->cases, Setting::lists('value', 'key'));
+		return view('backend.document.edit', compact('document', 'content'));
 	}
 
-	public function store(Request $request, EloquentRepository $caseRepo){
-		$case = $caseRepo->find($request->get('case_id'));
-		$document = new Document();
-		$document->title = $request->get('title');
-		$document->content = $request->get('content');
-		$document->save();
 
-		$case->documents()->save($document);
+	public function update($id)
+	{
+		$document = Document::findOrFail($id);
+		$document->update(Input::only('content'));
 
-		return redirect()->to('backend/cases/' . Input::get('case_id'));
-	}
-
-	public function update(){
-
+		return redirect()->route('backend.cases.show', $document->cases->id);
 	}
 
 	public function delete(){

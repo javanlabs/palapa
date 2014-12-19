@@ -15,6 +15,7 @@ class CreateTablePhase extends Migration {
         Schema::create('sop_phase', function(Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->unsignedInteger('case_type_id');
             $table->unsignedInteger('duration');
             $table->unsignedInteger('ordinal');
         });
