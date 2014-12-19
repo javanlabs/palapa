@@ -16,7 +16,7 @@ interface RepositoryInterface {
 
     public function activities($case);
 
-    public function statisticByPhase($year);
+    public function statisticByPhase($year, $type);
 
     public function statisticByStatus($year);
 

@@ -28,7 +28,8 @@ class EloquentRepository implements RepositoryInterface {
 
     public function byType($type)
     {
-        return $this->phase->where('case_type_id', '=', $type)->orderBy('ordinal')->get();
+        $type = (array) $type;
+        return $this->phase->whereIn('case_type_id', $type)->orderBy('ordinal')->get();
     }
 
     public function addChecklist($case, $checklist, $attributes)

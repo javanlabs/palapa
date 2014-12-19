@@ -61,6 +61,30 @@
 
         <hr/>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">Dokumen</div>
+            <table class="table">
+                @foreach($templates as $item)
+                <tr>
+                    <td>
+                        <strong>{{ $item['title'] }}</strong>
+                    </td>
+                    <td width="100px">
+                        @if(in_array($item['id'], $documentsIds))
+                            <div class="btn-group">
+                                <a class="btn btn-xs btn-link" href="{{ route('backend.document.edit', [$item['id']]) }}">Edit</a>
+                                {{ Form::delete(route('backend.document.destroy', [$item['id']]), 'Hapus', [], ['class' => 'btn btn-xs btn-link']) }}
+                            </div>
+                        @else
+                            <a class="btn btn-xs btn-default" href="{{ route('backend.document.create', ['template_id' => $item['id'], 'case_id' => $case['id']]) }}">Buat Dokumen</a>
+                        @endif
+                    </td>
+                </tr>
+                @endforeach
+            </table>
+
+        </div>
+
         <table class="table table-striped">
             <caption>Riwayat Aktivitas</caption>
             @foreach($activities as $item)
@@ -90,32 +114,6 @@
     <div class="col-md-5">
 
         <div class="panel panel-default">
-            <div class="panel-heading">Dokumen</div>
-            <table class="table">
-                @foreach($templates as $item)
-                <tr>
-                    <td>
-                        <strong>{{ $item['title'] }}</strong>
-                    </td>
-                    <td width="100px">
-                        @if(in_array($item['id'], $documentsIds))
-                            <div class="btn-group">
-                                <a class="btn btn-xs btn-link" href="{{ route('backend.document.edit', [$item['id']]) }}">Edit</a>
-                                {{ Form::delete(route('backend.document.destroy', [$item['id']]), 'Hapus', [], ['class' => 'btn btn-xs btn-link']) }}
-                            </div>
-                        @else
-                            <a class="btn btn-xs btn-default" href="{{ route('backend.document.create', ['template_id' => $item['id'], 'case_id' => $case['id']]) }}">Buat Dokumen</a>
-                        @endif
-                    </td>
-                </tr>
-                @endforeach
-            </table>
-
-        </div>
-
-        <hr />
-
-        <div class="panel panel-default">
             @foreach($phases as $phase)
             <div class="panel-heading"><strong>{{ $phase['name'] }}</strong></div>
             <ul class="list-group {{ (($phase->id > $case['phase']['id']) && $phase->id != $case['phase_id'])?'disabled':'' }}">
@@ -134,10 +132,6 @@
                             <i class="fa fa-check"></i>
                             {{ $item['name'] }}
 
-                            @foreach($item['templates'] as $template)
-                                <i class="fa fa-file-text"></i>
-                            @endforeach
-
                         </li>
                     @else
                         <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.checklist', [$case['id'], $item['id']]) }}">
@@ -145,10 +139,6 @@
                                 <label>
                                     <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
                                     {{ $item['name'] }}
-
-                                    @foreach($item['templates'] as $template)
-                                        <i class="fa fa-file-o"></i>
-                                    @endforeach
 
                                     @if($phase->id == $case['phase_id'])
                                         <?php $remaining = $case->checklistRemaining($item) ?>
@@ -168,6 +158,7 @@
             </ul>
             @endforeach
         </div>
+
     </div>
 
     </div>

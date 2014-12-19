@@ -30,22 +30,26 @@ class DashboardController extends BackendController {
         $year = $request->get('year', date('Y'));
         $stat = $this->caseRepo->statisticByStatus($year);
 
-        return view('backend.dashboard.byStatus', compact('stat'))->with('page', 'backend-dashboard');
+        return view('backend.dashboard.byStatus', compact('stat', 'year'))->with('page', 'backend-dashboard');
     }
 
     public function getByPhase(Request $request)
     {
         $year = $request->get('year', date('Y'));
-        $stat = $this->caseRepo->statisticByPhase($year);
+        $type = $request->get('type');
 
-        return view('backend.dashboard.byPhase', compact('stat'))->with('page', 'backend-dashboard');
+        $stat = $this->caseRepo->statisticByPhase($year, $type);
+        $types = $this->caseRepo->getParentTypeList();
+
+        return view('backend.dashboard.byPhase', compact('stat', 'types', 'year', 'type'))->with('page', 'backend-dashboard');
     }
 
-    public function getByJaksa()
+    public function getByJaksa(Request $request)
     {
         $officers = $this->officerRepo->jaksaByCase();
+        $year = $request->get('year', date('Y'));
 
-        return view('backend.dashboard.byJaksa', compact('officers'))->with('page', 'backend-dashboard');
+        return view('backend.dashboard.byJaksa', compact('officers', 'year'))->with('page', 'backend-dashboard');
     }
 
 }

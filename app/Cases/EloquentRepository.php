@@ -1,8 +1,8 @@
 <?php namespace App\Cases;
 
 use App\Sop\Phase;
+use App\Sop\RepositoryInterface as SopRepo;
 use Carbon\Carbon;
-use Faker\Factory;
 use Illuminate\Support\Facades\DB;
 
 class EloquentRepository implements RepositoryInterface {
@@ -11,16 +11,23 @@ class EloquentRepository implements RepositoryInterface {
      * @type case
      */
     private $case;
+
     /**
      * @type Phase
      */
     private $phase;
 
-    function __construct(Cases $case, Phase $phase)
+    /**
+     * @type SopRepo
+     */
+    private $sop;
+
+    function __construct(Cases $case, Phase $phase, SopRepo $sop)
     {
 
         $this->case = $case;
         $this->phase = $phase;
+        $this->sop = $sop;
     }
 
     public function all()
@@ -58,7 +65,7 @@ class EloquentRepository implements RepositoryInterface {
     public function search($keyword, $type)
     {
         $query = $this->case->orderBy('updated_at', 'DESC');
-        $types = $this->getTypes($type);
+        $types = $this->getChildTypeIds($type);
 
         if($type=='jaksa'){
             $query->where('jaksa_id','=',$keyword);
@@ -96,10 +103,10 @@ class EloquentRepository implements RepositoryInterface {
         return $case->activities()->create($attributes);
     }
 
-    public function statisticByPhase($year)
+    public function statisticByPhase($year, $type)
     {
         $json = [];
-        $phases = $this->phase->orderBy('ordinal')->get();
+        $phases = $this->sop->byType(explode(',', $type));
 
         //initialization
         foreach(range(1,12) as $month)
@@ -218,7 +225,17 @@ class EloquentRepository implements RepositoryInterface {
         return array_values($json);
     }
 
-    protected function getTypes($type)
+    public function getParentTypeList()
+    {
+        return [
+            implode(',', $this->getChildTypeIds('pidum')) => 'Pidana Umum',
+            implode(',', $this->getChildTypeIds('perdata')) => 'Perdata',
+            implode(',', $this->getChildTypeIds('pph')) => 'PPH',
+            implode(',', $this->getChildTypeIds('tun')) => 'TUN',
+        ];
+    }
+
+    protected function getChildTypeIds($type)
     {
         $types = [];
 
