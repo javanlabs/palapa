@@ -12,7 +12,7 @@ class Cases extends Model {
 
     protected $table = 'cases';
 
-    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date', 'suspect_name', 'suspect_pob', 'suspect_dob', 'suspect_religion', 'suspect_address', 'suspect_city_id', 'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik', 'type_id'];
+    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date', 'suspect_name', 'suspect_pob', 'suspect_dob', 'suspect_religion', 'suspect_address', 'suspect_city_id', 'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
 
     protected $dates = ['start_date', 'finish_date'];
 
@@ -76,6 +76,11 @@ class Cases extends Model {
     public function suspectCity()
     {
         return $this->belongsTo('Eendonesia\Wilayah\Kabupaten', 'suspect_city_id');
+    }
+
+    public function penyidik()
+    {
+        return $this->belongsTo('App\Lookup\Lookup', 'penyidik_id');
     }
 
     public function suspectPob()

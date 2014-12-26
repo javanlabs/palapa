@@ -3,13 +3,13 @@
 <hr />
 {{ BootForm::text('Nomor SPDP', 'spdp_number') }}
 {{ BootForm::text('Tanggal', 'start_date')->addClass('datepicker')->data('provide', 'datepicker')->data('orientation', 'bottom auto')->data('date-today-highlight', 'true')->value(date('Y-m-d')) }}
-{{ BootForm::text('Kasus', 'kasus') }}
+{{ BootForm::text('Kasus Posisi', 'kasus') }}
 {{ BootForm::textarea('Pasal yang disangkakan', 'pasal')->rows(3) }}
-{{ BootForm::text('Penyidik', 'penyidik') }}
+{{ BootForm::select('Penyidik', 'penyidik')->options($penyidikLookup) }}
 </fieldset>
 
 <fieldset>
-<h4>Data Diri Tersangka</h4>
+<h4>Tersangka</h4>
 <hr />
 {{ BootForm::text('Nama Lengkap', 'suspect_name') }}
 {{ BootForm::select('Tempat Lahir', 'suspect_pob')->options($cities) }}

@@ -8,6 +8,7 @@ class Lookup extends Model {
     const TYPE_PANGKAT = 'pangkat';
     const TYPE_JABATAN = 'jabatan';
     const TYPE_KASUS = 'kasus';
+    const TYPE_PENYIDIK = 'penyidik';
 
     use SoftDeletes;
 

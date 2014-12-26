@@ -31,7 +31,7 @@ class CreateTableCases extends Migration {
             $table->string('suspect_nationality');
             $table->string('suspect_job');
             $table->string('suspect_education');
-            $table->string('penyidik');
+            $table->unsignedInteger('penyidik_id');
 
             $table->unsignedInteger('author_id');
             $table->unsignedInteger('jaksa_id');
