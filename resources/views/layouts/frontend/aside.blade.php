@@ -13,7 +13,7 @@ foreach ($posts as $val):
 
 @if(Auth::check())
 <ul class="list-group">
-    <a class="list-group-item list-group-item-success {{ (isset($page) && $page == 'backend-cases')?'active':'' }}" href="#" data-toggle="modal" data-target="#modalSelectCase"><i class="fa fa-plus"></i> Tambah Kasus</a>
+    <a class="list-group-item list-group-item-success {{ (isset($page) && $page == 'backend-cases')?'active':'' }}" href="#" data-toggle="modal" data-target="#modalSelectCase"><i class="fa fa-plus"></i> Register Kasus</a>
 </ul>
     @include('backend.cases.selectCase')
 @endif

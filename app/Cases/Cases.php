@@ -78,6 +78,11 @@ class Cases extends Model {
         return $this->belongsTo('Eendonesia\Wilayah\Kabupaten', 'suspect_city_id');
     }
 
+    public function suspectPob()
+    {
+        return $this->belongsTo('Eendonesia\Wilayah\Kabupaten', 'suspect_pob');
+    }
+
     public function close()
     {
         $this->finish_date = Carbon::now()->toDateString();

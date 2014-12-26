@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder {
 		 $this->call('OfficerSeeder');
 		 $this->call('SopSeeder');
          $this->call('TemplateSeeder');
-
+        $this->call('PenyidikSeeder');
         Model::reguard();
 	}
 
@@ -35,6 +35,51 @@ class DatabaseSeeder extends Seeder {
 class PostSeeder extends Seeder{
     public function run(){
 
+    }
+}
+
+class PenyidikSeeder extends Seeder{
+    public function run(){
+        $now = Carbon::now()->toDateTimeString();
+        $type = 'penyidik';
+
+        DB::table('lookups')->whereType($type)->delete();
+        $penyidik= [
+            ['id' => 301, 'name'  => 'Mabes Polri', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 302, 'name'  => 'Polda Jatim', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 303, 'name'  => 'Polres Jember', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 304, 'name'  => 'Polsek Arjasa', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 305, 'name'  => 'Polsek Pakusari', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 306, 'name'  => 'Polsek Kalisat', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 307, 'name'  => 'Polsek Sukowono', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 308, 'name'  => 'Polsek Ledokombo', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 309, 'name'  => 'Polsek Sumberjambe', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 310, 'name'  => 'Polsek Mayang', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 311, 'name'  => 'Polsek Mumbulsari', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 312, 'name'  => 'Polsek Tempurejo', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 313, 'name'  => 'Polsek Sempolan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 314, 'name'  => 'Polsek Rambipuji', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 315, 'name'  => 'Polsek Panti', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 316, 'name'  => 'Polsek Kaliwates', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 317, 'name'  => 'Polsek Jenggawah', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 318, 'name'  => 'Polsek Balung', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 319, 'name'  => 'Polsek Ambulu', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 320, 'name'  => 'Polsek Wuluhan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 321, 'name'  => 'Polsek Tanggul', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 322, 'name'  => 'Polsek Bangsalsari', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 323, 'name'  => 'Polsek Sumberbaru', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 324, 'name'  => 'Polsek Kencong', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 325, 'name'  => 'Polsek Gumukmas', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 326, 'name'  => 'Polsek Umbulsari', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 327, 'name'  => 'Polsek Puger', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 328, 'name'  => 'Polsek Sumbersari', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 329, 'name'  => 'Polsek Patrang', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 330, 'name'  => 'Polsek Sukorambi', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],            
+            ['id' => 331, 'name'  => 'Polsek Semboro', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 332, 'name'  => 'Polsek Jelbuk', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 333, 'name'  => 'Polsek Jombang', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+        ];        
+        return DB::table('lookups')->insert($penyidik);
     }
 }
 
@@ -148,7 +193,7 @@ class PangkatSeeder extends Seeder {
             ['id' => 7, 'name'  => 'Jaksa Utama Madya', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 8, 'name'  => 'Jaksa Utama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 9, 'name'  => 'Jaksa Agung', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-        ];
+        ];        
         return DB::table('lookups')->insert($pangkat);
     }
 }

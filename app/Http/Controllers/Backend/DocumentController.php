@@ -60,7 +60,7 @@ class DocumentController extends Controller {
 		$template = str_replace("{case.start_date}", $case->start_date, $template);
 		$template = str_replace("{case.finish_date}", $case->finish_date, $template);
 		$template = str_replace("{case.suspect_name}", $case->suspect_name, $template);
-		$template = str_replace("{case.suspect_pob}", $case->suspect_pob, $template);
+		$template = str_replace("{case.suspect_pob}", $case->suspectPob->nama, $template);
 		$template = str_replace("{case.suspect_dob}", $case->suspect_dob, $template);
 		$template = str_replace("{case.suspect_religion}", $case->suspect_religion, $template);
 		$template = str_replace("{case.suspect_address}", $case->suspect_address, $template);
@@ -70,6 +70,13 @@ class DocumentController extends Controller {
 		$template = str_replace("{case.penyidik}", $case->penyidik, $template);
 		$template = str_replace("{case.created_at}", $case->created_at, $template);
 
+		$template = str_replace("{case.umur}", 28, $template);
+		$template = str_replace("{jaksa.name}", $case->jaksa->name, $template);
+		$template = str_replace("{jaksa.nip}", $case->jaksa->nip, $template);
+		$template = str_replace("{jaksa.jabatan}", $case->jaksa->jabatan->name, $template);
+		$template = str_replace("{jaksa.pangkat}", $case->jaksa->pangkat->name, $template);
+
+		$template = str_replace("{config.kajari}", "", $template);
 		return $template;
 	}
 }
