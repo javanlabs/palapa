@@ -106,7 +106,7 @@ class EloquentRepository implements RepositoryInterface {
         foreach($case->activities as $activity)
         {
             $activities[] = [
-                'date'  => $activity->created_at->diffForHumans(),
+                'date'  => $activity['date'],
                 'name'  => $activity['title'],
                 'note'  => $activity['content']
             ];
@@ -117,6 +117,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function addActivity($case, $attributes)
     {
+        $attributes['date'] = Carbon::now()->toDateString();
         return $case->activities()->create($attributes);
     }
 

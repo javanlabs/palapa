@@ -47,10 +47,13 @@ class EloquentRepository implements RepositoryInterface {
 
     public function addChecklist($case, $checklist, $attributes)
     {
-        $checklistAttributes = ['date' => array_get($attributes, 'date'), 'note' => array_get($attributes, 'note')];
+        $dmyDate = array_get($attributes, 'date');
+        $date = Carbon::createFromFormat('d-m-Y', $dmyDate)->toDateString();
+
+        $checklistAttributes = ['date' => $date, 'note' => array_get($attributes, 'note')];
         $case->checklist()->attach($checklist, $checklistAttributes);
 
-        $case->addActivity($checklist->name, $checklistAttributes['note'], $checklist);
+        $case->addActivity($checklist->name, $checklistAttributes['note'], $checklistAttributes['date'], $checklist);
 
         if($checklist->is_next)
         {

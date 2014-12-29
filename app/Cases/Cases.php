@@ -143,11 +143,17 @@ class Cases extends Model {
         return false;
     }
 
-    public function addActivity($title, $content, $checklist = null)
+    public function addActivity($title, $content, $date = null, $checklist = null)
     {
+        if(!$date)
+        {
+            $date = Carbon::now()->toDateString();
+        }
+
         $attributes = [
             'title' => $title,
-            'content'   => $content
+            'content'   => $content,
+            'date' => $date
         ];
 
         $activity = $this->activities()->create($attributes);
