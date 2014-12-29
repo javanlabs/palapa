@@ -24,7 +24,7 @@
                 <dt>Pasal :</dt>
                 <dd>{{ nl2br($case['pasal']) }}</dd>
                 <dt>Penyidik :</dt>
-                <dd>{{ $case->penyidik->name }}</dd>
+                <dd>{{ $case['penyidik_name'] }}</dd>
                 <dt>Tersangka :</dt>
                 <dd>{{ $case['suspect_name'] }}</dd>
                 <dt>Tempat Lahir :</dt>

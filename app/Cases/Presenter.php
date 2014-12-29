@@ -147,4 +147,14 @@ trait Presenter {
 
         return false;
     }
+
+    public function getPenyidikNameAttribute()
+    {
+        if($this->penyidik)
+        {
+            return $this->penyidik->name;
+        }
+
+        return false;
+    }    
 }

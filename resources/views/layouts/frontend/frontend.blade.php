@@ -30,7 +30,7 @@
 
     <script>
     $(function(){
-        $.fn.datepicker.defaults.format = "yyyy-mm-dd";
+        $.fn.datepicker.defaults.format = "dd-mm-yyyy";
         $.fn.datepicker.defaults.autoclose = true;
 
         $('select').select2();

@@ -73,9 +73,9 @@ class CaseController extends BackendController {
 
     public function store(Form $form)
     {
-        $this->repo->create($form->all(), Auth::user());
+        $case = $this->repo->create($form->all(), Auth::user());
 
-        return redirect()->route('frontend.search');
+        return redirect()->route('frontend.search') . '?type=' . $case->type_id;
     }
 
     public function edit($id){

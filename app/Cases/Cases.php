@@ -164,4 +164,9 @@ class Cases extends Model {
     {
         return $this->activities()->where('checklist_id', '=', $checklist->id)->delete();
     }
+
+    public function setStartDateAttribute($value) 
+    {
+        $this->attributes['start_date'] = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
+    }    
 }
