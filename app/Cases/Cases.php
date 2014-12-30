@@ -57,10 +57,7 @@ class Cases extends Model {
 
     public function templates(){
 
-        return Template::join('sop_phase', 'phase_id', '=', 'sop_phase.id')
-            ->select('templates.*')
-            ->where('case_type_id', '=', $this->type_id)
-            ->get();
+        return Template::get();
     }
 
     public function phaseHistory()
