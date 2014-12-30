@@ -10,7 +10,7 @@ class Phase extends Model {
 
     public function checklist()
     {
-        return $this->hasMany('App\Sop\Checklist', 'phase_id');
+        return $this->hasMany('App\Sop\Checklist', 'phase_id')->orderBy('ordinal');
     }
 
     public function documents()

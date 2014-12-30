@@ -28,11 +28,9 @@
 <div class="container-fluid">
     <div class="col-md-10">
         <div class="editor-f4">
-            <h2 class="hidden-print">{{ $template->title }}</h2>
             {{ BootForm::open()->action(route('backend.document.store'))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 <input type='hidden' name='case_id' value='{{$case->id}}'/>
-                <input type='hidden' name='title' value='{{ $title }}'/>
                 {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($content) }}
                 {{ BootForm::submit('Submit') }}
             {{ BootForm::close() }}

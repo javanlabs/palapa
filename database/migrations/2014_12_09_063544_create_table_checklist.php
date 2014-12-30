@@ -17,7 +17,7 @@ class CreateTableChecklist extends Migration {
             $table->unsignedInteger('phase_id');
             $table->string('name');
             $table->unsignedInteger('duration');
-            $table->enum('direction', ['stay', 'prev', 'next']);
+            $table->enum('direction', ['stay', 'prev', 'next', 'stop']);
             $table->unsignedInteger('ordinal');
         });
 	}

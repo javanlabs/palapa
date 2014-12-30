@@ -381,10 +381,11 @@ class SopSeeder extends Seeder {
 
         DB::table('sop_checklist')->insert(
             [
-                ['phase_id' => 1, 'name' => 'Menggandakan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-                ['phase_id' => 1, 'name' => 'Labelisasi dan mencatat ke buku registrasi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
-                ['phase_id' => 1, 'name' => 'Data entry ke DISKRIMTI', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-                ['phase_id' => 1, 'name' => 'P16 - Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'next', 'ordinal' => 4],
+                ['phase_id' => 1, 'name' => 'Penerimaan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 1, 'name' => 'P-16 - Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 1, 'name' => 'Penerimaan Berkas Tahap 1', 'duration' => 1, 'direction' => 'next', 'ordinal' => 3],
+                ['phase_id' => 1, 'name' => 'P-17', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
+                ['phase_id' => 1, 'name' => 'SPDP Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 5],
 
                 ['phase_id' => 2, 'name' => 'P18', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 2, 'name' => 'P19', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],

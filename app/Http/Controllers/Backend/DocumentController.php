@@ -9,23 +9,26 @@ use App\Cases\Cases;
 use Auth;
 use App\Cases\Document;
 use Input;
+use View;
 
 class DocumentController extends Controller {
 
 	public function create()
 	{
+
 		$case = Cases::findOrFail(Input::get('case_id'));
-		$template = Template::findOrFail(Input::get('template_id'));
+		$template = 'template.' . Input::get('template');
 
-		$document = Document::create([
-			'title'		=> $template->title,
-			'content'	=> $template->content
-		]);
+		if(!View::exists($template)){
+			return 'template not found';
+		}
+		$content = view($template);
 
-		$document->cases()->associate($case)->save();
-		$document->template()->associate($template)->save();
+		// $document->cases()->associate($case)->save();
+		// $document->template()->associate($template)->save();
+		return view('backend.document.create', compact('document', 'content', 'case'));
 
-		return redirect()->route('backend.document.edit', [$document->id]);
+		// return redirect()->route('backend.document.edit', [$document->id]);
 	}
 
 	public function edit($id)
