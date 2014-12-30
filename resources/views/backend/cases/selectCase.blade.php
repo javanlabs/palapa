@@ -3,9 +3,10 @@
             <div class="modal-body">
                     <div class="col-md-6">
                         <div class="panel panel-default">
-                            <div class="panel-heading"><strong>PIDANA UMUM</strong></div>
+                            <div class="panel-heading"><strong>PIDANA</strong></div>
                             <div class="list-group" style="height: 160px">
                                 <a class="list-group-item" href="" data-id="201"><i class="fa fa-check"></i> PIDANA UMUM</a>
+                                <a class="list-group-item" href="" data-id="202"><i class="fa fa-check"></i> PIDANA KHUSUS</a>
                             </div>
                         </div>
 

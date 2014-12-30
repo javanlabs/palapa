@@ -14,12 +14,10 @@ class CreateTemplatesTable extends Migration {
 	{
 		Schema::create('templates', function(Blueprint $table)
 		{
-            $table->increments('id');
-            $table->unsignedInteger('author_id');
-            $table->unsignedInteger('checklist_id');
-            $table->unsignedInteger('phase_id');
+            $table->increments('id');            
+            $table->string('short_title');
             $table->string('title');
-            $table->text('content');
+            
             $table->timestamps();
             $table->softDeletes();
             $table->engine = 'MyISAM';

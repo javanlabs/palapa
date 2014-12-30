@@ -67,7 +67,7 @@
                 @foreach($templates as $item)
                 <tr>
                     <td>
-                        <strong>{{ $item['title'] }}</strong>
+                        <strong>{{ $item['short_title'] }} {{ $item['title'] }}</strong>
                     </td>
                     <td width="100px">
                         @if(in_array($item['id'], $documentsIds))
@@ -76,7 +76,7 @@
                                 {{ Form::delete(route('backend.document.destroy', [$item['id']]), 'Hapus', [], ['class' => 'btn btn-xs btn-link']) }}
                             </div>
                         @else
-                            <a class="btn btn-xs btn-default" href="{{ route('backend.document.create', ['template_id' => $item['id'], 'case_id' => $case['id']]) }}">Buat Dokumen</a>
+                            <a class="btn btn-xs btn-default" href="{{ route('backend.document.create', ['template_id' => $item['id'], 'template' => strtolower($item['short_title']), 'case_id' => $case['id']]) }}">Buat Dokumen</a>
                         @endif
                     </td>
                 </tr>
