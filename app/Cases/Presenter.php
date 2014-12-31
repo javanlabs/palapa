@@ -16,12 +16,12 @@ trait Presenter {
 
     public function getProsecutorNameAttribute()
     {
-        return $this->jaksa->name;
+        return $this->jaksa?$this->jaksa->name:'';
     }
 
     public function getStaffNameAttribute()
     {
-        return $this->staff->name;
+        return $this->staff?$this->staff->name:'';
     }
 
     public function getLastUpdateAttribute()

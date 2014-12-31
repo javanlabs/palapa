@@ -12,9 +12,13 @@ class Cases extends Model {
 
     protected $table = 'cases';
 
-    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date', 'suspect_name', 'suspect_pob', 'suspect_dob', 'suspect_religion', 'suspect_address', 'suspect_city_id', 'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
+    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
 
     protected $dates = ['start_date', 'finish_date'];
+
+    public function suspects(){
+        return $this->belongsToMany('App\Cases\Suspects');
+    }
 
     public function author()
     {
@@ -80,10 +84,7 @@ class Cases extends Model {
         return $this->belongsTo('App\Lookup\Lookup', 'penyidik_id');
     }
 
-    public function suspectPob()
-    {
-        return $this->belongsTo('Eendonesia\Wilayah\Kabupaten', 'suspect_pob');
-    }
+    
 
     public function close()
     {

@@ -25,28 +25,7 @@
                 <dd>{{ nl2br($case['pasal']) }}</dd>
                 <dt>Penyidik :</dt>
                 <dd>{{ $case['penyidik_name'] }}</dd>
-                <dt>Tersangka :</dt>
-                <dd>{{ $case['suspect_name'] }}</dd>
-                <dt>Tempat Lahir :</dt>
-                <dd>{{ $case->suspectPob->nama }}</dd>
-                <dt>Tanggal Lahir :</dt>
-                <dd>{{ $case['suspect_dob'] }}</dd>
-                <dt>Agama :</dt>
-                <dd>{{ $case['suspect_religion'] }}</dd>
-                <dt>Alamat :</dt>
-                <dd>{{ $case['suspect_address'] }}<br/>
-                    {{ $case['suspect_city_id'] }}<br/>
-                </dd>
-                <dt>Kota :</dt>
-                <dd>{{ $case['suspect_city_name'] }}</dd>
-                <dt>Provinsi :</dt>
-                <dd>{{ $case['suspect_province_name'] }}</dd>
-                <dt>Kewarganegaraan :</dt>
-                <dd>{{ $case['suspect_nationality'] }}</dd>
-                <dt>Pendidikan :</dt>
-                <dd>{{ $case['suspect_education'] }}</dd>
-                <dt>Pekerjaan :</dt>
-                <dd>{{ $case['suspect_job'] }}</dd>
+                
                 <dt>Jaksa :</dt>
                 <dd>{{ $case['prosecutor_name'] }}</dd>
                 <dt>Staff Administrasi :</dt>
@@ -58,7 +37,39 @@
             </dl>
             <a href="/backend/cases/edit/{{$case->id}}">Ubah Data</a>
         </div>
+        <hr/>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">Tersangka</div>
+            
+                @foreach($case->suspects as $item)
+                <dt>Nama :</dt>
+                <dd>{{ $item['name'] }}</dd>
+                <dt>Tempat Lahir :</dt>
+                <dd>{{ $item->suspectPob->nama }}</dd>
+                <dt>Tanggal Lahir :</dt>
+                <dd>{{ $item['dob'] }}</dd>
+                <dt>Agama :</dt>
+                <dd>{{ $item['religion'] }}</dd>
+                <dt>Alamat :</dt>
+                <dd>{{ $item['address'] }}<br/>
+                    {{ $item['city_id'] }}<br/>
+                </dd>
+                <dt>Kota :</dt>
+                <dd>{{ $item['city_name'] }}</dd>
+                <dt>Provinsi :</dt>
+                <dd>{{ $item['province_name'] }}</dd>
+                <dt>Kewarganegaraan :</dt>
+                <dd>{{ $item['nationality'] }}</dd>
+                <dt>Pendidikan :</dt>
+                <dd>{{ $item['education'] }}</dd>
+                <dt>Pekerjaan :</dt>
+                <dd>{{ $item['job'] }}</dd>    
+                <br/>
+                @endforeach
+            
+            <a href="/backend/suspect/create?case_id={{$case->id}}">Tambah</a>
+        </div>
         <hr/>
 
         <div class="panel panel-default">

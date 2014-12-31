@@ -43,10 +43,12 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
     $router->get('dashboard/byJaksa', ['as' => 'dashboard.byJaksa', 'uses' => 'DashboardController@getByJaksa']);
 
     $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@index']);
+    $router->get('setting/sop', ['as' => 'setting.sop', 'uses' => 'SettingController@sop']);
     $router->post('setting', ['as' => 'setting.store', 'uses' => 'SettingController@store']);
 
     $router->resource('templates', 'TemplatesController');
     $router->resource('document', 'DocumentController');
+    $router->resource('suspect', 'SuspectController');
 });
 
 // GLOBAL ROUTE

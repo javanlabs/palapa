@@ -75,7 +75,7 @@ class CaseController extends BackendController {
     {
         $case = $this->repo->create($form->all(), Auth::user());
 
-        return redirect()->route('frontend.search') . '?type=' . $case->type_id;
+        return redirect()->route('backend.cases.show', $case->id);
     }
 
     public function edit($id){
