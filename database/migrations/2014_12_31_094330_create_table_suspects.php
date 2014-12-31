@@ -28,6 +28,9 @@ class CreateTableSuspects extends Migration {
             $table->string('job');
             $table->string('education');
             $table->string('nama_pimpinan');
+
+            $table->enum('tahanan', ['Belum Ditahan', 'RUTAN', 'Rumah', 'Kota']);
+
 			$table->timestamps();
 		});
 	}
