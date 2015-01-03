@@ -41,33 +41,55 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">Tersangka</div>
-            
+            @if(count($case->suspects))
+            <?php $count = 1;?>
+            <table style="margin: 10px">
+                
                 @foreach($case->suspects as $item)
-                <dt>Nama :</dt>
-                <dd>{{ $item['name'] }}</dd>
-                <dt>Tempat Lahir :</dt>
-                <dd>{{ $item->suspectPob->nama }}</dd>
-                <dt>Tanggal Lahir :</dt>
-                <dd>{{ $item['dob'] }}</dd>
-                <dt>Agama :</dt>
-                <dd>{{ $item['religion'] }}</dd>
-                <dt>Alamat :</dt>
-                <dd>{{ $item['address'] }}<br/>
-                    {{ $item['city_id'] }}<br/>
-                </dd>
-                <dt>Kota :</dt>
-                <dd>{{ $item['city_name'] }}</dd>
-                <dt>Provinsi :</dt>
-                <dd>{{ $item['province_name'] }}</dd>
-                <dt>Kewarganegaraan :</dt>
-                <dd>{{ $item['nationality'] }}</dd>
-                <dt>Pendidikan :</dt>
-                <dd>{{ $item['education'] }}</dd>
-                <dt>Pekerjaan :</dt>
-                <dd>{{ $item['job'] }}</dd>    
-                <br/>
+                <tr>
+                    <th style="padding-top: 10px">#{{$count++;}}</th>
+                </tr>
+                <tr>
+                    <td width="150px">Nama </td>
+                    <td>{{ $item['name'] }}</td>
+                </tr>
+                <tr>
+                    <td>Tempat Lahir </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Tanggal Lahir </td>
+                    <td>{{ $item['dob'] }}</td>
+                </tr>
+                <tr>
+                    <td>Agama </td>
+                    <td>{{ $item->religion}}</td>
+                </tr>
+                <tr>
+                    <td>Alamat </td>
+                    <td>
+                        {{ $item['atdress'] }}<br/>
+                        {{ $item['city_id'] }}<br/>
+                        {{ $item['city_name'] }}<br/>
+                        {{ $item['city_name'] }}
+                    </td>
+                </tr>
+                <tr>            
+                    <td>Kewarganegaraan </td>
+                    <td>{{ $item['nationality'] }}</td>
+                </tr>
+                <tr>
+                    <td>Pendidikan </td>
+                    <td>{{ $item['education'] }}</td>
+                </tr>
+                <tr>
+                    <td>Pekerjaan </td>
+                    <td>{{ $item['job'] }}</td>    
+                </tr>                                
                 @endforeach
-            
+            </table>
+            @endif
+            <hr/>
             <a href="/backend/suspect/create?case_id={{$case->id}}">Tambah</a>
         </div>
         <hr/>

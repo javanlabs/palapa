@@ -14,11 +14,14 @@ class CreateTableChecklist extends Migration {
 	{
         Schema::create('sop_checklist', function(Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('phase_id');
+            $table->unsignedInteger('phase_id');            
             $table->string('name');
+            $table->unsignedInteger('ticker_id');
             $table->unsignedInteger('duration');
             $table->enum('direction', ['stay', 'prev', 'next', 'stop']);
             $table->unsignedInteger('ordinal');
+
+            $table->string('related_data');
         });
 	}
 
