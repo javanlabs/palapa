@@ -419,12 +419,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eendonesia/dekor.git",
-                "reference": "f413530d69df6a6e7e141de731a49595b443b412"
+                "reference": "37ca5cafee48c2f2d114157fd45a5c2db3c2b368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eendonesia/dekor/zipball/f413530d69df6a6e7e141de731a49595b443b412",
-                "reference": "f413530d69df6a6e7e141de731a49595b443b412",
+                "url": "https://api.github.com/repos/eendonesia/dekor/zipball/37ca5cafee48c2f2d114157fd45a5c2db3c2b368",
+                "reference": "37ca5cafee48c2f2d114157fd45a5c2db3c2b368",
                 "shasum": ""
             },
             "require": {
@@ -447,7 +447,7 @@
                     "email": "uyab.exe@gmail.com"
                 }
             ],
-            "time": "2015-01-05 04:34:02"
+            "time": "2015-01-05 06:51:57"
         },
         {
             "name": "eendonesia/gapura",
