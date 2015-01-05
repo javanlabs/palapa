@@ -5,11 +5,16 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "dev-master#846c935194a036901ba6b4397c8897fa51e19111",
+		"laravel/framework": "dev-master",
         "fzaninotto/faker": "1.4.*",
         "illuminate/support": "5.0.*",
-        "illuminate/html": "5.0.*@dev",
-        "adamwathan/bootforms": "v0.2"
+        "illuminate/html": "5.0.*",
+        "adamwathan/bootforms": "v0.2",
+        "eendonesia/dekor": "dev-master",
+        "eendonesia/gapura": "dev-master",
+        "eendonesia/moderator": "dev-master",
+        "eendonesia/skrip": "dev-master",
+        "eendonesia/wilayah": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0"
@@ -17,7 +22,6 @@
 	"autoload": {
 		"classmap": [
 			"database",
-            "workbench",
 			"tests/TestCase.php"
 		],
 		"psr-4": {
