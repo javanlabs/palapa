@@ -52,12 +52,12 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
 });
 
 // GLOBAL ROUTE
-$router->get('login', 'SiteController@getLogin');
-$router->post('login', 'SiteController@postLogin');
-$router->get('logout', 'SiteController@getLogout');
+// $router->get('login', 'SiteController@getLogin');
+// $router->post('login', 'SiteController@postLogin');
+// $router->get('logout', 'SiteController@getLogout');
 
-$router->get('kasus', 'HomeController@index');
-$router->get('statistik', 'HomeController@statistic');
+// $router->get('kasus', 'HomeController@index');
+// $router->get('statistik', 'HomeController@statistic');
 
 /*
 |--------------------------------------------------------------------------
