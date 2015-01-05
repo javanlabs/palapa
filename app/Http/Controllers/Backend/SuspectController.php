@@ -7,6 +7,7 @@ use Input, View;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Cases\RepositoryInterface;
 use App\Cases\Suspects;
+use App\Cases\SuspectsForm;
 use App\Cases\Cases;
 
 
@@ -51,7 +52,7 @@ class SuspectController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(SuspectsForm $form)
 	{		
 		$case = Cases::find(Input::get('case_id'));
 		$suspect = Suspects::create(Input::all());
