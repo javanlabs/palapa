@@ -20,7 +20,7 @@ class GapuraServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('eendonesia/gapura');
+		// $this->package('eendonesia/gapura');
 
         include __DIR__.'/../../routes.php';
 	}
@@ -44,7 +44,7 @@ class GapuraServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return [];
+		return ['gapura'];
 	}
 
     protected function registerBootstrapFormBuilder()

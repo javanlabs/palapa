@@ -18,7 +18,7 @@ class SkripServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('eendonesia/skrip');
+		// $this->package('eendonesia/skrip');
 
         include __DIR__.'/../../routes.php';
 	}

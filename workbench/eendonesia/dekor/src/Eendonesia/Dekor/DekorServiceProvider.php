@@ -18,7 +18,7 @@ class DekorServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('eendonesia/dekor', 'dekor');
+		// $this->package('eendonesia/dekor', 'dekor');
 	}
 
 	/**
@@ -38,7 +38,7 @@ class DekorServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return [];
+		return ['dekor'];
 	}
 
 }

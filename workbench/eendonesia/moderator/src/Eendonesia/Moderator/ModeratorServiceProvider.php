@@ -19,7 +19,7 @@ class ModeratorServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('eendonesia/moderator');
+		// $this->package('eendonesia/moderator');
 
         include __DIR__.'/../../routes.php';
         include __DIR__.'/../../helpers.php';
