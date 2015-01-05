@@ -531,12 +531,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/eendonesia/skrip.git",
-                "reference": "ca374ae53e96738df18da691d8eccf371598d9f1"
+                "reference": "a1829c6140d14fdf7ee70cd9cd297e48e9b71db4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eendonesia/skrip/zipball/ca374ae53e96738df18da691d8eccf371598d9f1",
-                "reference": "ca374ae53e96738df18da691d8eccf371598d9f1",
+                "url": "https://api.github.com/repos/eendonesia/skrip/zipball/a1829c6140d14fdf7ee70cd9cd297e48e9b71db4",
+                "reference": "a1829c6140d14fdf7ee70cd9cd297e48e9b71db4",
                 "shasum": ""
             },
             "require": {
@@ -547,7 +547,8 @@
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "src/migrations"
+                    "src/migrations",
+                    "src/controllers"
                 ],
                 "psr-0": {
                     "Eendonesia\\Skrip\\": "src/"
@@ -560,7 +561,7 @@
                     "email": "uyab.exe@gmail.com"
                 }
             ],
-            "time": "2015-01-05 04:36:40"
+            "time": "2015-01-05 10:00:13"
         },
         {
             "name": "eendonesia/wilayah",
