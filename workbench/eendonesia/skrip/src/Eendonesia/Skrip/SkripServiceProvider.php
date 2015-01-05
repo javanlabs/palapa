@@ -40,7 +40,7 @@ class SkripServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return [];
+		return ['skrip'];
 	}
 
 }
