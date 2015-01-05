@@ -148,6 +148,8 @@ return [
 		'App\Providers\AppServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+		'App\Providers\ConfigServiceProvider',
+		'App\Providers\BusServiceProvider',
 
 		/*
 		 * 3rd Party Service Providers...
