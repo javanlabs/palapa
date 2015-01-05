@@ -27,6 +27,12 @@ class AppServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Cases\RepositoryInterface', 'App\Cases\EloquentRepository');
 		$this->app->bind('App\Sop\RepositoryInterface', 'App\Sop\EloquentRepository');
 
+		\View::addNamespace('dekor', base_path('vendor/eendonesia/dekor/src/views/'));
+		\View::addNamespace('gapura', base_path('vendor/eendonesia/gapura/src/views/'));
+
+		\Config::set('gapura::default_auth', 'frontend.search');
+		\Config::set('gapura::default_guest', 'frontend.search');
+		\Config::set('gapura::base_uri', 'gapura');
 	}
 
 }
