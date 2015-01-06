@@ -10,8 +10,20 @@
             <input type='hidden' name='case_id' value='{{$case_id}}'/>
         </div>
         <div class="panel-body">
-            {{ BootForm::text('Nama Lengkap', 'name') }}
-            <div class="row">
+
+            <div class="form-group well">
+                <label class="radio-inline">
+                    <input type="radio" name="type" id="radioIndividu" value="individu" {{ (Input::old('suspect-type', 'individu') == 'individu')?'checked=checked':''}}> Individu
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="type" id="radioBadan" value="badan" {{ (Input::old('suspect-type') == 'badan')?'checked=checked':''}}> Badan/Perusahaan
+                </label>
+            </div>  
+
+            <div class="">{{ BootForm::text('Nama', 'name') }}</div>
+            <div class="suspect-type badan">{{ BootForm::text('Nama Pimpinan', 'nama_pimpinan') }}</div>
+
+            <div class="row suspect-type individu">
                 <div class="col-md-3">
                     {{ BootForm::select('Tempat Lahir', 'pob')->options($cities) }}            
                 </div>
@@ -34,19 +46,19 @@
 
             {{ BootForm::textarea('Alamat', 'address')->rows(3) }}
             {{ BootForm::select('Kota', 'city_id')->options($cities) }}
-            <div class="row">
+
+            <div class="row suspect-type individu">
                 <div class="col-md-4">
                     {{ BootForm::text('Kewarganegaraan', 'nationality') }}            
                 </div>
                 <div class="col-md-4">
-            {{ BootForm::text('Pendidikan', 'education') }}
-                    
+                    {{ BootForm::text('Pendidikan', 'education') }}            
                 </div>
                 <div class="col-md-4">
-            {{ BootForm::text('Pekerjaan', 'job') }}
-                    
+                    {{ BootForm::text('Pekerjaan', 'job') }}            
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-6">{{ BootForm::select('Status', 'status')->options($status) }}</div>
                 <div class="col-md-6">{{ BootForm::select('Jenis Tahanan', 'jenis_tahanan')->options($jenisTahanan) }}</div>
@@ -60,4 +72,23 @@
 
 {{ BootForm::close() }}
 
+@stop
+
+@section('script-end')
+    @parent
+    <script>
+    $(function(){
+        $('input[name=type]').on('change', function(e){
+
+            if($(this).is(':checked'))
+            {
+                var selected = $(this).val();
+
+                $('.suspect-type').hide();
+                $('.suspect-type.' + selected).show();                
+            }
+
+        }).trigger("change");
+    });
+    </script>
 @stop
