@@ -36,4 +36,9 @@ class EloquentRepository implements RepositoryInterface {
         return array_combine($religions, $religions);
     }
 
+    public function jenisTahanan()
+    {
+        $list = ['Belum Ditahan', 'RUTAN', 'Rumah', 'Kota'];
+        return array_combine($list, $list);
+    }
 }
