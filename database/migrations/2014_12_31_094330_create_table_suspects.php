@@ -21,6 +21,7 @@ class CreateTableSuspects extends Migration {
 			$table->string('name');
             $table->string('pob');
             $table->string('dob');
+            $table->tinyInteger('age')->nullable();
             $table->string('religion');
             $table->string('address');
             $table->string('city_id');

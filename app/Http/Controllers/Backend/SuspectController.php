@@ -41,7 +41,7 @@ class SuspectController extends Controller {
 	 */
 	public function create()
 	{		
-		$cities = array_merge(array('0'=>'Pilih Kota'), Kabupaten::lists('nama', 'id'));
+		$cities = ['' => '--Pilih Kota--'] + Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
         $case_id = Input::get('case_id');
 		return view('backend.suspects.create', compact('cities', 'religions', 'case_id'));

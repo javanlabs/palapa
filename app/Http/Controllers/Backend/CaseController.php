@@ -74,7 +74,6 @@ class CaseController extends BackendController {
     public function store(Form $form)
     {
         $case = $this->repo->create($form->all(), Auth::user());
-
         return redirect()->route('backend.cases.show', $case->id);
     }
 

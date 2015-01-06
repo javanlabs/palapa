@@ -13,6 +13,18 @@
             {{ BootForm::text('Nama Lengkap', 'name') }}
             {{ BootForm::select('Tempat Lahir', 'pob')->options($cities) }}
             {{ BootForm::text('Tanggal Lahir', 'dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2) }}
+
+            <div class="form-group">
+                <label>Umur</label>
+                <div style="width:200px">                
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="age" value="{{ Input::old('age') }}">
+                        <span class="input-group-addon">tahun</span>
+                    </div>
+                </div>                
+            </div>
+
+
             {{ BootForm::select('Agama', 'religion')->options($religions) }}
             {{ BootForm::textarea('Alamat', 'address') }}
             {{ BootForm::select('Kota', 'city_id')->options($cities) }}
