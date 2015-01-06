@@ -47,7 +47,10 @@
                     
                 </div>
             </div>
-            {{ BootForm::select('Jenis Tahanan', 'jenis_tahanan')->options($jenisTahanan) }}
+            <div class="row">
+                <div class="col-md-6">{{ BootForm::select('Status', 'status')->options($status) }}</div>
+                <div class="col-md-6">{{ BootForm::select('Jenis Tahanan', 'jenis_tahanan')->options($jenisTahanan) }}</div>
+            </div>
         </div>
         <div class="panel-footer text-right">
             {{ BootForm::submit('Submit') }}

@@ -41,4 +41,10 @@ class EloquentRepository implements RepositoryInterface {
         $list = ['Belum Ditahan', 'RUTAN', 'Rumah', 'Kota'];
         return array_combine($list, $list);
     }
+
+    public function statusTersangka()
+    {
+        $list = ['tergugat' => 'Tergugat', 'penggugat' => 'Penggugat', 'pelapor' => 'Pelapor'];
+        return $list;
+    }    
 }
