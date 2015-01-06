@@ -88,6 +88,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
+                        <a href="{{ route('backend.suspect.edit', [$item['id']]) }}">Edit</a>
                         {{ Form::delete(route('backend.suspect.destroy', [$item['id'], 'caseId' => $case['id']]), 'Hapus', [], ['class' => 'btn-link']) }}
                     </td>
                 </tr>

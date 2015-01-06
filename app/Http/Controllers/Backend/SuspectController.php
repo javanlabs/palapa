@@ -83,7 +83,14 @@ class SuspectController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$suspect = Suspects::findOrFail($id);
+
+		$cities = ['' => '--Pilih Kota--'] + Kabupaten::lists('nama', 'id');
+		$religions = $this->lookup->religions();
+		$jenisTahanan = $this->lookup->jenisTahanan();
+		$status = $this->lookup->statusTersangka();
+
+		return view('backend.suspects.edit', compact('suspect', 'cities', 'religions', 'jenisTahanan', 'status'));
 	}
 
 	/**
@@ -94,7 +101,10 @@ class SuspectController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$suspect = Suspects::findOrFail($id);
+		$suspect->update(Input::all());
+
+		return redirect()->back();
 	}
 
 	/**
