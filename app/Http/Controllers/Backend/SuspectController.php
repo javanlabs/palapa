@@ -103,9 +103,13 @@ class SuspectController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($suspectId)
 	{
-		//
+		$caseId = \Input::get('caseId');
+
+		$case = $this->repo->find($caseId);
+		$case->suspects()->detach([$suspectId]);
+		return redirect()->route('backend.cases.show', [$caseId]);
 	}
 
 }

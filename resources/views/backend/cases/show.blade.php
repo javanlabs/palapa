@@ -85,7 +85,12 @@
                 <tr>
                     <td>Pekerjaan </td>
                     <td>{{ $item['job'] }}</td>    
-                </tr>                                
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        {{ Form::delete(route('backend.suspect.destroy', [$item['id'], 'caseId' => $case['id']]), 'Hapus', [], ['class' => 'btn-link']) }}
+                    </td>
+                </tr>
                 @endforeach
             </table>
             @endif
