@@ -15,7 +15,7 @@ class Form extends FormRequest {
             // 'spdp_number'      => 'required',
             'pasal'            => 'required',
             'kasus'            => 'required',
-            // 'start_date'       => 'required',
+             'start_date'       => 'required',
             // // 'suspect_name'     => 'required',
             // 'suspect_pob'      => 'required',
             // 'suspect_dob'      => 'required',

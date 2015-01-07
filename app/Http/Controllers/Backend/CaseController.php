@@ -65,7 +65,8 @@ class CaseController extends BackendController {
         $staffLookup = $this->moderator->usersByGroups('staff')->lists('name', 'id');
         $cities = Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
-        $penyidikLookup = $this->lookup->lists('penyidik');
+        $penyidikLookup = $this->lookup->lists('penyidik', '-- Pilih Penyidik --');
+
         $type = $this->lookup->find(Input::get('type', 201));
 
         return view('backend.cases.create', compact('penyidikLookup','jaksaLookup', 'staffLookup', 'cities', 'religions', 'type'));
