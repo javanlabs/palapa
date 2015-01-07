@@ -161,5 +161,46 @@ trait Presenter {
         }
 
         return false;
-    }    
+    }
+
+    public function getJaksaNameAttribute()
+    {
+        if($this->jaksa)
+        {
+            return $this->jaksa->name;
+        }
+
+        return false;
+    }
+
+    public function getJaksaNipAttribute()
+    {
+        if($this->jaksa)
+        {
+            return $this->jaksa->nip;
+        }
+
+        return false;
+    }
+
+    public function getJaksaPangkatAttribute()
+    {
+        if($this->jaksa && $this->jaksa->pangkat)
+        {
+            return $this->jaksa->pangkat->name;
+        }
+
+        return false;
+    }
+
+    public function getJaksaJabatanAttribute()
+    {
+        if($this->jaksa && $this->jaksa->jabatan)
+        {
+            return $this->jaksa->jabatan->name;
+        }
+
+        return false;
+    }
+
 }

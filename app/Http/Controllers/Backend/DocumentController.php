@@ -17,18 +17,26 @@ class DocumentController extends Controller {
 	{
 
 		$case = Cases::findOrFail(Input::get('case_id'));
-		$template = 'template.' . Input::get('template');
+		$template = Template::findOrFail(Input::get('template_id'));
+		$templateFile = 'template.' . Input::get('template');
 
-		if(!View::exists($template)){
+		if(!View::exists($templateFile)){
 			return 'template not found';
 		}
-		$content = view($template);
 
-		// $document->cases()->associate($case)->save();
-		// $document->template()->associate($template)->save();
-		return view('backend.document.create', compact('document', 'content', 'case'));
+		$content = view($templateFile);
 
-		// return redirect()->route('backend.document.edit', [$document->id]);
+
+		$document = Document::create([
+			'title'		=> $template->title,
+			'content'	=> $content
+		]);
+		$document->cases()->associate($case)->save();
+		$document->template()->associate($template)->save();
+		return redirect()->route('backend.document.edit', [$document->id]);
+
+//		return view('backend.document.create', compact('document', 'content', 'case'));
+
 	}
 
 	public function edit($id)
@@ -63,8 +71,8 @@ class DocumentController extends Controller {
 		$template = str_replace("{case.start_date}", $case->start_date, $template);
 		$template = str_replace("{case.finish_date}", $case->finish_date, $template);
 		$template = str_replace("{case.suspect_name}", $case->suspect_name, $template);
-		$template = str_replace("{case.suspect_pob}", $case->suspectPob->nama, $template);
-		$template = str_replace("{case.suspect_dob}", $case->suspect_dob, $template);
+//		$template = str_replace("{case.suspect_pob}", $case->suspectPob->nama, $template);
+//		$template = str_replace("{case.suspect_dob}", $case->suspect_dob, $template);
 		$template = str_replace("{case.suspect_religion}", $case->suspect_religion, $template);
 		$template = str_replace("{case.suspect_address}", $case->suspect_address, $template);
 		$template = str_replace("{case.suspect_nationality}", $case->suspect_nationality, $template);
@@ -74,10 +82,10 @@ class DocumentController extends Controller {
 		$template = str_replace("{case.created_at}", $case->created_at, $template);
 
 		$template = str_replace("{case.umur}", 28, $template);
-		$template = str_replace("{jaksa.name}", $case->jaksa->name, $template);
-		$template = str_replace("{jaksa.nip}", $case->jaksa->nip, $template);
-		$template = str_replace("{jaksa.jabatan}", $case->jaksa->jabatan->name, $template);
-		$template = str_replace("{jaksa.pangkat}", $case->jaksa->pangkat->name, $template);
+		$template = str_replace("{jaksa.name}", $case->jaksa_name, $template);
+		$template = str_replace("{jaksa.nip}", $case->jaksa_nip, $template);
+		$template = str_replace("{jaksa.jabatan}", $case->jaksa_jabatan, $template);
+		$template = str_replace("{jaksa.pangkat}", $case->jaksa_pangkat, $template);
 
 		$template = str_replace("{config.kajari}", "", $template);
 		return $template;
