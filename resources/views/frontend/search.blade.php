@@ -52,8 +52,7 @@
             @foreach($cases as $item)
             <tr>
                 <td>
-                  <!--   <a href="{{ $item['permalink'] }}" target="_blank"><strong>{{ $item['name'] }}</strong></a>
-                    <div>{{ $item['suspect_name'] }}</div> -->
+                    <a href="{{ $item['permalink'] }}" target="_blank"><strong>{{ $item['name'] }}</strong></a>
                 </td>
                 <td>
                     <div>{{ $item['prosecutor_name'] }}</div>

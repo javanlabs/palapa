@@ -14,14 +14,19 @@ trait Presenter {
         return $this->kasus;
     }
 
+    public function getSpdpNumberAttribute()
+    {
+        return $this->attributes['spdp_number']?$this->attributes['spdp_number']:'-';
+    }
+
     public function getProsecutorNameAttribute()
     {
-        return $this->jaksa?$this->jaksa->name:'';
+        return $this->jaksa?$this->jaksa->name:'-';
     }
 
     public function getStaffNameAttribute()
     {
-        return $this->staff?$this->staff->name:'';
+        return $this->staff?$this->staff->name:'-';
     }
 
     public function getLastUpdateAttribute()
