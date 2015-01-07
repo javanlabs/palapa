@@ -43,10 +43,10 @@ class Install extends Command {
 		Artisan::call('migrate', []);
 
 		$this->info('package migration...');
-		Artisan::call('migrate', ['--bench' => 'eendonesia/gapura']);
-		Artisan::call('migrate', ['--bench' => 'eendonesia/moderator']);
-		Artisan::call('migrate', ['--bench' => 'eendonesia/skrip']);
-		Artisan::call('migrate', ['--bench' => 'eendonesia/wilayah']);
+//		Artisan::call('migrate', ['--path' => 'vendor/eendonesia/gapura/src/migrations']);
+//		Artisan::call('migrate', ['--path' => 'vendor/eendonesia/moderator/src/migrations']);
+//		Artisan::call('migrate', ['--path' => 'vendor/eendonesia/skrip/src/migrations']);
+//		Artisan::call('migrate', ['--path' => 'vendor/eendonesia/wilayah/src/migrations']);
 
 		$this->info('Database seeder...');
 		Artisan::call('db:seed', []);
