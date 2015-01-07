@@ -60,6 +60,14 @@ class EloquentRepository implements RepositoryInterface {
             $this->incrementPhase($case, $checklist);
         }
 
+        // update additional case data
+        $additionalCaseData = array_get($attributes, 'data', []);
+
+        if( ! empty($additionalCaseData))
+        {
+            $case->update($additionalCaseData);
+        }
+
         return true;
     }
 
