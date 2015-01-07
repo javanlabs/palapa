@@ -8,6 +8,12 @@ interface RepositoryInterface {
 
     public function addChecklist($case, $checklist, $attributes);
 
+    public function removeChecklist($case, $checklist);
+
     public function incrementPhase($case, $phase);
+
+    public function decrementPhase($case, $phase);
+
+    public function checklistRemainingDay($case, $checklist);
 
 }

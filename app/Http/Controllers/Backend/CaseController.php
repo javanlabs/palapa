@@ -101,8 +101,9 @@ class CaseController extends BackendController {
         $checklistIds = $case->checklist->lists('id');
         $templates = $case->templates();
         $documentsIds = $case->documents->lists('id', 'id');
+        $sop = $this->sopRepo;
 
-        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'templates', 'documentsIds'));
+        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'templates', 'documentsIds', 'sop'));
     }
 
     public function destroy($id)

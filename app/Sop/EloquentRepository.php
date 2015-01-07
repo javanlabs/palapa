@@ -130,6 +130,23 @@ class EloquentRepository implements RepositoryInterface {
         return true;
     }
 
+    public function checklistRemainingDay($case, $checklist)
+    {
+        if(!$checklist->ticker)
+        {
+            return false;
+        }
+
+        foreach($case->checklist as $checked)
+        {
+            if($checked->id == $checklist->ticker->id)
+            {
+                $checklistAge = Carbon::createFromFormat('Y-m-d', $checked->pivot->date)->diffInDays(new Carbon());
+                return $checklist->duration - $checklistAge;
+            }
+        }
+    }
+
     protected function getChildTypeIds($type)
     {
         $types = [];

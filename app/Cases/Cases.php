@@ -118,9 +118,9 @@ class Cases extends Model {
 
     public function checklistRemaining($checklist)
     {
-        $activePhase = $this->activePhase()->first();
+        $ticker = $this->ticker;
 
-        if($activePhase)
+        if($ticker)
         {
             $phaseAge = Carbon::createFromFormat('Y-m-d', $activePhase->pivot->start_date)->diffInDays(new Carbon());
             return $checklist['duration'] - $phaseAge;

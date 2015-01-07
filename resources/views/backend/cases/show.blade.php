@@ -180,12 +180,14 @@
                                     {{ $item['name'] }}
 
                                     @if($phase->id == $case['phase_id'])
-                                        <?php $remaining = $case->checklistRemaining($item) ?>
+                                        <?php $remaining = $sop->checklistRemainingDay($case, $item) ?>
                                         &nbsp;&nbsp;
-                                        @if($remaining > 0)
-                                        <small class="label label-success">{{ $remaining }} hari lagi</small>
-                                        @else
-                                        <small class="label label-danger">lewat {{ abs($remaining) }} hari</small>
+                                        @if($remaining)
+                                            @if($remaining > 0)
+                                            <small class="label label-success">{{ $remaining }} hari lagi</small>
+                                            @else
+                                            <small class="label label-danger">lewat {{ abs($remaining) }} hari</small>
+                                            @endif
                                         @endif
                                     @endif
                                 </label>

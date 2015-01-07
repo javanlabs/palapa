@@ -11,6 +11,11 @@ class Checklist extends Model {
         return $this->belongsTo('App\Sop\Phase', 'phase_id');
     }
 
+    public function ticker()
+    {
+        return $this->belongsTo('App\Sop\Checklist', 'ticker_id');
+    }
+
     public function templates(){
     	return $this->hasMany('App\Model\Template','checklist_id');
     }
