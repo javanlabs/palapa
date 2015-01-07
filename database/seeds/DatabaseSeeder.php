@@ -439,7 +439,7 @@ class SopSeeder extends Seeder {
             [
                 // PIDUM
                 ['phase_id' => 1, 'name' => 'Penerimaan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-                ['phase_id' => 1, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 1, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2, 'ticker_id' => 1, 'related_data' => json_encode(['spdp_number', 'spdp_date'])],
                 ['phase_id' => 1, 'name' => 'P-16A', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
                 ['phase_id' => 1, 'name' => 'Penerimaan Berkas Tahap 1', 'duration' => 1, 'direction' => 'next', 'ordinal' => 4],
                 ['phase_id' => 1, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
