@@ -16,9 +16,9 @@ class CreateTableChecklist extends Migration {
             $table->increments('id');
             $table->unsignedInteger('phase_id');            
             $table->string('name');
-            $table->unsignedInteger('ticker_id');
+            $table->unsignedInteger('ticker_id')->nullable();
             $table->unsignedInteger('duration');
-            $table->enum('direction', ['stay', 'prev', 'next', 'stop']);
+            $table->enum('direction', ['stay', 'prev', 'next', 'finish', 'suspended']);
             $table->unsignedInteger('ordinal');
 
             $table->string('related_data');
