@@ -181,25 +181,25 @@ class Cases extends Model {
 
     public function publish()
     {
-        $this->status == self::STATUS_ONGOING;
+        $this->status = self::STATUS_ONGOING;
         return $this->save();
     }
 
     public function unpublish()
     {
-        $this->status == self::STATUS_DRAFT;
+        $this->status = self::STATUS_DRAFT;
         return $this->save();
     }
 
     public function finish()
     {
-        $this->status == self::STATUS_FINISH;
+        $this->status = self::STATUS_FINISH;
         return $this->save();
     }
 
     public function suspend()
     {
-        $this->status == self::STATUS_SUSPEND;
+        $this->status = self::STATUS_SUSPEND;
         return $this->save();
     }
 }
