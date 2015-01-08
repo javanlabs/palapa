@@ -25,6 +25,11 @@ class Checklist extends Model {
         return $this->direction == 'next';
     }
 
+    public function getIsFirstAttribute()
+    {
+        return $this->ordinal == 1;
+    }
+
     public static function availableChecklists(){
     	$rows = Checklist::all();
     	$result = array();

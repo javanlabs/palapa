@@ -172,5 +172,17 @@ class Cases extends Model {
     public function setStartDateAttribute($value) 
     {
         $this->attributes['start_date'] = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
-    }    
+    }
+
+    public function publish()
+    {
+        $this->status == 'on going';
+        return $this->save();
+    }
+
+    public function unpublish()
+    {
+        $this->status == 'draft';
+        return $this->save();
+    }
 }

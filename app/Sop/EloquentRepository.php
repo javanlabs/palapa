@@ -60,6 +60,11 @@ class EloquentRepository implements RepositoryInterface {
             $this->incrementPhase($case, $checklist);
         }
 
+        if($checklist->is_first)
+        {
+            $case->publish();
+        }
+
         return true;
     }
 
@@ -72,6 +77,11 @@ class EloquentRepository implements RepositoryInterface {
         if($checklist->is_next)
         {
             $this->decrementPhase($case, $checklist);
+        }
+
+        if($checklist->is_first)
+        {
+            $case->unpublish();
         }
 
         return true;
