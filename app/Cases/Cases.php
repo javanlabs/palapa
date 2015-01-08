@@ -21,7 +21,14 @@ class Cases extends Model {
 
     protected $dates = ['start_date', 'finish_date'];
 
-    public function suspects(){
+
+    public function scopePublished($query)
+    {
+        return $query->where('status', '<>', self::STATUS_DRAFT);
+    }
+
+    public function suspects()
+    {
         return $this->belongsToMany('App\Cases\Suspects');
     }
 
