@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cases extends Model {
 
+    const STATUS_DRAFT      = 'draft';
+    const STATUS_ONGOING    = 'ongoing';
+    const STATUS_FINISH     = 'finish';
+    const STATUS_SUSPEND    = 'suspend';
+
     use SoftDeletes, Presenter;
 
     protected $table = 'cases';
@@ -176,13 +181,25 @@ class Cases extends Model {
 
     public function publish()
     {
-        $this->status == 'on going';
+        $this->status == self::STATUS_ONGOING;
         return $this->save();
     }
 
     public function unpublish()
     {
-        $this->status == 'draft';
+        $this->status == self::STATUS_DRAFT;
+        return $this->save();
+    }
+
+    public function finish()
+    {
+        $this->status == self::STATUS_FINISH;
+        return $this->save();
+    }
+
+    public function suspend()
+    {
+        $this->status == self::STATUS_SUSPEND;
         return $this->save();
     }
 }

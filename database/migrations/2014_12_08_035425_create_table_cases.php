@@ -27,7 +27,7 @@ class CreateTableCases extends Migration {
             $table->unsignedInteger('jaksa_id')->nullable();
             $table->unsignedInteger('staff_id')->nullable();
 
-            $table->enum('status', ['draft', 'on going', 'finish', 'suspended'])->default('draft');
+            $table->enum('status', ['draft', 'ongoing', 'finish', 'suspend'])->default('draft');
 
             $table->string('spdp_number')->nullable();
             $table->string('tgl_spdp')->nullable();

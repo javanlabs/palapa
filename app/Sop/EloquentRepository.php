@@ -64,6 +64,14 @@ class EloquentRepository implements RepositoryInterface {
         {
             $case->publish();
         }
+        elseif ($checklist->is_finish)
+        {
+            $case->finish();
+        }
+        elseif($checklist->is_suspend)
+        {
+            $case->suspend();
+        }
 
         return true;
     }
@@ -82,6 +90,10 @@ class EloquentRepository implements RepositoryInterface {
         if($checklist->is_first)
         {
             $case->unpublish();
+        }
+        elseif($checklist->is_finish || $checklist->is_suspend)
+        {
+            $case->publish();
         }
 
         return true;
