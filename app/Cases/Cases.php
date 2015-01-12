@@ -19,7 +19,7 @@ class Cases extends Model {
 
     protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
 
-    protected $dates = ['start_date', 'finish_date'];
+    // protected $dates = ['start_date', 'finish_date', 'tgl_spdp', 'tgl_persidangan'];
 
 
     public function scopePublished($query)
@@ -44,7 +44,7 @@ class Cases extends Model {
 
     public function staff()
     {
-        return $this->belongsTo('Eendonesia\Moderator\Models\User', 'staff_id');
+        return $this->belongsTo('App\Officer\Officer', 'staff_id');
     }
 
     public function type()

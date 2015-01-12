@@ -94,41 +94,33 @@ Dasar
 				</p>
 			</td>
 			<td>
-				{case.staf_name}
+				{{$case->staff->name}}
 			</td>
 		</tr>
 		<tr>
 			<td>
 			</td>
 			<td>
-				<p>
 					Pangkat/NIP
-				</p>
 			</td>
 			<td>
-				<p>
 					:
-				</p>
 			</td>
 			<td>
-				{case.staf_pangkat}/{case.staf_nip}
+				{{$case->staff->pangkat->name}}/{{$case->staff->nip}}
 			</td>
 		</tr>
 		<tr>
 			<td>
 			</td>
 			<td>
-				<p>
 					Jabatan
-				</p>
 			</td>
 			<td>
-				<p>
 					:
-				</p>
 			</td>
 			<td>
-				{case.staf_jabatan
+				{{$case->staff->name}}
 			</td>
 		</tr>
 		</tbody>
@@ -147,8 +139,14 @@ Dasar
 		</p>
 	</td>
 	<td>
+		<?php
+			$suspects = array();
+			foreach($case->suspects as $row){
+				$suspects[] = $row->name;
+			}
+		?>
 		<ol>
-			<li>Membantu melaksanakan fungsi administrasi dalam perkara Tindak Pidana tersangka atas nama {case.suspect_name} diduga melakukan tindak pidana sebagaimana diatur dalam {case.pasal}</li>
+			<li>Membantu melaksanakan fungsi administrasi dalam perkara Tindak Pidana tersangka atas nama {{implode(', ', $suspects)}} diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}}</li>
 			<li>Melaksanakan Surat Perintah ini dengan penuh rasa tanggung jawab.</li>
 			<li>Surat Perintah ini berlaku selama 60 hari.</li>
 		</ol>
@@ -169,7 +167,7 @@ Dasar
 			Dikeluarkan di : Jember
 		</p>
 		<p>
-			Pada tanggal : {case.start_date}
+			Pada tanggal : {{$case->tgl_spdp}}
 		</p>
 		<p style="text-align: center;">
 			<strong data-redactor-tag="strong">
@@ -179,13 +177,12 @@ Dasar
 		<p>
 			<br>
 		</p>
-		<p>
-			<br>
+		<p style="text-align:center;">
+				{{$setting['kajari_name']}}
 		</p>
+		<hr>
 		<p style="text-align: center;">
-			<u>{config.kejari_name}</u>
-			<br>
-			{config.kejari_pangkat}/{config.kejari_nip}
+			               {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
 		</p>
 	</td>
 </tr>
@@ -196,7 +193,7 @@ Dasar
 		</p>
 		<ol>
 			<li>Yth. Ketua Pengadilan Negeri Jember;</li>
-			<li>Yth. Penyidik {case.penyidik}</li>
+			<li>Yth. Penyidik {{$case->penyidik->name}}</li>
 			<li>Arsip.</li>
 		</ol>
 	</td>
