@@ -11,11 +11,11 @@
 |
 */
 
-$router->get('/', 'Frontend\HomeController@getIndex');
-$router->controller('home', 'Frontend\HomeController', [
+// home screen
+$router->get('/', 'FrontendController@getIndex');
+
+$router->controller('home', 'FrontendController', [
     'getSearch'  => 'frontend.search',
-    'getProfile'  => 'frontend.profile',
-    'getOrganization'  => 'frontend.organization',
     'getOfficer'  => 'frontend.officer',
 ]);
 
