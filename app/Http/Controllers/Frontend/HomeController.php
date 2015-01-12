@@ -17,15 +17,6 @@ class HomeController extends Controller {
 
 	public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, LookupRepository $lookup)
 	{
-		//dd($type);
-
-        //$keyword = null;
-        //if($request->get('type') == 'jaksa'){
-        //	$jaksa = Officer::findOrFail($request->get('q'));
-        //	if($jaksa)
-        //		$keyword = $jaksa->name;
-        //}
-
 		$keyword = $request->get('q');
 		$type = $request->get('type');
 
