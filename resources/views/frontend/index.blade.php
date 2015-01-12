@@ -36,7 +36,7 @@
                     </table>
                 </td>
                 <td colspan="2" rowspan="2" class="jadwal-sidang" style="padding: 10px 40px">
-                    <h3 class="caption">Jadwal Sidang</h3>
+                    <h3 class="caption">Jadwal Sidang Hari Ini</h3>
                     <div class="inner">
                         @foreach(range(1,4) as $item)
                             <a href="" class="court">Sidang Lanjuta Perkara Penyalahgunaan Wewenang</a>

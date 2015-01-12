@@ -6648,7 +6648,7 @@ button.close {
 }
 .section-menu-grid .jadwal-sidang {
   color: #fff;
-  background-color: #333;
+  background: transparent url("../images/wallpaper.jpg") no-repeat center center;
   border-color: #333;
 }
 .section-menu-grid .jadwal-sidang .inner {
@@ -6663,7 +6663,10 @@ button.close {
 .section-menu-grid .jadwal-sidang .court {
   display: block;
   padding: 5px 10px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   background-color: #222;
   color: #fff;
+  opacity: .9;
+  font-size: 1.2em;
+  font-weight: 300;
 }
