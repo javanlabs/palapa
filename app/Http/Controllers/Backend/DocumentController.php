@@ -19,23 +19,25 @@ class DocumentController extends Controller {
 		$case = Cases::findOrFail(Input::get('case_id'));
 		$template = Template::findOrFail(Input::get('template_id'));
 		$templateFile = 'template.' . Input::get('template');
+		$setting = Setting::lists('value', 'key');
+
 
 		if(!View::exists($templateFile)){
 			return 'template not found';
 		}
 
-		$content = view($templateFile);
+		$content = view($templateFile, compact('case', 'setting'));
 
 
-		$document = Document::create([
-			'title'		=> $template->title,
-			'content'	=> $content
-		]);
-		$document->cases()->associate($case)->save();
-		$document->template()->associate($template)->save();
-		return redirect()->route('backend.document.edit', [$document->id]);
+		// $document = Document::create([
+		// 	'title'		=> $template->title,
+		// 	'content'	=> $content
+		// ]);
+		// $document->cases()->associate($case)->save();
+		// $document->template()->associate($template)->save();
+		// return redirect()->route('backend.document.edit', [$document->id]);
 
-//		return view('backend.document.create', compact('document', 'content', 'case'));
+		return view('backend.document.create', compact('document', 'content', 'case'));
 
 	}
 

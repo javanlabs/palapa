@@ -1,15 +1,17 @@
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
-			KEJAKSAAN …………………………..
-		</p>
+	<td style="text-align: center;" width="250px">
+		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
+		</strong>
 	</td>
-	<td>
-		<p>
+	<td width="300px">
+	</td>
+	<td style="text-align: right;">
+		<strong>
 			P‑48
-		</p>
+		</strong>
 	</td>
 </tr>
 </tbody>
