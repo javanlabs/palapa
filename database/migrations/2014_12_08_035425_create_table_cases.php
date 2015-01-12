@@ -31,6 +31,7 @@ class CreateTableCases extends Migration {
 
             $table->string('spdp_number')->nullable();
             $table->date('tgl_spdp')->nullable();
+            $table->date('tgl_spdp_received')->nullable();
 
             $table->date('tgl_persidangan')->nullable();
 

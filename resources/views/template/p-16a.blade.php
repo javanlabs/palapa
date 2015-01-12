@@ -182,7 +182,7 @@ Dasar
 		</p>
 		<hr>
 		<p style="text-align: center;">
-			               {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
 		</p>
 	</td>
 </tr>
