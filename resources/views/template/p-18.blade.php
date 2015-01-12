@@ -1,25 +1,35 @@
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
-			KEJAKSAAN …………………………..
-		</p>
+	<td style="text-align: center;" width="250px">
+		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
+		</strong>
 	</td>
-	<td>
-		<p>
+	<td width="300px">
+	</td>
+	<td style="text-align: right;">
+		<strong>
 			P‑18
-		</p>
+		</strong>
 	</td>
 </tr>
 </tbody>
 </table>
+<?php
+			$suspects = array();
+			foreach($case->suspects as $row){
+				$suspects[] = $row->name;
+			}
+
+			$pasals = $case->pasal;
+		?>
 <table>
 <tbody>
 <tr>
 	<td>
 		<p>
-			Nornor : …………………………
+			Nomor : …………………………
 		</p>
 		<p>
 			Sifat : …………………………
@@ -28,7 +38,7 @@
 			Lampiran : …………………………
 		</p>
 		<p>
-			Perihal : Hasil Penyidikan atas nama …….……….yang disangka melanggar pasal …………. ………………………… belum lengkap
+			Perihal : Hasil Penyidikan atas nama {{implode(', ', $suspects)}} yang disangka melanggar pasal {{$pasals}} belum lengkap
 		</p>
 	</td>
 	<td>
@@ -54,32 +64,58 @@
 </tr>
 </tbody>
 </table>
+	
 <p>
-	 Sehubungan penyerahan berkas perkara pidana atas nama tersangka............................. Nomor : …………. Tanggal……………….yang kami terima pada tanggal………………… setelah kami lakukan penelitian sesuai dengan pasal 110 dan 138 (1) KUHAP, ternyata hasil penyidikanya belum lengkap.
+	 Sehubungan penyerahan berkas perkara pidana atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->tgl_spdp?$case->tgl_spdp:'____________'}} yang kami terima pada tanggal {{$case->tgl_spdp_received?$case->tgl_spdp_received:'____________'}} setelah kami lakukan penelitian sesuai dengan pasal 110 dan 138 (1) KUHAP, ternyata hasil penyidikannya belum lengkap.
 </p>
 <p>
 	 Pengembalian berkas beserta petunjuknya menyusul.
 </p>
-<p>
-	Demikian untuk dimaklumi.
-</p>
-<p>
-	KEPALA KEJAKSAAN TINGGI / NEGERI*)
-</p>
-<p>
-	................................................................
-</p>
-<p>
-	 ( .)
-</p>
-<p>
-	Pangkat/Nip
-</p>
-<p>
-	Tembusan
-</p>
-<ol>
-	<li>Yth. Kepala Kejaksaan Tinggi ........</li>
-	<li>Yth. Kapolda - Kapolwil ‑ Kapolres**)</li>
-	<li>Arsip.</li>
-</ol>
+<table>
+<tbody>
+<tr>
+	<td style='width:400px'>
+		<p>
+			Demikian untuk dimaklumi.
+		</p>
+	</td>
+	<td>
+		<p>
+			Dikeluarkan di : Jember
+		</p>
+		<p>
+			Pada tanggal : {{$case->tgl_spdp}}
+		</p>
+		<p style="text-align: center;">
+			<strong data-redactor-tag="strong">
+			KEPALA KEJAKSAAN NEGERI JEMBER
+			</strong>
+		</p>
+		<p>
+			<br>
+		</p>
+		<p style="text-align:center;">
+				{{$setting['kajari_name']}}
+		</p>
+		<hr>
+		<p style="text-align: center;">
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			Tembusan:
+		</p>
+		<ol>
+			<li>Yth. Kepala Kejaksaan Tinggi Jawa Timur;</li>
+			<li>Yth. Kepala {{$case->penyidik->name}}</li>
+			<li>Arsip.</li>
+		</ol>
+	</td>
+	<td>
+	</td>
+</tr>
+</tbody>
+</table>

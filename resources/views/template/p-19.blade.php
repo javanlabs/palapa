@@ -94,31 +94,35 @@
 <p>
 	<br>
 </p>
-<p style="margin-left: 60px;">
-	Demikian untuk dilaksanakan
-</p>
 <table>
 <tbody>
 <tr>
-	<td>
+	<td style='width:400px'>
+		<p>
+			Demikian untuk dilaksanakan.
+		</p>
 	</td>
 	<td>
+		<p>
+			Dikeluarkan di : Jember
+		</p>
+		<p>
+			Pada tanggal : {{$case->tgl_spdp}}
+		</p>
 		<p style="text-align: center;">
+			<strong data-redactor-tag="strong">
 			KEPALA KEJAKSAAN NEGERI JEMBER
+			</strong>
+		</p>
+		<p>
 			<br>
 		</p>
-		<p style="text-align: center;">
-			<br>
-		</p>
-		<p style="text-align: center;">
-			<br>
-		</p>
-		<p style="text-align: center;">
-			..........................................
+		<p style="text-align:center;">
+				{{$setting['kajari_name']}}
 		</p>
 		<hr>
 		<p style="text-align: center;">
-			..................................................
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
 		</p>
 	</td>
 </tr>
@@ -128,9 +132,9 @@
 			Tembusan:
 		</p>
 		<ol>
-			<li>Yth. Kepala KejaksaanTinggi Jawa Timur</li>
-			<li>Yth. Kepala Kepolisian ….</li>
-			<li><u>Arsip.</u></li>
+			<li>Yth. Kepala Kejaksaan Tinggi ______;</li>
+			<li>Yth. Kepala {{$case->penyidik->name}}</li>
+			<li>Arsip.</li>
 		</ol>
 	</td>
 	<td>

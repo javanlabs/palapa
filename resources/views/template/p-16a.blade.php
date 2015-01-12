@@ -157,7 +157,7 @@ Dasar
 <table>
 <tbody>
 <tr>
-	<td>
+	<td style:'width=60px'>
 		<p>
 			Kepada : Yang bersangkutan untuk dilaksanakan
 		</p>
