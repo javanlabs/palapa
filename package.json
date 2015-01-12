@@ -1,6 +1,26 @@
 {
-    "devDependencies": {
-        "gulp": "^3.8.8",
-        "laravel-elixir": "*"
-    }
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-less": "^2.0.1",
+    "gulp-livereload": "^3.2.0",
+    "gulp-minify-css": "^0.3.11",
+    "gulp-rename": "^1.2.0",
+    "tiny-lr": "^0.1.4"
+  },
+  "name": "palapa",
+  "description": "SOP Monitoring System",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://uyab@bitbucket.org/ngomik/palapa.git"
+  },
+  "author": "Bayu Hendra Winata",
+  "license": "ISC"
 }

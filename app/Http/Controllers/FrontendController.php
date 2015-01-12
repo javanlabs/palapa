@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Lookup\RepositoryInterface as LookupRepository;
+use App\Menu\RepositoryInterface as MenuRepository;
 use App\Sop\RepositoryInterface;
 use Illuminate\Http\Request;
 use App\Cases\RepositoryInterface as CasesRepository;
@@ -8,9 +9,10 @@ use App\Officer\RepositoryInterface as OfficerRepository;
 
 class FrontendController extends Controller {
 
-    public function getIndex()
+    public function getIndex(MenuRepository $menuRepository)
     {
-        return view('frontend.index');
+        $menu = $menuRepository->all();
+        return view('frontend.index', compact('menu'));
     }
 
     public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, LookupRepository $lookup)
