@@ -47,8 +47,8 @@
             <tr>
                 <td class="item item-dark">
                     <div class="inner">
-                        <a href="">
-                            <?php $item = $menu->pull(0) ?>
+                        <?php $item = $menu->pull(0) ?>
+                        <a href="{{ $item['url'] }}">
                             <small class="keymap">{{ $item['keymap'] }}</small>
                             <h3 class="title">{{ $item['title'] }}</h3>
                             <i class="fa fa-chevron-right fa-3x icon"></i>
@@ -61,7 +61,7 @@
             <tr>
                 @foreach($chunk as $item)
                     <td class="item">
-                        <a href="">
+                        <a href="{{ $item['url'] }}">
                             <small class="keymap">{{ $item['keymap'] }}</small>
                             <h3 class="title">{{ $item['title'] }}</h3>
                             <i class="fa fa-chevron-right fa-3x icon"></i>

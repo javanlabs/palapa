@@ -8,8 +8,8 @@ class EloquentRepository implements RepositoryInterface {
     public function all()
     {
         $menu = [
-            ['title' => 'Cari Kasus', 'url' => '', 'keymap' => 1],
-            ['title' => 'Daftar Jaksa', 'url' => '', 'keymap' => 2],
+            ['title' => 'Cari Kasus', 'url' => route('frontend.search'), 'keymap' => 1],
+            ['title' => 'Daftar Jaksa', 'url' => route('frontend.officer'), 'keymap' => 2],
             ['title' => 'Struktur Organisasi', 'url' => '', 'keymap' => 5],
             ['title' => 'Alur Kasus', 'url' => '', 'keymap' => 8],
             ['title' => 'Jadwal Operasional', 'url' => '', 'keymap' => 3],
