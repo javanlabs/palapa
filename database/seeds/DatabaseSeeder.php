@@ -435,7 +435,7 @@ class SopSeeder extends Seeder {
             ]
         );
 
-        DB::table('sop_checklist')->insert(
+        $checklists =
             [
                 // PIDUM
                 //Tahap Pra Penuntutan
@@ -557,13 +557,11 @@ class SopSeeder extends Seeder {
                 ['phase_id' => 27, 'name' => 'BA-8', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
                 ['phase_id' => 27, 'name' => 'P-53', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
                 ['phase_id' => 27, 'name' => 'Pengarsipan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-
-
-
-                
-
-            ]
-        );
+            ];
+        foreach($checklists as $data)
+        {
+            DB::table('sop_checklist')->insert($data);
+        }
         return true;
     }
 }
