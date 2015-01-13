@@ -92,10 +92,6 @@ class TemplateSeeder extends Seeder{
             'title' => 'Surat Perintah Penunjukan JPU untuk mengikuti Perkembangan Penyidikan perkara tindak pidana',            
             ],
             [
-            'short_title' => 'P-16A',
-            'title' => 'Surat Perintah Penunjukan Petugas Administrasi',
-            ],
-            [
             'short_title' => 'P-17',
             'title' => 'Permintaan Perkembangan Hasil Penyidikan',
             ],
@@ -118,6 +114,10 @@ class TemplateSeeder extends Seeder{
             [
             'short_title' => 'P-21A',
             'title' => 'Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap',
+            ],
+            [
+            'short_title' => 'P-16A',
+            'title' => 'Surat Perintah Penunjukan JPU untuk Penyelesaian Perkara Tindak Pidana',
             ],
             [
             'short_title' => 'P-31',
@@ -269,21 +269,21 @@ class JenisKasusSeeder extends Seeder {
             ['id' => 201, 'name'  => 'Pidana Umum', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 202, 'name'  => 'Pidana Khusus', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
 
-            ['id' => 211, 'name'  => 'Perdata - BANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 212, 'name'  => 'Perdata - THL', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 213, 'name'  => 'Perdata - TIMKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 214, 'name'  => 'Perdata - YANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 211, 'name'  => 'Perdata - BANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 212, 'name'  => 'Perdata - THL', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 213, 'name'  => 'Perdata - TIMKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 214, 'name'  => 'Perdata - YANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
 
-            ['id' => 221, 'name'  => 'PPH - BANKUM LITIGASI', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 222, 'name'  => 'PPH - BANKUM NON LITIGASI', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 223, 'name'  => 'PPH - THL', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 224, 'name'  => 'PPH - TIMKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 225, 'name'  => 'PPH - YANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 221, 'name'  => 'PPH - BANKUM LITIGASI', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 222, 'name'  => 'PPH - BANKUM NON LITIGASI', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 223, 'name'  => 'PPH - THL', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 224, 'name'  => 'PPH - TIMKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 225, 'name'  => 'PPH - YANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
 
-            ['id' => 231, 'name'  => 'TUN - BANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 232, 'name'  => 'TUN - THL', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 233, 'name'  => 'TUN - TIMKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 234, 'name'  => 'TUN - YANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 231, 'name'  => 'TUN - BANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 232, 'name'  => 'TUN - THL', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 233, 'name'  => 'TUN - TIMKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            // ['id' => 234, 'name'  => 'TUN - YANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
         ];
         return DB::table('lookups')->insert($pangkat);
     }
@@ -394,7 +394,7 @@ class SopSeeder extends Seeder {
 
         DB::table('sop_phase')->insert(
             [
-                ['id' => 1, 'case_type_id' => 201, 'name' => 'SPDP', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
+                ['id' => 1, 'case_type_id' => 201, 'name' => 'Pra Penuntutan', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
                 ['id' => 2, 'case_type_id' => 201, 'name' => 'Tahap 1', 'duration' => 7, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
                 ['id' => 3, 'case_type_id' => 201, 'name' => 'Tahap 2', 'duration' => 7, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
                 ['id' => 4, 'case_type_id' => 201, 'name' => 'Penuntutan', 'duration' => 30, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
@@ -435,125 +435,135 @@ class SopSeeder extends Seeder {
             ]
         );
 
-        $checklists =
-        [
-            // PIDUM
-            ['phase_id' => 1, 'name' => 'Penerimaan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1, 'related_data' => json_encode(['spdp_number', 'tgl_spdp'])],
-            ['phase_id' => 1, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
-            ['phase_id' => 1, 'name' => 'P-16A', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 1, 'name' => 'Penerimaan Berkas Tahap 1', 'duration' => 1, 'direction' => 'next', 'ordinal' => 4],
-            ['phase_id' => 1, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
-            ['phase_id' => 1, 'name' => 'SPDP Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
+        DB::table('sop_checklist')->insert(
+            [
+                // PIDUM
+                //Tahap Pra Penuntutan
+                ['phase_id' => 1, 'name' => 'Penerimaan SPDP', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 1, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'ticker_id'=>1, 'duration' => 2, 'direction' => 'stay', 'ordinal' => 2],                                
+                ['phase_id' => 1, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan','ticker_id'=>2, 'duration' => 30, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 1, 'name' => 'SPDP Dikembalikan', 'ticker_id'=>3, 'duration' => 30, 'direction' => 'suspend', 'ordinal' => 4],
+                ['phase_id' => 1, 'name' => 'Penerimaan Berkas Tahap 1', 'duration' => 1, 'direction' => 'next', 'ordinal' => 5],
 
-            ['phase_id' => 2, 'name' => 'P-18 Hasil Penyidikan Belum Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 2, 'name' => 'P-19 Pengembalian Berkas Perkara untuk dilengkapi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
-            ['phase_id' => 2, 'name' => 'P-20 Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 2, 'name' => 'P-21 Pemberitahuan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
-            ['phase_id' => 2, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
-            ['phase_id' => 2, 'name' => 'Berkara Perkas Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
+                //Tahap 1
+                ['phase_id' => 2, 'name' => 'P-18 Hasil Penyidikan Belum Lengkap', 'ticker_id' => 5, 'duration' => 7, 'direction' => 'stay', 'ordinal' => 6],
+                ['phase_id' => 2, 'name' => 'P-19 Pengembalian Berkas Perkara untuk dilengkapi', 'ticker_id' => 6, 'duration' => 14, 'direction' => 'stay', 'ordinal' => 7],
+                ['phase_id' => 2, 'name' => 'P-20 Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis (kesatu)', 'ticker_id' => 7, 'duration' => 30, 'direction' => 'stay', 'ordinal' => 8],
+                ['phase_id' => 2, 'name' => 'P-20 Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis (kedua)', 'ticker_id' => 8, 'duration' => 30, 'direction' => 'stay', 'ordinal' => 9],
+                ['phase_id' => 2, 'name' => 'P-20 Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis (ketiga)', 'ticker_id' => 9, 'duration' => 30, 'direction' => 'stay', 'ordinal' => 10],
+                ['phase_id' => 2, 'name' => 'Berkara Perkas Dikembalikan', 'ticker_id' => 10, 'duration' => 30, 'direction' => 'suspend', 'ordinal' => 11],
+                ['phase_id' => 2, 'name' => 'P-21 Pemberitahuan Hasil Penyidikan Sudah Lengkap', 'duration' => 0, 'direction' => 'next', 'ordinal' => 12],
+                ['phase_id' => 2, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 0, 'direction' => 'next', 'ordinal' => 13],
+                
+                //Tahap 2
+                ['phase_id' => 3, 'name' => 'Penerimaan Tersangka dan Barang Bukti', 'ticker_id' => 12,'duration' => 30, 'direction' => 'stay', 'ordinal' => 14],
+                ['phase_id' => 3, 'name' => 'P-16A', 'duration' => 1, 'ticker_id'=>14,'duration'=>2, 'direction' => 'stay', 'ordinal' => 15],
+                ['phase_id' => 3, 'name' => 'BA Pendapat Penahanan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 16],
+                ['phase_id' => 3, 'name' => 'Surat Perintah Penahanan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 17],
+                ['phase_id' => 3, 'name' => 'BA-10 Berita Acara Pelaksanaan Perintah Penahanan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 18],
+                ['phase_id' => 3, 'name' => 'BA-15 Berita Acara Penerimaan dan Penelitian Tersangka', 'duration' => 0, 'direction' => 'next', 'ordinal' => 19],
+                ['phase_id' => 3, 'name' => 'BA-18 Berita Acara Penerimaan dan Penelitian Benda Sitaan/Barang Bukti', 'duration' => 0, 'direction' => 'next', 'ordinal' => 20],
 
-            ['phase_id' => 3, 'name' => 'Penerimaan Tersangka dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 3, 'name' => 'BA Pendapat Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 3, 'name' => 'Surat Perintah Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
-            ['phase_id' => 3, 'name' => 'BA-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
-            ['phase_id' => 3, 'name' => 'BA-15', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 6],
-            ['phase_id' => 3, 'name' => 'BA-18', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 7],
+                //Tahap Penuntutan
+                ['phase_id' => 4, 'name' => 'Pembuatan Surat Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 21],
+                ['phase_id' => 4, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'ticker_id'=>14, 'duration' => 15, 'direction' => 'next', 'ordinal' => 22],
+                
+                //Tahap Persidangan
+                ['phase_id' => 5, 'name' => 'Pembacaan Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 23],
+                ['phase_id' => 5, 'name' => 'Pembacaan Eksepsi', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 24],
+                ['phase_id' => 5, 'name' => 'Tanggapan Eksepsi', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 25],
+                ['phase_id' => 5, 'name' => 'Putusan Sela', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 26],
+                ['phase_id' => 5, 'name' => 'Pemeriksaan Saksi', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 27],
+                ['phase_id' => 5, 'name' => 'Pemeriksaan Terdakwa', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 28],
+                ['phase_id' => 5, 'name' => 'Pembacaan Surat Tuntutan', 'ticker_id'=>28, 'duration' => 3, 'direction' => 'stay', 'ordinal' => 29],
+                ['phase_id' => 5, 'name' => 'Pembelaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 30],
+                ['phase_id' => 5, 'name' => 'Tanggapan Pembelaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 31],
+                ['phase_id' => 5, 'name' => 'Putusan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 32],
 
-            ['phase_id' => 4, 'name' => 'Pembuatan Surat Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 4, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                //Upaya Hukum
+                ['phase_id' => 6, 'name' => 'Banding', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 33],
+                ['phase_id' => 6, 'name' => 'Kasasi', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 34],
+                ['phase_id' => 6, 'name' => 'Peninjauan Kembali', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 35],
+                ['phase_id' => 6, 'name' => 'Upaya Hukum Selesai', 'duration' => 0, 'direction' => 'next', 'ordinal' => 35],
 
-            ['phase_id' => 5, 'name' => 'Pembacaan Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 5, 'name' => 'Pembacaan Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
-            ['phase_id' => 5, 'name' => 'Tanggapan Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 5, 'name' => 'Putusan Sela', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 5, 'name' => 'Pemeriksaan Saksi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 5, 'name' => 'Pemeriksaan Terdakwa', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 5, 'name' => 'Pembacaan Surat Tuntutan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 5, 'name' => 'Pembelaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 5, 'name' => 'Tanggapan Pembelaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 5, 'name' => 'Putusan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                //Eksekusi
+                ['phase_id' => 7, 'name' => 'P-44 Laporan JPU Segera Setelah Putusan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 36],
+                ['phase_id' => 7, 'name' => 'P-45 Laporan Putusan Pengadilan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 37],
+                ['phase_id' => 7, 'name' => 'P-48 Surat Perintah Pelaksanaan Putusan Pengadilan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 38],
+                ['phase_id' => 7, 'name' => 'BA-8 Berita Acara Pelaksanaan Putusan Pengadilan', 'ticker_id'=>38, 'duration' => 0, 'direction' => 'stay', 'ordinal' => 39],
+                ['phase_id' => 7, 'name' => 'P-53 Kartu Perkara Tindak Pidana', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 40],
+                ['phase_id' => 7, 'name' => 'Pengarsipan', 'duration' => 0, 'direction' => 'finish', 'ordinal' => 41],
 
-            ['phase_id' => 6, 'name' => 'Banding', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 6, 'name' => 'Kasasi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 6, 'name' => 'Peninjauan Kembali', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                // PIDSUS
+                ['phase_id' => 19, 'name' => 'P-1', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 19, 'name' => 'P-2', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 19, 'name' => 'P-3', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 19, 'name' => 'P-4', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 19, 'name' => 'P-5', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 19, 'name' => 'P-6', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 19, 'name' => 'P-7', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                
+                ['phase_id' => 20, 'name' => 'P-8', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-9', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-11', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-12', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-13', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-14', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-15', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                
+                ['phase_id' => 21, 'name' => 'Penerimaan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 21, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 21, 'name' => 'P-16A', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 21, 'name' => 'Penerimaan Berkas Tahap 1', 'duration' => 1, 'direction' => 'next', 'ordinal' => 4],
+                ['phase_id' => 21, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
+                ['phase_id' => 21, 'name' => 'SPDP Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
 
-            ['phase_id' => 7, 'name' => 'P-44', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 7, 'name' => 'P-45', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 7, 'name' => 'P-48', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 7, 'name' => 'BA-8', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 7, 'name' => 'P-53', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 7, 'name' => 'Pengarsipan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 22, 'name' => 'P-18 Hasil Penyidikan Belum Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 22, 'name' => 'P-19 Pengembalian Berkas Perkara untuk dilengkapi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 22, 'name' => 'P-20 Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 22, 'name' => 'P-21 Pemberitahuan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
+                ['phase_id' => 22, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
+                ['phase_id' => 22, 'name' => 'Berkara Perkas Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
 
-            // PIDSUS
-            ['phase_id' => 19, 'name' => 'P-1', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 19, 'name' => 'P-2', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 19, 'name' => 'P-3', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 19, 'name' => 'P-4', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 19, 'name' => 'P-5', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 19, 'name' => 'P-6', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 19, 'name' => 'P-7', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 23, 'name' => 'Penerimaan Tersangkat dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],                
+                ['phase_id' => 23, 'name' => 'BA Pendapat Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 23, 'name' => 'Surat Perintah Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
+                ['phase_id' => 23, 'name' => 'BA-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
+                ['phase_id' => 23, 'name' => 'BA-15', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 6],
+                ['phase_id' => 23, 'name' => 'BA-18', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 7],
 
-            ['phase_id' => 20, 'name' => 'P-8', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 20, 'name' => 'P-9', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 20, 'name' => 'P-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 20, 'name' => 'P-11', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 20, 'name' => 'P-12', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 20, 'name' => 'P-13', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 20, 'name' => 'P-14', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 20, 'name' => 'P-15', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 24, 'name' => 'Pembuatan Surat Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 24, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                
+                ['phase_id' => 25, 'name' => 'Pembacaan Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 25, 'name' => 'Pembacaan Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 25, 'name' => 'Tanggapan Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 25, 'name' => 'Putusan Sela', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 25, 'name' => 'Pemeriksaan Saksi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 25, 'name' => 'Pemeriksaan Terdakwa', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 25, 'name' => 'Pembacaan Surat Tuntutan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 25, 'name' => 'Pembelaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 25, 'name' => 'Tanggapan Pembelaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 25, 'name' => 'Putusan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
 
-            ['phase_id' => 21, 'name' => 'Penerimaan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 21, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
-            ['phase_id' => 21, 'name' => 'P-16A', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 21, 'name' => 'Penerimaan Berkas Tahap 1', 'duration' => 1, 'direction' => 'next', 'ordinal' => 4],
-            ['phase_id' => 21, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
-            ['phase_id' => 21, 'name' => 'SPDP Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
+                ['phase_id' => 26, 'name' => 'Banding', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 26, 'name' => 'Kasasi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 26, 'name' => 'Peninjauan Kembali', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
 
-            ['phase_id' => 22, 'name' => 'P-18 Hasil Penyidikan Belum Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 22, 'name' => 'P-19 Pengembalian Berkas Perkara untuk dilengkapi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
-            ['phase_id' => 22, 'name' => 'P-20 Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 22, 'name' => 'P-21 Pemberitahuan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
-            ['phase_id' => 22, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
-            ['phase_id' => 22, 'name' => 'Berkara Perkas Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
+                ['phase_id' => 27, 'name' => 'P-44', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 27, 'name' => 'P-45', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 27, 'name' => 'P-48', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 27, 'name' => 'BA-8', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 27, 'name' => 'P-53', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                ['phase_id' => 27, 'name' => 'Pengarsipan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
 
-            ['phase_id' => 23, 'name' => 'Penerimaan Tersangka dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 23, 'name' => 'BA Pendapat Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 23, 'name' => 'Surat Perintah Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
-            ['phase_id' => 23, 'name' => 'BA-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
-            ['phase_id' => 23, 'name' => 'BA-15', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 6],
-            ['phase_id' => 23, 'name' => 'BA-18', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 7],
 
-            ['phase_id' => 24, 'name' => 'Pembuatan Surat Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 24, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
 
-            ['phase_id' => 25, 'name' => 'Pembacaan Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-            ['phase_id' => 25, 'name' => 'Pembacaan Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
-            ['phase_id' => 25, 'name' => 'Tanggapan Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 25, 'name' => 'Putusan Sela', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 25, 'name' => 'Pemeriksaan Saksi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 25, 'name' => 'Pemeriksaan Terdakwa', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 25, 'name' => 'Pembacaan Surat Tuntutan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 25, 'name' => 'Pembelaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 25, 'name' => 'Tanggapan Pembelaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 25, 'name' => 'Putusan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
+                
 
-            ['phase_id' => 26, 'name' => 'Banding', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 26, 'name' => 'Kasasi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 26, 'name' => 'Peninjauan Kembali', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-
-            ['phase_id' => 27, 'name' => 'P-44', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 27, 'name' => 'P-45', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 27, 'name' => 'P-48', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 27, 'name' => 'BA-8', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 27, 'name' => 'P-53', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-            ['phase_id' => 27, 'name' => 'Pengarsipan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-        ];
-
-        foreach($checklists as $data)
-        {
-            DB::table('sop_checklist')->insert($data);
-        }
-
+            ]
+        );
         return true;
     }
 }

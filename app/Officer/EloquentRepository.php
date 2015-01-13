@@ -47,7 +47,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function staff()
     {
-        // TODO: Implement staff() method.
+        return $this->officer->lists('name', 'id');
     }
 
     public function jaksaByCase()
