@@ -55,6 +55,15 @@ class EloquentRepository implements RepositoryInterface {
 
         $case->addActivity($checklist->name, $checklistAttributes['note'], $checklistAttributes['date'], $checklist);
 
+        // update additional case data
+        $additionalCaseData = array_get($attributes, 'data', []);
+
+        if( ! empty($additionalCaseData))
+        {
+            $case->update($additionalCaseData);
+        }
+
+
         if($checklist->is_next)
         {
             $this->incrementPhase($case, $checklist);

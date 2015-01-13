@@ -21,7 +21,7 @@ class CreateTableChecklist extends Migration {
             $table->enum('direction', ['stay', 'prev', 'next', 'finish', 'suspend']);
             $table->unsignedInteger('ordinal');
 
-            $table->string('related_data');
+            $table->string('related_data')->nullable();
         });
 	}
 

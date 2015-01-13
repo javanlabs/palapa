@@ -9,10 +9,16 @@ use App\Officer\RepositoryInterface as OfficerRepository;
 
 class FrontendController extends Controller {
 
-    public function getIndex(MenuRepository $menuRepository)
+    public function getIndex(MenuRepository $menuRepository, CasesRepository $caseRepository)
     {
         $menu = $menuRepository->all();
-        return view('frontend.index', compact('menu'));
+        $stat['active'] = $caseRepository->countActive();
+        $stat['newToday'] = $caseRepository->countNewToday();
+        $stat['newThisWeek'] = $caseRepository->countNewThisWeek();
+        $stat['newThisMonth'] = $caseRepository->countNewThisMonth();
+        $cases = $caseRepository->sidangToday();
+
+        return view('frontend.index', compact('menu', 'stat', 'cases'));
     }
 
     public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, LookupRepository $lookup)

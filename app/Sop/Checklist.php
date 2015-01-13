@@ -59,4 +59,35 @@ class Checklist extends Model {
     	}
     	return $result;
     }
+
+    public function getRelatedData()
+    {
+        if($this->related_data)
+        {
+            $data = json_decode($this->related_data);
+            $columns = [];
+            
+            foreach($data as $column)
+            {
+                $item['name'] = $column;
+                $item['type'] = $this->getColumnType($column);
+
+                $columns[] = $item;
+            }
+
+            return $columns;
+        }
+
+        return false;
+    }
+
+    protected function getColumnType($column)
+    {
+        if(substr($column, -5) == '_date')
+        {
+            return 'date';
+        }
+
+        return 'string';
+    }
 }

@@ -242,5 +242,32 @@ class EloquentRepository implements RepositoryInterface {
 
         return array_values($json);
     }
+
+    public function countActive()
+    {
+        return $this->case->whereStatus(Cases::STATUS_ONGOING)->count();
+    }
+
+    public function countNewToday()
+    {
+        return $this->case->where('tgl_spdp', '=', (new Carbon())->toDateString())->count();
+    }
+
+    public function countNewThisWeek()
+    {
+        return $this->case->where('tgl_spdp', '>=', (new Carbon())->subWeek()->toDateString())->count();
+    }
+
+    public function countNewThisMonth()
+    {
+        return $this->case->where('tgl_spdp', '=', (new Carbon())->subDays(30)->toDateString())->count();
+    }
+
+    public function sidangToday()
+    {
+        return $this->case->where('tgl_persidangan', '=', (new Carbon())->toDateString())->get();
+    }
+
+
 }
 

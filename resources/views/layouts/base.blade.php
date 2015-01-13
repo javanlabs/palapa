@@ -11,6 +11,7 @@
     {{--<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('compiled/bootstrap-custom.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/animate.css') }}">
 
     @yield('style-head')
 
@@ -33,8 +34,9 @@
 
     <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/moment-with-locales.js') }}"></script>
 
-@yield('script-end')
+    @yield('script-end')
 
 </body>
 </html>

@@ -22,4 +22,13 @@ interface RepositoryInterface {
 
     public function statisticByStatus($year);
 
+    public function countActive();
+
+    public function countNewToday();
+
+    public function countNewThisWeek();
+
+    public function countNewThisMonth();
+
+    public function sidangToday();
 }

@@ -8,8 +8,20 @@
 <div class="modal-body">
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+
+    @foreach($relatedData as $column)
     <div class="form-group">
-        <label for="">Tanggal</label>
+        <label>{{ $column['name'] }}</label>
+        @if($column['type'] == 'string')
+        {{ Form::text('data[' . $column['name'] . ']', $case[$column['name']], ['class' => 'form-control']) }}
+        @elseif($column['type'] == 'date')        
+        {{ Form::text('data[' . $column['name'] . ']', $case[$column['name']], ['class' => 'form-control datepicker']) }}
+        @endif
+    </div>
+    @endforeach
+
+    <div class="form-group">
+        <label for="">Tanggal Checklist</label>
         {{ Form::text('date', date('d-m-Y'), ['class' => 'form-control datepicker', 'id' => 'activity-date']) }}
     </div>
     <div class="form-group">
@@ -28,7 +40,7 @@
 
 <script>
 $(function(){
-    $('#activity-date').datepicker({
+    $('.datepicker').datepicker({
         format: 'dd-mm-yyyy',
         autoclose: true,
         todayHighlight: true
