@@ -10,7 +10,7 @@
                     <table width="100%">
                         <td class="counter counter-big">
                             <h4 class="caption">Kasus Aktif</h4>
-                            <span class="number">22</span>
+                            <span class="number">{{ $stat['active'] }}</span>
                         </td>
                         <td>
                             <table width="100%">
@@ -19,15 +19,15 @@
                                 </tr>
                                 <tr>
                                     <td class="counter counter-small">
-                                        <span class="number">2</span>
+                                        <span class="number">{{ $stat['newToday'] }}</span>
                                         <span class="desc">Hari Ini</span>
                                     </td>
                                     <td class="counter counter-small">
-                                        <span class="number">12</span>
+                                        <span class="number">{{ $stat['newThisWeek'] }}</span>
                                         <span class="desc">Minggu Ini</span>
                                     </td>
                                     <td class="counter counter-small">
-                                        <span class="number">67</span>
+                                        <span class="number">{{ $stat['newThisMonth'] }}</span>
                                         <span class="desc">Bulan Ini</span>
                                     </td>
                                 </tr>
@@ -35,12 +35,14 @@
                         </td>
                     </table>
                 </td>
-                <td colspan="2" rowspan="2" class="jadwal-sidang" style="padding: 10px 40px">
+                <td colspan="2" rowspan="2" class="jadwal-sidang animated fadeIn" style="padding: 10px 40px">
                     <h3 class="caption">Jadwal Sidang Hari Ini</h3>
                     <div class="inner">
-                        @foreach(range(1,4) as $item)
-                            <a href="" class="court">Sidang Lanjuta Perkara Penyalahgunaan Wewenang</a>
-                        @endforeach
+                        @forelse($cases as $item)
+                            <a href="{{ $item['permalink'] }}" class="court">{{ $item['name'] }}</a>
+                        @empty
+                            tidak ada
+                        @endforelse
                     </div>
                 </td>
             </tr>
