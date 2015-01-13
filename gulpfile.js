@@ -17,7 +17,7 @@ gulp.task('less', function () {
 });
 
 gulp.task('watch-less', function () {
-    gulp.watch(['public/vendor/bootstrap/less/*.less', 'public/vendor/bootstrap/less/custom/*.less'], ['less']);
+    gulp.watch(['public/vendor/bootstrap/less/*.less', 'public/vendor/bootstrap/less/custom/*.less', 'public/vendor/bootstrap/less/bootstrap-custom.less'], ['less']);
     livereload.listen();
     gulp.watch('public/compiled/bootstrap-custom.min.css').on('change', livereload.changed);
 });

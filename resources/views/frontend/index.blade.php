@@ -41,7 +41,7 @@
                         @forelse($cases as $item)
                             <a href="{{ $item['permalink'] }}" class="court">{{ $item['name'] }}</a>
                         @empty
-                            tidak ada
+                            <div class="alert alert-warning"><strong>Tidak ada jadwal sidang</strong></div>
                         @endforelse
                     </div>
                 </td>
