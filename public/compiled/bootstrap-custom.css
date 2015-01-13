@@ -6621,9 +6621,11 @@ button.close {
 .section-menu-grid .item-dark.item .inner {
   border-top: 1px solid #555555;
 }
-.section-menu-grid .item-dark.item .title,
-.section-menu-grid .item-dark.item .icon {
+.section-menu-grid .item-dark.item .title {
   color: #F5A623;
+}
+.section-menu-grid .item-dark.item .icon {
+  color: #555555;
 }
 .section-menu-grid .counter {
   vertical-align: top;
