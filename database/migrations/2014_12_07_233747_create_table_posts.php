@@ -18,7 +18,7 @@ class CreateTablePosts extends Migration {
             $table->string('title');
             $table->text('content');
             $table->enum('status', array('published','draft'));
-            $table->enum('position', array('main','manual'));
+            $table->enum('position', array('main','manual', 'pembinaan', 'intelijen'));
             $table->timestamps();
             $table->softDeletes();
             $table->engine = 'MyISAM';

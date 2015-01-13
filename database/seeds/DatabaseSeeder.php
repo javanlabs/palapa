@@ -1,9 +1,9 @@
 <?php
 
 use Carbon\Carbon;
-use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Faker\Factory;
 
 class DatabaseSeeder extends Seeder {
 
@@ -16,26 +16,22 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		 $this->call('RootSeeder');
-		 $this->call('StaffSeeder');
-		 $this->call('GroupSeeder');
-		 $this->call('RoleSeeder');
-		 $this->call('PangkatSeeder');
-		 $this->call('JabatanSeeder');
-		 $this->call('JenisKasusSeeder');
-		 $this->call('OfficerSeeder');
-		 $this->call('SopSeeder');
-         $this->call('TemplateSeeder');
+        $this->call('RootSeeder');
+        $this->call('StaffSeeder');
+        $this->call('GroupSeeder');
+        $this->call('RoleSeeder');
+        $this->call('PangkatSeeder');
+        $this->call('JabatanSeeder');
+        $this->call('JenisKasusSeeder');
+        $this->call('OfficerSeeder');
+        $this->call('SopSeeder');
+        $this->call('TemplateSeeder');
         $this->call('PenyidikSeeder');
+        $this->call('PostSeeder');
+
         Model::reguard();
 	}
 
-}
-
-class PostSeeder extends Seeder{
-    public function run(){
-
-    }
 }
 
 class PenyidikSeeder extends Seeder{
@@ -565,3 +561,22 @@ class SopSeeder extends Seeder {
         return true;
     }
 }
+
+class PostSeeder extends Seeder{
+
+    public function run()
+    {
+        $authorId = 1;
+        $faker = Factory::create();
+        $now = Carbon::now()->toDateTimeString();
+        $posts = [];
+
+        foreach(range(1, 10) as $item)
+        {
+            $posts[] = ['author_id' => $authorId, 'title' => $faker->sentence(5), 'content' => $faker->paragraph(10), 'position' => $faker->randomElement(['pembinaan', 'intelijen']), 'created_at' => $now, 'updated_at' => $now];
+        }
+
+        return DB::table('posts')->insert($posts);
+    }
+}
+
