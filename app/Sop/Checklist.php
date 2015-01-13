@@ -78,7 +78,7 @@ class Checklist extends Model {
             return $columns;
         }
 
-        return false;
+        return [];
     }
 
     protected function getColumnType($column)
