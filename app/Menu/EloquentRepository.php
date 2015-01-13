@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Collection;
+use Auth;
 
 class EloquentRepository implements RepositoryInterface {
 
@@ -17,8 +18,16 @@ class EloquentRepository implements RepositoryInterface {
             ['title' => 'Buku Tamu', 'url' => '', 'keymap' => 9],
             ['title' => 'Galeri', 'url' => '', 'keymap' => 4],
             ['title' => 'Kode Etik', 'url' => '', 'keymap' => 7],
-            ['title' => 'Login', 'url' => '', 'keymap' => 0],
         ];
+
+        if(Auth::guest())
+        {
+            $menu[] = ['title' => 'Login', 'url' => route('gapura.login'), 'keymap' => 0];
+        }
+        else
+        {
+            $menu[] = ['title' => 'Logout', 'url' => route('gapura.logout'), 'keymap' => 0];
+        }
 
         return new Collection($menu);
     }
