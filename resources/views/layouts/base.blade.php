@@ -28,8 +28,6 @@
 
 <body class="@yield('body-class')">
 
-    @include('layouts.elements.header')
-
     @yield('body')
 
     <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>

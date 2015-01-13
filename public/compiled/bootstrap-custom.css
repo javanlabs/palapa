@@ -6563,6 +6563,17 @@ button.close {
   font-size: 18px;
   color: #777777;
 }
+.navbar-back-home {
+  height: 100px;
+  overflow: hidden;
+  border-bottom: 1px solid #eeeeee;
+}
+.navbar-back-home a {
+  color: #777777;
+}
+.navbar-back-home .fa {
+  line-height: 100px;
+}
 .section-menu-grid .item {
   width: 33%;
   padding: 0;

@@ -2,6 +2,8 @@
 
 @section("body")
 
+    @include('layouts.elements.header')
+
     <div class="section-menu-grid">
         <table class="table table-bordered">
 
@@ -41,7 +43,7 @@
                         @forelse($cases as $item)
                             <a href="{{ $item['permalink'] }}" class="court">{{ $item['name'] }}</a>
                         @empty
-                            <div class="alert alert-warning"><strong>Tidak ada jadwal sidang</strong></div>
+                            <div class="alert alert-warning"><strong>Tidak ada jadwal <sidang></sidang></strong></div>
                         @endforelse
                     </div>
                 </td>

@@ -1,4 +1,4 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.full')
 @section('content')
 
     <div class="panel panel-default">
