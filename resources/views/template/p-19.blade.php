@@ -30,13 +30,13 @@
 	</td>
 	<td rowspan="4">
 		<p>
-			Jember,
+			Jember, {{date('d-m-Y')}}
 		</p>
 		<p>
 			KEPADA YTH.
 		</p>
 		<p>
-			KEPALA KEPOLISIAN ...........
+			KEPALA KEPOLISIAN {{$case->penyidik->name}}
 		</p>
 		<p>
 			DI ...........
@@ -73,7 +73,7 @@
 		:
 	</td>
 	<td>
-		Pengembalian perkara pidana atas nama {case.tersangka} melanggar {case.pasal}, untuk dilengkapi
+		Pengembalian perkara pidana atas nama {{$case->suspectNames()}} melanggar {{$case->pasal}}, untuk dilengkapi
 	</td>
 </tr>
 </tbody>
@@ -85,40 +85,46 @@
 	<br>
 </p>
 <p style="text-align: justify;">
-	                                                                 Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {case.tersangka}, Berkas Perkara Nomor: {case.spdp_number} tanggal {case.start_date} yang kami terima tanggal {case.created_at} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:
-	<br>
+	    Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {{$case->suspectNames()}}, Berkas Perkara Nomor: {{$case->spdp_number}} tanggal {{$case->tgl_spdp}} yang kami terima tanggal {{$case->tgl_spdp_received}} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:
+	<ol>
+		<li></li>
+	</ol>
 </p>
 <p>
 	<br>
 </p>
 <p>
 	<br>
-</p>
-<p style="margin-left: 60px;">
-	Demikian untuk dilaksanakan
 </p>
 <table>
 <tbody>
 <tr>
-	<td>
+	<td style='width:400px'>
+		<p>
+			Demikian untuk dilaksanakan.
+		</p>
 	</td>
 	<td>
+		<p>
+			Dikeluarkan di : Jember
+		</p>
+		<p>
+			Pada tanggal : {{$case->tgl_spdp}}
+		</p>
 		<p style="text-align: center;">
+			<strong data-redactor-tag="strong">
 			KEPALA KEJAKSAAN NEGERI JEMBER
+			</strong>
+		</p>
+		<p>
 			<br>
 		</p>
-		<p style="text-align: center;">
-			<br>
-		</p>
-		<p style="text-align: center;">
-			<br>
-		</p>
-		<p style="text-align: center;">
-			..........................................
+		<p style="text-align:center;">
+				{{$setting['kajari_name']}}
 		</p>
 		<hr>
 		<p style="text-align: center;">
-			..................................................
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
 		</p>
 	</td>
 </tr>
@@ -128,9 +134,9 @@
 			Tembusan:
 		</p>
 		<ol>
-			<li>Yth. Kepala KejaksaanTinggi Jawa Timur</li>
-			<li>Yth. Kepala Kepolisian ….</li>
-			<li><u>Arsip.</u></li>
+			<li>Yth. Kepala Kejaksaan Tinggi Jawa Timur;</li>
+			<li>Yth. Kepala {{$case->penyidik->name}}</li>
+			<li>Arsip.</li>
 		</ol>
 	</td>
 	<td>

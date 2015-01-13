@@ -1,15 +1,17 @@
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
-			KEJAKSAAN …………………………..
-		</p>
+	<td style="text-align: center;" width="250px">
+		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
+		</strong>
 	</td>
-	<td>
-		<p>
+	<td width="300px">
+	</td>
+	<td style="text-align: right;">
+		<strong>
 			P‑45
-		</p>
+		</strong>
 	</td>
 </tr>
 </tbody>
@@ -19,7 +21,7 @@
 <tr>
 	<td>
 		<p>
-			Nornor : B…/…/……/……/……/20…
+			Nomor : B…/…/……/……/……/20…
 		</p>
 		<p>
 			Sifat : Biasa
@@ -105,27 +107,51 @@
 <p>
 	4.4 . <u> </u>
 </p>
-<p>
-	Demikian untuk maklum dan mohon petunjuk.
-</p>
-<p>
-	KEPALA KEJAKSAAN NEGERI/TINGGI
-</p>
-<p>
-	……………………………….
-</p>
-<p>
-	Pangkat/Nip .........
-</p>
-<p>
-	<u>Tembusan</u>
-</p>
-<p>
-	1..........................
-</p>
-<p>
-	2..........................
-</p>
-<p>
-	3..........................
-</p>
+<table>
+<tbody>
+<tr>
+	<td style='width:400px'>
+		Demikian untuk maklum dan mohon petunjuk.
+	</td>
+	<td>
+		<p>
+			Dikeluarkan di : Jember
+		</p>
+		<p>
+			Pada tanggal : {{date('d-m-Y')}}
+		</p>
+		<p style="text-align: center;">
+			<strong data-redactor-tag="strong">
+			KEPALA KEJAKSAAN NEGERI JEMBER
+			</strong>
+		</p>
+		<p>
+			<br>
+		</p>
+		<p style="text-align:center;">
+				{{$setting['kajari_name']}}
+		</p>
+		<hr>
+		<p style="text-align: center;">
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			Tembusan:
+		</p>
+		<ol>
+			<li>Penyidik</li>
+			<li>Terdakwa/Kuasa/Penasehat Hukum</li>
+			<li>Kepala Rutan kalau ditahan*)</li>
+			<li>Saksi Korban/keluarga</li>
+			<li>Arsip.</li>
+		</ol>
+	</td>
+	<td>
+	</td>
+</tr>
+</tbody>
+</table>

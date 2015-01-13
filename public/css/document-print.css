@@ -19,3 +19,6 @@
 .preview-container ol, .preview-container ul {margin-left: 0; padding-left: 20px}
 .preview-container hr{margin: 0; border-color: #000}
 .redactor-editor hr {margin: 0; border-color: #000}
+@media print {
+    footer {page-break-after: always;}
+}

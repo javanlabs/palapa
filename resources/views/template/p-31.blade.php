@@ -1,15 +1,17 @@
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
-			KEJAKSAAN …………………………..
-		</p>
+	<td style="text-align: center;" width="250px">
+		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
+		</strong>
 	</td>
-	<td>
-		<p>
+	<td width="300px">
+	</td>
+	<td style="text-align: right;">
+		<strong>
 			P‑31
-		</p>
+		</strong>
 	</td>
 </tr>
 </tbody>
@@ -34,22 +36,29 @@
 </tr>
 </tbody>
 </table>
-<p>
+<p style="text-align: center;">
+	<strong>
 	SURAT PELIMPAHAN PERKARA
+	</strong>
 </p>
-<p>
+<p style="text-align: center;">
+	<strong>
 	ACARA PEMERIKSAAN BIASA
+	</strong>
 </p>
-<p>
+<p style="text-align: center;">
+	<strong>
 	NOMOR: ..................................................
+	</strong>
 </p>
-<p>
-	KEPALA KEJAKSAAN NEGERI……………………………..
+<p style="text-align: center;">
+	<strong>
+	KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 </p>
-<table>
+<table border='1'>
 <tbody>
 <tr>
-	<td>
+	<td width="100px">
 		<p>
 			Membaca :
 		</p>
@@ -61,83 +70,71 @@
 		<table>
 		<tbody>
 		<tr>
-			<td>
-				<p>
+			<td width="5px">
 					No.
-				</p>
 			</td>
-			<td>
-				<p>
+			<td width="150px">				
 					Nama
-				</p>
-				<p>
 					Terdakwa
-				</p>
+				
 			</td>
-			<td>
-				<p>
+			<td width="150px">
+				
 					Ditahan Penyidik/ Penuntut Umum
-				</p>
+				
 			</td>
 			<td>
-				<p>
+				
 					Jenis Tahanan
-				</p>
-				<p>
-					a.Rutan tgl.
-				</p>
-				<p>
-					b.Rutan tgl.
-				</p>
-				<p>
-					c.Kota Tgl.
-				</p>
+				<ol type='a'>
+					<li>Rutan tgl.</li>				
+					<li>Rutan tgl.</li>				
+					<li>Kota Tgl.</li>
+				</ol>
+				
 			</td>
-			<td>
-				<p>
-					Keterangan
-				</p>
+			<td>				
+					Keterangan				
 			</td>
 		</tr>
+
+		<tr align='center'>
+			<td>
+				1
+			</td>
+			<td>
+				2
+			</td>
+			<td>
+				3
+			</td>
+			<td>
+				4
+			</td>
+			<td>
+				5
+			</td>
+		</tr>
+		<?php $counter = 1;?>
+		@foreach($case->suspects as $suspect)
 		<tr>
 			<td>
-				<p>
-					1
-				</p>
+				{{$counter++}}
 			</td>
 			<td>
-				<p>
-					2
-				</p>
+				{{$suspect->name}}
 			</td>
 			<td>
-				<p>
-					3
-				</p>
+				{{$case->penyidik->name}}
 			</td>
 			<td>
-				<p>
-					4
-				</p>
+				{{$suspect->tahanan}} / {{$suspect->tgl_penahanan}}
 			</td>
 			<td>
-				<p>
-					5
-				</p>
+
 			</td>
 		</tr>
-		<tr>
-			<td>
-			</td>
-			<td>
-			</td>
-			<td>
-			</td>
-			<td>
-			</td>
-			<td>
-			</td>
-		</tr>
+		@endforeach
 		</tbody>
 		</table>
 	</td>
@@ -149,12 +146,10 @@
 		</p>
 	</td>
 	<td>
-		<p>
-			a.Bahwa Penuntut Umum berpendapat, dari hasil penyidikan dapat dilakukan penuntutan dengan dakwaan telah melakukan tindak pidana sebagaimana diuraikan dan diancam dengan pidana dalam pasal ....................................................
-		</p>
-		<p>
-			b.Bahwa pemeriksaan selanjutnya adalah masuk wewenang Pengadilan Negeri / Ekonomi *) ...................................
-		</p>
+		<ol type='a'>
+			<li>Bahwa Penuntut Umum berpendapat, dari hasil penyidikan dapat dilakukan penuntutan dengan dakwaan telah melakukan tindak pidana sebagaimana diuraikan dan diancam dengan pidana dalam pasal {{$case->pasal}}</li>
+		<li>Bahwa pemeriksaan selanjutnya adalah masuk wewenang Pengadilan Negeri / Ekonomi *) ...................................</li>
+		</ol>
 	</td>
 </tr>
 <tr>
@@ -188,35 +183,59 @@
 		</p>
 	</td>
 	<td>
-		<p>
-			1.Agar Ketua Pengadilan Negeri / Ekonomi / HAM di *) ........................ menetapkan hari persidangan untuk mengadili perkara tersebut dan menetapkan pemanggilan terdakwa serta saksi‑saksi.
-		</p>
-		<p>
-			2.Mengeluarkan penetapkan untuk tetap menahan terdakwa………………….. di …………………………
-		</p>
+		<ol>
+			<li>Agar Ketua Pengadilan Negeri / Ekonomi / HAM di *) ........................ menetapkan hari persidangan untuk mengadili perkara tersebut dan menetapkan pemanggilan terdakwa serta saksi‑saksi.</li>
+		<li>Mengeluarkan penetapkan untuk tetap menahan terdakwa………………….. di …………………………</li>
+		</ol>
 	</td>
 </tr>
 </tbody>
 </table>
-<p>
-	……………………………………………
-</p>
-<p>
-	KEPALA KEJAKSAAN………………...
-</p>
-<p>
-	<u>(……………..…................)</u>
-</p>
-<p>
-	Pangkat/Nip... .....................................
-</p>
-<p>
-	<u>Tembusan</u>
-</p>
-<ol>
-	<li>Penyidik</li>
-	<li>Terdakwa/Kuasa/Penasehat Hukum</li>
-	<li>Kepala Rutan kalau ditahan*)</li>
-	<li>Saksi Korban/keluarga</li>
-	<li>Arsip.</li>
-</ol>
+<table>
+<tbody>
+<tr>
+	<td style='width:400px'>
+		
+	</td>
+	<td>
+		<p>
+			Dikeluarkan di : Jember
+		</p>
+		<p>
+			Pada tanggal : {{date('d-m-Y')}}
+		</p>
+		<p style="text-align: center;">
+			<strong data-redactor-tag="strong">
+			KEPALA KEJAKSAAN NEGERI JEMBER
+			</strong>
+		</p>
+		<p>
+			<br>
+		</p>
+		<p style="text-align:center;">
+				{{$setting['kajari_name']}}
+		</p>
+		<hr>
+		<p style="text-align: center;">
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			Tembusan:
+		</p>
+		<ol>
+			<li>Penyidik</li>
+			<li>Terdakwa/Kuasa/Penasehat Hukum</li>
+			<li>Kepala Rutan kalau ditahan*)</li>
+			<li>Saksi Korban/keluarga</li>
+			<li>Arsip.</li>
+		</ol>
+	</td>
+	<td>
+	</td>
+</tr>
+</tbody>
+</table>

@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Lookup\RepositoryInterface', 'App\Lookup\EloquentRepository');
 		$this->app->bind('App\Cases\RepositoryInterface', 'App\Cases\EloquentRepository');
 		$this->app->bind('App\Sop\RepositoryInterface', 'App\Sop\EloquentRepository');
+		$this->app->bind('App\Menu\RepositoryInterface', 'App\Menu\EloquentRepository');
 
 		\View::addNamespace('dekor', base_path('vendor/eendonesia/dekor/src/views/'));
 		\View::addNamespace('gapura', base_path('vendor/eendonesia/gapura/src/views/'));

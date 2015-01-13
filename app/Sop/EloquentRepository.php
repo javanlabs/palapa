@@ -55,17 +55,31 @@ class EloquentRepository implements RepositoryInterface {
 
         $case->addActivity($checklist->name, $checklistAttributes['note'], $checklistAttributes['date'], $checklist);
 
-        if($checklist->is_next)
-        {
-            $this->incrementPhase($case, $checklist);
-        }
-
         // update additional case data
         $additionalCaseData = array_get($attributes, 'data', []);
 
         if( ! empty($additionalCaseData))
         {
             $case->update($additionalCaseData);
+        }
+
+
+        if($checklist->is_next)
+        {
+            $this->incrementPhase($case, $checklist);
+        }
+
+        if($checklist->is_first)
+        {
+            $case->publish();
+        }
+        elseif ($checklist->is_finish)
+        {
+            $case->finish();
+        }
+        elseif($checklist->is_suspend)
+        {
+            $case->suspend();
         }
 
         return true;
@@ -80,6 +94,15 @@ class EloquentRepository implements RepositoryInterface {
         if($checklist->is_next)
         {
             $this->decrementPhase($case, $checklist);
+        }
+
+        if($checklist->is_first)
+        {
+            $case->unpublish();
+        }
+        elseif($checklist->is_finish || $checklist->is_suspend)
+        {
+            $case->publish();
         }
 
         return true;

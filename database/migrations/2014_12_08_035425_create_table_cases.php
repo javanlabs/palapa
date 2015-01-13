@@ -27,12 +27,14 @@ class CreateTableCases extends Migration {
             $table->unsignedInteger('jaksa_id')->nullable();
             $table->unsignedInteger('staff_id')->nullable();
 
-            $table->enum('status', ['draft', 'on going', 'finish', 'suspended'])->default('draft');
+            $table->enum('status', ['draft', 'ongoing', 'finish', 'suspend'])->default('draft');
 
             $table->string('spdp_number')->nullable();
             $table->date('spdp_date')->nullable();
+            $table->date('tgl_spdp')->nullable();
+            $table->date('tgl_spdp_received')->nullable();
 
-            $table->date('court_date')->nullable();
+            $table->date('tgl_persidangan')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

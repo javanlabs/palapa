@@ -8,16 +8,36 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cases extends Model {
 
+    const STATUS_DRAFT      = 'draft';
+    const STATUS_ONGOING    = 'ongoing';
+    const STATUS_FINISH     = 'finish';
+    const STATUS_SUSPEND    = 'suspend';
+
     use SoftDeletes, Presenter;
 
     protected $table = 'cases';
 
     protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
 
-    protected $dates = ['start_date', 'finish_date'];
+    protected $dates = ['start_date', 'finish_date', 'tgl_spdp', 'tgl_persidangan'];
 
-    public function suspects(){
+
+    public function scopePublished($query)
+    {
+        return $query->where('status', '<>', self::STATUS_DRAFT);
+    }
+
+    public function suspects()
+    {
         return $this->belongsToMany('App\Cases\Suspects');
+    }
+
+    public function suspectNames(){
+        $suspects = array();
+        foreach($this->suspects as $row){
+            $suspects[] = $row->name;
+        }
+        return implode(', ', $suspects);        
     }
 
     public function author()
@@ -32,7 +52,7 @@ class Cases extends Model {
 
     public function staff()
     {
-        return $this->belongsTo('Eendonesia\Moderator\Models\User', 'staff_id');
+        return $this->belongsTo('App\Officer\Officer', 'staff_id');
     }
 
     public function type()
@@ -172,5 +192,29 @@ class Cases extends Model {
     public function setStartDateAttribute($value) 
     {
         $this->attributes['start_date'] = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
-    }    
+    }
+
+    public function publish()
+    {
+        $this->status = self::STATUS_ONGOING;
+        return $this->save();
+    }
+
+    public function unpublish()
+    {
+        $this->status = self::STATUS_DRAFT;
+        return $this->save();
+    }
+
+    public function finish()
+    {
+        $this->status = self::STATUS_FINISH;
+        return $this->save();
+    }
+
+    public function suspend()
+    {
+        $this->status = self::STATUS_SUSPEND;
+        return $this->save();
+    }
 }

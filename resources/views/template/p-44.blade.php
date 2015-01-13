@@ -1,15 +1,17 @@
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
-			KEJAKSAAN …………………………..
-		</p>
+	<td style="text-align: center;" width="250px">
+		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
+		</strong>
 	</td>
-	<td>
-		<p>
+	<td width="300px">
+	</td>
+	<td style="text-align: right;">
+		<strong>
 			P‑44
-		</p>
+		</strong>
 	</td>
 </tr>
 </tbody>
@@ -66,7 +68,7 @@
 	</td>
 	<td rowspan="2">
 		<p>
-			Sikap JPU /tersddakwa
+			Sikap JPU /terdakwa
 		</p>
 	</td>
 	<td rowspan="2">
@@ -266,7 +268,7 @@
 </table>
 <table>
 <tbody>
-<tr>
+<tr align='center'>
 	<td>
 		<p>
 			Mengetahui
@@ -274,6 +276,9 @@
 		<p>
 			KASI PIDUM/PIDSUS
 		</p>
+		<br/>
+		<br/>
+		<br/>
 		<p>
 			(……………………………….)
 		</p>
@@ -283,16 +288,19 @@
 	</td>
 	<td>
 		<p>
-			………………………………….
+			Jember, {{date('d-m-Y')}}
 		</p>
 		<p>
 			JAKSA PENUNTUT UMUM
 		</p>
+		<br/>
+		<br/>
+		<br/>
 		<p>
-			(……………………………….)
+			({{$case->jaksa->name}})
 		</p>
 		<p>
-			Pangkat/Nip .........
+			{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
 		</p>
 	</td>
 </tr>

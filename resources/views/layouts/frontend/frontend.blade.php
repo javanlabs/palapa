@@ -1,4 +1,4 @@
-@extends('dekor::layouts.base')
+@extends('layouts.base')
 
 @section('style-head')
     <link rel="stylesheet" type="text/css" media="all" href="{{ asset('vendor/bootstrap-datepicker/css/datepicker3.css') }}" />
@@ -11,8 +11,8 @@
 @stop
 
 @section('body')
-    @include('layouts.elements.header')
-    <div class="container">
+    &nbsp;
+    <div class="container-fluid">
         <div class="col-md-2">
             @include('layouts.frontend.aside')
         </div>

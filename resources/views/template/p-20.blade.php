@@ -1,15 +1,17 @@
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
-			KEJAKSAAN …………………………..
-		</p>
+	<td style="text-align: center;" width="250px">
+		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
+		</strong>
 	</td>
-	<td>
-		<p>
+	<td width="300px">
+	</td>
+	<td style="text-align: right;">
+		<strong>
 			P‑20
-		</p>
+		</strong>
 	</td>
 </tr>
 </tbody>
@@ -19,7 +21,7 @@
 <tr>
 	<td>
 		<p>
-			Nornor : …………………………
+			Nomor : …………………………
 		</p>
 		<p>
 			Sifat : …………………………
@@ -28,13 +30,10 @@
 			Lampiran : …………………………
 		</p>
 		<p>
-			Perihal : Pemberitahuan bahwa waktu Penyidikan Tambahan perkara atas nama …….……….yang melanggar pasal……………… sudah habis.
+			Perihal : Pemberitahuan bahwa waktu Penyidikan Tambahan perkara atas nama {{$case->suspectNames()}} yang melanggar pasal {{$case->pasal}} sudah habis.
 		</p>
 	</td>
 	<td>
-		<p>
-			……………………………………….
-		</p>
 		<p>
 			KEPADA YTH.
 		</p>
@@ -55,31 +54,56 @@
 </tbody>
 </table>
 <p>
-	 Sehubungan dengan pengembalian berkas perkara pidana atas nama tersangka………….. Nomor ………………… tanggal……………….. dari kami kepada Saudara, dan telah Saudara terima pada tanggal... guna dilakukan penyidikan tambahan untuk waktu selama 14 hari sesuai ketentuan pasal 138 ayat (2) KUHAP.
+	 Sehubungan dengan pengembalian berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor ………………… tanggal……………….. dari kami kepada Saudara, dan telah Saudara terima pada tanggal... guna dilakukan penyidikan tambahan untuk waktu selama 14 hari sesuai ketentuan pasal 138 ayat (2) KUHAP.
 </p>
 <p>
 	 Mengingat batas waktu 14 hari untuk melakukan penyidikan tambahan tersebut telah berakhir, bersama ini diminta agar Saudara menyerahkan kembali berkas perkara tersebut kepada kami setelah dilakukan pemeriksaan tambahan sesuai dengan petunjuk kami sebagaimana dimaksud dalam pasal I 10 ayat (3) KUHAP.
 </p>
-<p>
-	Demikian untuk dimaklumi.
-</p>
-<p>
-	KEPALA KEJAKSAAN TINGGI/NEGERI +)
-</p>
-<p>
-	………………………………….
-</p>
-<p>
-	<u>(……………..…................)</u>
-</p>
-<p>
-	Pangkat/Nip... .....................................
-</p>
-<p>
-	Tembusan
-</p>
-<ol>
-	<li>Yth. Kepala Kejaksaan Tinggi …………</li>
-	<li>Yth. Kapolda ‑ Kapolwil ‑ Kapolres</li>
-	<li>Arsip.</li>
-</ol>
+<table>
+<tbody>
+<tr>
+	<td style='width:400px'>
+		<p>
+			Demikian untuk dimaklumi.
+		</p>
+	</td>
+	<td>
+		<p>
+			Dikeluarkan di : Jember
+		</p>
+		<p>
+			Pada tanggal : {{$case->tgl_spdp}}
+		</p>
+		<p style="text-align: center;">
+			<strong data-redactor-tag="strong">
+			KEPALA KEJAKSAAN NEGERI JEMBER
+			</strong>
+		</p>
+		<p>
+			<br>
+		</p>
+		<p style="text-align:center;">
+				{{$setting['kajari_name']}}
+		</p>
+		<hr>
+		<p style="text-align: center;">
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			Tembusan:
+		</p>
+		<ol>
+			<li>Yth. Kepala Kejaksaan Tinggi Jawa Timur;</li>
+			<li>Yth. Kepala {{$case->penyidik->name}}</li>
+			<li>Arsip.</li>
+		</ol>
+	</td>
+	<td>
+	</td>
+</tr>
+</tbody>
+</table>

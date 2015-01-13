@@ -4,6 +4,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Checklist extends Model {
 
+    const DIRECTION_STAY = 'stay';
+    const DIRECTION_PREV = 'prev';
+    const DIRECTION_NEXT = 'next';
+    const DIRECTION_FINISH = 'finish';
+    const DIRECTION_SUSPEND = 'suspend';
+
     protected $table = 'sop_checklist';
 
     public function phase()
@@ -22,7 +28,27 @@ class Checklist extends Model {
 
     public function getIsNextAttribute()
     {
-        return $this->direction == 'next';
+        return $this->direction == self::DIRECTION_NEXT;
+    }
+
+    public function getIsPrevAttribute()
+    {
+        return $this->direction == self::DIRECTION_PREV;
+    }
+
+    public function getIsFinishAttribute()
+    {
+        return $this->direction == self::DIRECTION_FINISH;
+    }
+
+    public function getIsSuspendAttribute()
+    {
+        return $this->direction == self::DIRECTION_SUSPEND;
+    }
+
+    public function getIsFirstAttribute()
+    {
+        return $this->ordinal == 1;
     }
 
     public static function availableChecklists(){

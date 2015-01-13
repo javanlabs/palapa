@@ -52,6 +52,7 @@
 			<li>Undang-Undang Nomor: 16 Tahun 2004 tentang Kejaksaan Republik Indonesia.</li>
 			<li>Surat Pemberitahuan dimulainya Penyidikan terhadap tersangka:</li>
 		</ol>
+		@foreach($case->suspects as $suspect)
 		<table style="margin-left: 20px">
 		<tbody>
 		<tr>
@@ -62,7 +63,7 @@
 					:
 			</td>
 			<td>
-					{case.suspect_name}
+					{{$suspect->name}}
 			</td>
 		</tr>
 		<tr>
@@ -73,7 +74,7 @@
 					:
 			</td>
 			<td>
-					{case.suspect_pob}
+					{{$suspect->suspectPob->nama}}
 			</td>
 		</tr>
 		<tr>
@@ -84,7 +85,7 @@
 					:
 			</td>
 			<td>
-					{case.umur}/{case.suspect_dob}
+					{{$suspect->age}}/{{$suspect->dob?$suspect->dob:'-'}}
 			</td>
 		</tr>
 		<tr>
@@ -95,7 +96,7 @@
 					:
 			</td>
 			<td>
-					{case.suspect_nationality}
+					{{$suspect->nationality}}
 			</td>
 		</tr>
 		<tr>
@@ -106,7 +107,7 @@
 					:
 			</td>
 			<td>
-					{case.suspect_address}
+					{{$suspect->address}}
 			</td>
 		</tr>
 		<tr>
@@ -117,7 +118,7 @@
 					:
 			</td>
 			<td>
-					{case.suspect_religion}
+					{{$suspect->religion}}
 			</td>
 		</tr>
 		<tr>
@@ -128,7 +129,7 @@
 					:
 			</td>
 			<td>
-					{case.suspect_job}
+					{{$suspect->job}}
 			</td>
 		</tr>
 		<tr>
@@ -139,14 +140,15 @@
 					:
 			</td>
 			<td>
-					{case.suspect_education}
+					{{$suspect->education}}
 			</td>
 		</tr>
 		</tbody>
 		</table>
+		@endforeach
 		<p>
 			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {case.pasal} yang diterima di Kejaksaan Negeri Jember pada {case.start_date} dari penyidik {case.penyidik}<br>
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->tgl_spdp}} dari penyidik {{$case->penyidik->name}}<br>
 			<br>
 		</p>
 	</td>
@@ -197,6 +199,7 @@
 					:
 			</td>
 			<td>
+				{{$case->jaksa->name}}
 			</td>
 		</tr>
 		<tr>
@@ -209,6 +212,7 @@
 					:
 			</td>
 			<td>
+				{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
 			</td>
 		</tr>
 		<tr>
@@ -221,6 +225,7 @@
 					:
 			</td>
 			<td>
+				{{$case->jaksa->jabatan->name}}
 			</td>
 		</tr>
 		</tbody>
@@ -254,7 +259,7 @@
 		<p>
 			Dikeluarkan di    : Jember
 			<br>
-			Pada tanggal      : {case.start_date}
+			Pada tanggal      : {{$case->tgl_spdp}}
 		</p>
 		<hr>
 		<p style="text-align:center;">
@@ -264,11 +269,11 @@
 			<br>
 		</p>
 		<p style="text-align:center;">
-.......................................
+				{{$setting['kajari_name']}}
 		</p>
 		<hr>
 		<p style="text-align: center;">
-			               Jaksa Utama Pratama NIP.195811171979011002
+			               {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
 		</p>
 	</td>
 </tr>
@@ -279,7 +284,7 @@
 		</p>
 		<ol>
 			<li>Yth. Ketua Pengadilan Negeri Jember;</li>
-			<li>Yth. Penyidik {case.penyidik}</li>
+			<li>Yth. Penyidik {{$case->penyidik->name}}</li>
 			<li>Arsip.</li>
 		</ol>
 	</td>

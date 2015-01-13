@@ -82,7 +82,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function search($keyword, $type)
     {
-        $query = $this->case->orderBy('updated_at', 'DESC');
+        $query = $this->case->published()->orderBy('updated_at', 'DESC');
 
         if($type=='jaksa'){
             $query->where('jaksa_id','=',$keyword);

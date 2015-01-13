@@ -1,0 +1,115 @@
+.section-menu-grid {
+  .item {
+    width: 33%;
+    padding: 0;
+    a {
+      display: block;
+      height: 110px;
+      &:hover {
+        background-color: #0088cc;
+        border-color: #0088cc;
+        .title, .icon {
+          color: #fff ;
+        }
+      }
+    }
+  }
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    color: @gray-light;
+    line-height: 28px;
+    text-transform: uppercase;
+    padding: 0 0 0 84px;
+  }
+  .keymap {
+    position: relative;
+    top: 42px;
+    left: 42px;
+    border-radius: 4px;
+    border: 1px solid lighten(@gray-light, 30%);
+    color: lighten(@gray-light, 30%);
+    padding: 2px 4px;
+  }
+  .icon {
+    float: right;
+    margin-top: -42px;
+    margin-right: 20px;
+    color: lighten(@gray-light, 30%);
+  }
+
+  .item-dark {
+    background-color: #1E1E1E;
+    border-color: #1E1E1E;
+    color: #fff;
+
+    &.item {
+      .inner {
+        border-top: 1px solid @gray;
+      }
+      .title, .icon{
+        color: #F5A623;
+      }
+    }
+  }
+
+  .counter {
+    vertical-align: top;
+    .caption {
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .number {
+      font-weight: 300;
+    }
+    &.counter-big {
+      padding-left: 20px;
+      padding-right: 40px;
+      .number {
+        font-size: 5em;
+        line-height: .8em;
+      }
+    }
+    &.counter-small {
+      width: 33%;
+      text-align: center;
+      .number {
+        font-size: 2.5em;
+        font-weight: 600;
+        line-height: 1em;
+      }
+      .desc {
+        display: block;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: @gray-light;
+        font-size: .9em;
+      }
+    }
+  }
+
+  .jadwal-sidang {
+    color: #fff;
+    background: transparent url("../images/wallpaper.jpg") no-repeat center center;
+    border-color: #333;
+    .inner {
+      height: 150px;
+      overflow-y: auto;
+    }
+    .caption {
+      font-size: 2em;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .court {
+      display: block;
+      padding: 5px 10px;
+      margin-bottom: 3px;
+      background-color: #222;
+      color: #fff;
+      opacity: .9;
+      font-size: 1.2em;
+      font-weight: 300;
+    }
+  }
+}
