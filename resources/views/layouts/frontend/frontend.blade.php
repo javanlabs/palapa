@@ -23,6 +23,7 @@
 @stop
 
 @section('script-end')
+    @parent
     <script type="text/javascript" src="{{ asset('vendor/select2/select2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap-modal/bootstrap-modalmanager.js') }}"></script>

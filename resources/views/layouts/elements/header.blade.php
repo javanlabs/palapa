@@ -17,16 +17,31 @@
 @section('script-end')
     @parent
     <script>
+        function clockTick()
+        {
+            $('#clock-time').html(moment().format("HH:mm:ss"));
+            $('#clock-day').html(moment().format("dddd"));
+            $('#clock-date').html(moment().format("D MMMM YYYY"));
+        }
+
         $(function(){
+
+            // remove animation class for next visit
+            var key = 'animation-' + moment().format("D");
+
+            if($.cookie(key) != undefined) {
+                $('.clock').removeClass('animated');
+                $('.clock').removeClass('hidden');
+            }
+            $.cookie(key, true, {expires: 30});
+
             moment.locale('id');
-            setInterval(function(){
-                $('#clock-time').html(moment().format("HH:mm:ss"));
-                $('#clock-day').html(moment().format("dddd"));
-                $('#clock-date').html(moment().format("D MMMM YYYY"));
-            }, 1000);
+            clockTick();
+            setInterval(clockTick, 1000);
             setTimeout(function(){
                 $('.clock').removeClass('hidden');
             }, 1000);
+
         });
     </script>
 @stop

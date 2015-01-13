@@ -35,6 +35,7 @@
     <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/moment-with-locales.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.cookie.js') }}"></script>
 
     @yield('script-end')
 
