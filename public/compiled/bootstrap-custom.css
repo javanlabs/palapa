@@ -6545,6 +6545,8 @@ button.close {
   font-weight: 300;
   float: right;
   margin-left: 30px;
+  width: 200px;
+  text-align: left;
 }
 .navbar-header .block-date {
   float: right;
