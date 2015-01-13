@@ -12,14 +12,15 @@
 */
 
 // home screen
-$router->get('/', 'FrontendController@getIndex');
+$router->get('/', ['as' => 'home', 'uses' => 'FrontendController@getIndex']);
 
-$router->controller('home', 'FrontendController', [
+$router->controller('frontend', 'FrontendController', [
     'getSearch'  => 'frontend.search',
     'getOfficer'  => 'frontend.officer',
 ]);
 
-$router->get('post/show/{id}', ['as'=>'frontend.post', 'uses'=>'Frontend\PostController@showPage']);
+// CMS a.k.a static page
+$router->get('page/{category}/{id?}', ['as'=>'frontend.post', 'uses'=>'Frontend\PostController@show']);
 
 //BACKEND
 $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($router){

@@ -90,7 +90,7 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}">
+                        <a href="{{ route('frontend.post', ['category' => 'pembinaan']) }}">
                             <small class="keymap">5</small>
                             <h3 class="title">Pembinaan</h3>
                             <i class="fa fa-chevron-right fa-3x icon"></i>
@@ -113,7 +113,7 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}">
+                        <a href="{{ route('frontend.post', ['category' => 'intelijen']) }}">
                             <small class="keymap">6</small>
                             <h3 class="title">Intelijen</h3>
                             <i class="fa fa-chevron-right fa-3x icon"></i>

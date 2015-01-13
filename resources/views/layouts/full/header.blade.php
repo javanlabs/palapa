@@ -1,7 +1,15 @@
 <nav class="navbar navbar-back-home" role="navigation">
-    <div class="row">
-        <div class="col-md-4"><a href="" class="back"><i class="fa fa-3x fa-chevron-left"></i> <span>Kembali</span></a></div>
-        <div class="col-md-4 text-center"><a href="" class="home"><i class="fa fa-3x fa-home "></i></a></div>
+    <div class="container-fluid">
+        <div class="col-md-4">
+            <a href="{{ route('home') }}" class="home">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </div>
+        <div class="col-md-4 text-center">
+        </div>
         <div class="col-md-4"></div>
     </div>
 </nav>
