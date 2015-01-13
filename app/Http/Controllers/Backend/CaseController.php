@@ -62,7 +62,7 @@ class CaseController extends BackendController {
     public function create()
     {
         $jaksaLookup = $this->officer->jaksa();
-        $staffLookup = $this->moderator->usersByGroups('staff')->lists('name', 'id');
+        $staffLookup = $this->officer->staff();
         $cities = Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
         $penyidikLookup = $this->lookup->lists('penyidik', '-- Pilih Penyidik --');
@@ -81,16 +81,19 @@ class CaseController extends BackendController {
     public function edit($id){
         $case = $this->repo->find($id);
         $jaksaLookup = $this->officer->jaksa();
-        $staffLookup = $this->moderator->usersByGroups('staff')->lists('name', 'id');
+        $staffLookup = $this->officer->staff();
         $cities = Kabupaten::lists('nama', 'id');
+        $penyidikLookup = $this->lookup->lists('penyidik', '-- Pilih Penyidik --');
+
         $religions = $this->lookup->religions();
 
-        return view('backend.cases.edit', compact('case', 'jaksaLookup', 'staffLookup', 'cities', 'religions'));
+        return view('backend.cases.edit', compact('penyidikLookup','case', 'jaksaLookup', 'staffLookup', 'cities', 'religions'));
     }
 
     public function update(Form $form, $id){
-        $this->repo->update($id, $form->all());
-        return redirect()->route('backend.cases.show', $id);
+        echo 'update';
+        // $this->repo->update($id, $form->all());
+        // return redirect()->route('backend.cases.show', $id);
     }
 
     public function show($id)

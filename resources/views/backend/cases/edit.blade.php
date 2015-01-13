@@ -10,24 +10,28 @@
     <div class="container-fluid">
         {{ BootForm::open()->put()->action(route('backend.cases.update', [$case->id])) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-            <fieldset>
-            <h4>Penerimaan SPDP</h4>
-            {{ BootForm::text('Nomor SPDP', 'spdp_number')->value($case->spdp_number) }}
-            {{ BootForm::text('Tanggal', 'start_date')->addClass('datepicker')->data('provide', 'datepicker')->data('orientation', 'bottom auto')->data('date-today-highlight', 'true')->value($case->start_date) }}
-            {{ BootForm::text('Kasus', 'kasus')->value($case->kasus) }}
-            {{ BootForm::textarea('Pasal yang disangkakan', 'pasal')->rows(3)->value($case->pasal) }}
-            {{ BootForm::text('Penyidik', 'penyidik_id')->value($case->penyidik) }}
+            <fieldset>        
+                    {{ BootForm::text('Kasus', 'kasus')->value($case->kasus) }}
+                    {{ BootForm::textarea('Pasal yang disangkakan', 'pasal')->rows(3)->value($case->pasal) }}
+                    {{ BootForm::select('Penyidik', 'penyidik_id')->options($penyidikLookup)->select($case->penyidik_id) }}
             </fieldset>
 
+            <fieldset>
+            <h4>SPDP</h4>
+                {{ BootForm::text('Nomor SPDP', 'spdp_number')->value($case->spdp_number) }}
+                {{ BootForm::text('Tanggal SPDP', 'tgl_spdp')->addClass('datepicker')->data('provide', 'datepicker')->data('orientation', 'bottom auto')->data('date-today-highlight', 'true')->value($case->tgl_spdp) }}
+                {{ BootForm::text('Tanggal SPDP Diterima', 'tgl_spdp_received')->addClass('datepicker')->data('provide', 'datepicker')->data('orientation', 'bottom auto')->data('date-today-highlight', 'true')->value($case->tgl_spdp_received) }}
+
+            </fieldset>
            
 
             <fieldset>
             <h4>Penugasan</h4>
-            {{ BootForm::select('Jaksa/Penuntut Umum', 'jaksa_id')->options($jaksaLookup)->select($case->jaksa_id) }}
-            {{ BootForm::select('Staff Administrasi', 'staff_id')->options($staffLookup)->select($case->staff_id) }}
+                {{ BootForm::select('Jaksa/Penuntut Umum', 'jaksa_id')->options($jaksaLookup)->select($case->jaksa_id) }}
+                {{ BootForm::select('Staff Administrasi', 'staff_id')->options($staffLookup)->select($case->staff_id) }}
             </fieldset>
 
-            {{ BootForm::submit('Submit') }}
+            {{ BootForm::submit('Simpan') }}
         {{ BootForm::close() }}
     </div>
 @stop
