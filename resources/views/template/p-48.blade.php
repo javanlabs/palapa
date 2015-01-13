@@ -16,57 +16,58 @@
 </tr>
 </tbody>
 </table>
-<p>
-	"UNTUK KEADILAN"
-</p>
-<p>
+<p style="text-align: center;">
 	<b>SURAT PERINTAH</b>
 </p>
-<p>
+<p style="text-align: center;">
 	<b>PELAKSANAAN PUTUSAN PENGADILAN</b>
 </p>
-<p>
+<p style="text-align: center;">
 	<b>No. Print . .......................................</b>
 </p>
-<p>
-	<b>KEPALA KEJAKSAAN .......................................</b>
+<p style="text-align: center;">
+	<b>KEPALA KEJAKSAAN NEGERI JEMBER</b>
 </p>
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
+	<td width="130px">
+		
 			Dasar :
-		</p>
+		
 	</td>
 	<td>
-		<p>
-			1.Putusan Pengadilan Negeri/Pengadilan Tinggi/Mahkamah Agung RI No. …………….. tanggal……………….*),
-		</p>
-		<p>
-			2.UU No. 3 Tahun 1950 tentang Grasi / pasal 3 dan 14 UU No.2/PNPS/1964 tentang pelaksanaan pidana mati *)
-		</p>
-		<p>
-			3.Pasal 46 (2), 191, 192, 193, 194, 1 butir 6a jo 197 jo 270, 273 KUHAP.
-		</p>
-		<p>
-			4.Pasal 27 ayat (1) b UU No. 5, Tahun 1991 tentang Kejaksaan RI.
-		</p>
+		<ol>
+			<li>
+			Putusan Pengadilan Negeri/Pengadilan Tinggi/Mahkamah Agung RI No. …………….. tanggal……………….*),
+		</li>
+		<li>
+			UU No. 3 Tahun 1950 tentang Grasi / pasal 3 dan 14 UU No.2/PNPS/1964 tentang pelaksanaan pidana mati *)
+		</li>
+		<li>
+			Pasal 46 (2), 191, 192, 193, 194, 1 butir 6a jo 197 jo 270, 273 KUHAP.
+		</li>
+		<li>
+			Pasal 27 ayat (1) b UU No. 5, Tahun 1991 tentang Kejaksaan RI.
+		</li>
+		</ol>
 	</td>
 </tr>
 <tr>
 	<td>
-		<p>
+		
 			Pertimbangan :
-		</p>
+		
 	</td>
 	<td>
-		<p>
-			1.Bahwa putusan pengadilan tersebut telah memperoleh kekuatan hukum yang tetap pada tanggal …………………….. dan oleh karena itu perlu segera dilaksanakan.
-		</p>
-		<p>
-			2.Bahwa sebagai pelaksanaannya perlu dikeluarkan Surat Perintah Kepala Kejaksaan<u> </u>.........................
-		</p>
+		<ol>
+		<li>
+			Bahwa putusan pengadilan tersebut telah memperoleh kekuatan hukum yang tetap pada tanggal …………………….. dan oleh karena itu perlu segera dilaksanakan.
+		</li>
+		<li>
+			Bahwa sebagai pelaksanaannya perlu dikeluarkan Surat Perintah Kepala Kejaksaan<u> </u>.........................
+		</li>
+	</ol>
 	</td>
 </tr>
 <tr>
@@ -83,24 +84,20 @@
 		</p>
 	</td>
 	<td>
-		<p>
-			1.Nama : <u> </u>
-		</p>
-		<p>
-			Pangkat : <u> </u>
-		</p>
-		<p>
-			NIP : <u> </u>
-		</p>
-		<p>
-			2.Nama : <u> </u>
-		</p>
-		<p>
-			Pangkat : <u> </u>
-		</p>
-		<p>
-			NIP : <u> </u>
-		</p>
+		<ol>
+			<li>Nama : <br/>
+		
+			Pangkat :<br/>
+		
+			NIP :
+			</li>
+			<li>Nama : <br/>
+		
+			Pangkat :<br/>
+		
+			NIP :
+			</li>
+		</ol>		
 	</td>
 </tr>
 <tr>
@@ -110,48 +107,75 @@
 		</p>
 	</td>
 	<td>
-		<p>
-			1.Melaksanakan putusan Pengadilan Negeri/Pengadilan Tinggi/Mahkamah Agung No . tanggal atas nama (terpidana): **)
-		</p>
-		<p>
-			1.1. <u> </u>melanggar pasal <u> </u>
-		</p>
-		<p>
-			1.2. <u> </u>melanggar pasal <u> </u>
-		</p>
-		<p>
-			1.3. <u> </u>melanggar pasal <u> </u>
-		</p>
-		<p>
-			2.melaksanakan perintah yang terdapat dalam putusan PN/PT/MA No…………………tanggal………………….tersebut.
-		</p>
-		<p>
-			3.Melaporkan setiap pelaksanaan surat perintah ini dengan Berita Acara
-		</p>
-		<p>
-			4.Agar dilaksanakan dengan penuh rasa tanggung jawab.
-		</p>
+		<ol>
+			<li>
+			Melaksanakan putusan Pengadilan Negeri/Pengadilan Tinggi/Mahkamah Agung No . tanggal atas nama (terpidana): **)
+			<ol>
+				<li>melanggar pasal</li>
+				<li>melanggar pasal</li>
+				<li>melanggar pasal</li>
+			</ol>
+		
+		</li>
+			<li>
+			Melaksanakan perintah yang terdapat dalam putusan PN/PT/MA No…………………tanggal………………….tersebut.
+			</li>
+			<li>
+				Melaporkan setiap pelaksanaan surat perintah ini dengan Berita Acara
+			</li>
+			<li>
+				Agar dilaksanakan dengan penuh rasa tanggung jawab.
+			</li>
+		</ol>
+		
+		
 	</td>
 </tr>
 </tbody>
 </table>
-<p>
-	Dikeluarkan di : .....................
-</p>
-<p>
-	Pada tanggal : .....................
-</p>
-<p>
-	KEPALA KEJAKSAAN ...............
-</p>
-<p>
-	................................... . .
-</p>
-<p>
-	Tembusan:
-</p>
-<ol>
-	<li>Yth. Ketua PN/PT/MA</li>
-	<li>Yth. Kepala RUTAN/Lembaga Pemasyarakatan</li>
-	<li>………………………………………(Penyidik)</li>
-</ol>
+<table>
+<tbody>
+<tr>
+	<td style='width:400px'>
+		
+	</td>
+	<td>
+		<p>
+			Dikeluarkan di : Jember
+		</p>
+		<p>
+			Pada tanggal : {{date('d-m-Y')}}
+		</p>
+		<p style="text-align: center;">
+			<strong data-redactor-tag="strong">
+			KEPALA KEJAKSAAN NEGERI JEMBER
+			</strong>
+		</p>
+		<p>
+			<br>
+		</p>
+		<p style="text-align:center;">
+				{{$setting['kajari_name']}}
+		</p>
+		<hr>
+		<p style="text-align: center;">
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			Tembusan:
+		</p>
+		<ol>
+			<li>Yth. Ketua PN/PT/MA</li>
+			<li>Yth. Kepala RUTAN/Lembaga Pemasyarakatan</li>
+			<li>{{$case->penyidik->name}}</li>
+		</ol>
+	</td>
+	<td>
+	</td>
+</tr>
+</tbody>
+</table>

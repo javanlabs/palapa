@@ -7,7 +7,7 @@ class Suspects extends Model {
 
     protected $table = 'suspects';
 
-    protected $fillable = ['type', 'name', 'pob', 'dob', 'age', 'religion', 'address', 'city_id', 'nationality', 'job', 'education', 'nama_pimpinan', 'tahanan', 'status'];
+    protected $fillable = ['type', 'name', 'pob', 'dob', 'age', 'religion', 'address', 'city_id', 'nationality', 'job', 'education', 'nama_pimpinan', 'tahanan', 'status', 'sex'];
 
     // protected $dates = ['date'];
 
@@ -15,6 +15,11 @@ class Suspects extends Model {
     {
         return $this->belongsToMany('App\Cases\Cases');
     }
+
+    public function addressCity()
+    {
+        return $this->belongsTo('Eendonesia\Wilayah\Kabupaten', 'city_id');
+    }    
 
 
     public function suspectPob()

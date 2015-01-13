@@ -1,79 +1,87 @@
+@foreach($case->suspects as $suspect)
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
-			KEJAKSAAN …………………………..
-		</p>
+	<tr>
+	<td style="text-align: center;" width="250px">
+		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
+		</strong>
 	</td>
-	<td>
-		<p>
+	<td width="300px">
+	</td>
+	<td style="text-align: right;">
+		<strong>
 			BA-15
-		</p>
+		</strong>
 	</td>
 </tr>
 </tbody>
 </table>
-<p>
-	"UNTUK KEADILAN"
-</p>
-<p>
+
+<p style="text-align: center;">
 	<b>BERITA ACARA</b>
 </p>
-<p>
+<p style="text-align: center;">
 	<b>PENERIMAAN DAN PENELITIAN TERSANGKA</b>
 </p>
 <p>
-	 Pada hari ini ........... tanggal ............... .... tahun dua ribu………………berdasarkan pasal 141, 8 (3) dan 13 8 (penjelasan) KUHAP saya:
+		<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
+
+	 Pada hari ini {{$days[date('w')]}} tanggal {{date('d-m-Y')}} berdasarkan pasal 141, 8 (3) dan 13 8 (penjelasan) KUHAP saya:
 </p>
-<p>
-	Nama : <u> </u>
-</p>
-<p>
-	Pangkat : <u> </u>
-</p>
-<p>
-	NIP : <u> </u>
-</p>
-<p>
-	Jaksa Penuntut Umum pada Kejaksaan Negeri …………..telah mengadakan penelitian terhadap tersangka:
-</p>
-<p>
-	Nama : <u> </u>
-</p>
-<p>
-	Tempat lahir : <u> </u>
-</p>
-<p>
-	Umur/tanggal lahir : <u> </u>
-</p>
-<p>
-	Jenis kelamin : <u> </u>
-</p>
-<p>
-	Kebangsaan /Kewarganegaraan : <u> </u>
-</p>
-<p>
-	Tempat tinggal : <u> </u>
-</p>
-<p>
-	Agama : <u> </u>
-</p>
-<p>
-	Pekerjaan : <u> </u>
-</p>
-<p>
-	Pendidikan : <u> </u>
-</p>
-<p>
-	Ditahan sejak : <u> </u>
-</p>
-<p>
-	Register Tahanan. Nomor : <u> </u>
-</p>
-<p>
-	Register Perkara Nomor : <u> </u>
-</p>
+<table>
+<tr><td width="200px">
+	Nama </td><td width="10px">:</td><td>{{$case->jaksa->name}}</td>
+</td></tr>
+<tr><td>
+	Pangkat </td><td width="10px">:</td><td>{{$case->jaksa->pangkat->name}}</td>
+</td></tr>
+<tr><td>
+	NIP </td><td width="10px">:</td><td>{{$case->jaksa->nip}}</td>
+</td></tr>
+</table>
+
+<table>
+<tr><td width="200px">
+	Nama </td><td width="10px">:</td><td>{{$suspect->name}}</td>
+</td></tr>
+<tr><td>
+	Tempat lahir </td><td>:</td><td>{{$suspect->suspectPob->nama}}</td>
+</td></tr>
+<tr><td>
+	Umur/tanggal lahir </td><td>:</td><td>{{$suspect->age}} tahun/{{$suspect->dob}}</td>
+</td></tr>
+<tr><td>
+	Jenis kelamin </td><td>:</td><td>{{$suspect->sex}}</td>
+</td></tr>
+<tr><td>
+	Kebangsaan /Kewarganegaraan </td><td>:</td><td>{{$suspect->nationality}}</td>
+</td></tr>
+<tr><td>
+	Tempat tinggal </td><td>:</td><td>{{$suspect->address}} {{$suspect->addressCity->nama}}</td>
+</td></tr>
+<tr><td>
+	Agama </td><td>:</td><td>{{$suspect->religion}}</td>
+</td></tr>
+<tr><td>
+	Pekerjaan </td><td>:</td><td>{{$suspect->job}}</td>
+</td></tr>
+<tr><td>
+	Pendidikan </td><td>:</td><td>{{$suspect->education}}</td>
+</td></tr>
+<tr><td>
+	Ditahan Sejak </td><td>:</td><td></td>
+</td></tr>
+<tr><td>
+	Register Tahanan. Nomor </td><td>:</td><td></td>
+</td></tr>
+<tr><td>
+	Register Perkara Nomor </td><td>:</td><td></td>
+</td></tr>
+</table>
+
+
 <p>
 	setelah menanyakan kebenaran identitas tersebut diatas, saya bertanya kepada tersangka dan tersangka menjawab sebagai berikut
 </p>
@@ -109,29 +117,31 @@
 </p>
 <table>
 <tbody>
-<tr>
+<tr align='center'>
 	<td>
 		<p>
 			Tersangka/Terdakwa *)
-		</p>
+		</p>		
+				<br/><br/><br/>
+
 		<p>
-			(<u> </u>)
+			<strong>({{$suspect->name}})</strong>
 		</p>
 	</td>
 	<td>
 		<p>
 			Jaksa Penyidik/Penuntut Umum
 		</p>
+		<br/><br/><br/>
 		<p>
-			(<u> )</u>
+			<strong>({{$case->jaksa->name}})</strong>
 		</p>
 		<p>
-			Pangkat .................NIP..............
+			{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
 		</p>
 	</td>
 </tr>
 </tbody>
 </table>
-<p>
-	*) Coret yang tidak digunakan dan dipaparkan oleh masing‑masing Pihak kepentingan
-</p>
+<footer></footer>
+@endforeach

@@ -32,6 +32,14 @@ class Cases extends Model {
         return $this->belongsToMany('App\Cases\Suspects');
     }
 
+    public function suspectNames(){
+        $suspects = array();
+        foreach($this->suspects as $row){
+            $suspects[] = $row->name;
+        }
+        return implode(', ', $suspects);        
+    }
+
     public function author()
     {
         return $this->belongsTo('Eendonesia\Moderator\Models\User', 'author_id');

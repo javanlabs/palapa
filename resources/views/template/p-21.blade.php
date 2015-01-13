@@ -30,7 +30,7 @@
 			Lampiran : …………………………
 		</p>
 		<p>
-			Perihal : Pemberitahuan hasil penyidikan perkara pidana a.n. tersangka ………… sudah lengkap
+			Perihal : Pemberitahuan hasil penyidikan perkara pidana a.n. tersangka {{$case->suspectNames()}} sudah lengkap
 		</p>
 	</td>
 	<td>
@@ -57,7 +57,7 @@
 </tbody>
 </table>
 <p>
-	 Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka…………….. Nomor ……………………………….. tanggal……………………… yang kami terima tanggal…………………..setelah dilakukan penelitian ternyata hasil penyidikannya. sudah lengkap,
+	 Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor ……………………………….. tanggal……………………… yang kami terima tanggal…………………..setelah dilakukan penelitian ternyata hasil penyidikannya. sudah lengkap,
 </p>
 <p>
 	 Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUHAP supaya Saudara menyerahkan tanggung jawab tersangka dan barang bukti kepada kami, guna menentukan apakah perkara tersebut sudah memenuhi persyaratan untuk dapat atau tidak dilimpahkan ke Pengadilan
@@ -100,7 +100,7 @@
 			Tembusan:
 		</p>
 		<ol>
-			<li>Yth. Kepala Kejaksaan Tinggi ______;</li>
+			<li>Yth. Kepala Kejaksaan Tinggi Jawa Timur;</li>
 			<li>Yth. Kepala {{$case->penyidik->name}}</li>
 			<li>Arsip.</li>
 		</ol>

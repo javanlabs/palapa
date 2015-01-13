@@ -30,13 +30,10 @@
 			Lampiran : …………………………
 		</p>
 		<p>
-			Perihal : Pemberitahuan bahwa waktu Penyidikan Tambahan perkara atas nama …….……….yang melanggar pasal……………… sudah habis.
+			Perihal : Pemberitahuan bahwa waktu Penyidikan Tambahan perkara atas nama {{$case->suspectNames()}} yang melanggar pasal {{$case->pasal}} sudah habis.
 		</p>
 	</td>
 	<td>
-		<p>
-			……………………………………….
-		</p>
 		<p>
 			KEPADA YTH.
 		</p>
@@ -57,7 +54,7 @@
 </tbody>
 </table>
 <p>
-	 Sehubungan dengan pengembalian berkas perkara pidana atas nama tersangka………….. Nomor ………………… tanggal……………….. dari kami kepada Saudara, dan telah Saudara terima pada tanggal... guna dilakukan penyidikan tambahan untuk waktu selama 14 hari sesuai ketentuan pasal 138 ayat (2) KUHAP.
+	 Sehubungan dengan pengembalian berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor ………………… tanggal……………….. dari kami kepada Saudara, dan telah Saudara terima pada tanggal... guna dilakukan penyidikan tambahan untuk waktu selama 14 hari sesuai ketentuan pasal 138 ayat (2) KUHAP.
 </p>
 <p>
 	 Mengingat batas waktu 14 hari untuk melakukan penyidikan tambahan tersebut telah berakhir, bersama ini diminta agar Saudara menyerahkan kembali berkas perkara tersebut kepada kami setelah dilakukan pemeriksaan tambahan sesuai dengan petunjuk kami sebagaimana dimaksud dalam pasal I 10 ayat (3) KUHAP.
@@ -100,7 +97,7 @@
 			Tembusan:
 		</p>
 		<ol>
-			<li>Yth. Kepala Kejaksaan Tinggi ______;</li>
+			<li>Yth. Kepala Kejaksaan Tinggi Jawa Timur;</li>
 			<li>Yth. Kepala {{$case->penyidik->name}}</li>
 			<li>Arsip.</li>
 		</ol>
