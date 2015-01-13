@@ -68,7 +68,7 @@
 	</td>
 	<td rowspan="2">
 		<p>
-			Sikap JPU /tersddakwa
+			Sikap JPU /terdakwa
 		</p>
 	</td>
 	<td rowspan="2">
@@ -268,7 +268,7 @@
 </table>
 <table>
 <tbody>
-<tr>
+<tr align='center'>
 	<td>
 		<p>
 			Mengetahui
@@ -276,6 +276,9 @@
 		<p>
 			KASI PIDUM/PIDSUS
 		</p>
+		<br/>
+		<br/>
+		<br/>
 		<p>
 			(……………………………….)
 		</p>
@@ -285,16 +288,19 @@
 	</td>
 	<td>
 		<p>
-			………………………………….
+			Jember, {{date('d-m-Y')}}
 		</p>
 		<p>
 			JAKSA PENUNTUT UMUM
 		</p>
+		<br/>
+		<br/>
+		<br/>
 		<p>
-			(……………………………….)
+			({{$case->jaksa->name}})
 		</p>
 		<p>
-			Pangkat/Nip .........
+			{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
 		</p>
 	</td>
 </tr>

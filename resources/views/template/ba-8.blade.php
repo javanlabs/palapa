@@ -1,39 +1,40 @@
+@foreach($case->suspects as $suspect)
 <table>
 <tbody>
 <tr>
-	<td>
-		<p>
-			KEJAKSAAN …………………………..
-		</p>
+	<td style="text-align: center;" width="250px">
+		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
+		</strong>
 	</td>
-	<td>
-		<p>
+	<td width="300px">
+	</td>
+	<td style="text-align: right;">
+		<strong>
 			BA-8
-		</p>
+		</strong>
 	</td>
 </tr>
 </tbody>
 </table>
-<p>
-	"UNTUK KEADILAN"
-</p>
-<p>
+<p style="text-align: center;">
 	<b>BERITA ACARA</b>
 </p>
-<p>
+<p style="text-align: center;">
 	<b>PELAKSANAAN PUTUSAN PENGADILAN</b>
 </p>
 <p>
-	---------Pada hari ini...............................tanggal ..........................saya:-----------------------------
+	<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
+	Pada hari ini {{$days[date('w')]}} tanggal {{date('d-m-Y')}} saya:
 </p>
 <p>
-	Nama : <u> </u>
+	<strong>Nama :</strong> {{$case->jaksa->name}}
 </p>
 <p>
-	Pangkat / NIP : <u> </u>
+	<strong>Pangkat / NIP :</strong> {{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
 </p>
 <p>
-	Jabatan : <u> </u>
+	<strong>Jabatan :</strong> {{$case->jaksa->jabatan->name}}
 </p>
 <p>
 	(selaku Penuntut Umum)
@@ -52,11 +53,12 @@
 </p>
 <table>
 <tbody>
-<tr>
+<tr align='center'>
 	<td>
 		<p>
 			Kepala Rutan
 		</p>
+		<br/><br/><br/>
 		<p>
 			Kepala Lembaga Pemasyarakatan
 		</p>
@@ -68,24 +70,32 @@
 		<p>
 			Jaksa Penuntut Umum,
 		</p>
+		<br/><br/><br/>
 		<p>
-			(<u> )</u>
+			<strong>({{$case->jaksa->name}})</strong>
 		</p>
 		<p>
-			Pangkat .................NIP..............
+			{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
 		</p>
 	</td>
 </tr>
+<tr align='center'>
+	<td colspan='2'>
+		<p>
+			Terdakwa/Terpidana
+		</p>
+				<br/><br/><br/>
+
+		<p>
+			<strong>({{$suspect->name}})</strong>
+		</p>
+	</td>
+	</tr>
 </tbody>
 </table>
+<footer>
 <p>
-	Terdakwa/Terpidana
-</p>
-<p>
-	(<u> </u>)
-</p>
-<p>
-	Tembusan:
+	<strong>Tembusan:</strong>
 </p>
 <p>
 	1.Kajari
@@ -99,6 +109,5 @@
 <p>
 	4.Arsip
 </p>
-<p>
-	*) Coret yang tidak perlu
-</p>
+</footer>
+@endforeach

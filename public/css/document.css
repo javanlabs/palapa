@@ -33,3 +33,6 @@
         border: 0 none !important;
     }
 }
+@media print {
+    footer {page-break-after: always;}
+}
