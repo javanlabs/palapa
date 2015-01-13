@@ -452,7 +452,7 @@ class SopSeeder extends Seeder {
             ['phase_id' => 2, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
             ['phase_id' => 2, 'name' => 'Berkara Perkas Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
 
-            ['phase_id' => 3, 'name' => 'Penerimaan Tersangkat dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+            ['phase_id' => 3, 'name' => 'Penerimaan Tersangka dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
             ['phase_id' => 3, 'name' => 'BA Pendapat Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
             ['phase_id' => 3, 'name' => 'Surat Perintah Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
             ['phase_id' => 3, 'name' => 'BA-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
@@ -516,7 +516,7 @@ class SopSeeder extends Seeder {
             ['phase_id' => 22, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
             ['phase_id' => 22, 'name' => 'Berkara Perkas Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
 
-            ['phase_id' => 23, 'name' => 'Penerimaan Tersangkat dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+            ['phase_id' => 23, 'name' => 'Penerimaan Tersangka dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
             ['phase_id' => 23, 'name' => 'BA Pendapat Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
             ['phase_id' => 23, 'name' => 'Surat Perintah Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
             ['phase_id' => 23, 'name' => 'BA-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],

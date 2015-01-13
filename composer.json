@@ -6,6 +6,7 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "dev-master",
+		"doctrine/dbal": "2.3.5",
         "fzaninotto/faker": "1.4.*",
         "illuminate/support": "5.0.*",
         "illuminate/html": "5.0.*",

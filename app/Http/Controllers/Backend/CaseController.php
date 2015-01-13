@@ -118,7 +118,9 @@ class CaseController extends BackendController {
         $case = $this->repo->find($caseId);
         $checklist = Checklist::findOrFail($checklistId);
 
-        return view('backend.cases.activity', compact('case', 'checklist'));
+        $relatedData = $checklist->getRelatedData();
+
+        return view('backend.cases.activity', compact('case', 'checklist', 'relatedData'));
     }
 
     public function postChecklist(Request $request, $caseId, $checklistId)
@@ -126,7 +128,7 @@ class CaseController extends BackendController {
         $case = $this->repo->find($caseId);
         $checklist = Checklist::findOrFail($checklistId);
 
-        $this->sopRepo->addChecklist($case, $checklist, $request->only('date', 'note'));
+        $this->sopRepo->addChecklist($case, $checklist, $request->only('date', 'note', 'data'));
 
         $data['status'] = 1;
 
