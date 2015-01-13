@@ -31,4 +31,6 @@ interface RepositoryInterface {
     public function countNewThisMonth();
 
     public function sidangToday();
+
+    public function upcomingSidang();
 }

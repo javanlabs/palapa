@@ -38,12 +38,12 @@
                     </table>
                 </td>
                 <td colspan="2" class="jadwal-sidang animated fadeIn" style="padding: 10px 40px">
-                    <h3 class="caption">Jadwal Sidang Hari Ini</h3>
+                    <h3 class="caption">Jadwal Sidang</h3>
                     <div class="inner">
                         @forelse($cases as $item)
                             <a href="{{ $item['permalink'] }}" class="court">{{ $item['name'] }}</a>
                         @empty
-                            <div class="alert alert-warning"><strong>Tidak ada jadwal <sidang></sidang></strong></div>
+                            Tidak Ada
                         @endforelse
                     </div>
                 </td>

@@ -268,6 +268,9 @@ class EloquentRepository implements RepositoryInterface {
         return $this->case->where('tgl_persidangan', '=', (new Carbon())->toDateString())->get();
     }
 
-
+    public function upcomingSidang()
+    {
+        return $this->case->where('tgl_persidangan', '>=', (new Carbon())->toDateString())->orderBy('tgl_persidangan')->get();
+    }
 }
 

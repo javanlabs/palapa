@@ -16,7 +16,7 @@ class FrontendController extends Controller {
         $stat['newToday'] = $caseRepository->countNewToday();
         $stat['newThisWeek'] = $caseRepository->countNewThisWeek();
         $stat['newThisMonth'] = $caseRepository->countNewThisMonth();
-        $cases = $caseRepository->sidangToday();
+        $cases = $caseRepository->upcomingSidang();
 
         return view('frontend.index', compact('menu', 'stat', 'cases'));
     }
