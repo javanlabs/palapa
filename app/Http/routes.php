@@ -20,10 +20,12 @@ $router->controller('frontend', 'FrontendController', [
 ]);
 
 // CMS a.k.a static page
-$router->get('page/{category}/{id?}', ['as'=>'frontend.post', 'uses'=>'Frontend\PostController@show']);
+$router->get('page/{category}/{id?}', ['as'=>'frontend.post', 'uses'=>'PostController@show']);
 
 //BACKEND
 $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($router){
+
+    $router->get('/', ['as' => '', 'uses' => 'OfficerController']);
 
     $router->resource('officers', 'OfficerController');
 

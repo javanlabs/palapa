@@ -1,6 +1,5 @@
-<?php namespace App\Http\Controllers\Frontend;
+<?php namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Eendonesia\Skrip\Post\Post;
 use Eendonesia\Skrip\Post\RepositoryInterface;
 
