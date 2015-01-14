@@ -1,5 +1,6 @@
-@extends('layouts.frontend.frontend')
-@section('content')
+@extends('layouts.admin.admin')
+
+@section('content-admin')
     <h2>Manajemen SDM</h2>
     <a href="{{ route('backend.officers.create') }}">Tambah SDM</a>
     <table class="table table-bordered">

@@ -1,6 +1,6 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.admin.admin')
 
-@section('content')
+@section('content-admin')
 <div class="container-fluid">
     <h2>Template Surat</h2>
     <a href="{{ route('backend.templates.create') }}">Buat Template</a>

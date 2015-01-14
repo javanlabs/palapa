@@ -1,5 +1,5 @@
-@extends('layouts.frontend.frontend')
-@section('content')
+@extends('layouts.admin.admin')
+@section('content-admin')
     <h2>Setting</h2>
 
     {{ BootForm::open()->action(route('setting.store')) }}

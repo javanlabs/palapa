@@ -1,4 +1,4 @@
-<nav class="navbar navbar-back-home" role="navigation">
+<nav class="navbar navbar-back-home" role="navigation" >
     <div class="container-fluid">
         <div class="col-md-4">
             <a href="{{ route('home') }}" class="home">
@@ -10,8 +10,6 @@
             <span class="trail"><i class="fa fa-angle-right"></i></span>
             <span class="trail">@yield('breadcrumb-title')</span>
         </div>
-        <div class="col-md-4 text-center">
-        </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-8"></div>
     </div>
 </nav>

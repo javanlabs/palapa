@@ -1,7 +1,6 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.admin.admin')
 
-
-@section('content')
+@section('content-admin')
     <div class="container-fluid">
         <h2>Tambah SDM</h2>
         {{ BootForm::open()->put()->action(route('backend.officers.update', [$officer->id])) }}

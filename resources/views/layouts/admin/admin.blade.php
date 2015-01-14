@@ -7,12 +7,14 @@
 @section('content')
     <div class="container-fluid" id="page-admin">
         <div class="col-md-3">
-            <aside class="list-group">
-                @if(Auth::check())
+            @if(Auth::check())
+                <aside class="list-group">
                     <a class="list-group-item {{ (isset($page) && $page == 'backend-cases')?'active':'' }}" href="#" data-toggle="modal" data-target="#modalSelectCase"><i class="fa fa-plus"></i> Register Kasus</a>
-                    @include('backend.cases.selectCase')
-                @endif
+                </aside>
+                @include('backend.cases.selectCase')
+            @endif
 
+            <aside class="list-group">
                 @if(Auth::guest())
                     <a class="list-group-item" href="{{ route('gapura.login') }}">Login</a>
                 @else
