@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder {
         $this->call('TemplateSeeder');
         $this->call('PenyidikSeeder');
         $this->call('PostSeeder');
+        $this->call('SettingSeeder');
 
         Model::reguard();
 	}
@@ -580,3 +581,16 @@ class PostSeeder extends Seeder{
     }
 }
 
+class SettingSeeder extends Seeder{
+
+    public function run()
+    {
+        return DB::table('settings')->insert([
+            ['key' => 'kajari_name', 'value' => ''],
+            ['key' => 'kajari_nip', 'value' => ''],
+            ['key' => 'kajari_jabatan', 'value' => ''],
+            ['key' => 'kepala_kejaksaan_provinsi', 'value' => ''],
+            ['key' => 'kepala_kepolisian', 'value' => '']
+        ]);
+    }
+}
