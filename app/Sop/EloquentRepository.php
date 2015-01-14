@@ -163,14 +163,16 @@ class EloquentRepository implements RepositoryInterface {
 
     public function checklistRemainingDay($case, $checklist)
     {
-        if(!$checklist->ticker)
+        if(!$checklist->ticker || $checklist->duration == 0)
         {
             return false;
         }
 
+        $highestChecklist = $case->highestChecklist->first();
+
         foreach($case->checklist as $checked)
         {
-            if($checked->id == $checklist->ticker->id)
+            if($checked->id == $checklist->ticker->id && ($checklist->ordinal > $highestChecklist->ordinal))
             {
                 $checklistAge = Carbon::createFromFormat('Y-m-d', $checked->pivot->date)->diffInDays(new Carbon());
                 return $checklist->duration - $checklistAge;

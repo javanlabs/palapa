@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label for="">Catatan</label>
-        {{ Form::textarea('note', '', ['class' => 'form-control']) }}
+        {{ Form::textarea('note', '', ['class' => 'form-control', 'rows' => 3]) }}
     </div>
 
 </div>

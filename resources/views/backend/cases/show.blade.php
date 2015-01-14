@@ -1,6 +1,6 @@
 @extends('layouts.single')
 
-@section('content')
+@section('body')
 <div style="padding: 40px">
 
     <div class="row">
@@ -31,11 +31,19 @@
                 <dt>Staff Administrasi :</dt>
                 <dd>{{ $case['staff_name'] }}</dd>
                 <dt>Usia Kasus :</dt>
-                <dd>{{ $case['age'] }} hari</dd>
+                <dd>
+                    @if($case['age'])
+                    {{ $case['age'] }} hari
+                    @else
+                        <span class="label label-default">{{ $case['status'] }}</span>
+                    @endif
+                </dd>
                 <dt>Status :</dt>
                 <dd><span class="label label-primary">{{ $case['status_name'] }}</span></dd>
             </dl>
-            <a href="/backend/cases/edit/{{$case->id}}">Ubah Data</a>
+            <div class="text-right">
+                <a href="/backend/cases/edit/{{$case->id}}" class="btn btn-default"><i class="fa fa-pencil"></i> Ubah Data</a>
+            </div>
         </div>
         <hr/>
 

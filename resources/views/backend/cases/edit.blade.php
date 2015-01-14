@@ -1,6 +1,6 @@
-@extends('layouts.admin.admin')
+@extends('layouts.single')
 
-@section('content-admin')
+@section('content')
     {{ BootForm::open()->put()->action(route('backend.cases.update', [$case->id])) }}
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
@@ -12,6 +12,7 @@
             @include('backend.cases.edit.' . $type['id'])
         </div>
         <div class="panel-footer text-right">
+            <a class="btn btn-default" href="{{ $case['permalink'] }}">Batal</a>
             {{ BootForm::submit('Simpan', 'btn-primary') }}
         </div>
     </div>

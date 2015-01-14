@@ -16,7 +16,7 @@ trait Presenter {
 
     public function getSpdpNumberAttribute()
     {
-        return $this->attributes['spdp_number']?$this->attributes['spdp_number']:'-';
+        return $this->attributes['spdp_number']?$this->attributes['spdp_number']:'';
     }
 
     public function getProsecutorNameAttribute()
@@ -82,7 +82,10 @@ trait Presenter {
 
     public function getAgeAttribute()
     {
-        return Carbon::createFromFormat('Y-m-d', $this->attributes['start_date'])->diffInDays(Carbon::now());
+        if($this->attributes['start_date'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['start_date'])->diffInDays(Carbon::now());
+        }
     }
 
     protected function getPhaseStatus($phase)
@@ -205,6 +208,11 @@ trait Presenter {
 
     public function getStartDateAttribute()
     {
-         return Carbon::createFromFormat('Y-m-d', $this->attributes['start_date'])->format('d-m-Y');
+        if($this->attributes['start_date'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['start_date'])->format('d-m-Y');
+        }
+
+        return false;
     }
 }

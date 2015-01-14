@@ -12,14 +12,13 @@ class Cases extends Model {
     const STATUS_FINISH     = 'finish';
     const STATUS_SUSPEND    = 'suspend';
 
-    use SoftDeletes, Presenter;
+    use SoftDeletes, Presenter, DateSetter;
 
     protected $table = 'cases';
 
-    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
+    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date', 'spdp_date', 'spdp_received_date', 'persidangan_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
 
-    protected $dates = ['start_date', 'finish_date', 'tgl_spdp', 'tgl_persidangan'];
-
+    protected $dates = ['start_date', 'finish_date', 'spdp_date', 'spdp_received_date', 'persidangan_date'];
 
     public function scopePublished($query)
     {
@@ -67,6 +66,11 @@ class Cases extends Model {
     public function checklist()
     {
         return $this->belongsToMany('App\Sop\Checklist', 'cases_checklist', 'case_id', 'checklist_id')->withPivot('date', 'note')->withTimestamps();
+    }
+
+    public function highestChecklist()
+    {
+        return $this->belongsToMany('App\Sop\Checklist', 'cases_checklist', 'case_id', 'checklist_id')->orderBy('ordinal', 'desc');
     }
 
     public function activities()
@@ -186,11 +190,6 @@ class Cases extends Model {
     public function removeActivity($checklist)
     {
         return $this->activities()->where('checklist_id', '=', $checklist->id)->delete();
-    }
-
-    public function setStartDateAttribute($value) 
-    {
-        $this->attributes['start_date'] = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
     }
 
     public function publish()

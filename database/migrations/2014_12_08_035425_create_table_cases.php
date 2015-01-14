@@ -17,7 +17,7 @@ class CreateTableCases extends Migration {
             
             $table->text('pasal');
             $table->text('kasus');
-            $table->date('start_date');
+            $table->date('start_date')->nullable();
             $table->date('finish_date')->nullable();
             $table->unsignedInteger('type_id')->default(201);
             $table->unsignedInteger('phase_id');            
@@ -31,10 +31,9 @@ class CreateTableCases extends Migration {
 
             $table->string('spdp_number')->nullable();
             $table->date('spdp_date')->nullable();
-            $table->date('tgl_spdp')->nullable();
-            $table->date('tgl_spdp_received')->nullable();
+            $table->date('spdp_received_date')->nullable();
 
-            $table->date('tgl_persidangan')->nullable();
+            $table->date('persidangan_date')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

@@ -58,9 +58,13 @@ class EloquentRepository implements RepositoryInterface {
 
         $case->author()->associate($user)->save();
 
-        $firstPhase = $this->phase->orderBy('ordinal')->first();
-        $attributes = ['start_date' => $input['start_date']];
-        $case->phaseHistory()->attach($firstPhase->id, $attributes);
+        if(isset($input['start_date']))
+        {
+            $firstPhase = $this->phase->orderBy('ordinal')->first();
+            $attributes = ['start_date' => $input['start_date']];
+            $case->phaseHistory()->attach($firstPhase->id, $attributes);
+
+        }
 
         return $case;
     }

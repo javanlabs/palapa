@@ -14,7 +14,6 @@ class Form extends FormRequest {
 		return [
             'pasal'            => 'required',
 			'kasus'            => 'required',
-		 	'start_date'       => 'required',
 		];
 	}
 
