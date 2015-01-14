@@ -9,7 +9,7 @@
  */
 .datepicker {
   padding: 4px;
-  border-radius: 4px;
+  border-radius: 0;
   direction: ltr;
   /*.dow {
 		border-top: 1px solid #ddd !important;
@@ -102,7 +102,7 @@
   text-align: center;
   width: 30px;
   height: 30px;
-  border-radius: 4px;
+  border-radius: 0px;
   border: none;
 }
 .table-striped .datepicker table tr td,
@@ -771,7 +771,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   background-color: #ffffff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 0px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);

@@ -69,7 +69,7 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}">
+                        <a href="{{ route('admin.home') }}">
                             <small class="keymap">7</small>
                             <h3 class="title">Admin</h3>
                             <i class="fa fa-chevron-right fa-3x icon"></i>

@@ -25,7 +25,7 @@ $router->get('page/{category}/{id?}', ['as'=>'frontend.post', 'uses'=>'PostContr
 //BACKEND
 $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($router){
 
-    $router->get('/', ['as' => '', 'uses' => 'OfficerController']);
+    $router->get('/', ['as' => 'admin.home', 'uses' => 'DefaultController@getIndex']);
 
     $router->resource('officers', 'OfficerController');
 

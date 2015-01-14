@@ -32,8 +32,8 @@ class AppServiceProvider extends ServiceProvider {
 		\View::addNamespace('gapura', base_path('vendor/eendonesia/gapura/src/views/'));
 		\View::addNamespace('skrip', base_path('vendor/eendonesia/skrip/src/views/'));
 
-		\Config::set('gapura::default_auth', 'frontend.search');
-		\Config::set('gapura::default_guest', 'frontend.search');
+		\Config::set('gapura::default_auth', 'admin.home');
+		\Config::set('gapura::default_guest', 'home');
 		\Config::set('gapura::base_uri', 'gapura');
 
 		\Config::set('skrip::prefix', 'skrip');

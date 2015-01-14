@@ -82,7 +82,7 @@ trait Presenter {
 
     public function getAgeAttribute()
     {
-        return $this->start_date->diffInDays(Carbon::now());
+        return Carbon::createFromFormat('Y-m-d', $this->attributes['start_date'])->diffInDays(Carbon::now());
     }
 
     protected function getPhaseStatus($phase)
@@ -203,4 +203,8 @@ trait Presenter {
         return false;
     }
 
+    public function getStartDateAttribute()
+    {
+         return Carbon::createFromFormat('Y-m-d', $this->attributes['start_date'])->format('d-m-Y');
+    }
 }

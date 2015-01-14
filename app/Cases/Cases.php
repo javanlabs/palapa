@@ -1,7 +1,6 @@
 <?php namespace App\Cases;
 
 use App\Model\Template;
-use App\Sop\Phase;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
