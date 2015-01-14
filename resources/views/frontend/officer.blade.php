@@ -1,4 +1,9 @@
-@extends('layouts.full')
+@extends('layouts.full.full')
+
+@section('breadcrumb-title')
+    Jaksa
+@stop
+
 @section('content')
 
     <div class="panel panel-default">

@@ -1,4 +1,9 @@
 @extends('layouts.full.full')
+
+@section('breadcrumb-title')
+    {{ $category }}
+@stop
+
 @section('content')
     <div class="container-fluid" id="page-post-view">
         <div class="col-md-4">
