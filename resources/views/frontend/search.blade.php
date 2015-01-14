@@ -1,7 +1,7 @@
 @extends('layouts.full.full')
 
 @section('breadcrumb-title')
-    {{ array_get($types, Input::get('type'), 'Cari Kasus') }}
+    {{ array_get($types, Input::get('type', 0), 'Cari Kasus') }}
 @stop
 
 @section('content')
