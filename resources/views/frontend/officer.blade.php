@@ -8,17 +8,17 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Daftar Jaksa di Kejari Jember
+            Daftar Jaksa di Kejaksaan Negeri Jember
         </div>
     <table class="table">
     <tbody>
     @foreach($officers as $key=>$jaksa)
     <tr>
-        <td width="20px"><small>{{ $key+1 }}.</small></td>
+        <td style="padding-left:50px;">
+            <h3>{{ $jaksa->name }}</h3>
+        </td>
         <td>
             <dl class="dl-horizontal">
-                <dt>Name</dt>
-                <dd>{{ $jaksa->name }}</dd>
                 <dt>Pangkat / NIP</dt>
                 <dd>{{ $jaksa->pangkat_name }} / {{ $jaksa->nip }}</dd>
                 <dt>Jabatan</dt>
