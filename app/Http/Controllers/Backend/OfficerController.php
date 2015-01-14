@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Lookup\Form;
+use App\Officer\Form;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Officer\RepositoryInterface;
 use Illuminate\Support\Facades\View;

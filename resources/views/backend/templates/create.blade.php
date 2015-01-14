@@ -1,11 +1,13 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.admin.admin')
+
 
 @section('style-head')
+    @parent
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
 @stop
 
-@section('content')
-    <div class="container">
+@section('content-admin')
+    <div class="container-fluid">
         <h2>Buat Template</h2>
         {{ BootForm::open()->action(route('backend.templates.store')) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
@@ -18,6 +20,7 @@
 @stop
 
 @section('script-end')
+    @parent
     <script src="{{ asset('vendor/redactor/redactor.min.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>

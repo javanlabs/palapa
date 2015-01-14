@@ -1,4 +1,4 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.admin.admin')
 
 @section('style-head')
     @parent
@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="{{ asset('css/document.css') }}">
 @stop
 
-@section('content')
+@section('content-admin')
+
     <div class="container-fluid hidden-print">
         <div class="editor-f4">
             <h2>Ubah Template</h2>
