@@ -32,25 +32,33 @@
 </p>
 <table>
 <tr>
-	<td rowspan='3' width="15px">1.</td>
+	<td width="15px">1.</td>
 	<td width="200px">
 	Nama </td><td width="10px">:</td><td>{{$case->jaksa->name}}</td>
 </td></tr>
-<tr><td>
+<tr>
+	<td></td>
+	<td>
 	Pangkat/NIP </td><td width="10px">:</td><td>{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}</td>
 </td></tr>
-<tr><td>
+<tr>
+<td></td>
+	<td>
 	Jabatan </td><td width="10px">:</td><td>{{$case->jaksa->jabatan->name}}</td>
 </td></tr>
 <tr>
-	<td rowspan='3' width="15px">2.</td>
+	<td width="15px">2.</td>
 	<td width="200px">
 	Nama </td><td width="10px">:</td><td></td>
 </td></tr>
-<tr><td>
+<tr>
+<td></td>
+	<td>
 	Pangkat/NIP </td><td width="10px">:</td><td></td>
 </td></tr>
-<tr><td>
+<tr>
+<td></td>
+	<td>
 	Jabatan </td><td width="10px">:</td><td></td>
 </td></tr>
 </table>
@@ -59,26 +67,34 @@
 	dengan disaksikan oleh
 </p>
 <table>
-<tr>
-	<td rowspan='3' width="15px">1.</td>
+	<tr>
+	<td width="15px">1.</td>
 	<td width="200px">
 	Nama </td><td width="10px">:</td><td></td>
 </td></tr>
-<tr><td>
+<tr>
+<td></td>
+	<td>
 	Pangkat/NIP </td><td width="10px">:</td><td></td>
 </td></tr>
-<tr><td>
+<tr>
+<td></td>
+	<td>
 	Jabatan </td><td width="10px">:</td><td></td>
 </td></tr>
 <tr>
-	<td rowspan='3' width="15px">2.</td>
+	<td width="15px">2.</td>
 	<td width="200px">
 	Nama </td><td width="10px">:</td><td></td>
 </td></tr>
-<tr><td>
+<tr>
+<td></td>
+	<td>
 	Pangkat/NIP </td><td width="10px">:</td><td></td>
 </td></tr>
-<tr><td>
+<tr>
+<td></td>
+	<td>
 	Jabatan </td><td width="10px">:</td><td></td>
 </td></tr>
 </table>

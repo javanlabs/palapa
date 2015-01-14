@@ -43,11 +43,12 @@ class SuspectController extends Controller {
 	{		
 		$cities = ['' => '--Pilih Kota--'] + Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
+        $jenisKelamins = $this->lookup->jenisKelamins();
         $jenisTahanan = $this->lookup->jenisTahanan();
         $status = $this->lookup->statusTersangka();
 
         $case_id = Input::get('case_id');
-		return view('backend.suspects.create', compact('cities', 'religions', 'jenisTahanan', 'status', 'case_id'));
+		return view('backend.suspects.create', compact('jenisKelamins', 'cities', 'religions', 'jenisTahanan', 'status', 'case_id'));
 	}
 
 	/**
