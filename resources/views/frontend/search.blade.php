@@ -82,7 +82,9 @@
         </table>
     </div>
 @else
+    @if(Input::get('q'))
     <p class="alert alert-warning">Tidak ada kasus sesuai kriteria pencarian Anda.</p>
+    @endif
 @endif
 </div>
 
