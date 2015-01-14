@@ -254,27 +254,27 @@ class EloquentRepository implements RepositoryInterface {
 
     public function countNewToday()
     {
-        return $this->case->where('tgl_spdp', '=', (new Carbon())->toDateString())->count();
+        return $this->case->where('spdp_date', '=', (new Carbon())->toDateString())->count();
     }
 
     public function countNewThisWeek()
     {
-        return $this->case->where('tgl_spdp', '>=', (new Carbon())->subWeek()->toDateString())->count();
+        return $this->case->where('spdp_date', '>=', (new Carbon())->subWeek()->toDateString())->count();
     }
 
     public function countNewThisMonth()
     {
-        return $this->case->where('tgl_spdp', '=', (new Carbon())->subDays(30)->toDateString())->count();
+        return $this->case->where('spdp_date', '=', (new Carbon())->subDays(30)->toDateString())->count();
     }
 
     public function sidangToday()
     {
-        return $this->case->where('tgl_persidangan', '=', (new Carbon())->toDateString())->get();
+        return $this->case->where('persidangan_date', '=', (new Carbon())->toDateString())->get();
     }
 
     public function upcomingSidang()
     {
-        return $this->case->where('tgl_persidangan', '>=', (new Carbon())->toDateString())->orderBy('tgl_persidangan')->get();
+        return $this->case->where('persidangan_date', '>=', (new Carbon())->toDateString())->orderBy('persidangan_date')->get();
     }
 }
 
