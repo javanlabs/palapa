@@ -29,7 +29,7 @@ class FrontendController extends Controller {
         $cases = $repository->search($keyword, $type);
         $phases = $sop->byType($type);
 
-        $types = $lookup->lists('kasus', '--Pilih Jenis Kasus--');
+        $types = $lookup->lists('kasus');
 
         return view('frontend.search', compact('cases', 'phases', 'type', 'keyword', 'types'))->with('page', 'search')->with('keyword',$keyword);
     }

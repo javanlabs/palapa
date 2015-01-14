@@ -1,16 +1,21 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.full.full')
+
+@section('breadcrumb-title')
+    {{ array_get($types, Input::get('type'), 'Cari Kasus') }}
+@stop
+
 @section('content')
 
-    <div class="container-fluid text-center" style="margin-bottom: 20px">
+    <div class="row text-center" style="margin-bottom: 20px">
 
-        {{ Form::open(['route' => ['frontend.search', 'type' => $type], 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
+        {{ Form::open(['route' => ['frontend.search'], 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
         <div class="well clearfix">
             <div class="col-md-4">
                 {{ Form::select('type', $types, Input::get('type'), ['class' => 'form-control']) }}
             </div>
             <div class="col-md-8">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus, nomor kasus, atau nama tersangka">
+                    <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus atau nomor SPDP">
 
                     <span class="input-group-btn">
                         <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span> Cari Kasus</button>
@@ -90,10 +95,8 @@
         $('[data-toggle="tooltip"]').tooltip({container:'body'})
         $('.progress-bar').popover({trigger: 'hover', placement:'top', html:true})
 
-        $('#formSearch').on('click', '.dropdown-menu li a', function(e){
-            e.preventDefault();
-            $('#formSearch input[name=type]').val($(this).data('id'));
-            $('#formSearch .type-label').html($(this).html());
+        $('#formSearch').on('change', 'select[name=type]', function(e){
+            $('#formSearch').submit();
         });
     });
     </script>

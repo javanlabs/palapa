@@ -93,7 +93,7 @@ class EloquentRepository implements RepositoryInterface {
 
             if($keyword)
             {
-                $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('suspect_name', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
+                $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
             }
         }
 

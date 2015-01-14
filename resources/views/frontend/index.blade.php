@@ -51,7 +51,7 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}">
+                        <a href="{{ route('frontend.search') }}?type=201">
                             <small class="keymap">1</small>
                             <h3 class="title">Pidum</h3>
                             <i class="fa fa-chevron-right fa-3x icon"></i>
@@ -81,7 +81,7 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}">
+                        <a href="{{ route('frontend.search') }}?type=202">
                             <small class="keymap">2</small>
                             <h3 class="title">Pidsus</h3>
                             <i class="fa fa-chevron-right fa-3x icon"></i>
