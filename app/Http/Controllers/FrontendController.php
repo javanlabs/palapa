@@ -36,7 +36,7 @@ class FrontendController extends Controller {
 
     public function getOfficer(OfficerRepository $officer)
     {
-        $officers = $officer->all();
+        $officers = $officer->jaksa();
         return view('frontend.officer', compact('officers'))->with('page', 'officer');
     }
 }

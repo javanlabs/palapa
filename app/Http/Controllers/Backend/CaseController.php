@@ -61,8 +61,8 @@ class CaseController extends BackendController {
 
     public function create()
     {
-        $jaksaLookup = $this->officer->jaksa();
-        $staffLookup = $this->officer->staff();
+        $jaksaLookup = $this->officer->listJaksa();
+        $staffLookup = $this->officer->listStaff();
         $cities = Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
         $penyidikLookup = $this->lookup->lists('penyidik', '-- Pilih Penyidik --');
@@ -80,8 +80,8 @@ class CaseController extends BackendController {
 
     public function edit($id){
         $case = $this->repo->find($id);
-        $jaksaLookup = $this->officer->jaksa();
-        $staffLookup = $this->officer->staff();
+        $jaksaLookup = $this->officer->listJaksa();
+        $staffLookup = $this->officer->listStaff();
         $penyidikLookup = $this->lookup->lists('penyidik', '-- Pilih Penyidik --');
         $type = $this->lookup->find($case->type_id);
 

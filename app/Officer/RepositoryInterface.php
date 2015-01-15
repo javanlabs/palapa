@@ -4,6 +4,10 @@ interface RepositoryInterface {
 
     public function all();
 
+    public function jaksa();
+
+    public function staff();
+
     public function create($input);
 
     public function update($id, $input);
@@ -12,7 +16,7 @@ interface RepositoryInterface {
 
     public function delete($id);
 
-    public function jaksa();
+    public function listJaksa();
 
-    public function staff();
+    public function listStaff();
 }
