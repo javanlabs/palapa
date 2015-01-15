@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <table class="table table-bordered">
+        <table class="table table-bordered section-case-tracking">
             <thead>
                 <tr>
                     <th width="200px">Kasus</th>

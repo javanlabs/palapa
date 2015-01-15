@@ -6707,6 +6707,9 @@ button.close {
 #modalSelectCase .list-group .list-group-item.active .fa {
   opacity: 1;
 }
+.section-case-tracking .progress-bar {
+  background-color: #eeeeee;
+}
 #page-admin {
   margin-top: 50px;
 }
