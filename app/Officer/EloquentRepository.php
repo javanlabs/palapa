@@ -42,12 +42,12 @@ class EloquentRepository implements RepositoryInterface {
 
     public function jaksa()
     {
-        return $this->officer->lists('name', 'id');
+        return $this->officer->whereRole(Officer::ROLE_JAKSA)->lists('name', 'id');
     }
 
     public function staff()
     {
-        return $this->officer->lists('name', 'id');
+        return $this->officer->whereRole(Officer::ROLE_STAFF)->lists('name', 'id');
     }
 
     public function jaksaByCase()

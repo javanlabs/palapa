@@ -18,6 +18,7 @@ class CreateTableOfficers extends Migration {
             $table->string('nip');
             $table->unsignedInteger('pangkat_id');
             $table->unsignedInteger('jabatan_id');
+            $table->enum('role', ['staff', 'jaksa']);
             $table->timestamps();
             $table->softDeletes();
         });

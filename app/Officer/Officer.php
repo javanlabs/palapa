@@ -5,6 +5,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Officer extends Model {
 
+    const ROLE_STAFF = 'staff';
+    const ROLE_JAKSA = 'jaksa';
+
     use SoftDeletes;
 
     protected $table = 'officers';

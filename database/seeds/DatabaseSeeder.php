@@ -294,7 +294,7 @@ class OfficerSeeder extends Seeder {
 
         DB::table('officers')->truncate();
 
-        $officers = [
+        $jaksa = [
             [
                 'name'       => "Eko Wahyudi, S.H., M.H.",
                 'nip'        => "19800506 200501 1 006",
@@ -378,7 +378,38 @@ class OfficerSeeder extends Seeder {
 
         ];
 
-        return DB::table('officers')->insert($officers);
+        foreach($jaksa as $data)
+        {
+            $data['role'] = 'jaksa';
+            DB::table('officers')->insert($data);
+        }
+
+        $staff = [
+            [
+                'name'       => "Staff 1",
+                'nip'        => "0000001",
+                'pangkat_id' => "1",
+                'jabatan_id' => "101",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'name'       => "Staff 2",
+                'nip'        => "0000002",
+                'pangkat_id' => "1",
+                'jabatan_id' => "101",
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+        ];
+
+        foreach($staff as $data)
+        {
+            $data['role'] = 'staff';
+            DB::table('officers')->insert($data);
+        }
+
+        return true;
     }
 }
 
