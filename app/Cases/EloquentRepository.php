@@ -32,7 +32,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function all()
     {
-        return $this->case->all();
+        return $this->case->orderBy('created_at', 'desc')->get();
     }
 
     public function byJaksa($jaksaId)

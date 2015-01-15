@@ -10,7 +10,7 @@
 
             <aside class="list-group">
                 <a class="list-group-item item-primary" href="#" data-toggle="modal" data-target="#modalSelectCase"><i class="fa fa-plus"></i> <strong class="text-uppercase">Register Kasus</strong></a>
-                <a class="list-group-item" href="#"><i class="fa fa-legal"></i> Manajemen Kasus</a>
+                <a class="list-group-item" href="{{ route('backend.cases.index') }}"><i class="fa fa-legal"></i> Manajemen Kasus</a>
             </aside>
             @include('backend.cases.selectCase')
 

@@ -6698,6 +6698,9 @@ button.close {
   background-color: transparent;
   color: #eeeeee;
 }
+#page-case-index .badge-status.ongoing {
+  background-color: #f0ad4e;
+}
 #modalSelectCase .list-group .list-group-item .fa {
   opacity: 0;
 }
@@ -6717,6 +6720,9 @@ button.close {
 }
 #page-admin .list-group .list-group-item {
   padding: 20px 20px 20px 10px;
+}
+h2.page-title {
+  margin-top: 0;
 }
 .pad {
   padding: 20px;

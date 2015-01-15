@@ -55,8 +55,8 @@ class CaseController extends BackendController {
 
     public function index()
     {
-        $officers = $this->repo->all();
-        return view('backend.cases.index', compact('officers'));
+        $cases = $this->repo->all();
+        return view('backend.cases.index', compact('cases'));
     }
 
     public function create()
