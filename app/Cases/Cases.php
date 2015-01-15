@@ -197,6 +197,9 @@ class Cases extends Model {
         $this->status = self::STATUS_ONGOING;
         $this->start_date = $date;
 
+        $attributes = ['start_date' => Carbon::createFromFormat('d-m-Y', $date)->toDateString()];
+        $this->phaseHistory()->attach($this->phase->id, $attributes);
+
         return $this->save();
     }
 
@@ -204,6 +207,9 @@ class Cases extends Model {
     {
         $this->status = self::STATUS_DRAFT;
         $this->start_date = null;
+
+        $this->phaseHistory()->detach($this->phase->id);
+
         return $this->save();
     }
 

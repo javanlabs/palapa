@@ -6719,6 +6719,15 @@ footer {
 .section-case-tracking .progress-bar {
   background-color: #eeeeee;
 }
+.section-case-tracking .progress-bar-success {
+  background-color: #5cb85c;
+}
+.section-case-tracking .progress-bar-warning {
+  background-color: #f0ad4e;
+}
+.section-case-tracking .progress-bar-danger {
+  background-color: #d9534f;
+}
 .section-case-tracking .progress-bar- {
   border-right: 1px dashed #ffffff;
 }

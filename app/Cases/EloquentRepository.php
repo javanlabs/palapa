@@ -32,14 +32,14 @@ class EloquentRepository implements RepositoryInterface {
 
     public function all($keyword = null)
     {
-        $query = $this->case->orderBy('created_at', 'desc');
+        return $this->case->orderBy('created_at', 'desc')->get();
 
         if($keyword)
         {
             $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
         }
 
-        return $query->paginate();
+
     }
 
     public function byJaksa($jaksaId)
@@ -64,14 +64,6 @@ class EloquentRepository implements RepositoryInterface {
         }
 
         $case->author()->associate($user)->save();
-
-        if(isset($input['start_date']))
-        {
-            $firstPhase = $this->phase->orderBy('ordinal')->first();
-            $attributes = ['start_date' => $input['start_date']];
-            $case->phaseHistory()->attach($firstPhase->id, $attributes);
-
-        }
 
         return $case;
     }
