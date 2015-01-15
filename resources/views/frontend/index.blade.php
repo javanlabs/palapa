@@ -54,7 +54,7 @@
                         <a href="{{ route('frontend.search') }}?type=201">
                             <small class="keymap">1</small>
                             <h3 class="title">Pidum</h3>
-                            <i class="fa fa-chevron-right fa-3x icon"></i>
+                            <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
@@ -63,7 +63,7 @@
                         <a href="{{ route('frontend.officer') }}">
                             <small class="keymap">4</small>
                             <h3 class="title">Jaksa</h3>
-                            <i class="fa fa-chevron-right fa-3x icon"></i>
+                            <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
@@ -72,7 +72,7 @@
                         <a href="{{ route('admin.home') }}">
                             <small class="keymap">7</small>
                             <h3 class="title">Admin</h3>
-                            <i class="fa fa-chevron-right fa-3x icon"></i>
+                            <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
@@ -84,7 +84,7 @@
                         <a href="{{ route('frontend.search') }}?type=202">
                             <small class="keymap">2</small>
                             <h3 class="title">Pidsus</h3>
-                            <i class="fa fa-chevron-right fa-3x icon"></i>
+                            <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
@@ -93,7 +93,7 @@
                         <a href="{{ route('frontend.post', ['category' => 'pembinaan']) }}">
                             <small class="keymap">5</small>
                             <h3 class="title">Pembinaan</h3>
-                            <i class="fa fa-chevron-right fa-3x icon"></i>
+                            <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
@@ -107,7 +107,7 @@
                         <a href="{{ route('frontend.search') }}">
                             <small class="keymap">3</small>
                             <h3 class="title">Datun</h3>
-                            <i class="fa fa-chevron-right fa-3x icon"></i>
+                            <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
@@ -116,7 +116,7 @@
                         <a href="{{ route('frontend.post', ['category' => 'intelijen']) }}">
                             <small class="keymap">6</small>
                             <h3 class="title">Intelijen</h3>
-                            <i class="fa fa-chevron-right fa-3x icon"></i>
+                            <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>

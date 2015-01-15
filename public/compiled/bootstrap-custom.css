@@ -6601,7 +6601,7 @@ footer {
   font-size: 18px;
   font-weight: 600;
   color: #777777;
-  line-height: 28px;
+  line-height: 24px;
   text-transform: uppercase;
   padding: 0 0 0 84px;
 }
@@ -6615,8 +6615,9 @@ footer {
   padding: 2px 4px;
 }
 .section-menu-grid .icon {
+  font-size: 4em;
   float: right;
-  margin-top: -42px;
+  margin-top: -65px;
   margin-right: 20px;
   color: #c4c4c4;
 }

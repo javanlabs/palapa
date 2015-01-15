@@ -10,7 +10,7 @@
             <div class="list-group">
                 @foreach($allPostInCategory as $item)
                 <a href="{{ route('frontend.post', ['category' => $category, 'id' => $item['id']]) }}" class="list-group-item ellipsis {{ ($item['id'] == $id)?'active':'' }}">
-                    <span class="badge"><i class="fa fa-2x fa-chevron-right"></i></span>
+                    <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
                     {{ $item['title'] }}
                 </a>
                 @endforeach
@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-8">
             @if($post)
-                <h2>{{$post->title}}</h2>
+                <h2 class="page-title">{{$post->title}}</h2>
                 {{$post->content}}
             @else
                 <div class="empty">
