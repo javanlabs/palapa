@@ -2,7 +2,7 @@
 
 @section('content-admin')
 <div class="container-fluid">
-    <h2>Template Surat</h2>
+    <h2 class="page-title">Template Surat</h2>
     <a href="{{ route('backend.templates.create') }}">Buat Template</a>
     <table class="table">
         <thead>

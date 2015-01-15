@@ -1,6 +1,6 @@
 @extends('layouts.admin.admin')
 @section('content-admin')
-    <h2>Konfigurasi</h2>
+    <h2 class="page-title">Konfigurasi</h2>
 
     {{ BootForm::open()->action(route('setting.store')) }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>

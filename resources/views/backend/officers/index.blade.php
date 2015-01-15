@@ -1,7 +1,7 @@
 @extends('layouts.admin.admin')
 
 @section('content-admin')
-    <h2>Manajemen SDM</h2>
+    <h2 class="page-title">Manajemen SDM</h2>
     <a href="{{ route('backend.officers.create') }}">Tambah SDM</a>
     <table class="table table-bordered">
         <thead>

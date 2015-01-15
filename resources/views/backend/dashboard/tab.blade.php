@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-        <h2>Statistik Kasus</h2>
+        <h2 class="page-title">Statistik</h2>
     </div>
     <div class="col-md-8 text-right">
         {{ Form::open(['id' => 'formYear', 'method' => 'GET']) }}
