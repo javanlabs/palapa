@@ -45,23 +45,25 @@
             <thead>
                 <tr>
                     <th width="200px">Kasus</th>
-                    <th width="200px">Jaksa</th>
+                    <th width="200px">Jaksa/Penyidik</th>
                     @foreach($phases as $phase)
                     <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="{{ $phase['name'] }}">{{ $phase['icon'] }}</th>
                     @endforeach
                     @if(Auth::check())
-                    <th width="100px">Aksi</th>
+                    <th width="100px"></th>
                     @endif
                 </tr>
             </thead>
             @foreach($cases as $item)
             <tr>
                 <td>
-                    <a href="{{ $item['permalink'] }}" target="_blank"><strong>{{ $item['name'] }}</strong></a>
-                </td>
-                <td>
-                    <div>{{ $item['prosecutor_name'] }}</div>
+                    <h5 class="mb-0">{{ $item['name'] }}</h5>
                     <small class="text-muted">No SPDP {{ $item['spdp_number'] }}</small>
+                </td>
+                <td style="padding: 20px 10px">
+                    <div><i class="ion-person"></i> {{ $item['prosecutor_name'] }}</div>
+                    <hr style="margin-top: 10px; margin-bottom:10px; border-style: dashed none none"/>
+                    <div><i class="ion-ios-people"></i> {{ $item['penyidik_name'] }}</div>
                 </td>
                 <td colspan="{{ count($phases) }}" style="padding: 20px 10px">
                     <div class="progress" style="margin-bottom: 0">
