@@ -1,4 +1,4 @@
-I<?php namespace App\Officer;
+<?php namespace App\Officer;
 
 class EloquentRepository implements RepositoryInterface {
 

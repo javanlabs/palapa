@@ -1,5 +1,5 @@
-@extends('layouts.frontend.frontend')
-@section('content')
+@extends('layouts.admin.admin')
+@section('content-admin')
 
     @include('backend.dashboard.tab', ['active' => 'byStatus'])
 
