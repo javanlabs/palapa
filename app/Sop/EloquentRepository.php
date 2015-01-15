@@ -71,7 +71,7 @@ class EloquentRepository implements RepositoryInterface {
 
         if($checklist->is_first)
         {
-            $case->publish();
+            $case->start($dmyDate);
         }
         elseif ($checklist->is_finish)
         {

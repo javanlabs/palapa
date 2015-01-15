@@ -86,6 +86,8 @@ trait Presenter {
         {
             return Carbon::createFromFormat('Y-m-d', $this->attributes['start_date'])->diffInDays(Carbon::now());
         }
+
+        return false;
     }
 
     protected function getPhaseStatus($phase)
@@ -211,6 +213,16 @@ trait Presenter {
         if($this->attributes['start_date'])
         {
             return Carbon::createFromFormat('Y-m-d', $this->attributes['start_date'])->format('d-m-Y');
+        }
+
+        return false;
+    }
+
+    public function getSpdpDateAttribute()
+    {
+        if($this->attributes['spdp_date'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['spdp_date'])->format('d-m-Y');
         }
 
         return false;

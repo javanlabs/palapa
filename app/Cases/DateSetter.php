@@ -6,25 +6,32 @@ trait DateSetter {
 
     public function setStartDateAttribute($value)
     {
-        $this->attributes['start_date'] = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
+        if($value)
+        {
+            $value = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
+        }
+
+        $this->attributes['start_date'] = $value;
     }
 
     public function setSpdpDateAttribute($value)
     {
-        $this->attributes['spdp_date'] = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
-    }
+        if($value)
+        {
+            $value = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
+        }
 
-    public function setSpdpReceivedDateAttribute($value)
-    {
-        $this->attributes['spdp_received_date'] = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
-
-        // automatically set start date when spdp received
-        $this->attributes['start_date'] = $this->attributes['spdp_received_date'];
+        $this->attributes['spdp_date'] = $value;
     }
 
     public function setPersidanganDateAttribute($value)
     {
-        $this->attributes['persidangan_date'] = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
+        if($value)
+        {
+            $value = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
+        }
+
+        $this->attributes['persidangan_date'] = $value;
     }
 
 }

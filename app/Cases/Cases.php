@@ -18,7 +18,7 @@ class Cases extends Model {
 
     protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date', 'spdp_date', 'spdp_received_date', 'persidangan_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
 
-    protected $dates = ['start_date', 'finish_date', 'spdp_date', 'spdp_received_date', 'persidangan_date'];
+    protected $dates = ['start_date', 'finish_date', 'spdp_date', 'persidangan_date'];
 
     public function scopePublished($query)
     {
@@ -35,7 +35,7 @@ class Cases extends Model {
         foreach($this->suspects as $row){
             $suspects[] = $row->name;
         }
-        return implode(', ', $suspects);        
+        return implode(', ', $suspects);
     }
 
     public function author()
@@ -107,7 +107,7 @@ class Cases extends Model {
         return $this->belongsTo('App\Lookup\Lookup', 'penyidik_id');
     }
 
-    
+
 
     public function close()
     {
@@ -192,15 +192,18 @@ class Cases extends Model {
         return $this->activities()->where('checklist_id', '=', $checklist->id)->delete();
     }
 
-    public function publish()
+    public function start($date)
     {
         $this->status = self::STATUS_ONGOING;
+        $this->start_date = $date;
+
         return $this->save();
     }
 
     public function unpublish()
     {
         $this->status = self::STATUS_DRAFT;
+        $this->start_date = null;
         return $this->save();
     }
 

@@ -14,13 +14,13 @@ class CreateTableCases extends Migration {
 	{
         Schema::create('cases', function(Blueprint $table) {
             $table->increments('id');
-            
+
             $table->text('pasal');
             $table->text('kasus');
             $table->date('start_date')->nullable();
             $table->date('finish_date')->nullable();
             $table->unsignedInteger('type_id')->default(201);
-            $table->unsignedInteger('phase_id');            
+            $table->unsignedInteger('phase_id');
             $table->unsignedInteger('penyidik_id')->nullable();
 
             $table->unsignedInteger('author_id');
@@ -30,7 +30,7 @@ class CreateTableCases extends Migration {
             $table->enum('status', ['draft', 'ongoing', 'finish', 'suspend'])->default('draft');
 
             $table->string('spdp_number')->nullable();
-            $table->date('spdp_received_date')->nullable();
+            $table->date('spdp_date')->nullable();
 
             $table->date('persidangan_date')->nullable();
 

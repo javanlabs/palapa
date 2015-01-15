@@ -467,7 +467,7 @@ class SopSeeder extends Seeder {
             [
                 // PIDUM
                 //Tahap Pra Penuntutan
-                ['phase_id' => 1, 'name' => 'Penerimaan SPDP', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 1, 'related_data' => json_encode(['spdp_number', 'spdp_received_date']), 'date_label' => 'Tanggal SPDP'],
+                ['phase_id' => 1, 'name' => 'Penerimaan SPDP', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 1, 'related_data' => json_encode(['spdp_number', 'spdp_date']), 'date_label' => 'Tanggal SPDP Diterima'],
                 ['phase_id' => 1, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'ticker_id'=>1, 'duration' => 2, 'direction' => 'stay', 'ordinal' => 2, 'date_label' => 'Tanggal Surat'],
                 ['phase_id' => 1, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan','ticker_id'=>2, 'duration' => 30, 'direction' => 'stay', 'ordinal' => 3, 'date_label' => 'Tanggal Surat'],
                 ['phase_id' => 1, 'name' => 'SPDP Dikembalikan', 'ticker_id'=>3, 'duration' => 30, 'direction' => 'suspend', 'ordinal' => 4, 'date_label' => 'Tanggal Dikembalikan'],

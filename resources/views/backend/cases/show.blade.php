@@ -31,7 +31,7 @@
                 <dd>{{ $case['staff_name'] }}</dd>
                 <dt>Usia Kasus :</dt>
                 <dd>
-                    @if($case['age'])
+                    @if($case['age'] !== false)
                     {{ $case['age'] }} hari
                     @else
                         <span class="label label-default">{{ $case['status'] }}</span>
