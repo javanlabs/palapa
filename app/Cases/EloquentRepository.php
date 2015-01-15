@@ -254,17 +254,17 @@ class EloquentRepository implements RepositoryInterface {
 
     public function countNewToday()
     {
-        return $this->case->where('spdp_date', '=', (new Carbon())->toDateString())->count();
+        return $this->case->where('start_date', '=', (new Carbon())->toDateString())->count();
     }
 
     public function countNewThisWeek()
     {
-        return $this->case->where('spdp_date', '>=', (new Carbon())->subWeek()->toDateString())->count();
+        return $this->case->where('start_date', '>=', (new Carbon())->subWeek()->toDateString())->count();
     }
 
     public function countNewThisMonth()
     {
-        return $this->case->where('spdp_date', '=', (new Carbon())->subDays(30)->toDateString())->count();
+        return $this->case->where('start_date', '=', (new Carbon())->subDays(30)->toDateString())->count();
     }
 
     public function sidangToday()
