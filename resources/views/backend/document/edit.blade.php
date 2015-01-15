@@ -40,7 +40,7 @@
             <h2 class="hidden-print">{{ $document->title }}</h2>
             {{ BootForm::open()->put()->action(route('backend.document.update', [$document->id]))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($content) }}
+                {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($document->content) }}
             {{ BootForm::close() }}
 
             <div id="previewContainer" class="preview-container"></div>
@@ -52,8 +52,8 @@
         <hr />
         <a class="btn btn-default btn-block" href="#" id="btnPreview" data-toggle="modal" data-target=".modal-preview"><i class="fa fa-eye"></i> Preview</a>
         <a class="btn btn-success btn-block btn-print" href="#"><i class="fa fa-print"></i> Print</a>
-        <hr />
-        <a class="btn btn-default btn-block btn-save" href="{{ route('backend.cases.show', [$case['id']]) }}">Batal</a>
+        <hr />{{$case}}
+        <a class="btn btn-default btn-block" href="{{ route('backend.cases.show', [1]) }}">Batal</a>
     </div>
 </div>
 
