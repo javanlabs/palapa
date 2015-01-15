@@ -7,7 +7,9 @@
     <meta name="title" content="{{ Config::get('meta.title') }}" />
     <meta name="description" content="{{ Config::get('meta.title') }}" />
     <title>{{ Config::get('meta.title') }}</title>
-
+<link rel="icon" 
+      type="image/png" 
+      href="{{asset('favicon.ico')}}">
     {{--<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('compiled/bootstrap-custom.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
