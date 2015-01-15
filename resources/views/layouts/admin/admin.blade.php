@@ -7,12 +7,12 @@
 @section('content')
     <div class="container-fluid" id="page-admin">
         <div class="col-md-3">
-            @if(Auth::check())
-                <aside class="list-group">
-                    <a class="list-group-item {{ (isset($page) && $page == 'backend-cases')?'active':'' }}" href="#" data-toggle="modal" data-target="#modalSelectCase"><i class="fa fa-plus"></i> Register Kasus</a>
-                </aside>
-                @include('backend.cases.selectCase')
-            @endif
+
+            <aside class="list-group">
+                <a class="list-group-item item-primary" href="#" data-toggle="modal" data-target="#modalSelectCase"><i class="fa fa-plus"></i> <strong class="text-uppercase">Register Kasus</strong></a>
+                <a class="list-group-item" href="#"><i class="fa fa-legal"></i> Manajemen Kasus</a>
+            </aside>
+            @include('backend.cases.selectCase')
 
             <aside class="list-group">
                 @if(Auth::guest())
@@ -29,7 +29,9 @@
             </aside>
         </div>
         <div class="col-md-9">
-            @yield('content-admin')
+            <div style="padding: 0 40px">
+                @yield('content-admin')
+            </div>
         </div>
     </div>
 @stop
