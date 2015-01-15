@@ -8,8 +8,8 @@
 
   .logo{
     width: 60px;
-    float: left;
-    margin-right: 30px;
+    float: right;
+    margin-left: 30px;
   }
   h1 {
     font-size: 22px;
@@ -30,13 +30,14 @@
   .time {
     font-size: 48px;
     font-weight: 300;
-    float: right;
+    display: inline-block;
     margin-left: 30px;
     width: 200px;
     text-align: left;
   }
   .block-date {
-    float: right;
+    display: inline-block;
+    text-align: right;
     text-transform: uppercase;
     font-weight: 300;
     padding-top: 10px;
@@ -51,24 +52,14 @@
       color: @gray-light;
     }
   }
-}
-
-.navbar-back-home {
-  height: 100px;
-  overflow: hidden;
-  border-bottom: 1px solid @gray-lighter;
-  padding-top: 30px;
-  margin-bottom: 0;
-
-  a {
-    color: @gray-light;
-  }
-
   .home {
     float: left;
     margin-right: 20px;
   }
 
+  .trails {
+    margin-top: 10px;
+  }
   .trail {
     font-size: 1.5em;
     text-transform: uppercase;
