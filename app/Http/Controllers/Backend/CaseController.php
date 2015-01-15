@@ -111,7 +111,7 @@ class CaseController extends BackendController {
         $activities = $this->repo->activities($case);
         $checklistIds = $case->checklist->lists('id');
         $templates = $case->templates();
-        $documentsIds = $case->documents->lists('id', 'id');
+        $documentsIds = $case->documents->lists('template_id', 'id');
         $sop = $this->sopRepo;
 
         return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'templates', 'documentsIds', 'sop'));

@@ -128,8 +128,8 @@
                     <td width="100px">
                         @if(in_array($item['id'], $documentsIds))
                             <div class="btn-group">
-                                <a class="btn btn-xs btn-link" href="{{ route('backend.document.edit', [$item['id']]) }}">Edit</a>
-                                {{ Form::delete(route('backend.document.destroy', [$item['id']]), 'Hapus', [], ['class' => 'btn btn-xs btn-link']) }}
+                                <a class="btn btn-xs btn-link" href="{{ route('backend.document.edit', [array_search( $item['id'], $documentsIds)]) }}">Edit</a>
+                                {{ Form::delete(route('backend.document.destroy', [array_search( $item['id'], $documentsIds)]), 'Hapus', [], ['class' => 'btn btn-xs btn-link']) }}
                             </div>
                         @else
                             <a class="btn btn-xs btn-default" href="{{ route('backend.document.create', ['template_id' => $item['id'], 'template' => strtolower($item['short_title']), 'case_id' => $case['id']]) }}">Buat Dokumen</a>

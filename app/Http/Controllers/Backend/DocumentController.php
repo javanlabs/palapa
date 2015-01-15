@@ -37,16 +37,27 @@ class DocumentController extends Controller {
 		// $document->template()->associate($template)->save();
 		// return redirect()->route('backend.document.edit', [$document->id]);
 
-		return view('backend.document.create', compact('document', 'content', 'case'));
+		return view('backend.document.create', compact('document', 'content', 'case', 'template'));
 
+	}
+
+	public function store(){
+		$case = Cases::findOrFail(Input::get('case_id'));
+		$template = Template::findOrFail(Input::get('template_id'));
+		$document = Document::create([
+			'title'		=> Input::get('title'),
+			'content'	=> Input::get('content'),
+		]);
+		$document->cases()->associate($case)->save();
+		$document->template()->associate($template)->save();
+		return redirect()->route('backend.document.edit', [$document->id]);
 	}
 
 	public function edit($id)
 	{
-		$document = Document::findOrFail($id);
-		$content = $this->fillParams($document->content, $document->cases, Setting::lists('value', 'key'));
-		$case = $document->case;
-		return view('backend.document.edit', compact('document', 'content', 'case'));
+		$document = Document::findOrFail($id);	
+		$case = $document->case;	
+		return view('backend.document.edit', compact('document', 'case'));
 	}
 
 
@@ -65,32 +76,5 @@ class DocumentController extends Controller {
 		return redirect()->back();
 	}
 
-	public function fillParams($template, $case, $config)
-	{
-		$template = str_replace("{case.spdp_number}", $case->spdp_number, $template);
-		$template = str_replace("{case.pasal}", $case->pasal, $template);
-		$template = str_replace("{case.kasus}", $case->kasus, $template);
-		$template = str_replace("{case.start_date}", $case->start_date, $template);
-		$template = str_replace("{case.finish_date}", $case->finish_date, $template);
-		$template = str_replace("{case.suspect_name}", $case->suspect_name, $template);
-//		$template = str_replace("{case.suspect_pob}", $case->suspectPob->nama, $template);
-//		$template = str_replace("{case.suspect_dob}", $case->suspect_dob, $template);
-		$template = str_replace("{case.suspect_religion}", $case->suspect_religion, $template);
-		$template = str_replace("{case.suspect_address}", $case->suspect_address, $template);
-		$template = str_replace("{case.suspect_nationality}", $case->suspect_nationality, $template);
-		$template = str_replace("{case.suspect_job}", $case->suspect_job, $template);
-		$template = str_replace("{case.suspect_education}", $case->suspect_education, $template);
-		$template = str_replace("{case.penyidik}", $case->penyidik, $template);
-		$template = str_replace("{case.created_at}", $case->created_at, $template);
-
-		$template = str_replace("{case.umur}", 28, $template);
-		$template = str_replace("{jaksa.name}", $case->jaksa_name, $template);
-		$template = str_replace("{jaksa.nip}", $case->jaksa_nip, $template);
-		$template = str_replace("{jaksa.jabatan}", $case->jaksa_jabatan, $template);
-		$template = str_replace("{jaksa.pangkat}", $case->jaksa_pangkat, $template);
-
-		$template = str_replace("{config.kajari}", "", $template);
-		return $template;
-	}
 }
 ?>
