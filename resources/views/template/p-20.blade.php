@@ -72,7 +72,7 @@
 			Dikeluarkan di : Jember
 		</p>
 		<p>
-			Pada tanggal : {{$case->tgl_spdp}}
+			Pada tanggal : {{date('d-m-Y')}}
 		</p>
 		<p style="text-align: center;">
 			<strong data-redactor-tag="strong">
