@@ -22,7 +22,36 @@
 }
 
 .section-case-tracking {
+  .progress {
+    height: 15px;
+    cursor: pointer;
+  }
   .progress-bar {
     background-color: @gray-lighter;
+  }
+  .progress-bar- {
+    border-right: 1px dashed @body-bg;
+    &:last-child{
+      border-right: 0 none;
+    }
+  }
+}
+
+.modal-case-info {
+  .modal-body {padding: 0}
+  .modal-title {font-weight: 300; padding: 20px 25px}
+  .section-info {
+    dd {
+      margin-bottom: 15px;
+    }
+  }
+  .panel {margin-bottom: 0; border-top: 0 none}
+  .panel-heading {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: lighten(@gray-light, 10%);
+    .icon {
+      margin-right: 10px;
+    }
   }
 }

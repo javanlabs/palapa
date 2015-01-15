@@ -42,7 +42,7 @@
                         <span class="badge badge-type {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
                     </td>
                     <td>
-                        <a class="btn btn-default btn-xs" href="{{ $item['permalink'] }}" target="_blank"><i
+                        <a class="btn btn-default btn-xs" href="{{ $item['permalink_edit'] }}" target="_blank"><i
                                     class="fa fa-pencil"></i> Edit</a>
                         {{ Form::delete(route('backend.cases.delete', $item['id']), 'Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-danger btn-xs']) }}
                     </td>

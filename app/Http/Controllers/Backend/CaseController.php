@@ -93,6 +93,17 @@ class CaseController extends BackendController {
         return redirect()->route('backend.cases.show', $id);
     }
 
+    public function view($id)
+    {
+        $case = $this->repo->find($id);
+        $phases = $this->sopRepo->byType($case->type_id);
+        $activities = $this->repo->activities($case);
+        $suspects = $case->suspects;
+
+        return view('backend.cases.view', compact('case', 'phases', 'activities', 'suspects'));
+
+    }
+
     public function show($id)
     {
         $case = $this->repo->find($id);

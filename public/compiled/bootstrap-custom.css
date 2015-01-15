@@ -5606,7 +5606,6 @@ a.list-group-item-danger.active:focus {
   padding: 19px;
   margin-bottom: 20px;
   background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
   border-radius: 0px;
 }
 .well blockquote {
@@ -6577,6 +6576,10 @@ button.close {
   color: #777777;
   font-weight: 600;
 }
+footer {
+  padding: 40px;
+  margin-top: 100px;
+}
 .section-menu-grid .item {
   width: 33%;
   padding: 0;
@@ -6584,6 +6587,7 @@ button.close {
 .section-menu-grid .item a {
   display: block;
   height: 110px;
+  transition: background-color 0.5s ease;
 }
 .section-menu-grid .item a:hover {
   background-color: #00805b;
@@ -6707,8 +6711,40 @@ button.close {
 #modalSelectCase .list-group .list-group-item.active .fa {
   opacity: 1;
 }
+.section-case-tracking .progress {
+  height: 15px;
+  cursor: pointer;
+}
 .section-case-tracking .progress-bar {
   background-color: #eeeeee;
+}
+.section-case-tracking .progress-bar- {
+  border-right: 1px dashed #ffffff;
+}
+.section-case-tracking .progress-bar-:last-child {
+  border-right: 0 none;
+}
+.modal-case-info .modal-body {
+  padding: 0;
+}
+.modal-case-info .modal-title {
+  font-weight: 300;
+  padding: 20px 25px;
+}
+.modal-case-info .section-info dd {
+  margin-bottom: 15px;
+}
+.modal-case-info .panel {
+  margin-bottom: 0;
+  border-top: 0 none;
+}
+.modal-case-info .panel-heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #919191;
+}
+.modal-case-info .panel-heading .icon {
+  margin-right: 10px;
 }
 #page-admin {
   margin-top: 50px;

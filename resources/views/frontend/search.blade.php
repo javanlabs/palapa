@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="row text-center" style="margin-bottom: 20px">
+    <div class="text-center" style="margin-bottom: 20px">
 
         {{ Form::open(['route' => ['frontend.search'], 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
         <div class="well clearfix" style="padding: 40px">
@@ -73,8 +73,7 @@
                 </td>
                 @if(Auth::check())
                 <td class="text-center">
-                    <a class="btn btn-default btn-sm" href="{{ $item['permalink'] }}" target="_blank">Edit <i class="fa fa-chevron-right"></i></a>
-                    {{ Form::delete(route('backend.cases.delete', $item['id']), 'Hapus', [], ['class' => 'btn btn-link btn-xs']) }}
+                    <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil <i class="fa fa-chevron-right"></i></a>
                 </td>
                 @endif
             </tr>
@@ -100,6 +99,21 @@
         $('#formSearch').on('change', 'select[name=type]', function(e){
             $('#formSearch').submit();
         });
+
+        $('.btn-detail').on('click', function(e){
+            e.preventDefault();
+            $.blockUI({message:null});
+
+            $.get($(this).attr('href'), '', function(response, status){
+                $.unblockUI();
+                $(response).modal('show');
+                $(response).on('hidden.bs.modal', function(e){
+                    $(response).remove();
+                });
+            });
+
+        });
+
     });
     </script>
 @stop
