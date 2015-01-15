@@ -32,7 +32,7 @@ class CreateTableSuspects extends Migration {
             $table->string('nama_pimpinan');
 
             $table->enum('tahanan', ['Belum Ditahan', 'RUTAN', 'Rumah', 'Kota']);
-            $table->date('tgl_penahanan');
+            $table->date('tgl_penahanan')->nullable();
 
 			$table->timestamps();
 		});

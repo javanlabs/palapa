@@ -63,8 +63,10 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">{{ BootForm::select('Status', 'status')->options($status) }}</div>
-                <div class="col-md-6">{{ BootForm::select('Jenis Tahanan', 'tahanan')->options($jenisTahanan) }}</div>
+                <div class="col-md-4">{{ BootForm::select('Status', 'status')->options($status) }}</div>
+                <div class="col-md-4">{{ BootForm::select('Status Tahanan', 'tahanan')->options($jenisTahanan) }}</div>
+                <div class="col-md-4">{{ BootForm::text('Tanggal Penahanan', 'tgl_penahanan')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2) }}</div>
+
             </div>
         </div>
         <div class="panel-footer text-right">

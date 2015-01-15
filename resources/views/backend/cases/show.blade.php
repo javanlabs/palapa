@@ -81,7 +81,7 @@
                     <td>Alamat </td>
                     <td>
                         {{ $item->address }}<br/>
-                        {{ $item->addressCity->nama }}<br/>
+                        {{ $item->addressCity?$item->addressCity->nama:'' }}<br/>
                     </td>
                 </tr>
                 <tr>            
@@ -95,6 +95,14 @@
                 <tr>
                     <td>Pekerjaan </td>
                     <td>{{ $item['job'] }}</td>    
+                </tr>
+                <tr>
+                    <td>Status Tahanan</td>
+                    <td>{{ $item->tahanan}}</td>    
+                </tr>
+                <tr>
+                    <td>Ditahan Sejak</td>
+                    <td>{{ $item->tgl_penahanan }}</td>    
                 </tr>
                 <tr>
                     <td colspan="2">
