@@ -20,6 +20,7 @@ class CreateTableChecklist extends Migration {
             $table->unsignedInteger('duration')->nullable();
             $table->enum('direction', ['stay', 'prev', 'next', 'finish', 'suspend']);
             $table->unsignedInteger('ordinal');
+            $table->string('date_label')->nullable();
 
             $table->string('related_data')->nullable();
         });

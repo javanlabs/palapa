@@ -1,4 +1,4 @@
-{{ Form::open(['url' => route('backend.cases.checklist', [$case['id'], $checklist['id']]), 'role' => 'form', 'id' => 'form-activity']) }}
+I{{ Form::open(['url' => route('backend.cases.checklist', [$case['id'], $checklist['id']]), 'role' => 'form', 'id' => 'form-activity']) }}
 
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -11,17 +11,17 @@
 
     @foreach($relatedData as $column)
     <div class="form-group">
-        <label>{{ $column['name'] }}</label>
+        <label>@lang('case.' . $column['name'])</label>
         @if($column['type'] == 'string')
         {{ Form::text('data[' . $column['name'] . ']', $case[$column['name']], ['class' => 'form-control']) }}
-        @elseif($column['type'] == 'date')        
+        @elseif($column['type'] == 'date')
         {{ Form::text('data[' . $column['name'] . ']', $case[$column['name']], ['class' => 'form-control datepicker']) }}
         @endif
     </div>
     @endforeach
 
     <div class="form-group">
-        <label for="">Tanggal Checklist</label>
+        <label for="">{{ $checklist['date_label'] or 'Tanggal Checklist' }}</label>
         {{ Form::text('date', date('d-m-Y'), ['class' => 'form-control datepicker', 'id' => 'activity-date']) }}
     </div>
     <div class="form-group">

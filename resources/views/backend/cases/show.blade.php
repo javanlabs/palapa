@@ -2,7 +2,6 @@
 
 @section('body')
 <div style="padding: 40px">
-
     <div class="row">
         <div class="col-md-8">
             <h3><i class="fa fa-check-square-o"></i> #{{ $case['spdp_number'] }} <span class="label label-primary">{{ $case['type_name'] }}</span></h3>
@@ -25,7 +24,7 @@
                 <dd>{{ nl2br($case['pasal']) }}</dd>
                 <dt>Penyidik :</dt>
                 <dd>{{ $case['penyidik_name'] }}</dd>
-                
+
                 <dt>Jaksa :</dt>
                 <dd>{{ $case['prosecutor_name'] }}</dd>
                 <dt>Staff Administrasi :</dt>
@@ -52,7 +51,7 @@
             @if(count($case->suspects))
             <?php $count = 1;?>
             <table style="margin: 10px">
-                
+
                 @foreach($case->suspects as $item)
                 <tr>
                     <th style="padding-top: 10px">#{{$count++;}}</th>
@@ -84,7 +83,7 @@
                         {{ $item->addressCity?$item->addressCity->nama:'' }}<br/>
                     </td>
                 </tr>
-                <tr>            
+                <tr>
                     <td>Kewarganegaraan </td>
                     <td>{{ $item['nationality'] }}</td>
                 </tr>
@@ -94,15 +93,15 @@
                 </tr>
                 <tr>
                     <td>Pekerjaan </td>
-                    <td>{{ $item['job'] }}</td>    
+                    <td>{{ $item['job'] }}</td>
                 </tr>
                 <tr>
                     <td>Status Tahanan</td>
-                    <td>{{ $item->tahanan}}</td>    
+                    <td>{{ $item->tahanan}}</td>
                 </tr>
                 <tr>
                     <td>Ditahan Sejak</td>
-                    <td>{{ $item->tgl_penahanan }}</td>    
+                    <td>{{ $item->tgl_penahanan }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">

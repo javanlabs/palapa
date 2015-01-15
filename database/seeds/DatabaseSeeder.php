@@ -71,11 +71,11 @@ class PenyidikSeeder extends Seeder{
             ['id' => 327, 'name'  => 'Polsek Puger', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 328, 'name'  => 'Polsek Sumbersari', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 329, 'name'  => 'Polsek Patrang', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 330, 'name'  => 'Polsek Sukorambi', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],            
+            ['id' => 330, 'name'  => 'Polsek Sukorambi', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 331, 'name'  => 'Polsek Semboro', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 332, 'name'  => 'Polsek Jelbuk', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 333, 'name'  => 'Polsek Jombang', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-        ];        
+        ];
         return DB::table('lookups')->insert($penyidik);
     }
 }
@@ -86,7 +86,7 @@ class TemplateSeeder extends Seeder{
         $template = [
             [
             'short_title' => 'P-16',
-            'title' => 'Surat Perintah Penunjukan JPU untuk mengikuti Perkembangan Penyidikan perkara tindak pidana',            
+            'title' => 'Surat Perintah Penunjukan JPU untuk mengikuti Perkembangan Penyidikan perkara tindak pidana',
             ],
             [
             'short_title' => 'P-17',
@@ -233,7 +233,7 @@ class PangkatSeeder extends Seeder {
             ['id' => 7, 'name'  => 'Jaksa Utama Madya', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 8, 'name'  => 'Jaksa Utama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 9, 'name'  => 'Jaksa Agung', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-        ];        
+        ];
         return DB::table('lookups')->insert($pangkat);
     }
 }
@@ -444,8 +444,8 @@ class SopSeeder extends Seeder {
                 ['id' => 31, 'case_type_id' => 211, 'name' => 'Persiapan', 'duration' => 30, 'ordinal' => 1, 'icon' => '<i class="fa fa-institution"></i>'],
                 ['id' => 32, 'case_type_id' => 211, 'name' => 'Pelaksanaan', 'duration' => 448, 'ordinal' => 2, 'icon' => '<i class="fa fa-institution"></i>'],
                 ['id' => 33, 'case_type_id' => 211, 'name' => 'Pelaporan', 'duration' => 60, 'ordinal' => 3, 'icon' => '<i class="fa fa-institution"></i>'],
-                
-                
+
+
                 /* Datun THL*/
                 ['id' => 9, 'case_type_id' => 212, 'name' => 'Persiapan', 'duration' => 54, 'ordinal' => 1, 'icon' => '<i class="fa fa-institution"></i>'],
                 ['id' => 10, 'case_type_id' => 212, 'name' => 'Pelaksanaan', 'duration' => 118, 'ordinal' => 2, 'icon' => '<i class="fa fa-institution"></i>'],
@@ -467,11 +467,11 @@ class SopSeeder extends Seeder {
             [
                 // PIDUM
                 //Tahap Pra Penuntutan
-                ['phase_id' => 1, 'name' => 'Penerimaan SPDP', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 1, 'related_data' => json_encode(['spdp_number', 'spdp_date', 'spdp_received_date'])],
-                ['phase_id' => 1, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'ticker_id'=>1, 'duration' => 2, 'direction' => 'stay', 'ordinal' => 2],                                
-                ['phase_id' => 1, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan','ticker_id'=>2, 'duration' => 30, 'direction' => 'stay', 'ordinal' => 3],
-                ['phase_id' => 1, 'name' => 'SPDP Dikembalikan', 'ticker_id'=>3, 'duration' => 30, 'direction' => 'suspend', 'ordinal' => 4],
-                ['phase_id' => 1, 'name' => 'Penerimaan Berkas Tahap 1', 'duration' => 1, 'direction' => 'next', 'ordinal' => 5],
+                ['phase_id' => 1, 'name' => 'Penerimaan SPDP', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 1, 'related_data' => json_encode(['spdp_number', 'spdp_received_date']), 'date_label' => 'Tanggal SPDP'],
+                ['phase_id' => 1, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'ticker_id'=>1, 'duration' => 2, 'direction' => 'stay', 'ordinal' => 2, 'date_label' => 'Tanggal Surat'],
+                ['phase_id' => 1, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan','ticker_id'=>2, 'duration' => 30, 'direction' => 'stay', 'ordinal' => 3, 'date_label' => 'Tanggal Surat'],
+                ['phase_id' => 1, 'name' => 'SPDP Dikembalikan', 'ticker_id'=>3, 'duration' => 30, 'direction' => 'suspend', 'ordinal' => 4, 'date_label' => 'Tanggal Dikembalikan'],
+                ['phase_id' => 1, 'name' => 'Penerimaan Berkas Tahap 1', 'duration' => 1, 'direction' => 'next', 'ordinal' => 5, 'date_label' => 'Tanggal Diterima'],
 
                 //Tahap 1
                 ['phase_id' => 2, 'name' => 'P-18 Hasil Penyidikan Belum Lengkap', 'ticker_id' => 5, 'duration' => 7, 'direction' => 'stay', 'ordinal' => 6],
@@ -482,7 +482,7 @@ class SopSeeder extends Seeder {
                 ['phase_id' => 2, 'name' => 'Berkara Perkas Dikembalikan', 'ticker_id' => 10, 'duration' => 30, 'direction' => 'suspend', 'ordinal' => 11],
                 ['phase_id' => 2, 'name' => 'P-21 Pemberitahuan Hasil Penyidikan Sudah Lengkap', 'duration' => 0, 'direction' => 'next', 'ordinal' => 12],
                 ['phase_id' => 2, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 0, 'direction' => 'next', 'ordinal' => 13],
-                
+
                 //Tahap 2
                 ['phase_id' => 3, 'name' => 'Penerimaan Tersangka dan Barang Bukti', 'ticker_id' => 12,'duration' => 30, 'direction' => 'stay', 'ordinal' => 14],
                 ['phase_id' => 3, 'name' => 'P-16A', 'duration' => 1, 'ticker_id'=>14,'duration'=>2, 'direction' => 'stay', 'ordinal' => 15],
@@ -495,7 +495,7 @@ class SopSeeder extends Seeder {
                 //Tahap Penuntutan
                 ['phase_id' => 4, 'name' => 'Pembuatan Surat Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 21],
                 ['phase_id' => 4, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'ticker_id'=>14, 'duration' => 15, 'direction' => 'next', 'ordinal' => 22],
-                
+
                 //Tahap Persidangan
                 ['phase_id' => 5, 'name' => 'Pembacaan Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 23],
                 ['phase_id' => 5, 'name' => 'Pembacaan Eksepsi', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 24],
@@ -530,7 +530,7 @@ class SopSeeder extends Seeder {
                 ['phase_id' => 19, 'name' => 'P-5', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 19, 'name' => 'P-6', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 19, 'name' => 'P-7', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-                
+
                 ['phase_id' => 20, 'name' => 'P-8', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 20, 'name' => 'P-9', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 20, 'name' => 'P-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
@@ -539,7 +539,7 @@ class SopSeeder extends Seeder {
                 ['phase_id' => 20, 'name' => 'P-13', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 20, 'name' => 'P-14', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 20, 'name' => 'P-15', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-                
+
                 ['phase_id' => 21, 'name' => 'Penerimaan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 21, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
                 ['phase_id' => 21, 'name' => 'P-16A', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
@@ -554,7 +554,7 @@ class SopSeeder extends Seeder {
                 ['phase_id' => 22, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
                 ['phase_id' => 22, 'name' => 'Berkara Perkas Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
 
-                ['phase_id' => 23, 'name' => 'Penerimaan Tersangkat dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],                
+                ['phase_id' => 23, 'name' => 'Penerimaan Tersangkat dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 23, 'name' => 'BA Pendapat Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
                 ['phase_id' => 23, 'name' => 'Surat Perintah Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
                 ['phase_id' => 23, 'name' => 'BA-10', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
@@ -563,7 +563,7 @@ class SopSeeder extends Seeder {
 
                 ['phase_id' => 24, 'name' => 'Pembuatan Surat Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 24, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
-                
+
                 ['phase_id' => 25, 'name' => 'Pembacaan Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 25, 'name' => 'Pembacaan Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
                 ['phase_id' => 25, 'name' => 'Tanggapan Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],

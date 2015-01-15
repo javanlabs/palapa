@@ -30,7 +30,6 @@ class CreateTableCases extends Migration {
             $table->enum('status', ['draft', 'ongoing', 'finish', 'suspend'])->default('draft');
 
             $table->string('spdp_number')->nullable();
-            $table->date('spdp_date')->nullable();
             $table->date('spdp_received_date')->nullable();
 
             $table->date('persidangan_date')->nullable();
