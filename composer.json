@@ -15,7 +15,8 @@
         "eendonesia/gapura": "dev-master",
         "eendonesia/moderator": "dev-master",
         "eendonesia/skrip": "dev-master",
-        "eendonesia/wilayah": "dev-master"
+        "eendonesia/wilayah": "dev-master",
+		"barryvdh/laravel-debugbar": "~1.8@dev"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0"

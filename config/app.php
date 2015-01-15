@@ -155,6 +155,7 @@ return [
 		 * 3rd Party Service Providers...
 		 */
         'AdamWathan\BootForms\BootFormsServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 
 	],
 
