@@ -15,7 +15,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function all()
     {
-        return $this->officer->orderBy('name', 'asc')->get();
+        return $this->officer->jaksa()->orderBy('name', 'asc')->get();
     }
 
     public function create($input)
@@ -42,12 +42,12 @@ class EloquentRepository implements RepositoryInterface {
 
     public function jaksa()
     {
-        return $this->officer->whereRole(Officer::ROLE_JAKSA)->lists('name', 'id');
+        return $this->officer->jaksa()->lists('name', 'id');
     }
 
     public function staff()
     {
-        return $this->officer->whereRole(Officer::ROLE_STAFF)->lists('name', 'id');
+        return $this->officer->staff()->lists('name', 'id');
     }
 
     public function jaksaByCase()

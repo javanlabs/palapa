@@ -26,7 +26,14 @@
             </dl>
         </td>
         <td>
-            <a class="btn btn-sm btn-default btn-case-count" href="{{route('backend.cases.byJaksa', [$jaksa->id])}}"><span class="label label-info">{{ $jaksa['active_cases_count'] }}</span> Kasus Aktif</a>
+            <a class="btn btn-sm btn-default btn-case-count" href="{{route('backend.cases.byJaksa', [$jaksa->id])}}">
+                @if($jaksa['active_cases_count'] > 0)
+                    <span class="label label-info">{{ $jaksa['active_cases_count'] }}</span>
+                @else
+                    <span class="">{{ $jaksa['active_cases_count'] }}</span>
+                @endif
+                Kasus Aktif
+            </a>
         </td>
     </tr>
     @endforeach
