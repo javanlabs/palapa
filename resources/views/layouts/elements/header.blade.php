@@ -14,6 +14,8 @@
     </div>
 </nav>
 
+<div class="clearfix"></div>
+
 @section('script-end')
     @parent
     <script>
