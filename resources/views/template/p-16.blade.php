@@ -259,14 +259,14 @@
 		<p>
 			Dikeluarkan di    : Jember
 			<br>
-			Pada tanggal      : {{$case->tgl_spdp}}
+			Pada tanggal      : {{date('d-m-Y')}}
 		</p>
 		<hr>
 		<p style="text-align:center;">
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong><br>
 		</p>
 		<p>
-			<br>
+			<br/><br/><br/>
 		</p>
 		<p style="text-align:center;">
 				{{$setting['kajari_name']}}
@@ -463,7 +463,7 @@ Dasar
 			Dikeluarkan di : Jember
 		</p>
 		<p>
-			Pada tanggal : {{$case->tgl_spdp}}
+			Pada tanggal : {{date('d-m-Y')}}
 		</p>
 		<p style="text-align: center;">
 			<strong data-redactor-tag="strong">
@@ -471,7 +471,7 @@ Dasar
 			</strong>
 		</p>
 		<p>
-			<br>
+			<br/><br/><br/>
 		</p>
 		<p style="text-align:center;">
 				{{$setting['kajari_name']}}
