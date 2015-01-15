@@ -11,6 +11,7 @@
     {{--<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('compiled/bootstrap-custom.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/ionicons/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/animate.css') }}">
 
     @yield('style-head')
@@ -30,7 +31,7 @@
 
     @yield('body')
 
-    <footer class="text-center text-muted" style="padding: 10px; background: #fafafa; margin-top: 100px">
+    <footer class="text-center text-muted">
         <i class="fa fa-university"></i>
         <br/>
         <small>&copy; {{ date('Y') }} Kejaksaan Negeri Jember</small>
@@ -39,6 +40,7 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/moment-with-locales.js') }}"></script>
     <script src="{{ asset('vendor/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.blockUI.js') }}"></script>
 
     @yield('script-end')
 
