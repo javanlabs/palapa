@@ -40,7 +40,7 @@
                     </div>                    
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::select('Agama', 'religion')->options($religions) }}                    
+                    {{ BootForm::select('Jenis Kelamin', 'sex')->options($jenisKelamins) }}                    
                 </div>
             </div>
 
@@ -48,14 +48,17 @@
             {{ BootForm::select('Kota', 'city_id')->options($cities) }}
 
             <div class="row suspect-type individu">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     {{ BootForm::text('Kewarganegaraan', 'nationality') }}            
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     {{ BootForm::text('Pendidikan', 'education') }}            
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     {{ BootForm::text('Pekerjaan', 'job') }}            
+                </div>
+                <div class="col-md-3">
+                    {{ BootForm::select('Agama', 'religion')->options($religions) }}                    
                 </div>
             </div>
 

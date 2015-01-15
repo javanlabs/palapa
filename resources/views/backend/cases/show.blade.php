@@ -62,12 +62,16 @@
                     <td>{{ $item['name'] }}</td>
                 </tr>
                 <tr>
-                    <td>Tempat Lahir </td>
-                    <td></td>
+                    <td>Jenis Kelamin</td>
+                    <td>{{$item->sex}}</td>
                 </tr>
                 <tr>
-                    <td>Tanggal Lahir </td>
-                    <td>{{ $item['dob'] }}</td>
+                    <td>Tempat Lahir </td>
+                    <td>{{$item->suspectPob->nama}}</td>
+                </tr>
+                <tr>
+                    <td>Umur/Tanggal Lahir </td>
+                    <td>{{$item->age}}/{{ $item['dob'] }}</td>
                 </tr>
                 <tr>
                     <td>Agama </td>
@@ -76,10 +80,8 @@
                 <tr>
                     <td>Alamat </td>
                     <td>
-                        {{ $item['atdress'] }}<br/>
-                        {{ $item['city_id'] }}<br/>
-                        {{ $item['city_name'] }}<br/>
-                        {{ $item['city_name'] }}
+                        {{ $item->address }}<br/>
+                        {{ $item->addressCity->nama }}<br/>
                     </td>
                 </tr>
                 <tr>            
