@@ -1,4 +1,4 @@
-<?php namespace App\Officer;
+I<?php namespace App\Officer;
 
 class EloquentRepository implements RepositoryInterface {
 
@@ -62,7 +62,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function jaksaByCase()
     {
-        $officer = $this->officer->jaksa()->all();
+        $officer = $this->officer->jaksa()->get();
 
         return $officer->sort(function($elm1, $elm2){
             return $elm1->activeCases->count() < $elm2->activeCases->count();
