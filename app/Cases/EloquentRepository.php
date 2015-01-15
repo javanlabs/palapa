@@ -30,9 +30,16 @@ class EloquentRepository implements RepositoryInterface {
         $this->sop = $sop;
     }
 
-    public function all()
+    public function all($keyword = null)
     {
-        return $this->case->orderBy('created_at', 'desc')->get();
+        $query = $this->case->orderBy('created_at', 'desc');
+
+        if($keyword)
+        {
+            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
+        }
+
+        return $query->paginate();
     }
 
     public function byJaksa($jaksaId)
@@ -84,21 +91,18 @@ class EloquentRepository implements RepositoryInterface {
         return $this->case->findOrFail($id)->delete();
     }
 
-    public function search($keyword, $type)
+    public function search($keyword, $type = null)
     {
         $query = $this->case->published()->orderBy('updated_at', 'DESC');
 
-        if($type=='jaksa'){
-            $query->where('jaksa_id','=',$keyword);
-        }
-        else
+        if($type)
         {
             $query->where('type_id', '=', $type);
+        }
 
-            if($keyword)
-            {
-                $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
-            }
+        if($keyword)
+        {
+            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
         }
 
         return $query->paginate();

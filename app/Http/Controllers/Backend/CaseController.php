@@ -55,7 +55,7 @@ class CaseController extends BackendController {
 
     public function index()
     {
-        $cases = $this->repo->all();
+        $cases = $this->repo->all(Input::get('q'));
         return view('backend.cases.index', compact('cases'));
     }
 
@@ -110,7 +110,7 @@ class CaseController extends BackendController {
     {
         $this->repo->delete($id);
 
-        return redirect()->route('frontend.search');
+        return redirect()->route('backend.cases.index');
     }
 
     public function getChecklist($caseId, $checklistId)

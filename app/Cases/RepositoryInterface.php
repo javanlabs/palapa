@@ -14,7 +14,7 @@ interface RepositoryInterface {
 
     public function delete($id);
 
-    public function search($keyword, $type);
+    public function search($keyword, $type = null);
 
     public function activities($case);
 
