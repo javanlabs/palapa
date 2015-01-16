@@ -42,22 +42,20 @@
 
     </div>
 
-<div id="ajax-modal" class="modal fade" tabindex="-1" style="display: none;"></div>
 @stop
 
 @section('script-end')
     @parent
     <script>
         $(function(){
-            var $modal = $('#ajax-modal');
             $(document).on('click', '.btn-case-count', function(e){
                 e.preventDefault();
+                $.blockUI({message:null});
+                $.get($(this).attr('href'), '', function(response, status){
+                    $.unblockUI();
+                    var modal = $(response);
+                    modal.modal();
 
-                // create the backdrop and wait for next modal to be triggered
-                $('body').modalmanager('loading');
-
-                $modal.load($(this).attr('href'), '', function(){
-                    $modal.modal();
                 });
             });
         });
