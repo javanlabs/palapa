@@ -1188,7 +1188,7 @@ h6 .small,
 .h4 .small,
 .h5 .small,
 .h6 .small {
-  font-weight: normal;
+  font-weight: 500;
   line-height: 1;
   color: #777777;
 }
@@ -6563,7 +6563,7 @@ button.close {
 }
 .navbar-header .home {
   float: left;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 .navbar-header .trails {
   margin-top: 10px;
@@ -6571,9 +6571,9 @@ button.close {
 .navbar-header .trail {
   font-size: 1.5em;
   text-transform: uppercase;
-  padding: 0 10px;
+  padding: 0 5px;
   line-height: 1.8em;
-  color: #777777;
+  color: #c4c4c4;
   font-weight: 600;
 }
 footer {
@@ -6706,6 +6706,16 @@ footer {
 #page-case-index .badge-status.ongoing {
   background-color: #f0ad4e;
 }
+#page-case-sop .case-info table {
+  background-color: #fff;
+}
+#page-case-sop .case-info dl {
+  margin-bottom: 0;
+}
+#page-case-sop .case-info .action .btn {
+  padding-right: 20px;
+  padding-left: 20px;
+}
 #modalSelectCase .list-group .list-group-item .fa {
   opacity: 0;
 }
@@ -6791,6 +6801,9 @@ h2.page-title {
 }
 .pad {
   padding: 20px;
+}
+.pad-lg {
+  padding: 40px;
 }
 .form-delete {
   display: inline-block;

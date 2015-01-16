@@ -11,8 +11,8 @@
         <div class="panel-body">
             @include('backend.cases.edit.' . $type['id'])
         </div>
-        <div class="panel-footer text-right">
-            <a class="btn btn-default" href="{{ $case['permalink'] }}">Batal</a>
+        <div class="panel-footer text-center">
+            <a class="btn btn-default" href="{{ $case['permalink_edit'] }}">Batal</a>
             {{ BootForm::submit('Simpan', 'btn-primary') }}
         </div>
     </div>

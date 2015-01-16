@@ -9,6 +9,7 @@
             </a>
             <span class="trail"><i class="fa fa-angle-right"></i></span>
             <span class="trail">@yield('breadcrumb-title')</span>
+            @yield('breadcrumb-subtitle')
         </div>
         <div class="col-md-6 text-right">
             <img class="logo" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
