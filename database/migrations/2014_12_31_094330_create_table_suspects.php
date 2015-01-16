@@ -16,8 +16,8 @@ class CreateTableSuspects extends Migration {
 		{
 			$table->increments('id');
 			$table->enum('type', ['individu', 'badan']);
-			$table->enum('status', ['tergugat', 'penggugat', 'pelapor']);			
-			$table->enum('sex', ['Laki-laki', 'Perempuan']);	
+			$table->enum('status', ['tergugat', 'penggugat', 'pelapor']);
+			$table->enum('sex', ['Laki-laki', 'Perempuan'])->nullable();
 
 			$table->string('name');
             $table->string('pob');
