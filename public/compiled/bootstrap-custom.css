@@ -6780,6 +6780,11 @@ footer {
 .modal-case-info .panel-heading .icon {
   margin-right: 10px;
 }
+.modal-case-info .panel-tersangka .items .icon {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
 #page-admin {
   margin-top: 50px;
 }
@@ -6824,6 +6829,15 @@ h2.page-title {
 }
 .form-delete {
   display: inline-block;
+}
+.ion-man {
+  color: #0088cc;
+}
+.ion-woman {
+  color: #f938ab;
+}
+.ion-home {
+  color: #666666;
 }
 .ellipsis,
 .ell {

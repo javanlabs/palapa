@@ -44,13 +44,13 @@
                     </div>
                 </div>
 
-                <div class="panel panel-default">
+                <div class="panel panel-default panel-tersangka">
                     <div class="panel-heading"><i class="icon ion-ios-body"></i> Tersangka</div>
                     <table class="table">
-                        <tbody>
+                        <tbody class="items">
                         @forelse($suspects as $suspect)
                             <tr>
-                                <td>{{ $suspect['name'] }}</td>
+                                <td>{{ $suspect['sex_icon'] }} {{ $suspect['name'] }}</td>
                             </tr>
                         @empty
                             <tr>
@@ -67,7 +67,7 @@
                         <tbody>
                         @forelse($activities as $history)
                             <tr>
-                                <td><small>{{ $history['date'] }}</small></td>
+                                <td style="width: 120px" class="text-center"><small class="text-muted">{{ $history['date'] }}</small></td>
                                 <td>{{ $history['name'] }}</td>
                             </tr>
                         @empty
