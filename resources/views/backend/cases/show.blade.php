@@ -253,8 +253,6 @@
 
 </div>
 
-<div id="ajax-modal" class="modal fade" tabindex="-1" style="display: none;"></div>
-
 @stop
 
 
@@ -277,22 +275,49 @@
 
     <script>
     $(function(){
-        var $modal = $('#ajax-modal');
+
         $('.item-checklist').on('click', function(e){
+
             e.preventDefault();
+            $.blockUI({message:null});
 
-            // create the backdrop and wait for next modal to be triggered
-            $('body').modalmanager('loading');
+            $.get($(this).data('url'), '', function(response, status){
+                $.unblockUI();
+                var modal = $(response);
+                modal.modal();
 
-            $modal.load($(this).data('url'), '', function(){
-                $modal.modal();
+                modal.find('.datepicker').datepicker();
 
-                $('#activity-date').datepicker({
-                    format: 'yyyy-mm-dd',
-                    autoclose: true,
-                    todayHighlight: true
+                modal.find('#form-activity').on('submit', function(e){
+                    e.preventDefault();
+                    var form = $(this);
+                    var btn = form.find('button[type=submit]');
+                    btn.button('loading');
+                    $.ajax({
+                        url: form.attr('action'),
+                        type:'post',
+                        dataType:'json',
+                        data: form.serialize()
+                    })
+                            .success(function(response){
+                                if (response.status == 1) {
+                                    window.location.reload();
+                                } else {
+                                    alert(response.message);
+                                }
+                            })
+                            .always(function(){
+
+                                btn.button('reset');
+                            });
                 });
+
+                modal.on('hidden.bs.modal', function(e){
+                    modal.remove();
+                });
+
             });
+
         });
     });
     </script>
