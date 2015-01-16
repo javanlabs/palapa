@@ -65,10 +65,13 @@
                     <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Riwayat</div>
                     <table class="table">
                         <tbody>
-                        @forelse($activities as $history)
+                        @forelse($activities as $item)
                             <tr>
-                                <td style="width: 120px" class="text-center"><small class="text-muted">{{ $history['date'] }}</small></td>
-                                <td>{{ $history['name'] }}</td>
+                                <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
+                                <td>
+                                    <strong>{{ $item['name'] }}</strong>
+                                    <p>{{ $item['note'] }}</p>
+                                </td>
                             </tr>
                         @empty
                             <tr>
