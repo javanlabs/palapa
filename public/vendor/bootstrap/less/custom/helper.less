@@ -4,10 +4,11 @@
 .mb-xs{margin-bottom: 5px}
 .mb-0{margin-bottom: 0px}
 h2.page-title {margin-top: 0; margin-bottom: 40px}
+.pad-sm { padding: 10px;  }
 .pad { padding: 20px;  }
 .pad-lg { padding: 40px;  }
 .form-delete{display: inline-block}
-.ellipsis {
+.ellipsis, .ell {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -24,4 +25,12 @@ h2.page-title {margin-top: 0; margin-bottom: 40px}
 .form-group {
   margin-bottom: 30px;
 }
-.panel-footer{text-align: center}
+.modal-footer, .panel-footer{text-align: center}
+
+.dl-horizontal {
+  &.dl-wide {
+    dd {
+      margin-bottom: 10px;
+    }
+  }
+}

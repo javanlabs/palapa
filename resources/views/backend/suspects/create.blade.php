@@ -28,7 +28,7 @@
 
             <div class="row suspect-type individu">
                 <div class="col-md-3">
-                    {{ BootForm::select('Tempat Lahir', 'pob')->options($cities) }}
+                    {{ BootForm::select('Tempat Lahir', 'pob_id')->options($cities) }}
                 </div>
                 <div class="col-md-3">
                     {{ BootForm::text('Tanggal Lahir', 'dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2) }}
@@ -74,7 +74,7 @@
         </div>
         <div class="panel-footer">
             <a class="btn btn-default" href="{{ route('backend.cases.show', [$case_id]) }}">Batal</a>
-            {{ BootForm::submit('Submit', 'btn-primary') }}
+            {{ BootForm::submit('Simpan', 'btn-primary') }}
         </div>
     </div>
 

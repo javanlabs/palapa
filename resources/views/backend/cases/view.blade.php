@@ -67,11 +67,12 @@
                         <tbody>
                         @forelse($activities as $history)
                             <tr>
+                                <td><small>{{ $history['date'] }}</small></td>
                                 <td>{{ $history['name'] }}</td>
                             </tr>
                         @empty
                             <tr>
-                                <td>Riwayat kasus belum tersedia</td>
+                                <td colspan="2">Riwayat kasus belum tersedia</td>
                             </tr>
                         @endforelse
                         </tbody>

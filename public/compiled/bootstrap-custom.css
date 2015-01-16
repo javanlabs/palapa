@@ -6709,6 +6709,9 @@ footer {
 #page-case-sop .case-info table {
   background-color: #fff;
 }
+#page-case-sop .case-info table td {
+  padding: 20px;
+}
 #page-case-sop .case-info dl {
   margin-bottom: 0;
 }
@@ -6721,6 +6724,17 @@ footer {
 }
 #modalSelectCase .list-group .list-group-item.active .fa {
   opacity: 1;
+}
+.box-tersangka .items .item {
+  border: 1px dashed #eeeeee;
+}
+.box-tersangka .items .icon {
+  font-size: 2em;
+  float: left;
+  margin-right: 15px;
+}
+.box-tersangka .items .name {
+  line-height: 2em;
 }
 .section-case-tracking .progress {
   height: 15px;
@@ -6799,6 +6813,9 @@ h2.page-title {
   margin-top: 0;
   margin-bottom: 40px;
 }
+.pad-sm {
+  padding: 10px;
+}
 .pad {
   padding: 20px;
 }
@@ -6808,7 +6825,8 @@ h2.page-title {
 .form-delete {
   display: inline-block;
 }
-.ellipsis {
+.ellipsis,
+.ell {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -6824,6 +6842,10 @@ h2.page-title {
 .form-group {
   margin-bottom: 30px;
 }
+.modal-footer,
 .panel-footer {
   text-align: center;
+}
+.dl-horizontal.dl-wide dd {
+  margin-bottom: 10px;
 }

@@ -134,31 +134,22 @@
         </div>
 
     <div class="col-md-6">
-        <div class="panel panel-default">
+        <div class="panel panel-default box-tersangka">
             <div class="panel-heading">
                 <i class="icon ion-ios-body"></i> Tersangka
                 <a href="/backend/suspect/create?case_id={{$case->id}}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
             </div>
             @if(count($case->suspects))
             <?php $count = 1;?>
-            <table style="margin: 10px">
-
+            <div class="panel-body row items">
                 @foreach($case->suspects as $item)
-                <tr>
-                    <th style="padding-top: 10px">#{{$count++;}}</th>
-                </tr>
-                <tr>
-                    <td width="150px">Nama </td>
-                    <td>{{ $item['name'] }}</td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <a href="{{ route('backend.suspect.edit', [$item['id']]) }}">Edit</a>
-                        {{ Form::delete(route('backend.suspect.destroy', [$item['id'], 'caseId' => $case['id']]), 'Hapus', [], ['class' => 'btn-link']) }}
-                    </td>
-                </tr>
+                    <div class="col-md-6">
+                        <a class="thumbnail item" style="padding: 10px 20px" href="{{ route('backend.suspect.show', [$item['id']]) }}">
+                            <h5 class="name ell">{{ $item['sex_icon'] }} {{ $item['name'] }}</h5>
+                        </a>
+                    </div>
                 @endforeach
-            </table>
+            </div>
             @endif
         </div>
 
@@ -168,7 +159,7 @@
                 @foreach($templates as $item)
                 <tr>
                     <td>
-                        {{ $item['short_title'] }} {{ $item['title'] }}
+                        <h5>{{ $item['short_title'] }} {{ $item['title'] }}</h5>
                     </td>
                     <td width="100px">
                         @if(in_array($item['id'], $documentsIds))
@@ -284,7 +275,17 @@
                 });
 
             });
+        });
 
+        $('.box-tersangka .item').on('click', function(e){
+            e.preventDefault();
+            $.blockUI({message:null});
+            $.get($(this).attr('href'), '', function(response, status){
+                $.unblockUI();
+                var modal = $(response);
+                modal.modal();
+
+            });
         });
     });
     </script>

@@ -22,7 +22,7 @@ class SuspectController extends Controller {
 	private $repo;
 	function __construct(
         RepositoryInterface $repo,
-        LookupRepository $lookup        
+        LookupRepository $lookup
     )
     {
         $this->repo = $repo;
@@ -40,7 +40,7 @@ class SuspectController extends Controller {
 	 * @return Response
 	 */
 	public function create()
-	{		
+	{
 		$cities = ['' => '--Pilih Kota--'] + Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
         $jenisKelamins = $this->lookup->jenisKelamins();
@@ -57,9 +57,9 @@ class SuspectController extends Controller {
 	 * @return Response
 	 */
 	public function store(SuspectsForm $form)
-	{		
-		$case = Cases::find(Input::get('case_id'));
-		$suspect = Suspects::create(Input::all());
+	{
+		$case = Cases::find($form->get('case_id'));
+		$suspect = Suspects::create($form->all());
 		$case->suspects()->save($suspect);
 		return redirect()->route('backend.cases.show', $case->id);
 
@@ -73,7 +73,9 @@ class SuspectController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+        $suspect = Suspects::findOrFail($id);
+
+        return view('backend.suspects.show', compact('suspect'));
 	}
 
 	/**
@@ -85,13 +87,15 @@ class SuspectController extends Controller {
 	public function edit($id)
 	{
 		$suspect = Suspects::findOrFail($id);
+        $caseId = $suspect->cases()->first()->id;
 
 		$cities = ['' => '--Pilih Kota--'] + Kabupaten::lists('nama', 'id');
 		$religions = $this->lookup->religions();
 		$jenisTahanan = $this->lookup->jenisTahanan();
+        $jenisKelamins = $this->lookup->jenisKelamins();
 		$status = $this->lookup->statusTersangka();
 
-		return view('backend.suspects.edit', compact('suspect', 'cities', 'religions', 'jenisTahanan', 'status'));
+		return view('backend.suspects.edit', compact('suspect', 'cities', 'religions', 'jenisTahanan', 'jenisKelamins', 'status', 'caseId'));
 	}
 
 	/**
@@ -100,12 +104,12 @@ class SuspectController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(SuspectsForm $form, $id)
 	{
 		$suspect = Suspects::findOrFail($id);
-		$suspect->update(Input::all());
+		$suspect->update($form->all());
 
-		return redirect()->back();
+		return redirect()->route('backend.cases.show', [$form->get('case_id')]);
 	}
 
 	/**
@@ -114,13 +118,13 @@ class SuspectController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($suspectId)
+	public function destroy($id)
 	{
-		$caseId = \Input::get('caseId');
+        $suspect = Suspects::findOrFail($id);
+        $case = $suspect->cases()->first();
 
-		$case = $this->repo->find($caseId);
-		$case->suspects()->detach([$suspectId]);
-		return redirect()->route('backend.cases.show', [$caseId]);
+		$case->suspects()->detach([$id]);
+		return redirect()->route('backend.cases.show', [$case->id]);
 	}
 
 }
