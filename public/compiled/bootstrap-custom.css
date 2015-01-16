@@ -6824,3 +6824,6 @@ h2.page-title {
 .form-group {
   margin-bottom: 30px;
 }
+.panel-footer {
+  text-align: center;
+}

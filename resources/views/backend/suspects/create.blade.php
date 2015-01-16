@@ -1,8 +1,11 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.admin.empty')
 
-@section('content')
+@section('trails')
+    <div class="trail"><a href="{{ route('backend.cases.show', [$case_id]) }}"><i class="ion-ios-arrow-back"></i> Kembali</a></div>
+@stop
+@section('content-admin')
 {{ BootForm::open()->action(route('backend.suspect.store')) }}
-    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>    
+    <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -18,17 +21,17 @@
                 <label class="radio-inline">
                     <input type="radio" name="type" id="radioBadan" value="badan" {{ (Input::old('suspect-type') == 'badan')?'checked=checked':''}}> Badan/Perusahaan
                 </label>
-            </div>  
+            </div>
 
             <div class="">{{ BootForm::text('Nama', 'name') }}</div>
             <div class="suspect-type badan">{{ BootForm::text('Nama Pimpinan', 'nama_pimpinan') }}</div>
 
             <div class="row suspect-type individu">
                 <div class="col-md-3">
-                    {{ BootForm::select('Tempat Lahir', 'pob')->options($cities) }}            
+                    {{ BootForm::select('Tempat Lahir', 'pob')->options($cities) }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::text('Tanggal Lahir', 'dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2) }}            
+                    {{ BootForm::text('Tanggal Lahir', 'dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2) }}
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
@@ -37,10 +40,10 @@
                             <input type="text" class="form-control" name="age" value="{{ Input::old('age') }}">
                             <span class="input-group-addon">tahun</span>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::select('Jenis Kelamin', 'sex')->options($jenisKelamins) }}                    
+                    {{ BootForm::select('Jenis Kelamin', 'sex')->options($jenisKelamins) }}
                 </div>
             </div>
 
@@ -49,16 +52,16 @@
 
             <div class="row suspect-type individu">
                 <div class="col-md-3">
-                    {{ BootForm::text('Kewarganegaraan', 'nationality') }}            
+                    {{ BootForm::text('Kewarganegaraan', 'nationality') }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::text('Pendidikan', 'education') }}            
+                    {{ BootForm::text('Pendidikan', 'education') }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::text('Pekerjaan', 'job') }}            
+                    {{ BootForm::text('Pekerjaan', 'job') }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::select('Agama', 'religion')->options($religions) }}                    
+                    {{ BootForm::select('Agama', 'religion')->options($religions) }}
                 </div>
             </div>
 
@@ -69,8 +72,9 @@
 
             </div>
         </div>
-        <div class="panel-footer text-right">
-            {{ BootForm::submit('Submit') }}
+        <div class="panel-footer">
+            <a class="btn btn-default" href="{{ route('backend.cases.show', [$case_id]) }}">Batal</a>
+            {{ BootForm::submit('Submit', 'btn-primary') }}
         </div>
     </div>
 
@@ -90,7 +94,7 @@
                 var selected = $(this).val();
 
                 $('.suspect-type').hide();
-                $('.suspect-type.' + selected).show();                
+                $('.suspect-type.' + selected).show();
             }
 
         }).trigger("change");

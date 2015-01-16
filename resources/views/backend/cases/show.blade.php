@@ -7,9 +7,13 @@
 @section('content-admin')
 <div id="page-case-sop">
     <div class="well pad-lg case-info">
-        <h2 class="page-title text-center">{{ $case['name'] }}</h2>
         <table class="table table-bordered">
             <tbody>
+            <tr>
+                <td colspan="8">
+                    <h4 class="text-center">{{ $case['name'] }}</h4>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <dl>
@@ -146,49 +150,6 @@
                 <tr>
                     <td width="150px">Nama </td>
                     <td>{{ $item['name'] }}</td>
-                </tr>
-                <tr>
-                    <td>Jenis Kelamin</td>
-                    <td>{{$item->sex}}</td>
-                </tr>
-                <tr>
-                    <td>Tempat Lahir </td>
-                    <td>{{$item->suspectPob->nama}}</td>
-                </tr>
-                <tr>
-                    <td>Umur/Tanggal Lahir </td>
-                    <td>{{$item->age}}/{{ $item['dob'] }}</td>
-                </tr>
-                <tr>
-                    <td>Agama </td>
-                    <td>{{ $item->religion}}</td>
-                </tr>
-                <tr>
-                    <td>Alamat </td>
-                    <td>
-                        {{ $item->address }}<br/>
-                        {{ $item->addressCity?$item->addressCity->nama:'' }}<br/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Kewarganegaraan </td>
-                    <td>{{ $item['nationality'] }}</td>
-                </tr>
-                <tr>
-                    <td>Pendidikan </td>
-                    <td>{{ $item['education'] }}</td>
-                </tr>
-                <tr>
-                    <td>Pekerjaan </td>
-                    <td>{{ $item['job'] }}</td>
-                </tr>
-                <tr>
-                    <td>Status Tahanan</td>
-                    <td>{{ $item->tahanan}}</td>
-                </tr>
-                <tr>
-                    <td>Ditahan Sejak</td>
-                    <td>{{ $item->tgl_penahanan }}</td>
                 </tr>
                 <tr>
                     <td colspan="2">
