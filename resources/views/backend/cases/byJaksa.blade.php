@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade modal-case-info" tabindex="-1" role="dialog">
+<div class="modal fade modal-case-byJaksa" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -15,7 +15,7 @@
                                 <span class="label label-default">{{ $item['type_name'] }}</span>
                                 <span class="label label-default">{{ $item['status_name'] }}</span>
                             </div>
-                            <a href="{{ $item['permalink'] }}" target="_blank"><strong>{{ $item['name'] }}</strong></a>
+                            <h5><a href="{{ $item['permalink'] }}" class="btn-detail">{{ $item['name'] }}</a></h5>
                         </td>
                     </tr>
                 @empty
@@ -30,4 +30,3 @@
         </div>
     </div>
 </div>
-

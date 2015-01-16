@@ -56,6 +56,17 @@
                     var modal = $(response);
                     modal.modal();
 
+                    modal.find('.btn-detail').on('click', function(e){
+                        e.preventDefault();
+                        $('.modal-case-byJaksa').block({message:null});
+
+                        $.get($(this).attr('href'), '', function(response, status){
+                            $('.modal-case-byJaksa').unblock();
+                            $(response).modal();
+                        });
+
+                    });
+
                 });
             });
         });
