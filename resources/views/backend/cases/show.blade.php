@@ -279,6 +279,12 @@
         $('.item-checklist').on('click', function(e){
 
             e.preventDefault();
+
+            if($(this).parent('ul').hasClass('disabled'))
+            {
+                return false;
+            }
+
             $.blockUI({message:null});
 
             $.get($(this).data('url'), '', function(response, status){
