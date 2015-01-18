@@ -44,7 +44,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function byJaksa($jaksaId)
     {
-        return $this->case->where('jaksa_id', '=', $jaksaId)->get();
+        return $this->case->published()->where('jaksa_id', '=', $jaksaId)->get();
     }
 
     public function create($input, $user)

@@ -31,7 +31,7 @@ class Officer extends Model {
 
     public function activeCases()
     {
-        return $this->hasMany('App\Cases\Cases', 'jaksa_id')->whereNull('cases.finish_date');
+        return $this->hasMany('App\Cases\Cases', 'jaksa_id')->whereNull('cases.finish_date')->published();
     }
 
     public function scopeStaff($query)
