@@ -1,3 +1,10 @@
+@if ($errors->count() > 0)
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        Periksa kembali inputan Anda
+    </div>
+@endif
+
 @if (Session::has('flash.error'))
     <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

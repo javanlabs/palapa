@@ -4872,6 +4872,8 @@ a.thumbnail.active {
   margin-bottom: 22px;
   border: 1px solid transparent;
   border-radius: 0;
+  font-size: 1.1em;
+  font-weight: 600;
 }
 .alert h4 {
   margin-top: 0;
