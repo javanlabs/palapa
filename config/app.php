@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => (bool) getenv('APP_DEBUG') ?: false,
+	'debug' => env('APP_DEBUG'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -216,6 +216,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 
         'BootForm' => 'AdamWathan\BootForms\Facades\BootForm',
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 	],
 
 ];

@@ -28,10 +28,6 @@ class AppServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Sop\RepositoryInterface', 'App\Sop\EloquentRepository');
 		$this->app->bind('App\Menu\RepositoryInterface', 'App\Menu\EloquentRepository');
 
-		\View::addNamespace('dekor', base_path('vendor/eendonesia/dekor/src/views/'));
-		\View::addNamespace('gapura', base_path('vendor/eendonesia/gapura/src/views/'));
-		\View::addNamespace('skrip', base_path('vendor/eendonesia/skrip/src/views/'));
-
 		\Config::set('gapura::default_auth', 'admin.home');
 		\Config::set('gapura::default_guest', 'home');
 		\Config::set('gapura::base_uri', 'gapura');
