@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider {
 		\Config::set('gapura::default_auth', 'admin.home');
 		\Config::set('gapura::default_guest', 'home');
 		\Config::set('gapura::base_uri', 'gapura');
+		\Config::set('gapura::view_login', 'frontend.login');
 
 		\Config::set('skrip::prefix', 'skrip');
 

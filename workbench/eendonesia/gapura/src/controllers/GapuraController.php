@@ -22,7 +22,7 @@ class GapuraController extends Controller {
 
     public function getLogin()
     {
-        return view('gapura::login');
+        return view($this->config->get('gapura::view_login'));
     }
 
     public function postLogin(Login $request, RepositoryInterface $repo)
