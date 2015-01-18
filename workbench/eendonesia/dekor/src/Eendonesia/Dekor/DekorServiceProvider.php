@@ -18,7 +18,8 @@ class DekorServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-//		 $this->package('eendonesia/dekor', 'dekor');
+		// $this->package('eendonesia/dekor', 'dekor');
+        \View::addNamespace('dekor', base_path('workbench/eendonesia/dekor/src/views/'));
 	}
 
 	/**
@@ -28,7 +29,7 @@ class DekorServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-        \View::addNamespace('dekor', base_path('workbench/eendonesia/dekor/src/views/'));
+		//
 	}
 
 	/**
