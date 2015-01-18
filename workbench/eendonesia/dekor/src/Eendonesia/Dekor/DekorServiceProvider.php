@@ -1,0 +1,44 @@
+<?php namespace Eendonesia\Dekor;
+
+use Illuminate\Support\ServiceProvider;
+
+class DekorServiceProvider extends ServiceProvider {
+
+	/**
+	 * Indicates if loading of the provider is deferred.
+	 *
+	 * @var bool
+	 */
+	protected $defer = false;
+
+	/**
+	 * Bootstrap the application events.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+//		 $this->package('eendonesia/dekor', 'dekor');
+	}
+
+	/**
+	 * Register the service provider.
+	 *
+	 * @return void
+	 */
+	public function register()
+	{
+        \View::addNamespace('dekor', base_path('workbench/eendonesia/dekor/src/views/'));
+	}
+
+	/**
+	 * Get the services provided by the provider.
+	 *
+	 * @return array
+	 */
+	public function provides()
+	{
+		return ['dekor'];
+	}
+
+}
