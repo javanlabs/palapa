@@ -19,7 +19,7 @@ class DekorServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		// $this->package('eendonesia/dekor', 'dekor');
-        \View::addNamespace('dekor', base_path('workbench/eendonesia/dekor/src/views/'));
+        \View::addNamespace('dekor', dirname(__FILE__) . '/../../views');
 	}
 
 	/**
