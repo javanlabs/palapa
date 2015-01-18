@@ -1,7 +1,11 @@
 @extends('layouts.admin.admin-full')
 
-@section('breadcrumb-subtitle-text')
-    Manajemen Kasus
+@section('breadcrumb')
+    @parent
+    <span class="trail"><i class="fa fa-angle-right"></i></span>
+    <span class="trail"><a href="{{ route('backend.cases.index') }}">Manajamen Kasus</a></span>
+    <span class="trail"><i class="fa fa-angle-right"></i></span>
+    <span class="trail">Detil</span>
 @stop
 
 @section('content-admin')

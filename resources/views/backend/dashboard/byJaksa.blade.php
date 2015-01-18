@@ -1,4 +1,11 @@
 @extends('layouts.admin.admin')
+
+@section('breadcrumb')
+    @parent
+    <span class="trail"><i class="fa fa-angle-right"></i></span>
+    <span class="trail">Statistik</span>
+@stop
+
 @section('content-admin')
 
     @include('backend.dashboard.tab', ['active' => 'byJaksa'])

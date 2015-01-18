@@ -1,7 +1,7 @@
 @extends('layouts.full.full')
 
-@section('breadcrumb-title')
-    Admin
+@section('breadcrumb')
+    <span class="trail"><a href="{{ route('admin.home') }}">Admin</a></span>
 @stop
 
 @section('content')

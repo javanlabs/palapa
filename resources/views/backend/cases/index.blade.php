@@ -1,5 +1,11 @@
 @extends('layouts.admin.admin')
 
+@section('breadcrumb')
+    @parent
+    <span class="trail"><i class="fa fa-angle-right"></i></span>
+    <span class="trail">Manajamen Kasus</span>
+@stop
+
 @section('content-admin')
     <div id="page-case-index">
         <h2 class="page-title">Manajemen Kasus</h2>
