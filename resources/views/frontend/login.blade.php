@@ -4,8 +4,8 @@
 login
 @stop
 
-@section('breadcrumb-title')
-    Login
+@section('breadcrumb')
+    <span class="trail">Login</span>
 @stop
 
 @section('content')

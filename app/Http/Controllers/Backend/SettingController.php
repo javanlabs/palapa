@@ -45,7 +45,7 @@ class SettingController extends BackendController {
     public function store(Request $request)
     {
         with(new Setting())->saveAll($request->all());
-        return redirect()->back();
+        return redirect()->back()->with('flash.success', 'Konfigurasi berhasil diperbarui');
     }
 
     function __construct(
@@ -69,13 +69,13 @@ class SettingController extends BackendController {
         $kasus_id = Input::get('kasus_id');
         $phases = null;
         $checklists = null;
-     
+
         if($kasus_id){
-            $phases = Phase::where('case_type_id', '=', $kasus_id)->get();     
+            $phases = Phase::where('case_type_id', '=', $kasus_id)->get();
             $ids = array();
             foreach($phases as $phase){
                 $ids[] = $phase->id;
-            }       
+            }
             $checklists = Checklist::whereIn('phase_id', $ids)->get();
         }
         return view('backend.setting.sop', compact('casesLookup', 'phases', 'checklists'))->with('page', 'backend-setting');

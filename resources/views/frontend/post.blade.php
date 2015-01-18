@@ -1,7 +1,7 @@
 @extends('layouts.full.full')
 
-@section('breadcrumb-title')
-    {{ $category }}
+@section('breadcrumb')
+    <span class="trail">{{ $category }}</span>
 @stop
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.full.full')
 
-@section('breadcrumb-title')
-    Jaksa
+@section('breadcrumb')
+    <span class="trail">Jaksa</span>
 @stop
 
 @section('content')
