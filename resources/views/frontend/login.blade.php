@@ -12,7 +12,7 @@ login
 
     <div class="container-fluid" style="margin-top: 50px">
         <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default pad-lg well">
+            <div class="panel panel-default pad-lg">
                 {{ BootForm::open(['action' => route('gapura.login')]) }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 {{ BootForm::text('Email', 'email') }}

@@ -21,7 +21,7 @@
                 <h2 class="page-title">{{$post->title}}</h2>
                 {{$post->content}}
             @else
-                <div class="empty">
+                <div class="empty text-center">
                     <i class="fa fa-long-arrow-left"></i> Silakan pilih menu disamping.
                 </div>
             @endif

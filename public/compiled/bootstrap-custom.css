@@ -4869,7 +4869,7 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 22px;
+  margin-bottom: 0;
   border: 1px solid transparent;
   border-radius: 0;
   font-size: 1.1em;
@@ -6602,7 +6602,7 @@ footer {
 .section-menu-grid .title {
   font-size: 18px;
   font-weight: 600;
-  color: #777777;
+  color: #222222;
   line-height: 24px;
   text-transform: uppercase;
   padding: 0 0 0 84px;
@@ -6612,8 +6612,8 @@ footer {
   top: 42px;
   left: 42px;
   border-radius: 4px;
-  border: 1px solid #c4c4c4;
-  color: #c4c4c4;
+  border: 1px solid #aaaaaa;
+  color: #aaaaaa;
   padding: 2px 4px;
 }
 .section-menu-grid .icon {
@@ -6694,6 +6694,22 @@ footer {
   opacity: .9;
   font-size: 1.2em;
   font-weight: 300;
+}
+.section-menu-grid .jadwal-sidang .court .date {
+  color: #f1a417;
+  font-weight: 400;
+  margin-right: 10px;
+}
+body.login {
+  background: transparent url("../images/wallpaper.jpg") no-repeat center center;
+}
+body.login .navbar-header {
+  background-color: #fff;
+  opacity: .8;
+}
+body.login footer {
+  color: #fff;
+  opacity: .8;
 }
 #page-post-view {
   margin-top: 40px;
@@ -6820,6 +6836,14 @@ h2.page-title {
   margin-top: 0;
   margin-bottom: 40px;
 }
+.subtitle {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #919191;
+}
+.subtitle .icon {
+  margin-right: 10px;
+}
 .pad-sm {
   padding: 10px;
 }
@@ -6864,4 +6888,9 @@ h2.page-title {
 }
 .dl-horizontal.dl-wide dd {
   margin-bottom: 10px;
+}
+.alert.alert-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border: 0 none;
 }

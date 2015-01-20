@@ -60,6 +60,11 @@ class EloquentRepository implements RepositoryInterface {
         return $this->officer->staff()->lists('name', 'id');
     }
 
+    public function listRole()
+    {
+        return [Officer::ROLE_JAKSA => 'Jaksa', Officer::ROLE_STAFF => 'Staff'];
+    }
+
     public function jaksaByCase()
     {
         $officer = $this->officer->jaksa()->get();

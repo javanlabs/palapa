@@ -37,7 +37,6 @@
             }
             $.cookie(key, true, {expires: 30});
 
-            moment.locale('id');
             clockTick();
             setInterval(clockTick, 1000);
             setTimeout(function(){

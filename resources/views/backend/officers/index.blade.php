@@ -1,16 +1,16 @@
 @extends('layouts.admin.admin')
 
 @section('content-admin')
-    <h2 class="page-title">Manajemen SDM</h2>
-    <a href="{{ route('backend.officers.create') }}">Tambah SDM</a>
+    <h2 class="page-title">Manajemen SDM <a class="btn btn-default" href="{{ route('backend.officers.create') }}"><i class="ion-plus"></i> Tambah</a></h2>
+    @include('backend.officers.tab', ['active' => $role])
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Nama</th>
                 <th>NIP</th>
                 <th>Pangkat</th>
                 <th>Jabatan</th>
-                <th>Aksi</th>
+                <th style="width: 130px">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -21,8 +21,10 @@
                 <td>{{ $officer['pangkat_name'] }}</td>
                 <td>{{ $officer['jabatan_name'] }}</td>
                 <td>
-                    <a href="{{ route('backend.officers.edit', [$officer->id]) }}" class="btn btn-link">Edit</a>
-                    {{ Form::delete(route('backend.officers.destroy', [$officer->id]), 'Delete', [], ['class' => 'btn-link']) }}
+                    <div class="btn-group">
+                        <a href="{{ route('backend.officers.edit', [$officer->id]) }}" class="btn btn-default btn-xs">Edit</a>
+                        {{ Form::delete(route('backend.officers.destroy', [$officer->id]), 'Delete', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-danger']) }}
+                    </div>
                 </td>
             </tr>
             @endforeach

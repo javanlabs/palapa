@@ -232,4 +232,14 @@ trait Presenter {
 
         return false;
     }
+
+    public function getScheduleInDaysAttribute()
+    {
+        if($this->attributes['persidangan_date'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['persidangan_date'])->diffInDays(new Carbon());
+        }
+
+        return false;
+    }
 }
