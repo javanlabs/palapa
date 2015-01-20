@@ -39,4 +39,9 @@ class Phase extends Model {
         $colors = Config::get('color');
         return $colors[array_rand(array_slice($colors, $this->id - 1, 1), 1)];
     }
+
+    public function isHigher($phase)
+    {
+        return $this->ordinal >= $phase->ordinal;
+    }
 }

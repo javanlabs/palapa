@@ -93,7 +93,23 @@ class EloquentRepository implements RepositoryInterface {
 
         if($checklist->is_next)
         {
-            $this->decrementPhase($case, $checklist);
+            // cek apakah ada checklist lain dengan type yg sudah 'checked'
+            // jika ada, maka tidak perlu decrement phase
+
+            $hasNext = false;
+            foreach($case->checklist as $checked)
+            {
+                if(($checked->phase->id == $checklist->phase->id) && $checked->is_next)
+                {
+                    $hasNext = true;
+                    continue;
+                }
+            }
+
+            if (!$hasNext)
+            {
+                $this->decrementPhase($case, $checklist);
+            }
         }
 
         if($checklist->is_first)
@@ -110,11 +126,21 @@ class EloquentRepository implements RepositoryInterface {
 
     public function incrementPhase($case, $checklist)
     {
-        $currentPhase = $checklist->phase;
+        $currentPhase = $case->phase;
         $nextPhase = $currentPhase->nextPhase();
+
+        $targetPhase = $checklist->phase->nextPhase();
 
         if($nextPhase)
         {
+            // Ada kalanya salam satu phase ada dua checklist dengan type 'next'
+            // Jika yang satu dicheck, maka phase akan diincrement. Jika kemudian checklist
+            // yang satunya dicheck juga, maka tidak perlu diincrement lagi
+            if($currentPhase->isHigher($targetPhase))
+            {
+                return false;
+            }
+
             // close current phase
             $case->closeCurrentPhase();
 
@@ -155,7 +181,7 @@ class EloquentRepository implements RepositoryInterface {
         }
         else
         {
-            $case->close();
+            $case->unpublish();
         }
 
         return true;
