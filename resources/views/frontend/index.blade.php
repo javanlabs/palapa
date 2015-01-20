@@ -62,7 +62,7 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}?type=201">
+                        <a href="{{ route('frontend.search') }}?type=201" data-keymap="1">
                             <small class="keymap">1</small>
                             <h3 class="title">Pidum</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
@@ -71,7 +71,7 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.officer') }}">
+                        <a href="{{ route('frontend.officer') }}" data-keymap="4">
                             <small class="keymap">4</small>
                             <h3 class="title">Jaksa</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
@@ -80,7 +80,7 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('admin.home') }}">
+                        <a href="{{ route('admin.home') }}" data-keymap="7">
                             <small class="keymap">7</small>
                             <h3 class="title">Admin</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
@@ -92,7 +92,7 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}?type=202">
+                        <a href="{{ route('frontend.search') }}?type=202" data-keymap="2">
                             <small class="keymap">2</small>
                             <h3 class="title">Pidsus</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
@@ -101,7 +101,7 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.post', ['category' => 'pembinaan']) }}">
+                        <a href="{{ route('frontend.post', ['category' => 'pembinaan']) }}" data-keymap="5">
                             <small class="keymap">5</small>
                             <h3 class="title">Pembinaan</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
@@ -115,7 +115,7 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}">
+                        <a href="{{ route('frontend.search') }}" data-keymap="3">
                             <small class="keymap">3</small>
                             <h3 class="title">Datun</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
@@ -124,7 +124,7 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.post', ['category' => 'intelijen']) }}">
+                        <a href="{{ route('frontend.post', ['category' => 'intelijen']) }}" data-keymap="6">
                             <small class="keymap">6</small>
                             <h3 class="title">Intelijen</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
@@ -145,6 +145,18 @@
     @parent
     <script>
         $(function(){
+
+            $(document).keypress(function(e) {
+                var key = String.fromCharCode(e.which);
+
+                var menu = $('.section-menu-grid').find('[data-keymap=' + key + ']').first();
+
+                if(menu.length > 0)
+                {
+                    document.location = menu.attr('href');
+                }
+            });
+
             $('.btn-detail').on('click', function(e){
                 e.preventDefault();
                 $.blockUI({message:null});
