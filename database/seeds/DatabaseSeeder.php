@@ -182,7 +182,7 @@ class TemplateSeeder extends Seeder{
             ],
             [
                 'short_title'  => 'P-2',
-                'title'        => 'Surat Perintah Penyedilikan',
+                'title'        => 'Surat Perintah Penyelidikan',
                 'case_type_id' => 202
             ],
             [
