@@ -262,7 +262,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function countNewThisMonth()
     {
-        return $this->case->where('start_date', '=', (new Carbon())->subDays(30)->toDateString())->count();
+        return $this->case->where('start_date', '>=', (new Carbon())->subDays(30)->toDateString())->count();
     }
 
     public function sidangToday()
