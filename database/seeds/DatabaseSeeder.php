@@ -531,7 +531,7 @@ class SopSeeder extends Seeder {
                 ['phase_id' => 19, 'name' => 'P-4 Permintaan Keterangan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 19, 'name' => 'P-5 Laporan Hasil Penyelidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 19, 'name' => 'P-6 Laporan Terjadinya Tindak Pidana', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-                ['phase_id' => 19, 'name' => 'P-7 Matrik Perkara Tindak Pidana', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 19, 'name' => 'P-7 Matrik Perkara Tindak Pidana', 'duration' => 1, 'direction' => 'next', 'ordinal' => 1],
 
                 // Penyidikan
                 ['phase_id' => 20, 'name' => 'P-8 Surat Perintah Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
@@ -539,13 +539,13 @@ class SopSeeder extends Seeder {
                 ['phase_id' => 20, 'name' => 'P-10 Bantuan Keterangan Ahli', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 20, 'name' => 'P-11 Bantuan Pemanggilan Saksi Ahli', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 20, 'name' => 'P-12 Laporan Perkembangan Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-                ['phase_id' => 20, 'name' => 'P-13 usul Penghentian Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-13 Usul Penghentian Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 20, 'name' => 'P-14 Surat Perintah Penghentian Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-                ['phase_id' => 20, 'name' => 'P-15 Surat Perintah Penyerahan Berkas Perkara', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
+                ['phase_id' => 20, 'name' => 'P-15 Surat Perintah Penyerahan Berkas Perkara', 'duration' => 1, 'direction' => 'next', 'ordinal' => 1],
 
                 // SPDP
                 ['phase_id' => 21, 'name' => 'Penerimaan SPDP', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
-                ['phase_id' => 21, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 21, 'name' => 'P-16 Surat Perintah Penunjukan Penuntut Umum', 'duration' => 1, 'direction' => 'next', 'ordinal' => 2],
                 ['phase_id' => 21, 'name' => 'P-17 Permintaan Perkembangan Hasil Penyidikan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
                 ['phase_id' => 21, 'name' => 'SPDP Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
 
@@ -554,21 +554,21 @@ class SopSeeder extends Seeder {
                 ['phase_id' => 22, 'name' => 'P-18 Hasil Penyidikan Belum Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 22, 'name' => 'P-19 Pengembalian Berkas Perkara untuk dilengkapi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
                 ['phase_id' => 22, 'name' => 'P-20 Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-                ['phase_id' => 22, 'name' => 'P-21 Pemberitahuan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
-                ['phase_id' => 22, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
+                ['phase_id' => 22, 'name' => 'P-21 Pemberitahuan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'next', 'ordinal' => 4],
+                ['phase_id' => 22, 'name' => 'P-21A Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap', 'duration' => 1, 'direction' => 'next', 'ordinal' => 5],
                 ['phase_id' => 22, 'name' => 'Berkara Perkas Dikembalikan', 'duration' => 1, 'direction' => 'stop', 'ordinal' => 6],
 
                 // Tahap 2
                 ['phase_id' => 23, 'name' => 'Penerimaan Tersangka dan Barang Bukti', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 23, 'name' => 'P-16A', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 23, 'name' => 'BA Pendapat Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 3],
-                ['phase_id' => 23, 'name' => 'Surat Perintah Penahanan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 4],
+                ['phase_id' => 23, 'name' => 'Surat Perintah Penahanan', 'duration' => 1, 'direction' => 'next', 'ordinal' => 4],
                 ['phase_id' => 23, 'name' => 'BA-10 Berita Acara Perintah Pelaksanaan Perintah Penahanan - Penahanan Lanjutan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 5],
                 ['phase_id' => 23, 'name' => 'BA-15 Berita Acara Penerimaan dan Penelitian Tersangka', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 6],
                 ['phase_id' => 23, 'name' => 'BA-18 Berita Acara Penerimaan dan Penelitian Benda Sitaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 7],
 
                 // Penuntutan
-                ['phase_id' => 24, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 2],
+                ['phase_id' => 24, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'duration' => 1, 'direction' => 'next', 'ordinal' => 2],
                 ['phase_id' => 24, 'name' => 'Pembacaan Surat Dakwaan', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
                 ['phase_id' => 24, 'name' => 'Tanggapan Terhadap Eksepsi', 'duration' => 1, 'direction' => 'stay', 'ordinal' => 1],
 
