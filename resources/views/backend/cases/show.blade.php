@@ -5,83 +5,80 @@
     <span class="trail"><i class="fa fa-angle-right"></i></span>
     <span class="trail"><a href="{{ route('backend.cases.index') }}">Manajamen Kasus</a></span>
     <span class="trail"><i class="fa fa-angle-right"></i></span>
-    <span class="trail">Detil</span>
+    <span class="trail ">{{ $case['spdp_number'] }}</span>
 @stop
 
 @section('content-admin')
 <div id="page-case-sop">
-    <div class="well pad-lg case-info">
-        <table class="table table-bordered">
-            <tbody>
-            <tr>
-                <td colspan="8">
-                    <h4 class="text-center">{{ $case['name'] }}</h4>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <dl>
-                        <dt>Nomor SPDP</dt>
-                        <dd>{{ $case['spdp_number'] }}</dd>
-                    </dl>
-                </td>
-                <td>
-                    <dl>
-                        <dt>Pasal</dt>
-                        <dd>{{ nl2br($case['pasal']) }}</dd>
-                    </dl>
-                </td>
-                <td>
-                    <dl>
-                        <dt>Penyidik</dt>
-                        <dd>{{ $case['penyidik_name'] }}</dd>
-                    </dl>
-                </td>
-                <td>
-                    <dl>
-                        <dt>Jaksa</dt>
-                        <dd>{{ $case['prosecutor_name'] }}</dd>
-                    </dl>
-                </td>
-                <td>
-                    <dl>
-                        <dt>Staff Administrasi</dt>
-                        <dd>{{ $case['staff_name'] }}</dd>
-                    </dl>
-                </td>
-                <td>
-                    <dl>
-                        <dt>Jenis Kasus</dt>
-                        <dd><span class="label label-default">{{ $case['type_name'] }}</span></dd>
-                    </dl>
-                </td>
-                <td>
-                    <dl>
-                        <dt>Usia Kasus</dt>
-                        <dd>
-                            @if($case['age'] !== false)
-                                {{ $case['age'] }} hari
-                            @else
-                                <span class="label label-default">{{ $case['status'] }}</span>
-                            @endif
-                        </dd>
-                    </dl>
-                </td>
-                <td>
-                    <dl>
-                        <dt>Status</dt>
-                        <dd><span class="label label-primary">{{ $case['status_name'] }}</span></dd>
-                    </dl>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-        <div class="text-right action">
-            <a href="/backend/cases/edit/{{$case['id']}}" class="btn btn-default btn-xs">Ubah Data</a>
-            {{ Form::delete(route('backend.cases.delete', $case['id']), 'Hapus Kasus', ['class' => 'form-delete'], ['class' => 'btn btn-danger btn-xs']) }}
+    <div class="pad-lg case-info">
+        <div class="panel panel-default">
+            <table class="table table-bordered">
+                <tbody>
+                <tr>
+                    <td colspan="8">
+                        <h4 class="mb-0">{{ $case['name'] }}</h4>
+                        <small class="text-muted">{{ $case['spdp_number'] }}</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <dl>
+                            <dt>Pasal</dt>
+                            <dd>{{ nl2br($case['pasal']) }}</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Penyidik</dt>
+                            <dd>{{ $case['penyidik_name'] }}</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Jaksa</dt>
+                            <dd>{{ $case['prosecutor_name'] }}</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Staff Administrasi</dt>
+                            <dd>{{ $case['staff_name'] }}</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Usia Kasus</dt>
+                            <dd>
+                                @if($case['age'] !== false)
+                                    {{ $case['age'] }} hari
+                                @else
+                                    <span class="label label-default">{{ $case['status'] }}</span>
+                                @endif
+                            </dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Jenis Kasus</dt>
+                            <dd><span class="label label-default">{{ $case['type_name'] }}</span></dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Status</dt>
+                            <dd><span class="label label-primary">{{ $case['status_name'] }}</span></dd>
+                        </dl>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="panel-footer">
+                <div class="text-right action">
+                    <a href="/backend/cases/edit/{{$case['id']}}" class="btn btn-default btn-xs">Ubah Data</a>
+                    {{ Form::delete(route('backend.cases.delete', $case['id']), 'Hapus Kasus', ['class' => 'form-delete'], ['class' => 'btn btn-danger btn-xs']) }}
+                </div>
+            </div>
         </div>
-
     </div>
 
     <div class="container-fluid section-entry">
