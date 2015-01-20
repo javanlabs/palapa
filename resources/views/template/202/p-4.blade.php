@@ -42,7 +42,7 @@
     </tr>
 </table>
 
-<p>Dengan ini diminta keharidan Saudara pada :</p>
+<p>Dengan ini diminta kehadiran Saudara pada :</p>
 
 <table>
     <tr>
