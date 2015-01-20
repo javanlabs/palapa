@@ -17,7 +17,7 @@
 
 <p style="text-align: center"><strong>LAPORAN TERJADINYA TINDAK PIDANA</strong></p>
 
-<p>Pada hari ini {{ $today['day'] }} tanggal {{ $today['data'] }}</p>
+<p>Pada hari ini {{ $today['day'] }} tanggal {{ $today['date'] }}</p>
 <p>Saya :</p>
 
 <table>
