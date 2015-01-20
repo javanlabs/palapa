@@ -2,7 +2,9 @@
 
 @section('content-admin')
     <h2 class="page-title">Manajemen SDM <a class="btn btn-default" href="{{ route('backend.officers.create') }}"><i class="ion-plus"></i> Tambah</a></h2>
+
     @include('backend.officers.tab', ['active' => $role])
+
     <table class="table table-bordered">
         <thead>
             <tr>

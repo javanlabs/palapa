@@ -1,6 +1,7 @@
 @extends('layouts.admin.admin')
 
 @section('style-head')
+    @parent
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
 @stop
 
@@ -13,12 +14,13 @@
             {{ BootForm::textarea('Content', 'content', ['id' => 'content'])->value($post->content) }}
             {{ BootForm::select('Position', 'position')->options($post->getPossiblePosition())->select($post->position)}}
             {{ BootForm::select('Status', 'status')->options($post->getPossibleStatus())->select($post->status)}}
-            {{ BootForm::submit('Submit') }}
+            {{ BootForm::submit('Simpan', 'btn-primary') }}
         {{ BootForm::close() }}
     </div>
 @stop
 
 @section('script-end')
+    @parent
     <script src="{{ asset('vendor/redactor/redactor.min.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>

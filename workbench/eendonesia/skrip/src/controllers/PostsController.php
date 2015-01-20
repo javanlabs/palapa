@@ -3,6 +3,7 @@
 use Eendonesia\Skrip\Post\Form;
 use Eendonesia\Skrip\Post\Post;
 use Eendonesia\Skrip\Post\RepositoryInterface;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Auth;
 
@@ -18,10 +19,15 @@ class PostsController extends Controller {
         $this->repo = $repo;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = $this->repo->all();
-        return view('skrip::posts.index', compact('posts'));
+        $position = $request->get('position', 'pembinaan');
+
+        $posts = $this->repo->getByPosition($position);
+        $countPembinaan = $this->repo->countByPosition('pembinaan');
+        $countIntelijen = $this->repo->countByPosition('intelijen');
+
+        return view('skrip::posts.index', compact('posts', 'countPembinaan', 'countIntelijen', 'position'));
     }
 
     public function create()

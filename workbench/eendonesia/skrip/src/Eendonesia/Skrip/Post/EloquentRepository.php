@@ -18,6 +18,16 @@ class EloquentRepository implements RepositoryInterface {
         return $this->post->all();
     }
 
+    public function getByPosition($position)
+    {
+        return $this->post->wherePosition($position)->get();
+    }
+
+    public function countByPosition($position)
+    {
+        return $this->post->wherePosition($position)->count();
+    }
+
     public function create($input, $author)
     {
         $post = $this->post->create($input);
