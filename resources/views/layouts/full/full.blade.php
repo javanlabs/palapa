@@ -29,6 +29,22 @@
 
             $('select').select2();
 
+
+            bootbox.setDefaults({
+                locale: "id",
+                className: "modal-delete"
+            });
+            $('.btn-delete').on('click', function(e){
+                e.preventDefault();
+                var btn = $(this);
+                bootbox.confirm("Anda yakin ingin menghapus data ini?", function(result) {
+                    if(result == true)
+                    {
+                        btn.parent('form').submit();
+                    }
+                });
+            });
+
         });
     </script>
 

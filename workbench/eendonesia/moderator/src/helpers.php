@@ -23,6 +23,13 @@ Form::macro('delete',function($url, $button_label='Delete',$form_parameters = ar
         $form_parameters['method'] = 'DELETE';
     };
 
+    if(!isset($button_options['class']))
+    {
+        $button_options['class'] = '';
+    }
+
+    $button_options['class'] .= ' btn-delete';
+
     return Form::open($form_parameters)
             . Form::submit($button_label, $button_options)
             . Form::close();
