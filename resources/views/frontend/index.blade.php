@@ -41,7 +41,18 @@
                     <h3 class="caption">Jadwal Sidang</h3>
                     <div class="inner">
                         @forelse($cases as $item)
-                            <a href="{{ $item['permalink'] }}" class="court">{{ $item['name'] }}</a>
+                            <a href="{{ $item['permalink'] }}" class="btn-detail court">
+                                <small class="date">
+                                    @if($item['schedule_in_days'] == 0)
+                                        hari ini
+                                    @elseif($item['schedule_in_days'] == 1)
+                                        besok
+                                    @else
+                                        {{ $item['schedule_in_days'] }} hari lagi
+                                    @endif
+                                </small>
+                                {{ $item['name'] }}
+                            </a>
                         @empty
                             Tidak Ada
                         @endforelse
@@ -128,4 +139,24 @@
 
         </table>
     </div>
+@stop
+
+@section('script-end')
+    @parent
+    <script>
+        $(function(){
+            $('.btn-detail').on('click', function(e){
+                e.preventDefault();
+                $.blockUI({message:null});
+
+                $.get($(this).attr('href'), '', function(response, status){
+                    $.unblockUI();
+                    $(response).modal('show');
+                    $(response).on('hidden.bs.modal', function(e){
+                        $(response).remove();
+                    });
+                });
+            });
+        });
+    </script>
 @stop

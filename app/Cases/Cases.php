@@ -18,7 +18,7 @@ class Cases extends Model {
 
     protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'start_date', 'spdp_date', 'spdp_received_date', 'persidangan_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
 
-    protected $dates = ['start_date', 'finish_date', 'spdp_date', 'persidangan_date'];
+    protected $dates = ['start_date', 'finish_date', 'spdp_date'];
 
     public function scopePublished($query)
     {

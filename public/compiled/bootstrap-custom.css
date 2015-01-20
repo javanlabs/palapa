@@ -6695,6 +6695,11 @@ footer {
   font-size: 1.2em;
   font-weight: 300;
 }
+.section-menu-grid .jadwal-sidang .court .date {
+  color: #f1a417;
+  font-weight: 400;
+  margin-right: 10px;
+}
 #page-post-view {
   margin-top: 40px;
 }
