@@ -6889,6 +6889,15 @@ h2.page-title {
 .dl-horizontal.dl-wide dd {
   margin-bottom: 10px;
 }
+.nav-tabs li a {
+  padding: 10px 50px;
+}
+.nav-tabs li.active .badge {
+  background-color: #00805b;
+}
+.alert {
+  padding-left: 40px;
+}
 .alert.alert-danger {
   color: #fff;
   background-color: #d9534f;

@@ -39,7 +39,10 @@ class OfficerController extends BackendController {
             $officers = $this->repo->jaksa();
         }
 
-        return view('backend.officers.index', compact('officers', 'role'));
+        $countJaksa = count($this->repo->listJaksa());
+        $countStaff = count($this->repo->listStaff());
+
+        return view('backend.officers.index', compact('officers', 'role', 'countJaksa', 'countStaff'));
     }
 
     public function create()

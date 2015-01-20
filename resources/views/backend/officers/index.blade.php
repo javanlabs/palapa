@@ -20,8 +20,8 @@
                 <td>{{ $officer['nip'] }}</td>
                 <td>{{ $officer['pangkat_name'] }}</td>
                 <td>{{ $officer['jabatan_name'] }}</td>
-                <td>
-                    <div class="btn-group">
+                <td class="text-center">
+                    <div class="btn-group text-center">
                         <a href="{{ route('backend.officers.edit', [$officer->id]) }}" class="btn btn-default btn-xs">Edit</a>
                         {{ Form::delete(route('backend.officers.destroy', [$officer->id]), 'Delete', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-danger']) }}
                     </div>
