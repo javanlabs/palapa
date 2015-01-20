@@ -10,14 +10,12 @@
 
     <div class="container-fluid hidden-print">
         <div class="editor-f4">
-            <h2>Ubah Template</h2>
+            <h2 class="page-title">{{ $template->title }}</h2>
             {{ BootForm::open()->put()->action(route('backend.templates.update', [$template->id])) }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                {{ BootForm::select('Checklist', 'checklist_id')->options($checklists)->select($template->checklist_id) }}
-                {{ BootForm::text('Title', 'title')->value($template->title) }}
                 {{--<a class="btn btn-success btn-block" href="#" id="btnPreview" data-toggle="modal" data-target=".modal-preview"><i class="fa fa-eye"></i> Preview</a>--}}
-                {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($template->content) }}
-                {{ BootForm::submit('Simpan') }}
+                {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($content) }}
+                {{ BootForm::submit('Simpan', 'btn-primary') }}
             {{ BootForm::close() }}
         </div>
     </div>

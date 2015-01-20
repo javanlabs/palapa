@@ -14,13 +14,13 @@ class CreateTemplatesTable extends Migration {
 	{
 		Schema::create('templates', function(Blueprint $table)
 		{
-            $table->increments('id');            
+            $table->increments('id');
             $table->string('short_title');
             $table->string('title');
-            
+            $table->unsignedInteger('case_type_id');
+
             $table->timestamps();
             $table->softDeletes();
-            $table->engine = 'MyISAM';
 		});
 	}
 

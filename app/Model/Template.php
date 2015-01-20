@@ -7,16 +7,12 @@ class Template extends Model {
 
     protected $table = 'templates';
 
-    protected $fillable = ['title', 'content', 'checklist_id'];
+    protected $fillable = ['title', 'content', 'case_type_id'];
 
-    public function author()
+    public function getFileAttribute()
     {
-        return $this->belongsTo('App\User', 'author_id');
-    }    
-
-    public function checklist()
-    {
-        return $this->belongsTo('App\Sop\Checklist', 'checklist_id');
+        $name = strtolower($this->short_title);
+        return base_path('resources/views/template/' . $name . '.blade.php');
     }
 
     public static function optionsSelect($case_id){

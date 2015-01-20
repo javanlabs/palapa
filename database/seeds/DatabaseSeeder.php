@@ -84,72 +84,131 @@ class TemplateSeeder extends Seeder{
     public function run(){
         DB::table('templates')->truncate();
         $template = [
+
+            // PIDUM
             [
-            'short_title' => 'P-16',
-            'title' => 'Surat Perintah Penunjukan JPU untuk mengikuti Perkembangan Penyidikan perkara tindak pidana',
+                'short_title' => 'P-16',
+                'title' => 'Surat Perintah Penunjukan JPU untuk mengikuti Perkembangan Penyidikan perkara tindak pidana',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-17',
-            'title' => 'Permintaan Perkembangan Hasil Penyidikan',
+                'short_title' => 'P-17',
+                'title' => 'Permintaan Perkembangan Hasil Penyidikan',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-18',
-            'title' => 'Hasil Penyidikan Belum Lengkap',
+                'short_title' => 'P-18',
+                'title' => 'Hasil Penyidikan Belum Lengkap',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-19',
-            'title' => 'Pengembalian Berkas Perkara untuk dilengkapi',
+                'short_title' => 'P-19',
+                'title' => 'Pengembalian Berkas Perkara untuk dilengkapi',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-20',
-            'title' => 'Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis',
+                'short_title' => 'P-20',
+                'title' => 'Pemberitahuan Bahwa waktu penyidikan Tambahan Sudah Habis',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-21',
-            'title' => 'Pemberitahuan Hasil Penyidikan Sudah Lengkap',
+                'short_title' => 'P-21',
+                'title' => 'Pemberitahuan Hasil Penyidikan Sudah Lengkap',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-21A',
-            'title' => 'Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap',
+                'short_title' => 'P-21A',
+                'title' => 'Pemberitahuan Susulan Hasil Penyidikan Sudah Lengkap',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-16A',
-            'title' => 'Surat Perintah Penunjukan JPU untuk Penyelesaian Perkara Tindak Pidana',
+                'short_title' => 'P-16A',
+                'title' => 'Surat Perintah Penunjukan JPU untuk Penyelesaian Perkara Tindak Pidana',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-31',
-            'title' => 'Surat Pelimpahan Perkara Acara Pemeriksaan Biasa (APB)',
-            ],[
-            'short_title' => 'P-44',
-            'title' => 'Laporan JPU Segera Setelah Putusan',
+                'short_title' => 'P-31',
+                'title' => 'Surat Pelimpahan Perkara Acara Pemeriksaan Biasa (APB)',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-45',
-            'title' => 'Laporan Putusan Pengadilan',
+                'short_title' => 'P-44',
+                'title' => 'Laporan JPU Segera Setelah Putusan',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-48',
-            'title' => 'Surat Perintah Pelaksanaan Putusan Pengadilan',
+                'short_title' => 'P-45',
+                'title' => 'Laporan Putusan Pengadilan',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'P-53',
-            'title' => 'Kartu Perkara Tindak Pidana',
+                'short_title' => 'P-48',
+                'title' => 'Surat Perintah Pelaksanaan Putusan Pengadilan',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'BA-8',
-            'title' => 'Berita Acara Pelaksanaan Putusan Pengadilan',
+                'short_title' => 'P-53',
+                'title' => 'Kartu Perkara Tindak Pidana',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'BA-10',
-            'title' => 'Berita Acara Perintah Pelaksanaan Perintah Penahanan - Penahanan Lanjutan',
+                'short_title' => 'BA-8',
+                'title' => 'Berita Acara Pelaksanaan Putusan Pengadilan',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'BA-15',
-            'title' => 'Berita Acara Penerimaan dan Penelitian Tersangka',
+                'short_title' => 'BA-10',
+                'title' => 'Berita Acara Perintah Pelaksanaan Perintah Penahanan - Penahanan Lanjutan',
+                'case_type_id' => 201
             ],
             [
-            'short_title' => 'BA-18',
-            'title' => 'Berita Acara Penerimaan dan Penelitian Benda Sitaan - Barang Bukti',
+                'short_title' => 'BA-15',
+                'title' => 'Berita Acara Penerimaan dan Penelitian Tersangka',
+                'case_type_id' => 201
+            ],
+            [
+                'short_title' => 'BA-18',
+                'title' => 'Berita Acara Penerimaan dan Penelitian Benda Sitaan - Barang Bukti',
+                'case_type_id' => 201
+            ],
+
+            // PIDSUS
+
+            // PENYELIDIKAN
+            [
+                'short_title'  => 'P-1',
+                'title'        => 'Penerimaan Laporan',
+                'case_type_id' => 202
+            ],
+            [
+                'short_title'  => 'P-2',
+                'title'        => 'Surat Perintah Penyedilikan',
+                'case_type_id' => 202
+            ],
+            [
+                'short_title'  => 'P-3',
+                'title'        => 'Rencana Penyelidikan',
+                'case_type_id' => 202
+            ],
+            [
+                'short_title'  => 'P-4',
+                'title'        => 'Permintaan Keterangan',
+                'case_type_id' => 202
+            ],
+            [
+                'short_title'  => 'P-5',
+                'title'        => 'Laporan Hasil Penyelidikan',
+                'case_type_id' => 202
+            ],
+            [
+                'short_title'  => 'P-6',
+                'title'        => 'Laporan Terjadinya Tindak Pidana',
+                'case_type_id' => 202
+            ],
+            [
+                'short_title'  => 'P-7',
+                'title'        => 'Matrik Perkara Tindak Pidana',
+                'case_type_id' => 202
             ],
         ];
 

@@ -1,12 +1,11 @@
 <?php namespace App\Http\Controllers\Backend;
 
 use Eendonesia\Skrip\Post\Form;
-use Eendonesia\Skrip\Post\Post;
 use Eendonesia\Skrip\Post\RepositoryInterface;
 use Illuminate\Routing\Controller;
 use App\Model\Template;
-use App\Sop\Checklist;
 use Auth;
+use Illuminate\Support\Facades\File;
 
 class TemplatesController extends Controller {
 
@@ -26,32 +25,42 @@ class TemplatesController extends Controller {
         return view('backend.templates.index', compact('templates'));
     }
 
-    public function create()
-    {
-        $template = new Template();
-        $checklists = Checklist::availableChecklists();
-        return view('backend.templates.create', compact('post','checklists'));
-    }
-
-    public function store(Form $form)
-    {
-
-        $template = Template::create($form->only('title', 'content', 'checklist_id'));
-        $template->author()->associate(Auth::user())->save();
-        return redirect()->route('backend.templates.index');
-    }
+//    public function create()
+//    {
+//        $template = new Template();
+//        $checklists = Checklist::availableChecklists();
+//        return view('backend.templates.create', compact('post','checklists'));
+//    }
+//
+//    public function store(Form $form)
+//    {
+//
+//        $template = Template::create($form->only('title', 'content', 'checklist_id'));
+//        $template->author()->associate(Auth::user())->save();
+//        return redirect()->route('backend.templates.index');
+//    }
 
     public function edit($id)
     {
         $template = Template::find($id);
-        $checklists = Checklist::availableChecklists();
-        return view('backend.templates.edit', compact('template','checklists'));
+
+        if(!is_file($template->file))
+        {
+            File::put($template->file, '');
+        }
+
+        $content = file_get_contents($template->file);
+
+        return view('backend.templates.edit', compact('template','content'));
     }
 
     public function update(Form $form, $id)
     {
-        Template::findOrFail($id)->update($form->only('title', 'content', 'checklist_id'));
-        return redirect()->route('backend.templates.edit', $id);
+        $template = Template::findOrFail($id);
+
+        File::put($template->file, $form->get('content'));
+
+        return redirect()->route('backend.templates.edit', $id)->with('flash.success', 'Template surat berhasil diperbarui');
     }
 
     public function destroy($id)
