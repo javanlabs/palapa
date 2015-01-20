@@ -12,7 +12,8 @@ class Template extends Model {
     public function getFileAttribute()
     {
         $name = strtolower($this->short_title);
-        return base_path('resources/views/template/' . $name . '.blade.php');
+        $type = $this->case_type_id;
+        return base_path('resources/views/template/' . $type . '/' . $name . '.blade.php');
     }
 
     public static function optionsSelect($case_id){
