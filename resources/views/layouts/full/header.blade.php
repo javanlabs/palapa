@@ -4,7 +4,7 @@
             <a href="{{ route('home') }}" class="home">
                 <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                    <i class="fa ion-monitor fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
             <span class="trail"><i class="fa fa-angle-right"></i></span>

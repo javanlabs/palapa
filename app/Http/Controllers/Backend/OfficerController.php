@@ -71,7 +71,7 @@ class OfficerController extends BackendController {
     {
         $this->repo->update($id, $form->all());
 
-        return redirect()->route('backend.officers.index');
+        return redirect()->route('backend.officers.index')->with('flash.success', 'Data SDM berhasil diperbarui');
     }
 
     public function destroy($id)

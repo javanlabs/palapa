@@ -8,14 +8,14 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            Daftar Jaksa di Kejaksaan Negeri Jember
+            <div class="subtitle">Daftar Jaksa di Kejaksaan Negeri Jember</div>
         </div>
     <table class="table">
     <tbody>
     @foreach($officers as $key=>$jaksa)
     <tr>
         <td style="padding-left:50px;">
-            <h3>{{ $jaksa->name }}</h3>
+            <h4>{{ $jaksa->name }}</h4>
         </td>
         <td>
             <dl class="dl-horizontal">

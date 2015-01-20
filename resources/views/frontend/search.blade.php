@@ -30,8 +30,8 @@
 <div class="container-fluid">
 @if(count($cases) > 0)
     <div class="panel panel-default">
-        <div class="panel-heading">
-            {{ count($cases) }} kasus ditemukan
+        <div class="panel-heading clearfix">
+            <div class="subtitle pull-left">{{ count($cases) }} kasus ditemukan</div>
             <div class="pull-right" style="font-size: .9em">
                 <i class="fa fa-square success" style="color: {{ Config::get('color.green') }}"></i> Tepat Waktu
                 &nbsp;&nbsp;&nbsp;
