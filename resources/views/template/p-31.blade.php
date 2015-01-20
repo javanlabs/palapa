@@ -16,9 +16,6 @@
 </tr>
 </tbody>
 </table>
-<p>
-	"UNTUK KEADILAN"
-</p>
 <table>
 <tbody>
 <tr>
