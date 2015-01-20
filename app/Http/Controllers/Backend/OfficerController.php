@@ -2,7 +2,9 @@
 
 use App\Officer\Form;
 use App\Lookup\RepositoryInterface as LookupRepository;
+use App\Officer\Officer;
 use App\Officer\RepositoryInterface;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class OfficerController extends BackendController {
@@ -23,24 +25,37 @@ class OfficerController extends BackendController {
         $this->lookup = $lookup;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $officers = $this->repo->all();
-        return view('backend.officers.index', compact('officers'));
+        $role = $request->get('role');
+
+        if($role == Officer::ROLE_STAFF)
+        {
+            $officers = $this->repo->staff();
+        }
+        else
+        {
+            $role = Officer::ROLE_JAKSA;
+            $officers = $this->repo->jaksa();
+        }
+
+        return view('backend.officers.index', compact('officers', 'role'));
     }
 
     public function create()
     {
         $pangkatLookup = $this->lookup->lists('pangkat');
         $jabatanLookup = $this->lookup->lists('jabatan');
-        return view('backend.officers.create', compact('pangkatLookup', 'jabatanLookup'));
+        $roles         = $this->repo->listRole();
+
+        return view('backend.officers.create', compact('pangkatLookup', 'jabatanLookup', 'roles'));
     }
 
     public function store(Form $form)
     {
-        $this->repo->create($form->all());
+        $officer = $this->repo->create($form->all());
 
-        return redirect()->route('backend.officers.index');
+        return redirect()->route('backend.officers.index', ['role' => $officer->role])->with('flash.success', 'Data SDM berhasil disimpan');
     }
 
     public function edit($id)
@@ -61,8 +76,9 @@ class OfficerController extends BackendController {
 
     public function destroy($id)
     {
+        $officer = $this->repo->find($id);
         $this->repo->delete($id);
 
-        return redirect()->route('backend.officers.index');
+        return redirect()->back()->with('flash.info', $officer->name . ' telah dihapus dari database ' . $officer->role);
     }
 }

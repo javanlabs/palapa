@@ -9,6 +9,7 @@
             {{ BootForm::text('NIP', 'nip') }}
             {{ BootForm::select('Pangkat', 'pangkat_id')->options($pangkatLookup) }}
             {{ BootForm::select('Jabatan', 'jabatan_id')->options($jabatanLookup) }}
+            {{ BootForm::select('Role', 'role')->options($roles) }}
             {{ BootForm::submit('Submit') }}
         {{ BootForm::close() }}
     </div>

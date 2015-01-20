@@ -46,11 +46,11 @@ class EloquentRepository implements RepositoryInterface {
     {
         $list = ['tergugat' => 'Tergugat', 'penggugat' => 'Penggugat', 'pelapor' => 'Pelapor'];
         return $list;
-    }    
+    }
 
     public function jenisKelamins()
     {
         $list = ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'];
         return $list;
-    }    
+    }
 }

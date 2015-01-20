@@ -12,7 +12,7 @@ class Officer extends Model {
 
     protected $table = 'officers';
 
-    protected $fillable = ['name', 'nip', 'pangkat_id', 'jabatan_id'];
+    protected $fillable = ['name', 'nip', 'pangkat_id', 'jabatan_id', 'role'];
 
     public function pangkat()
     {

@@ -19,4 +19,6 @@ interface RepositoryInterface {
     public function listJaksa();
 
     public function listStaff();
+
+    public function listRole();
 }
