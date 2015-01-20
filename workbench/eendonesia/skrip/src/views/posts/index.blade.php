@@ -2,8 +2,8 @@
 
 @section('content-admin')
 <div class="container-fluid">
-    <h2 class="page-title">Manajemen Informasi</h2>
-    <a href="{{ route('skrip.posts.create') }}">Create Post</a>
+    <h2 class="page-title">Halaman Informasi <a href="{{ route('skrip.posts.create') }}" class="btn btn-default"><i class="ion-plus"></i> Buat Baru</a></h2>
+
     <table class="table">
         <thead>
             <tr>

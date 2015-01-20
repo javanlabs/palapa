@@ -6700,6 +6700,17 @@ footer {
   font-weight: 400;
   margin-right: 10px;
 }
+body.login {
+  background: transparent url("../images/wallpaper.jpg") no-repeat center center;
+}
+body.login .navbar-header {
+  background-color: #fff;
+  opacity: .8;
+}
+body.login footer {
+  color: #fff;
+  opacity: .8;
+}
 #page-post-view {
   margin-top: 40px;
 }
@@ -6877,4 +6888,9 @@ h2.page-title {
 }
 .dl-horizontal.dl-wide dd {
   margin-bottom: 10px;
+}
+.alert.alert-danger {
+  color: #fff;
+  background-color: #d9534f;
+  border: 0 none;
 }
