@@ -105,7 +105,15 @@ class Cases extends Model {
         return $this->belongsTo('App\Lookup\Lookup', 'penyidik_id');
     }
 
+    public function penyidikExternal()
+    {
+        return $this->belongsTo('App\Lookup\Lookup', 'penyidik_id');
+    }
 
+    public function penyidikInternal()
+    {
+        return $this->belongsTo('App\Officer\Officer', 'penyidik_id');
+    }
 
     public function close()
     {
@@ -221,5 +229,25 @@ class Cases extends Model {
     {
         $this->status = self::STATUS_SUSPEND;
         return $this->save();
+    }
+
+    public function setPenyidikIdAttribute($id)
+    {
+        if(!empty($id))
+        {
+            if(in_array($id[0], ['i', 'e']))
+            {
+                $this->attributes['penyidik_id'] = substr($id, 1);
+
+                if($id[0] == 'i')
+                {
+                    $this->attributes['penyidik_type'] = 'internal';
+                }
+                else
+                {
+                    $this->attributes['penyidik_type'] = 'external';
+                }
+            }
+        }
     }
 }

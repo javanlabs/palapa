@@ -65,7 +65,7 @@ class CaseController extends BackendController {
         $staffLookup = $this->officer->listStaff();
         $cities = Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
-        $penyidikLookup = $this->lookup->lists('penyidik', '-- Pilih Penyidik --');
+        $penyidikLookup = $this->lookup->penyidikPidsus();
 
         $type = $this->lookup->find(Input::get('type', 201));
 
@@ -82,7 +82,7 @@ class CaseController extends BackendController {
         $case = $this->repo->find($id);
         $jaksaLookup = $this->officer->listJaksa();
         $staffLookup = $this->officer->listStaff();
-        $penyidikLookup = $this->lookup->lists('penyidik', '-- Pilih Penyidik --');
+        $penyidikLookup = $this->lookup->penyidikPidsus();
         $type = $this->lookup->find($case->type_id);
 
         return view('backend.cases.edit', compact('penyidikLookup','case', 'jaksaLookup', 'staffLookup', 'type'));

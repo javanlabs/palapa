@@ -165,9 +165,13 @@ trait Presenter {
 
     public function getPenyidikNameAttribute()
     {
-        if($this->penyidik)
+        if($this->attributes['penyidik_type'] == 'external' && $this->penyidikExternal)
         {
-            return $this->penyidik->name;
+            return $this->penyidikExternal->name;
+        }
+        elseif($this->attributes['penyidik_type'] == 'internal' && $this->penyidikInternal)
+        {
+            return $this->penyidikInternal->name;
         }
 
         return false;
@@ -246,5 +250,15 @@ trait Presenter {
     public function getIsAllowCreateDocumentAttribute()
     {
         return $this->jaksa && $this->penyidik && !$this->suspects->isEmpty();
+    }
+
+    public function getPenyidikIdCustomAttribute()
+    {
+        if($this->attributes['penyidik_type'] == 'internal')
+        {
+            return 'i' . $this->attributes['penyidik_id'];
+        }
+
+        return 'e' . $this->attributes['penyidik_id'];
     }
 }

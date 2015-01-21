@@ -1,16 +1,23 @@
 <?php namespace App\Lookup;
 
+use App\Officer\EloquentRepository as OfficerRepository;
+
 class EloquentRepository implements RepositoryInterface {
 
     /**
      * @type lookup
      */
     private $lookup;
+    /**
+     * @var OfficerRepository
+     */
+    private $officer;
 
-    function __construct(Lookup $lookup)
+    function __construct(Lookup $lookup, OfficerRepository $officer)
     {
 
         $this->lookup = $lookup;
+        $this->officer = $officer;
     }
 
     public function find($id)
@@ -52,5 +59,28 @@ class EloquentRepository implements RepositoryInterface {
     {
         $list = ['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'];
         return $list;
+    }
+
+    public function penyidikPidsus()
+    {
+        $penyidikExternal = $this->lists('penyidik');
+
+        $penyidikInternal = $this->officer->listJaksa();
+
+        foreach($penyidikExternal as $key=>$val)
+        {
+            $penyidikExternal['e' . $key] = $val;
+            unset($penyidikExternal[$key]);
+        }
+
+        foreach($penyidikInternal as $key=>$val)
+        {
+            $penyidikInternal['i' . $key] = $val;
+            unset($penyidikInternal[$key]);
+        }
+
+        $lists = ['Penyidik Internal' => $penyidikInternal, 'Penyidik Eksternal' => $penyidikExternal];
+
+        return $lists;
     }
 }
