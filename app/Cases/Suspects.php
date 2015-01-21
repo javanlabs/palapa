@@ -39,6 +39,10 @@ class Suspects extends Model {
         {
             $value = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
         }
+        else
+        {
+            $value = null;
+        }
 
         $this->attributes['tgl_penahanan'] = $value;
     }
@@ -48,6 +52,10 @@ class Suspects extends Model {
         if($value)
         {
             $value = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
+        }
+        else
+        {
+            $value = null;
         }
 
         $this->attributes['dob'] = $value;

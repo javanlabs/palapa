@@ -6743,15 +6743,13 @@ body.login footer {
 #modalSelectCase .list-group .list-group-item.active .fa {
   opacity: 1;
 }
-.box-tersangka .items .item {
-  border: 1px dashed #eeeeee;
-}
-.box-tersangka .items .icon {
+.box-tersangka .item .icon {
   font-size: 2em;
   float: left;
-  margin-right: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
-.box-tersangka .items .name {
+.box-tersangka .item .name {
   line-height: 2em;
 }
 .section-case-tracking .progress {

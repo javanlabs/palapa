@@ -34,7 +34,7 @@
                 locale: "id",
                 className: "modal-delete"
             });
-            $('.btn-delete').on('click', function(e){
+            $(document).on('click', '.btn-delete', function(e){
                 e.preventDefault();
                 var btn = $(this);
                 bootbox.confirm("Anda yakin ingin menghapus data ini?", function(result) {

@@ -142,15 +142,17 @@
             </div>
             @if(count($case->suspects))
             <?php $count = 1;?>
-            <div class="panel-body row items">
+            <table class="table table-condensed items">
                 @foreach($case->suspects as $item)
-                    <div class="col-md-6">
-                        <a class="thumbnail item" style="padding: 10px 20px" href="{{ route('backend.suspect.show', [$item['id']]) }}">
-                            <h5 class="name ell">{{ $item['sex_icon'] }} {{ $item['name'] }}</h5>
-                        </a>
-                    </div>
+                    <tr>
+                        <td>
+                            <a class="item" href="{{ route('backend.suspect.show', [$item['id']]) }}">
+                                <h5 class="name ell">{{ $item['sex_icon'] }} {{ $item['name'] }}</h5>
+                            </a>
+                        </td>
+                    </tr>
                 @endforeach
-            </div>
+            </table>
             @endif
         </div>
 
