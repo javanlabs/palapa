@@ -39,4 +39,9 @@ class FrontendController extends Controller {
         $officers = $officer->jaksa();
         return view('frontend.officer', compact('officers'))->with('page', 'officer');
     }
+
+    public function getSlide()
+    {
+        return view('frontend.slide');
+    }
 }

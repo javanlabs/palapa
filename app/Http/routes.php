@@ -13,6 +13,7 @@
 
 // home screen
 $router->get('/', ['as' => 'home', 'uses' => 'FrontendController@getIndex']);
+$router->get('slide', ['as' => 'slide', 'uses' => 'FrontendController@getSlide']);
 
 $router->controller('frontend', 'FrontendController', [
     'getSearch'  => 'frontend.search',
