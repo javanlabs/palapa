@@ -261,4 +261,20 @@ trait Presenter {
 
         return 'e' . $this->attributes['penyidik_id'];
     }
+
+    public function getScheduleForHumanAttribute()
+    {
+        if($this['schedule_in_days'] == 0)
+        {
+            return 'hari ini';
+        }
+        elseif($this['schedule_in_days'] == 1)
+        {
+            return "besok";
+        }
+        else
+        {
+            return $this['schedule_in_days'] . " hari lagi";
+        }
+    }
 }

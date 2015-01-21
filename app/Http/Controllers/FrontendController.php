@@ -41,7 +41,7 @@ class FrontendController extends Controller {
         return view('frontend.officer', compact('officers'))->with('page', 'officer');
     }
 
-    public function getSlide()
+    public function getSlide(CasesRepository $caseRepository)
     {
         $files = File::allFiles(base_path('public/vendor/slide/images/large'));
         $images = [];
@@ -50,6 +50,8 @@ class FrontendController extends Controller {
             $images[] = asset('vendor/slide/images/large/' . $file->getFilename());
         }
 
-        return view('frontend.slide', compact('images'));
+        $cases = $caseRepository->upcomingSidang();
+
+        return view('frontend.slide', compact('images', 'cases'));
     }
 }

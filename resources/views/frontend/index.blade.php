@@ -43,13 +43,7 @@
                         @forelse($cases as $item)
                             <a href="{{ $item['permalink'] }}" class="btn-detail court">
                                 <small class="date">
-                                    @if($item['schedule_in_days'] == 0)
-                                        hari ini
-                                    @elseif($item['schedule_in_days'] == 1)
-                                        besok
-                                    @else
-                                        {{ $item['schedule_in_days'] }} hari lagi
-                                    @endif
+                                    {{ $item['schedule_for_human'] }}
                                 </small>
                                 {{ $item['name'] }}
                             </a>

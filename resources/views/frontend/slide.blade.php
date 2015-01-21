@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Fullscreen Image Blur Effect with HTML5</title>
+    <title>Kejaksaan Negeri Jember</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fullscreen Image Blur Effect with HTML5 - Blurry Image Transition for Galleries with Canvas and Fallback" />
-    <meta name="keywords" content="blur, html5, canvas, fallback, effect, images, gallery, css3, navigation, blurry, fullscreen" />
-    <meta name="author" content="Codrops" />
     <link rel="icon" type="image/png" href="{{asset('favicon.ico')}}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/slide/css/style.css') }}" />
@@ -25,12 +22,19 @@
             <span>Loading...</span>
         </div>
         <div class="bx-content">
-            <h2>Selamat Datang</h2>
+            <h3></h3>
+            <h2>Jadwal Sidang</h2>
         </div>
         <div class="bx-container">
-            @foreach($images as $img)
-            <img src="{{ $img }}" title="Tenderness"/>
-            @endforeach
+            @if($cases->count() > 0)
+                @foreach($cases as $case)
+                <img src="{{ $images[array_rand($images)] }}" data-title="{{ $case['name'] }}" data-subtitle="{{ $case['schedule_for_human'] }}"/>
+                @endforeach
+            @else
+                @foreach($images as $img)
+                    <img src="{{ $img }}" data-title="" data-subtitle=""/>
+                @endforeach
+            @endif
         </div>
         <div class="bx-overlay"></div>
     </div>
@@ -55,6 +59,7 @@
                     $thumbs				= $bxWrapper.find('div.bx-thumbs > a').hide(),
             // the title for the current image
                     $title				= $bxWrapper.find('h2:first'),
+                    $subtitle			= $bxWrapper.find('h3:first'),
             // current image's index
                     current				= 0,
             // variation to show the image:
@@ -288,7 +293,12 @@
 
                             $.when( $title.fadeOut() ).done( function() {
 
-                                $title.text( $bxNextImage.attr('title') );
+                                $title.text( $bxNextImage.data('title') );
+
+                            });
+                            $.when( $subtitle.fadeOut() ).done( function() {
+
+                                $subtitle.text( $bxNextImage.data('subtitle') );
 
                             });
 
@@ -300,6 +310,7 @@
 
                                     case 1 	:
                                         $title.fadeIn( animOptions.speed );
+                                        $subtitle.fadeIn( animOptions.speed );
                                         $.when( $bxNextImage.fadeIn( animOptions.speed ) ).done( function() {
 
                                             $bxCanvas.css( 'z-index', 1 ).css('visibility','hidden');
@@ -320,6 +331,7 @@
                                             }).show();
 
                                             $title.fadeIn( animOptions.speed );
+                                            $subtitle.fadeIn( animOptions.speed );
 
                                             $.when( $bxNextImage.fadeIn( animOptions.speed ) ).done( function() {
 
@@ -341,6 +353,7 @@
                         else {
 
                             $title.hide().text( $bxNextImage.attr('title') ).fadeIn( animOptions.speed );
+                            $subtitle.hide().text( $bxNextImage.attr('subtitle') ).fadeIn( animOptions.speed );
                             $.when( $bxNextImage.css( 'z-index', 102 ).fadeIn( animOptions.speed ) ).done( function() {
 
                                 current = pos;
