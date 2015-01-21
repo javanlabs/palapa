@@ -282,16 +282,26 @@ class PangkatSeeder extends Seeder {
         $type = 'pangkat';
 
         DB::table('lookups')->whereType($type)->delete();
-        $pangkat = [
-            ['id' => 1, 'name'  => 'Ajun Jaksa Madya', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 2, 'name'  => 'Ajun Jaksa', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 3, 'name'  => 'Jaksa Pratama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 4, 'name'  => 'Jaksa Muda', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+        $pangkat = [            
+            ['id' => 1, 'name'  => 'Jaksa Agung', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 2, 'name'  => 'Jaksa Utama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 3, 'name'  => 'Jaksa Utama Madya', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 4, 'name'  => 'Jaksa Utama Pratama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 5, 'name'  => 'Jaksa Madya', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 6, 'name'  => 'Jaksa Utama Pratama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 7, 'name'  => 'Jaksa Utama Madya', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 8, 'name'  => 'Jaksa Utama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 9, 'name'  => 'Jaksa Agung', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 6, 'name'  => 'Jaksa Muda', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 7, 'name'  => 'Jaksa Pratama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 8, 'name'  => 'Ajun Jaksa', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 9, 'name'  => 'Ajun Jaksa Madya', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 10, 'name'  => 'Ajun Jaksa', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 11, 'name'  => 'Madya Darma TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 12, 'name'  => 'Madya Wira TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 13, 'name'  => 'Muda Darma TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 14, 'name'  => 'Muda Wira TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 15, 'name'  => 'Sena Darma TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 16, 'name'  => 'Sena Wira TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 17, 'name'  => 'Yuana Darma TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 18, 'name'  => 'Yuana Wira TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],                       
+
         ];
         return DB::table('lookups')->insert($pangkat);
     }
@@ -306,8 +316,29 @@ class JabatanSeeder extends Seeder {
 
         DB::table('lookups')->whereType($type)->delete();
         $pangkat = [
-            ['id' => 101, 'name'  => 'Jaksa Penuntut Umum', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 102, 'name'  => 'Jaksa Penuntut Khusus', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 101, 'name'  => 'Kajari Jember', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 102, 'name'  => 'Kasi Intelijen', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 103, 'name'  => 'Kasi Datun', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 104, 'name'  => 'Kasi Pidsus', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 105, 'name'  => 'Jaksa Penuntut Umum', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 106, 'name'  => 'Kasubag Pembinaan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 107, 'name'  => 'Kasi Pidum', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 108, 'name'  => 'Pengelola Data Pegawai', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 109, 'name'  => 'Kaur Keuangan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 110, 'name'  => 'Kaur Daskrimti & Perpustakaan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 111, 'name'  => 'Penyiap Bahan Administrasi Perkara', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 112, 'name'  => 'Kaur Kelengkapan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 113, 'name'  => 'Kaur Kepegawaian', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 114, 'name'  => 'Operator Simkari', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 115, 'name'  => 'Kaur Tata Usaha', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 116, 'name'  => 'Operator Komputer', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 117, 'name'  => 'Penyiap Bahan Intelijen', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 118, 'name'  => 'Pengawal Tahanan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 119, 'name'  => 'Pembuat Laporan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 120, 'name'  => 'Bendahara Pengeluaran', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 121, 'name'  => 'Bendahara Penerima', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 122, 'name'  => 'Petugas Penggandaan', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 123, 'name'  => 'Pengemudi', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
         ];
         return DB::table('lookups')->insert($pangkat);
     }
@@ -351,122 +382,122 @@ class OfficerSeeder extends Seeder {
     {
         $now = Carbon::now()->toDateTimeString();
 
-        DB::table('officers')->truncate();
+        // DB::table('officers')->truncate();
 
-        $jaksa = [
-            [
-                'name'       => "Eko Wahyudi, S.H., M.H.",
-                'nip'        => "19800506 200501 1 006",
-                'pangkat_id' => "3",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Reza Prasetya Nitisasmita, S.H.",
-                'nip'        => "197807726 200212 1 004",
-                'pangkat_id' => "1",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Endah Puspitorini, SH.",
-                'nip'        => "19820419 20050 1 2010",
-                'pangkat_id' => "3",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Adik Sri Sumarsih, S.H., M.M.",
-                'nip'        => "19710916 199803 2 002",
-                'pangkat_id' => "4",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Anak Agung Gede Hendrawan, S.H.",
-                'nip'        => "19811023 200603 1 002",
-                'pangkat_id' => "3",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Lusiana, S.H.",
-                'nip'        => "19730725 200003 2 002",
-                'pangkat_id' => "4",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "I Made Adi Sudiantara, S.H.",
-                'nip'        => "19691110 199803 1 001",
-                'pangkat_id' => "4",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Danni Arthana, S.H.",
-                'nip'        => "19801209 200702 1 001",
-                'pangkat_id' => "2",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Eko Tjahjono, S.H., M.H.",
-                'nip'        => "19671229 198803 1 002",
-                'pangkat_id' => "5",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Tendik Wicaksono, S.H., M.H.",
-                'nip'        => "19781024 200501 1 004",
-                'pangkat_id' => "3",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
+        // $jaksa = [
+        //     [
+        //         'name'       => "Eko Wahyudi, S.H., M.H.",
+        //         'nip'        => "19800506 200501 1 006",
+        //         'pangkat_id' => "3",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Reza Prasetya Nitisasmita, S.H.",
+        //         'nip'        => "197807726 200212 1 004",
+        //         'pangkat_id' => "1",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Endah Puspitorini, SH.",
+        //         'nip'        => "19820419 20050 1 2010",
+        //         'pangkat_id' => "3",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Adik Sri Sumarsih, S.H., M.M.",
+        //         'nip'        => "19710916 199803 2 002",
+        //         'pangkat_id' => "4",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Anak Agung Gede Hendrawan, S.H.",
+        //         'nip'        => "19811023 200603 1 002",
+        //         'pangkat_id' => "3",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Lusiana, S.H.",
+        //         'nip'        => "19730725 200003 2 002",
+        //         'pangkat_id' => "4",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "I Made Adi Sudiantara, S.H.",
+        //         'nip'        => "19691110 199803 1 001",
+        //         'pangkat_id' => "4",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Danni Arthana, S.H.",
+        //         'nip'        => "19801209 200702 1 001",
+        //         'pangkat_id' => "2",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Eko Tjahjono, S.H., M.H.",
+        //         'nip'        => "19671229 198803 1 002",
+        //         'pangkat_id' => "5",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Tendik Wicaksono, S.H., M.H.",
+        //         'nip'        => "19781024 200501 1 004",
+        //         'pangkat_id' => "3",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
 
-        ];
+        // ];
 
-        foreach($jaksa as $data)
-        {
-            $data['role'] = 'jaksa';
-            DB::table('officers')->insert($data);
-        }
+        // foreach($jaksa as $data)
+        // {
+        //     $data['role'] = 'jaksa';
+        //     DB::table('officers')->insert($data);
+        // }
 
-        $staff = [
-            [
-                'name'       => "Staff 1",
-                'nip'        => "0000001",
-                'pangkat_id' => "1",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-            [
-                'name'       => "Staff 2",
-                'nip'        => "0000002",
-                'pangkat_id' => "1",
-                'jabatan_id' => "101",
-                'created_at' => $now,
-                'updated_at' => $now
-            ],
-        ];
+        // $staff = [
+        //     [
+        //         'name'       => "Staff 1",
+        //         'nip'        => "0000001",
+        //         'pangkat_id' => "1",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        //     [
+        //         'name'       => "Staff 2",
+        //         'nip'        => "0000002",
+        //         'pangkat_id' => "1",
+        //         'jabatan_id' => "101",
+        //         'created_at' => $now,
+        //         'updated_at' => $now
+        //     ],
+        // ];
 
-        foreach($staff as $data)
-        {
-            $data['role'] = 'staff';
-            DB::table('officers')->insert($data);
-        }
+        // foreach($staff as $data)
+        // {
+        //     $data['role'] = 'staff';
+        //     DB::table('officers')->insert($data);
+        // }
 
         return true;
     }
