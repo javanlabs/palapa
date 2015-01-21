@@ -1,5 +1,6 @@
 <?php namespace App\Lookup;
 
+use App\Cases\Cases;
 use App\Officer\EloquentRepository as OfficerRepository;
 
 class EloquentRepository implements RepositoryInterface {
@@ -61,25 +62,26 @@ class EloquentRepository implements RepositoryInterface {
         return $list;
     }
 
-    public function penyidikPidsus()
+    public function penyidik($type)
     {
         $penyidikExternal = $this->lists('penyidik');
-
-        $penyidikInternal = $this->officer->listJaksa();
-
         foreach($penyidikExternal as $key=>$val)
         {
             $penyidikExternal['e' . $key] = $val;
             unset($penyidikExternal[$key]);
         }
+        $lists = ['Penyidik Eksternal' => $penyidikExternal];
 
-        foreach($penyidikInternal as $key=>$val)
+        if($type == Cases::TYPE_PIDSUS)
         {
-            $penyidikInternal['i' . $key] = $val;
-            unset($penyidikInternal[$key]);
+            $penyidikInternal = $this->officer->listJaksa();
+            foreach($penyidikInternal as $key=>$val)
+            {
+                $penyidikInternal['i' . $key] = $val;
+                unset($penyidikInternal[$key]);
+            }
+            $lists['Penyidik Internal'] = $penyidikInternal;
         }
-
-        $lists = ['Penyidik Internal' => $penyidikInternal, 'Penyidik Eksternal' => $penyidikExternal];
 
         return $lists;
     }

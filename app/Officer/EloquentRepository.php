@@ -50,14 +50,29 @@ class EloquentRepository implements RepositoryInterface {
         return $this->officer->findOrFail($id)->delete();
     }
 
-    public function listJaksa()
+    public function listJaksa($empty = null)
     {
-        return $this->officer->jaksa()->lists('name', 'id');
+        $list = $this->officer->jaksa()->lists('name', 'id');
+
+        if($empty)
+        {
+            $list = ['' => $empty] + $list;
+        }
+
+        return $list;
     }
 
-    public function listStaff()
+    public function listStaff($empty = null)
     {
-        return $this->officer->staff()->lists('name', 'id');
+        $list = $this->officer->staff()->lists('name', 'id');
+
+        if($empty)
+        {
+            $list = ['' => $empty] + $list;
+        }
+
+        return $list;
+
     }
 
     public function listRole()
