@@ -242,4 +242,9 @@ trait Presenter {
 
         return false;
     }
+
+    public function getIsAllowCreateDocumentAttribute()
+    {
+        return $this->jaksa && $this->penyidik && !$this->suspects->isEmpty();
+    }
 }

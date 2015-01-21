@@ -156,6 +156,7 @@
 
         <div class="panel panel-default">
             <div class="panel-heading"><i class="ion-document-text icon"></i> Dokumen</div>
+            @if($case['is_allow_create_document'])
             <table class="table">
                 @foreach($templates as $item)
                 <tr>
@@ -175,6 +176,11 @@
                 </tr>
                 @endforeach
             </table>
+            @else
+                <div class="panel-body">
+                    <div class="alert alert-warning">Untuk membuat dokumen, silakan lengkapi data jaksa, data penyidik, dan data tersangka.</div>
+                </div>
+            @endif
 
         </div>
 
