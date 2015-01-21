@@ -12,6 +12,9 @@ class Cases extends Model {
     const STATUS_FINISH     = 'finish';
     const STATUS_SUSPEND    = 'suspend';
 
+    const TYPE_PIDUM    = 201;
+    const TYPE_PIDSUS   = 202;
+
     use SoftDeletes, Presenter, DateSetter;
 
     protected $table = 'cases';

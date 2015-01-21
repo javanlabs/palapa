@@ -1,6 +1,5 @@
 <?php namespace App\Http\Controllers\Backend;
 
-use App\Cases\EloquentRepository;
 use App\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -24,15 +23,25 @@ class DocumentController extends Controller {
         }
 
 		$template = Template::findOrFail(Input::get('template_id'));
-		$templateFile = 'template.' . Input::get('template');
-		$setting = Setting::lists('value', 'key');
 
+        if($case->type_id == Cases::TYPE_PIDUM)
+        {
+            $templateFile = 'template.' . Input::get('template');
+        }
+        else
+        {
+            $templateFile = 'template.' . $case->type_id . '.' . Input::get('template');
+        }
 
 		if(!View::exists($templateFile)){
 			return 'template not found';
 		}
 
-		$content = view($templateFile, compact('case', 'setting'));
+        $setting = Setting::lists('value', 'key');
+        $today['day'] = date('l');
+        $today['date'] = date('d-m-Y');
+
+        $content = view($templateFile, compact('case', 'setting', 'today'));
 
 
 		// $document = Document::create([
