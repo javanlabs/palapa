@@ -137,8 +137,18 @@
 
 @section('script-end')
     @parent
+
+    <script type="text/javascript" src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
+
     <script>
         $(function(){
+
+            $(document).idle({
+                onIdle: function(){
+                    document.location = '{{ route('slide') }}';
+                },
+                idle: 1000 * 60 * 10 // 10 minute
+            })
 
             $(document).keypress(function(e) {
                 var key = String.fromCharCode(e.which);

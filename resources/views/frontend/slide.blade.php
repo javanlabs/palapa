@@ -16,6 +16,9 @@
     </noscript>
 </head>
 <body>
+
+<a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
+
 <div class="container">
     <div id="bx-wrapper" class="bx-wrapper">
         <div class="bx-loading">
@@ -41,8 +44,22 @@
 </div>
 <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/slide/js/StackBlur.js') }}"></script>
+{{--<script type="text/javascript" src="{{ asset('vendor/jquery.fittext.js') }}"></script>--}}
+{{--<script type="text/javascript" src="{{ asset('vendor/jquery.textfill.js') }}"></script>--}}
+<script type="text/javascript" src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
+
 <script type="text/javascript">
     $(function() {
+
+        $(document).idle({
+            onIdle: function(){
+                $('#btn-stop').hide()
+            },
+            onActive: function(){
+                $('#btn-stop').show()
+            },
+            idle: 3000
+        })
 
         var BlurBGImage	= (function() {
 
@@ -67,12 +84,12 @@
             // (2) - blurs the current one, fades out, shows the next one (but initially blurred)
             // speed is the speed of the animation
             // blur Factor is the factor used in the StackBlur script
-                    animOptions			= { speed : 700, variation : 2, blurFactor : 10 },
+                    animOptions			= { speed : 500, variation : 2, blurFactor : 10 },
             // control if currently animating
                     isAnim				= false,
             // check if canvas is supported
                     supportCanvas 		= Modernizr.canvas,
-                    slideshow_interval	= 5000,
+                    slideshow_interval	= 3000,
                     slideshow_time,
             // init function
                     init				= function() {
@@ -294,12 +311,13 @@
                             $.when( $title.fadeOut() ).done( function() {
 
                                 $title.text( $bxNextImage.data('title') );
+//                                $title.fitText();
+//                                $title.textfill({});
 
                             });
                             $.when( $subtitle.fadeOut() ).done( function() {
 
                                 $subtitle.text( $bxNextImage.data('subtitle') );
-
                             });
 
                             $bxCanvas.css( 'z-index', 100 ).css('visibility','visible');
