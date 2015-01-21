@@ -17,6 +17,7 @@
     <script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('vendor/bootbox.js') }}"></script>
+    <script src="{{ asset('vendor/combodate.js') }}"></script>
 
     <script>
         $(function(){
@@ -30,7 +31,7 @@
             bootbox.setDefaults({
                 locale: "id",
             });
-            
+
             $(document).on('click', '.btn-delete', function(e){
                 e.preventDefault();
                 var btn = $(this);
@@ -40,6 +41,11 @@
                         btn.parent('form').submit();
                     }
                 });
+            });
+
+            $('.datetimepicker').combodate({
+                format: 'YYYY-MM-DD HH:mm:00',
+                template: 'DD - MMM - YYYY HH : mm'
             });
 
         });

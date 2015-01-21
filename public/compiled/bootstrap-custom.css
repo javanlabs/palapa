@@ -6892,6 +6892,9 @@ h2.page-title {
 .panel-footer {
   text-align: center;
 }
+.combodate {
+  display: block;
+}
 .dl-horizontal.dl-wide dd {
   margin-bottom: 10px;
 }

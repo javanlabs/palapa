@@ -68,8 +68,9 @@ class CaseController extends BackendController {
 
         $type = $this->lookup->find(Input::get('type', 201));
         $penyidikLookup = $this->lookup->penyidik($type->id);
+        $categories = $this->lookup->categoryPidum('-- Pilih Kategori --');
 
-        return view('backend.cases.create', compact('penyidikLookup','jaksaLookup', 'staffLookup', 'cities', 'religions', 'type'));
+        return view('backend.cases.create', compact('penyidikLookup','jaksaLookup', 'staffLookup', 'cities', 'religions', 'type', 'categories'));
     }
 
     public function store(Form $form)
@@ -84,8 +85,9 @@ class CaseController extends BackendController {
         $staffLookup = $this->officer->listStaff();
         $type = $this->lookup->find($case->type_id);
         $penyidikLookup = $this->lookup->penyidik($type->id);
+        $categories = $this->lookup->categoryPidum('-- Pilih Kategori --');
 
-        return view('backend.cases.edit', compact('penyidikLookup','case', 'jaksaLookup', 'staffLookup', 'type'));
+        return view('backend.cases.edit', compact('penyidikLookup','case', 'jaksaLookup', 'staffLookup', 'type', 'categories'));
     }
 
     public function update(Form $form, $id){

@@ -1,4 +1,7 @@
 {{ BootForm::text('Kasus Posisi', 'kasus')->value($case->kasus) }}
+{{ BootForm::select('Kategori', 'category')->options($categories)->select($case->category) }}
+{{ BootForm::text('Tempat Kejadian', 'crime_place')->value($case->crime_place) }}
+{{ BootForm::text('Waktu', 'crime_time')->addClass('datetimepicker')->value($case->crime_time) }}
 {{ BootForm::textarea('Pasal yang disangkakan', 'pasal')->rows(3)->value($case->pasal) }}
 {{ BootForm::select('Penyidik', 'penyidik_id')->options($penyidikLookup)->select($case->penyidik_id) }}
 {{ BootForm::select('Jaksa Penuntut Umum', 'jaksa_id')->options($jaksaLookup)->select($case->jaksa_id) }}

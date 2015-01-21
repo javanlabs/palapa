@@ -85,4 +85,16 @@ class EloquentRepository implements RepositoryInterface {
 
         return $lists;
     }
+
+    public function categoryPidum($empty = null)
+    {
+        $list = ['tpul' => 'TPUL', 'orharga' => 'ORHARGA', 'kamtibum' => 'KAMTIBUM'];
+
+        if($empty)
+        {
+            $list = ['' => $empty] + $list;
+        }
+
+        return $list;
+    }
 }
