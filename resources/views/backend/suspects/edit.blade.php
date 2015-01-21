@@ -3,6 +3,7 @@
 @section('trails')
     <div class="trail"><a href="{{ route('backend.cases.show', [$caseId]) }}"><i class="ion-ios-arrow-back"></i> Kembali</a></div>
 @stop
+
 @section('content-admin')
     {{ BootForm::open()->put()->action(route('backend.suspect.update', [$suspect['id']])) }}
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>

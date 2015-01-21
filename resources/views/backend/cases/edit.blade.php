@@ -1,6 +1,10 @@
-@extends('layouts.single')
+@extends('layouts.admin.empty')
 
-@section('content')
+@section('trails')
+    <div class="trail"><a href="{{ route('backend.cases.show', [$case->id]) }}"><i class="ion-ios-arrow-back"></i> Kembali</a></div>
+@stop
+
+@section('content-admin')
     {{ BootForm::open()->put()->action(route('backend.cases.update', [$case->id])) }}
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
