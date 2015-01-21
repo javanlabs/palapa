@@ -6582,6 +6582,14 @@ footer {
   padding: 40px;
   margin-top: 100px;
 }
+footer a {
+  color: #777777;
+  opacity: 0;
+}
+footer a:hover {
+  color: #777777;
+  opacity: 1;
+}
 .section-menu-grid .item {
   width: 33%;
   padding: 0;

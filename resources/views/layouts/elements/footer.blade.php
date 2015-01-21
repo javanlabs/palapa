@@ -1,5 +1,7 @@
-<div class="footer navbar navbar-fixed-bottom hidden-print">
-    <div class="container">
-        <div class="footer-copyright text-center">Hak Cipta © 2014 Kejaksaan Negeri Jember.</div>
-    </div>
-</div>
+<footer class="text-center text-muted hidden-print">
+    <a href="{{ route('admin.home') }}" class="animated fade">
+        <i class="fa fa-university"></i>
+    </a>
+    <br/>
+    <small>&copy; {{ date('Y') }} Kejaksaan Negeri Jember</small>
+</footer>

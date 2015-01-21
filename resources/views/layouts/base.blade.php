@@ -36,11 +36,7 @@
 
     @yield('body')
 
-    <footer class="text-center text-muted hidden-print">
-        <i class="fa fa-university"></i>
-        <br/>
-        <small>&copy; {{ date('Y') }} Kejaksaan Negeri Jember</small>
-    </footer>
+    @include('layouts.elements.footer')
 
     <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
