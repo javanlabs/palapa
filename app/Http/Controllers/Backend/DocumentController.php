@@ -62,7 +62,8 @@ class DocumentController extends Controller {
 	public function edit($id)
 	{
 		$document = Document::findOrFail($id);
-		$case = $document->case;
+		$case = $document->cases;
+
 		return view('backend.document.edit', compact('document', 'case'));
 	}
 

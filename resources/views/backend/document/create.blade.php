@@ -33,7 +33,7 @@
                 <input type='hidden' name='case_id' value='{{$case->id}}'/>
                 <input type='hidden' name='template_id' value='{{$template->id}}'/>
                 <input type='hidden' name='title' value='{{$template->short_title}} {{$template->title}}'/>
-                {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($content) }}                
+                {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($content) }}
             {{ BootForm::close() }}
 
             <div id="previewContainer" class="preview-container"></div>
@@ -66,6 +66,7 @@
 @stop
 
 @section('script-end')
+    @parent
     <script src="{{ asset('vendor/redactor/redactor.min.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>

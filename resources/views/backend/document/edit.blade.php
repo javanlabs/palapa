@@ -14,7 +14,7 @@
         border: 1px solid #eee;
         }
     </style>
-    
+
     <style>
         #previewContainer{
             display: none;
@@ -52,8 +52,8 @@
         <hr />
         <a class="btn btn-default btn-block" href="#" id="btnPreview" data-toggle="modal" data-target=".modal-preview"><i class="fa fa-eye"></i> Preview</a>
         <a class="btn btn-success btn-block btn-print" href="#"><i class="fa fa-print"></i> Print</a>
-        <hr />{{$case}}
-        <a class="btn btn-default btn-block" href="{{ route('backend.cases.show', [1]) }}">Batal</a>
+        <hr />
+        <a class="btn btn-default btn-block" href="{{ $case['permalink_edit'] }}">Kembali</a>
     </div>
 </div>
 
