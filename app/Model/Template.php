@@ -16,6 +16,11 @@ class Template extends Model {
         return base_path('resources/views/template/' . $type . '/' . $name . '.blade.php');
     }
 
+    public function scopeByCaseType($query, $type)
+    {
+        return $query->where('case_type_id', '=', $type);
+    }
+
     public static function optionsSelect($case_id){
     	$rows = Template::where('type_id','=',$case_id)->get();
     	$result = array();

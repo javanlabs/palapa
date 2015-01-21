@@ -110,7 +110,7 @@ class CaseController extends BackendController {
         $phases = $this->sopRepo->byType($case->type_id);
         $activities = $this->repo->activities($case);
         $checklistIds = $case->checklist->lists('id');
-        $templates = $case->templates();
+        $templates = Template::byCaseType($case->type_id)->get();
         $documentsIds = $case->documents->lists('template_id', 'id');
         $sop = $this->sopRepo;
 

@@ -82,11 +82,6 @@ class Cases extends Model {
         return $this->hasMany('App\Cases\Document', 'case_id');
     }
 
-    public function templates(){
-
-        return Template::get();
-    }
-
     public function phaseHistory()
     {
         return $this->belongsToMany('App\Sop\Phase', 'cases_phases_history', 'case_id', 'phase_id')->withPivot('start_date', 'finish_date')->orderBy('start_date');
