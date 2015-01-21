@@ -9,7 +9,7 @@
         </div>
     </nav>
 
-    <div id="page-admin-empty" class="container" style="width: 800px">
+    <div id="page-admin-empty" class="container" style="width: 900px">
         @yield('content-admin')
     </div>
 @stop

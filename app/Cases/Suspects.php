@@ -13,7 +13,7 @@ class Suspects extends Model {
 
     protected $table = 'suspects';
 
-    protected $fillable = ['type', 'name', 'pob_id', 'dob', 'age', 'religion', 'address', 'city_id', 'nationality', 'job', 'education', 'nama_pimpinan', 'tahanan', 'tgl_penahanan', 'status', 'sex'];
+    protected $fillable = ['type', 'name', 'pob_id', 'dob', 'age', 'religion', 'address', 'city_id', 'nationality', 'job', 'education', 'nama_pimpinan', 'tahanan', 'tgl_penahanan', 'nomor_penahanan', 'status', 'sex'];
 
      protected $dates = [];
 

@@ -67,10 +67,10 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4">{{ BootForm::select('Status', 'status')->options($status)->select($suspect['status']) }}</div>
-                <div class="col-md-4">{{ BootForm::select('Status Tahanan', 'tahanan')->options($jenisTahanan)->select($suspect['tahanan']) }}</div>
-                <div class="col-md-4">{{ BootForm::text('Tanggal Penahanan', 'tgl_penahanan')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2)->value($suspect['tgl_penahanan']) }}</div>
-
+                <div class="col-md-3">{{ BootForm::select('Status', 'status')->options($status)->select($suspect['status']) }}</div>
+                <div class="col-md-3">{{ BootForm::select('Status Tahanan', 'tahanan')->options($jenisTahanan)->select($suspect['tahanan']) }}</div>
+                <div class="col-md-3">{{ BootForm::text('Tanggal Penahanan', 'tgl_penahanan')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2)->value($suspect['tgl_penahanan']) }}</div>
+                <div class="col-md-3">{{ BootForm::text('Nomor Penahanan', 'nomor_penahanan')->value($suspect['nomor_penahanan']) }}</div>
             </div>
         </div>
         <div class="panel-footer">
