@@ -6901,3 +6901,20 @@ h2.page-title {
   background-color: #d9534f;
   border: 0 none;
 }
+.bootbox-confirm .modal-content {
+  background-color: #d9534f;
+  color: #fff;
+}
+.bootbox-confirm .modal-footer {
+  border-top: 0 none;
+}
+.bootbox-confirm .modal-footer .btn-primary {
+  background-color: #fff;
+  color: #d9534f;
+  border: 0 none;
+}
+.bootbox-confirm .modal-footer .btn-default {
+  color: #fff;
+  background-color: transparent;
+  border: 0 none;
+}

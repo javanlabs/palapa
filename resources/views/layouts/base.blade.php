@@ -46,7 +46,6 @@
     <script src="{{ asset('vendor/moment-with-locales.js') }}"></script>
     <script src="{{ asset('vendor/jquery.cookie.js') }}"></script>
     <script src="{{ asset('vendor/jquery.blockUI.js') }}"></script>
-    <script src="{{ asset('vendor/bootbox.min.js') }}"></script>
     <script>
         $(function(){
             moment.locale('id');
