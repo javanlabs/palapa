@@ -6,6 +6,7 @@ use App\Sop\RepositoryInterface;
 use Illuminate\Http\Request;
 use App\Cases\RepositoryInterface as CasesRepository;
 use App\Officer\RepositoryInterface as OfficerRepository;
+use Illuminate\Support\Facades\File;
 
 class FrontendController extends Controller {
 
@@ -42,6 +43,13 @@ class FrontendController extends Controller {
 
     public function getSlide()
     {
-        return view('frontend.slide');
+        $files = File::allFiles(base_path('public/vendor/slide/images/large'));
+        $images = [];
+        foreach($files as $file)
+        {
+            $images[] = asset('vendor/slide/images/large/' . $file->getFilename());
+        }
+
+        return view('frontend.slide', compact('images'));
     }
 }

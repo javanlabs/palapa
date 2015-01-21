@@ -10,7 +10,6 @@
     <meta name="author" content="Codrops" />
     <link rel="icon" type="image/png" href="{{asset('favicon.ico')}}">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/slide/css/demo.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/slide/css/style.css') }}" />
     <script type="text/javascript" src="{{ asset('vendor/slide/js/modernizr.custom.21750.js') }}"></script>
     <noscript>
@@ -26,12 +25,11 @@
             <span>Loading...</span>
         </div>
         <div class="bx-content">
-            <h2>Autoplay</h2>
-            <h3>7 seconds</h3>
+            <h2>Selamat Datang</h2>
         </div>
         <div class="bx-container">
             @foreach($images as $img)
-            <img src="{{ $img }}" alt="image06" title="Tenderness"/>
+            <img src="{{ $img }}" title="Tenderness"/>
             @endforeach
         </div>
         <div class="bx-overlay"></div>
@@ -53,6 +51,10 @@
                     $bxImgs				= $bxContainer.children('img'),
             // total number of bg images
                     bxImgsCount			= $bxImgs.length,
+            // the thumb elements
+                    $thumbs				= $bxWrapper.find('div.bx-thumbs > a').hide(),
+            // the title for the current image
+                    $title				= $bxWrapper.find('h2:first'),
             // current image's index
                     current				= 0,
             // variation to show the image:
@@ -65,10 +67,8 @@
                     isAnim				= false,
             // check if canvas is supported
                     supportCanvas 		= Modernizr.canvas,
-            // slideshow
-                    slideshow_interval	= 7000,
+                    slideshow_interval	= 5000,
                     slideshow_time,
-
             // init function
                     init				= function() {
 
@@ -94,6 +94,9 @@
 
                                     // all images and canvas loaded
                                     if( loaded === bxImgsCount ) {
+
+                                        // show thumbs
+                                        $thumbs.fadeIn();
 
                                         // apply style for bg image and canvas
                                         centerImageCanvas();
@@ -155,13 +158,13 @@
 
                                     canvas	= document.createElement('canvas');
 
-                            canvas.className		= 'bx-canvas';
-                            canvas.width 			= imgW;
-                            canvas.height 			= imgH;
-                            canvas.style.width  	= imgW + 'px';
-                            canvas.style.height 	= imgH + 'px';
-                            canvas.style.left		= imgL + 'px';
-                            canvas.style.top		= imgT + 'px';
+                            canvas.className	= 'bx-canvas';
+                            canvas.width 		= imgW;
+                            canvas.height 		= imgH;
+                            canvas.style.width  = imgW + 'px';
+                            canvas.style.height = imgH + 'px';
+                            canvas.style.left	= imgL + 'px';
+                            canvas.style.top	= imgT + 'px';
                             canvas.style.visibility = 'hidden';
                             // save position of canvas to know which image this is linked to
                             canvas.setAttribute('data-pos', pos);
@@ -221,6 +224,26 @@
 
                         });
 
+                        // clicking on a thumb shows the respective bg image
+                        $thumbs.on('click.BlurBGImage', function( event ) {
+
+                            var $thumb	= $(this),
+                                    pos		= $thumb.index();
+
+                            if( !isAnim && pos !== current ) {
+
+                                $thumbs.removeClass('bx-thumbs-current');
+                                $thumb.addClass('bx-thumbs-current');
+                                isAnim = true;
+                                // show the bg image
+                                showImage( pos );
+
+                            }
+
+                            return false;
+
+                        });
+
                     },
             // apply style for bg image and canvas
                     centerImageCanvas	= function() {
@@ -263,6 +286,12 @@
                         // if canvas is supported
                         if( supportCanvas ) {
 
+                            $.when( $title.fadeOut() ).done( function() {
+
+                                $title.text( $bxNextImage.attr('title') );
+
+                            });
+
                             $bxCanvas.css( 'z-index', 100 ).css('visibility','visible');
 
                             $.when( $bxImage.fadeOut( animOptions.speed ) ).done( function() {
@@ -270,6 +299,7 @@
                                 switch( animOptions.variation ) {
 
                                     case 1 	:
+                                        $title.fadeIn( animOptions.speed );
                                         $.when( $bxNextImage.fadeIn( animOptions.speed ) ).done( function() {
 
                                             $bxCanvas.css( 'z-index', 1 ).css('visibility','hidden');
@@ -288,6 +318,8 @@
                                                 'z-index' 		: 1,
                                                 'visibility'	: 'hidden'
                                             }).show();
+
+                                            $title.fadeIn( animOptions.speed );
 
                                             $.when( $bxNextImage.fadeIn( animOptions.speed ) ).done( function() {
 
@@ -308,6 +340,7 @@
                         // if canvas is not shown just work with the bg images
                         else {
 
+                            $title.hide().text( $bxNextImage.attr('title') ).fadeIn( animOptions.speed );
                             $.when( $bxNextImage.css( 'z-index', 102 ).fadeIn( animOptions.speed ) ).done( function() {
 
                                 current = pos;
