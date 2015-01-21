@@ -1,4 +1,9 @@
-@extends('layouts.frontend.frontend')
+@extends('layouts.full.full')
+
+@section('breadcrumb')
+    <span class="trail">Statistik</span>
+@stop
+
 @section('content')
     <h2>Statistik Kasus</h2>
 <ul class="nav nav-tabs">

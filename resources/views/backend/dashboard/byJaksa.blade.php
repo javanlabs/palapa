@@ -1,17 +1,17 @@
-@extends('layouts.admin.admin')
+@extends('layouts.full.full')
 
 @section('breadcrumb')
     @parent
-    <span class="trail"><i class="fa fa-angle-right"></i></span>
     <span class="trail">Statistik</span>
 @stop
 
-@section('content-admin')
+@section('content')
 
-    @include('backend.dashboard.tab', ['active' => 'byJaksa'])
+    <div class="container">
+        @include('backend.dashboard.tab', ['active' => 'byJaksa'])
 
-    <table class="table">
-        <thead>
+        <table class="table">
+            <thead>
             <tr>
                 <th rowspan="2" class="text-center">Nama Jaksa</th>
                 <th colspan="2" class="text-center">Jumlah Kasus</th>
@@ -20,15 +20,17 @@
                 <th class="text-center">Aktif</th>
                 <th class="text-center">Total</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             @foreach($officers as $officer)
-            <tr>
-                <td>{{ $officer->name }}</td>
-                <td class="text-center">{{ $officer->activeCases->count() }}</td>
-                <td class="text-center">{{ $officer->cases->count() }}</td>
-            </tr>
+                <tr>
+                    <td>{{ $officer->name }}</td>
+                    <td class="text-center">{{ $officer->activeCases->count() }}</td>
+                    <td class="text-center">{{ $officer->cases->count() }}</td>
+                </tr>
             @endforeach
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+
+    </div>
 @stop

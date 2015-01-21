@@ -18,7 +18,7 @@
                 @if(Auth::guest())
                     <a class="list-group-item" href="{{ route('gapura.login') }}"><i class="fa fa-sign-in"></i> Login</a>
                 @else
-                    <a class="list-group-item {{ (isset($page) && $page == 'backend-dashboard')?'active':'' }}" href="{{ route('dashboard.index') }}"><i class="fa fa-area-chart"></i> Statistik</a>
+                    {{--<a class="list-group-item {{ (isset($page) && $page == 'backend-dashboard')?'active':'' }}" href="{{ route('dashboard.index') }}"><i class="fa fa-area-chart"></i> Statistik</a>--}}
                     <a class="list-group-item {{ (isset($page) && $page == 'backend-officer')?'active':'' }}" href="{{ route('backend.officers.index') }}"><i class="fa fa-users"></i> Manajemen SDM</a>
                     <a class="list-group-item {{ (isset($page) && $page == 'backend-posts')?'active':'' }}" href="/skrip/posts"><i class="fa fa-info"></i> Halaman Informasi</a>
                     <a class="list-group-item {{ (isset($page) && $page == 'backend-template')?'active':'' }}" href="{{ route('backend.templates.index') }}"><i class="fa fa-file-text-o"></i> Template Surat</a>

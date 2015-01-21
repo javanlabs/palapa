@@ -1,38 +1,40 @@
-@extends('layouts.admin.admin')
+@extends('layouts.full.full')
 
 @section('breadcrumb')
     @parent
-    <span class="trail"><i class="fa fa-angle-right"></i></span>
     <span class="trail">Statistik</span>
 @stop
 
-@section('content-admin')
+@section('content')
 
-    @include('backend.dashboard.tab', ['active' => 'byStatus'])
+    <div class="container">
 
-    <div id="chart" style="width: 100%; height: 300px"></div>
+        @include('backend.dashboard.tab', ['active' => 'byStatus'])
 
-    <hr/>
+        <div id="chart" style="width: 100%; height: 300px"></div>
 
-    <table class="table table-condensed">
-        <thead>
+        <hr/>
+
+        <table class="table table-condensed">
+            <thead>
             <tr>
                 <th>Bulan</th>
                 <th>Kasus Baru</th>
                 <th>Kasus Ditutup</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             @foreach($stat as $row)
-            <tr>
-                <td>{{ $row['month'] }} {{ $row['year'] }}</td>
-                <td>{{ $row['open'] }}</td>
-                <td>{{ $row['close'] }}</td>
-            </tr>
+                <tr>
+                    <td>{{ $row['month'] }} {{ $row['year'] }}</td>
+                    <td>{{ $row['open'] }}</td>
+                    <td>{{ $row['close'] }}</td>
+                </tr>
             @endforeach
             <tr></tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 @stop
 
 

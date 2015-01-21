@@ -1,46 +1,47 @@
-@extends('layouts.admin.admin')
+@extends('layouts.full.full')
 
 @section('breadcrumb')
     @parent
-    <span class="trail"><i class="fa fa-angle-right"></i></span>
     <span class="trail">Statistik</span>
 @stop
 
-@section('content-admin')
+@section('content')
 
-    @include('backend.dashboard.tab', ['active' => 'byPhase'])
+    <div class="container">
+        @include('backend.dashboard.tab', ['active' => 'byPhase'])
 
-    <label for="">Pilih Jenis Kasus:</label>
-    {{ Form::open(['id' => 'formType', 'method' => 'GET']) }}
-    {{ Form::select('type', $types, $type, ['id' => 'selectType', 'style' => 'width: 300px;']) }}
-    {{ Form::hidden('year', $year) }}
-    {{ Form::close() }}
-    <hr />
+        <label for="">Pilih Jenis Kasus:</label>
+        {{ Form::open(['id' => 'formType', 'method' => 'GET']) }}
+        {{ Form::select('type', $types, $type, ['id' => 'selectType', 'style' => 'width: 300px;']) }}
+        {{ Form::hidden('year', $year) }}
+        {{ Form::close() }}
+        <hr />
 
-    <div id="chart" style="width: 100%; height: 300px"></div>
+        <div id="chart" style="width: 100%; height: 300px"></div>
 
-    <hr/>
+        <hr/>
 
-    <table class="table table-condensed">
-        <thead>
+        <table class="table table-condensed">
+            <thead>
             <tr>
                 <th>Bulan</th>
                 @foreach($stat['series'] as $row)
-                <th>{{ $row['name'] }}</th>
+                    <th>{{ $row['name'] }}</th>
                 @endforeach
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             @foreach($stat['data'] as $row)
-            <tr>
-                <td>{{ $row['month'] }} {{ $row['year'] }}</td>
-                @foreach($stat['series'] as $phase)
-                <td>{{ $row[$phase['name']] }}</td>
-                @endforeach
-            </tr>
+                <tr>
+                    <td>{{ $row['month'] }} {{ $row['year'] }}</td>
+                    @foreach($stat['series'] as $phase)
+                        <td>{{ $row[$phase['name']] }}</td>
+                    @endforeach
+                </tr>
             @endforeach
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 @stop
 
 

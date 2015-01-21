@@ -80,9 +80,9 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('admin.home') }}" data-keymap="7">
+                        <a href="{{ route('dashboard.index') }}" data-keymap="7">
                             <small class="keymap">7</small>
-                            <h3 class="title">Admin</h3>
+                            <h3 class="title">Statistik</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
@@ -109,6 +109,13 @@
                     </div>
                 </td>
                 <td class="item">
+                    <div class="inner">
+                        <a href="{{ route('admin.home') }}" data-keymap="8">
+                            <small class="keymap">8</small>
+                            <h3 class="title">Admin</h3>
+                            <i class="ion-ios-arrow-forward icon"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
 
