@@ -1,5 +1,5 @@
 <footer class="text-center text-muted hidden-print">
-    <a href="{{ route('admin.home') }}" class="animated fade">
+    <a href="{{ route('admin.home') }}" class="">
         <i class="fa fa-university"></i>
     </a>
     <br/>
