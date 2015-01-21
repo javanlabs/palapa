@@ -20,8 +20,15 @@
 @endif
 
 @if (Session::has('flash.info'))
-    <div class="alert alert-warning">
+    <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         {{ Session::get('flash.info') }}
+    </div>
+@endif
+
+@if (Session::has('flash.warning'))
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{ Session::get('flash.warning') }}
     </div>
 @endif

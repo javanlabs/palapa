@@ -17,6 +17,12 @@ class DocumentController extends Controller {
 	{
 
 		$case = Cases::findOrFail(Input::get('case_id'));
+
+        if(!$case['is_allow_create_document'])
+        {
+            return redirect()->to($case['permalink_edit'])->with('flash.warning', 'Silakan lengkapi data kasus terlebih dahulu.');
+        }
+
 		$template = Template::findOrFail(Input::get('template_id'));
 		$templateFile = 'template.' . Input::get('template');
 		$setting = Setting::lists('value', 'key');
@@ -55,8 +61,8 @@ class DocumentController extends Controller {
 
 	public function edit($id)
 	{
-		$document = Document::findOrFail($id);	
-		$case = $document->case;	
+		$document = Document::findOrFail($id);
+		$case = $document->case;
 		return view('backend.document.edit', compact('document', 'case'));
 	}
 
