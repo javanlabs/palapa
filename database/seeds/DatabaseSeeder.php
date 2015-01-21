@@ -382,123 +382,9 @@ class OfficerSeeder extends Seeder {
     {
         $now = Carbon::now()->toDateTimeString();
 
-        // DB::table('officers')->truncate();
+        DB::table('officers')->truncate();
 
-        // $jaksa = [
-        //     [
-        //         'name'       => "Eko Wahyudi, S.H., M.H.",
-        //         'nip'        => "19800506 200501 1 006",
-        //         'pangkat_id' => "3",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Reza Prasetya Nitisasmita, S.H.",
-        //         'nip'        => "197807726 200212 1 004",
-        //         'pangkat_id' => "1",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Endah Puspitorini, SH.",
-        //         'nip'        => "19820419 20050 1 2010",
-        //         'pangkat_id' => "3",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Adik Sri Sumarsih, S.H., M.M.",
-        //         'nip'        => "19710916 199803 2 002",
-        //         'pangkat_id' => "4",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Anak Agung Gede Hendrawan, S.H.",
-        //         'nip'        => "19811023 200603 1 002",
-        //         'pangkat_id' => "3",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Lusiana, S.H.",
-        //         'nip'        => "19730725 200003 2 002",
-        //         'pangkat_id' => "4",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "I Made Adi Sudiantara, S.H.",
-        //         'nip'        => "19691110 199803 1 001",
-        //         'pangkat_id' => "4",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Danni Arthana, S.H.",
-        //         'nip'        => "19801209 200702 1 001",
-        //         'pangkat_id' => "2",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Eko Tjahjono, S.H., M.H.",
-        //         'nip'        => "19671229 198803 1 002",
-        //         'pangkat_id' => "5",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Tendik Wicaksono, S.H., M.H.",
-        //         'nip'        => "19781024 200501 1 004",
-        //         'pangkat_id' => "3",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-
-        // ];
-
-        // foreach($jaksa as $data)
-        // {
-        //     $data['role'] = 'jaksa';
-        //     DB::table('officers')->insert($data);
-        // }
-
-        // $staff = [
-        //     [
-        //         'name'       => "Staff 1",
-        //         'nip'        => "0000001",
-        //         'pangkat_id' => "1",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        //     [
-        //         'name'       => "Staff 2",
-        //         'nip'        => "0000002",
-        //         'pangkat_id' => "1",
-        //         'jabatan_id' => "101",
-        //         'created_at' => $now,
-        //         'updated_at' => $now
-        //     ],
-        // ];
-
-        // foreach($staff as $data)
-        // {
-        //     $data['role'] = 'staff';
-        //     DB::table('officers')->insert($data);
-        // }
-
+        DB::insert(file_get_contents(base_path()."/database/seeds/officer.sql"));
         return true;
     }
 }
@@ -718,11 +604,11 @@ class SettingSeeder extends Seeder{
     public function run()
     {
         return DB::table('settings')->insert([
-            ['key' => 'kajari_name', 'value' => ''],
-            ['key' => 'kajari_nip', 'value' => ''],
-            ['key' => 'kajari_jabatan', 'value' => ''],
-            ['key' => 'kepala_kejaksaan_provinsi', 'value' => ''],
-            ['key' => 'kepala_kepolisian', 'value' => '']
+            ['key' => 'kajari_name', 'value' => 'HADI SUMARTONO, SH.'],
+            ['key' => 'kajari_nip', 'value' => '195811171979011002'],
+            ['key' => 'kajari_jabatan', 'value' => 'Kajari Jember'],
+            ['key' => 'kepala_kejaksaan_provinsi', 'value' => 'Jawa Timur'],
+            ['key' => 'kepala_kepolisian', 'value' => 'Jember']
         ]);
     }
 }

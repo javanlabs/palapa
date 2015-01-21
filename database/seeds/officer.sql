@@ -1,41 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.2.10
--- http://www.phpmyadmin.net
---
--- Host: localhost:8889
--- Generation Time: Jan 21, 2015 at 05:40 PM
--- Server version: 5.5.38
--- PHP Version: 5.6.2
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
---
--- Database: `kejari`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `officers`
---
-
-CREATE TABLE `officers` (
-`id` int(10) unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nip` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `pangkat_id` int(10) unsigned NOT NULL,
-  `jabatan_id` int(10) unsigned NOT NULL,
-  `role` enum('staff','jaksa') COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `officers`
---
-
 INSERT INTO `officers` (`id`, `name`, `nip`, `pangkat_id`, `jabatan_id`, `role`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'HADI SUMARTONO, SH.', '195811171979011002', 4, 101, 'jaksa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
 (2, 'EKO TJAHJONO, SH. MH.', '196712291988031002', 5, 102, 'jaksa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
@@ -84,23 +46,3 @@ INSERT INTO `officers` (`id`, `name`, `nip`, `pangkat_id`, `jabatan_id`, `role`,
 (45, 'AHMAD FARUQ TAUFIKUR RAHMAN', '198505232005011003', 13, 121, 'staff', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
 (46, 'EKO MULYONO', '196405011991011804', 17, 122, 'staff', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL),
 (47, 'BOGEY PRIMA ADITYA', '199206192010121001', 17, 123, 'staff', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `officers`
---
-ALTER TABLE `officers`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `officers`
---
-ALTER TABLE `officers`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
