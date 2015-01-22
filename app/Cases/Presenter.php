@@ -237,6 +237,16 @@ trait Presenter {
         return false;
     }
 
+    public function getPersidanganDateAttribute()
+    {
+        if($this->attributes['persidangan_date'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['persidangan_date'])->format('d-m-Y');
+        }
+
+        return false;
+    }
+
     public function getScheduleInDaysAttribute()
     {
         if($this->attributes['persidangan_date'])
@@ -288,6 +298,6 @@ trait Presenter {
 
     public function getPersidanganDateForHumanAttribute()
     {
-        return $this->persidangan_date->formatLocalized('%d %B %Y');
+        return Carbon::createFromFormat('Y-m-d', $this->attributes['persidangan_date'])->formatLocalized('%d %B %Y');
     }
 }
