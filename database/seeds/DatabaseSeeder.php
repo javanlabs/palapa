@@ -225,16 +225,6 @@ class RootSeeder extends Seeder {
             'name'  => 'Root',
             'email'  => 'root@palapa.dev',
             'password'  => Hash::make('root')
-            ],
-            [
-            'name'  => 'Pidana Umum',
-            'email'  => 'pidum',
-            'password'  => Hash::make('pidum1234')
-            ],
-            [
-            'name'  => 'Pidana Khusus',
-            'email'  => 'pidsus',
-            'password'  => Hash::make('pidsus1234')
             ]
         ];
         DB::table('users')->truncate();
@@ -248,9 +238,19 @@ class StaffSeeder extends Seeder {
     public function run()
     {
         $user = [
-            'name'  => 'Staff Administrasi',
-            'email'  => 'staff@palapa.dev',
-            'password'  => Hash::make('staff')
+            [
+                'id'    => 2,
+                'name'  => 'Pidana Umum',
+                'email'  => 'pidum',
+                'password'  => Hash::make('pidum1234')
+            ],
+            [
+                'id'    => 3,
+                'name'  => 'Pidana Khusus',
+                'email'  => 'pidsus',
+                'password'  => Hash::make('pidsus1234')
+            ]
+
         ];
         return DB::table('users')->insert($user);
     }
@@ -263,8 +263,9 @@ class GroupSeeder extends Seeder {
     {
         $groups = [
             ['name' => 'root', 'description' => 'Super user'],
-            ['name' => 'staff', 'description' => 'Staff Administrasi'],
-            ['name' => 'jaksa', 'description' => 'Jaksa'],
+            ['name' => 'pidum', 'description' => 'Staff Pidum'],
+            ['name' => 'pidsus', 'description' => 'Staff Pidsus'],
+            ['name' => 'datun', 'description' => 'Staff Datun'],
         ];
         DB::table('acl_groups')->truncate();
         return DB::table('acl_groups')->insert($groups);
@@ -279,6 +280,7 @@ class RoleSeeder extends Seeder {
         $roles = [
             ['user_id'  => 1, 'group_id'  => 1],
             ['user_id'  => 2, 'group_id'  => 2],
+            ['user_id'  => 3, 'group_id'  => 3],
         ];
         DB::table('acl_users_groups')->truncate();
         return DB::table('acl_users_groups')->insert($roles);
@@ -294,7 +296,7 @@ class PangkatSeeder extends Seeder {
         $type = 'pangkat';
 
         DB::table('lookups')->whereType($type)->delete();
-        $pangkat = [            
+        $pangkat = [
             ['id' => 1, 'name'  => 'Jaksa Agung', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 2, 'name'  => 'Jaksa Utama', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 3, 'name'  => 'Jaksa Utama Madya', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
@@ -312,7 +314,7 @@ class PangkatSeeder extends Seeder {
             ['id' => 15, 'name'  => 'Sena Darma TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 16, 'name'  => 'Sena Wira TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 17, 'name'  => 'Yuana Darma TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
-            ['id' => 18, 'name'  => 'Yuana Wira TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],                       
+            ['id' => 18, 'name'  => 'Yuana Wira TU', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
 
         ];
         return DB::table('lookups')->insert($pangkat);
@@ -597,11 +599,11 @@ class PostSeeder extends Seeder{
 
     public function run()
     {
-       
+
         DB::table('posts')->truncate();
 
         return DB::insert(file_get_contents(base_path()."/database/seeds/posts.sql"));
-               
+
     }
 }
 
