@@ -70,6 +70,7 @@
 
             moment.locale('id');
 
+            @if(Auth::check())
             $(document).idle({
                 onIdle: function(){
                     $.get( "{{ route('gapura.logout') }}", function( data ) {
@@ -78,6 +79,7 @@
                 },
                 idle: 1000  * 60 * 3 // 3 minute
             })
+            @endif
 
         });
 
