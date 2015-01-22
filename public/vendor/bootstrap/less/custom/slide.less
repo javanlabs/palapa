@@ -1,13 +1,13 @@
 body#screensaver{
   overflow: hidden;
   height: 100%;
+  background-color:black;
 }
 #wrap{
   position:fixed;;
   z-index:-1;
   top:0;
   left:0;
-  background-color:black
 }
 #wrap img.bgfade{
   position:absolute;
@@ -26,7 +26,15 @@ body#screensaver{
   background: transparent url(../images/pattern.png) repeat top left;
   z-index:10;
 }
+.section-video{
+  width: 100%;
+  height: auto;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
 
+}
 #slider {
   position: absolute;
   background: transparent url('../images/transparent.png') repeat;
@@ -72,4 +80,20 @@ body#screensaver{
 }
 #btn-stop:hover{
   opacity: 1;
+}
+
+.videojs-background-wrap {
+  overflow:hidden;
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  z-index: -998;
+}
+.video-js, .video-js .vjs-tech {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: auto !important;
 }

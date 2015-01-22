@@ -64,7 +64,7 @@ class FrontendController extends Controller {
         }
         foreach(File::allFiles(base_path('public/upload/slide/videos')) as $file)
         {
-            $videos[] = asset('upload/slide/videos/' . $file->getFilename());
+            $videos[] = ['src' => [asset('upload/slide/videos/' . $file->getFilename())]];
         }
 
         $cases = $caseRepository->upcomingSidang();
