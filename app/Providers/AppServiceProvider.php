@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider {
 
 		\Config::set('skrip::prefix', 'skrip');
 
+        \Config::set('moderator::base_uri', 'acl');
 	}
 
 }

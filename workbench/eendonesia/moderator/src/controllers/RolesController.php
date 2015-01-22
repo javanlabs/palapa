@@ -3,6 +3,7 @@
 use Eendonesia\Moderator\RepositoryInterface;
 use Illuminate\Routing\Controller;
 use Input;
+use Eendonesia\Moderator\Models\User;
 
 class RolesController extends Controller {
 

@@ -23,6 +23,7 @@ class ModeratorServiceProvider extends ServiceProvider {
 
         include __DIR__.'/../../routes.php';
         include __DIR__.'/../../helpers.php';
+        \View::addNamespace('moderator', base_path('workbench/eendonesia/moderator/src/views/'));
 	}
 
 	/**
