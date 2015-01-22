@@ -398,23 +398,23 @@ class SopSeeder extends Seeder {
 
         DB::table('sop_phase')->insert(
             [
-                ['id' => 1, 'case_type_id' => 201, 'name' => 'Pra Penuntutan', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 2, 'case_type_id' => 201, 'name' => 'Tahap 1', 'duration' => 7, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
-                ['id' => 3, 'case_type_id' => 201, 'name' => 'Tahap 2', 'duration' => 7, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
-                ['id' => 4, 'case_type_id' => 201, 'name' => 'Penuntutan', 'duration' => 30, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
-                ['id' => 5, 'case_type_id' => 201, 'name' => 'Tahap Persidangan', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 6, 'case_type_id' => 201, 'name' => 'Upaya Hukum', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 7, 'case_type_id' => 201, 'name' => 'Eksekusi', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 1, 'case_type_id' => 201, 'name' => 'Pra Penuntutan', 'duration' => 32, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
+                ['id' => 2, 'case_type_id' => 201, 'name' => 'Tahap 1', 'duration' => 30, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
+                ['id' => 3, 'case_type_id' => 201, 'name' => 'Tahap 2', 'duration' => 32, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
+                ['id' => 4, 'case_type_id' => 201, 'name' => 'Penuntutan', 'duration' => 15, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
+                ['id' => 5, 'case_type_id' => 201, 'name' => 'Tahap Persidangan', 'duration' => 7, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 6, 'case_type_id' => 201, 'name' => 'Upaya Hukum', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 7, 'case_type_id' => 201, 'name' => 'Eksekusi', 'duration' => 7, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
 
                 ['id' => 19, 'case_type_id' => 202, 'name' => 'Tahap Penyelidikan', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
                 ['id' => 20, 'case_type_id' => 202, 'name' => 'Tahap Penyidikan', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 21, 'case_type_id' => 202, 'name' => 'SPDP', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 22, 'case_type_id' => 202, 'name' => 'Tahap 1', 'duration' => 7, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
-                ['id' => 23, 'case_type_id' => 202, 'name' => 'Tahap 2', 'duration' => 7, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
-                ['id' => 24, 'case_type_id' => 202, 'name' => 'Penuntutan', 'duration' => 30, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
+                ['id' => 21, 'case_type_id' => 202, 'name' => 'Pra Penuntutan', 'duration' => 32, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
+                ['id' => 22, 'case_type_id' => 202, 'name' => 'Tahap 1', 'duration' => 30, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
+                ['id' => 23, 'case_type_id' => 202, 'name' => 'Tahap 2', 'duration' => 32, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
+                ['id' => 24, 'case_type_id' => 202, 'name' => 'Penuntutan', 'duration' => 15, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
                 ['id' => 25, 'case_type_id' => 202, 'name' => 'Tahap Persidangan', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 26, 'case_type_id' => 202, 'name' => 'Upaya Hukum', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 27, 'case_type_id' => 202, 'name' => 'Eksekusi', 'duration' => 60, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 26, 'case_type_id' => 202, 'name' => 'Upaya Hukum', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 27, 'case_type_id' => 202, 'name' => 'Eksekusi', 'duration' => 7, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
 
                 /* Datun Bankum*/
                 ['id' => 31, 'case_type_id' => 211, 'name' => 'Persiapan', 'duration' => 30, 'ordinal' => 1, 'icon' => '<i class="fa fa-institution"></i>'],

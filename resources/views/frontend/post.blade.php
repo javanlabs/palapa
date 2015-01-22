@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container-fluid" id="page-post-view">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="list-group">
                 @foreach($allPostInCategory as $item)
                 <a href="{{ route('frontend.post', ['category' => $category, 'id' => $item['id']]) }}" class="list-group-item ellipsis {{ ($item['id'] == $id)?'active':'' }}">
@@ -16,7 +16,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             @if($post)
                 <h2 class="page-title">{{$post->title}}</h2>
                 {{$post->content}}
