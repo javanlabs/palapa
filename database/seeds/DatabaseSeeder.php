@@ -221,9 +221,21 @@ class RootSeeder extends Seeder {
     public function run()
     {
         $user = [
+            [
             'name'  => 'Root',
             'email'  => 'root@palapa.dev',
             'password'  => Hash::make('root')
+            ],
+            [
+            'name'  => 'Pidana Umum',
+            'email'  => 'pidum',
+            'password'  => Hash::make('pidum1234')
+            ],
+            [
+            'name'  => 'Pidana Khusus',
+            'email'  => 'pidsus',
+            'password'  => Hash::make('pidsus1234')
+            ]
         ];
         DB::table('users')->truncate();
         return DB::table('users')->insert($user);
