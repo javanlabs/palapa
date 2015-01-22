@@ -64,7 +64,7 @@
         function anim() {
             $("#wrap img.bgfade").first().appendTo('#wrap').fadeOut(1500);
             $("#wrap img").first().fadeIn(1500);
-            setTimeout(anim, 3000);
+            setTimeout(anim, 5000);
         }
         anim();
     })
@@ -83,7 +83,7 @@
 
         $('#items-slider').vTicker({
             speed: 500,
-            pause: 3000,
+            pause: 5000,
             animation: 'fade',
             mousePause: false,
             showItems: 8

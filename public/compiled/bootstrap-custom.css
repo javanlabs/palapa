@@ -6584,6 +6584,7 @@ footer {
 }
 footer a {
   color: #777777;
+  padding: 0 5px;
 }
 footer a:hover {
   color: #777777;
