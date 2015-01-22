@@ -249,7 +249,10 @@ trait Presenter {
 
     public function getIsAllowCreateDocumentAttribute()
     {
-        return $this->jaksa && $this->penyidik && !$this->suspects->isEmpty();
+        if($this->type_id == 201)
+            return $this->jaksa && $this->penyidik && !$this->suspects->isEmpty();
+        else
+            return true;
     }
 
     public function getPenyidikIdCustomAttribute()
