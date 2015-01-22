@@ -43,7 +43,7 @@
                         @forelse($cases as $item)
                             <a href="{{ $item['permalink'] }}" class="btn-detail court">
                                 <small class="date">
-                                    {{ $item['schedule_for_human'] }}
+                                    {{$item->persidangan_date}} {{ $item['schedule_for_human'] }}
                                 </small>
                                 {{ $item['name'] }}
                             </a>
