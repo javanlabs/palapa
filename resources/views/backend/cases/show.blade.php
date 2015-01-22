@@ -36,7 +36,7 @@
                     <td>
                         <dl>
                             <dt>Waktu Kejadian</dt>
-                            <dd>{{ $case['crime_time'] }}</dd>
+                            <dd>{{ $case['crime_time_for_human'] }}</dd>
                         </dl>
                     </td>
                 </tr>

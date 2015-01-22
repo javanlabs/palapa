@@ -280,4 +280,9 @@ trait Presenter {
             return $this['schedule_in_days'] . " hari lagi";
         }
     }
+
+    public function getCrimeTimeForHumanAttribute()
+    {
+        return $this->crime_time->formatLocalized('%d %B %Y %H:%M');
+    }
 }

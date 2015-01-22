@@ -20,7 +20,7 @@
                             <dt>Tempat Kejadian  :</dt>
                             <dd>{{ $case['crime_place'] }}</dd>
                             <dt>Waktu Kejadian :</dt>
-                            <dd>{{ $case['crime_time'] }}</dd>
+                            <dd>{{ $case['crime_time_for_human'] }}</dd>
                             <dt>Pasal :</dt>
                             <dd>{{ nl2br($case['pasal']) }}</dd>
                             <dt>Penyidik :</dt>
