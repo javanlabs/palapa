@@ -70,7 +70,6 @@
 
 <script>
     (function($){
-        var videos = {{ json_encode($videos) }};
 
         var playlist = {
             init : function(){
@@ -79,11 +78,12 @@
             },
             initVideo : function(){
                 this.player = videojs('video');
-                this.player.playList(videos);
+                this.player.playList({{ json_encode($videos) }});
+
                 $('.section-video').show();
                 $('.section-image').hide();
                 this.player.play();
-//                this.adjustDimension();
+
             },
             bindEvents : function(){
                 this.player.on('next', function(e){
@@ -100,6 +100,7 @@
         };
 
         var imageCounter = 0;
+        var imageCount = {{ count($images) }};
 
         function anim() {
             $('.section-video').hide();
@@ -108,7 +109,7 @@
             $("#wrap img").first().fadeIn(1500);
             imageCounter++;
 
-            if(imageCounter >= $('#wrap').children().length) {
+            if(imageCounter >= imageCount) {
                 imageCounter = 0;
                 playlist.init();
             }
@@ -144,8 +145,8 @@
         });
 
 
-        anim();
-//        playlist.init();
+        playlist.init();
+//        anim();
     })(jQuery);
 </script>
 </body>
