@@ -36,7 +36,7 @@
 	Nama </td><td width="10px">:</td><td>{{$suspect->name}}</td>
 </td></tr>
 <tr><td>
-	Tempat lahir </td><td>:</td><td>{{$suspect->suspectPob->nama}}</td>
+	Tempat lahir </td><td>:</td><td>{{$suspect->pob?$suspect->pob->nama:''}}</td>
 </td></tr>
 <tr><td>
 	Umur/tanggal lahir </td><td>:</td><td>{{$suspect->age}} tahun/{{$suspect->dob}}</td>
