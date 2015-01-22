@@ -38,4 +38,13 @@ Route::group(['namespace' => 'Eendonesia\Skrip\Controllers', 'prefix' => Config:
 			 
 			}
         });
+    Route::get("listImage", function(){
+        	// files storage folder
+			$dir = public_path().'/upload/images/';
+			
+			 $array = array();
+			 $array[] = '/upload/images/e109c8246e6abaebd8fe8a5ef4302450.jpg';
+			echo json_encode($array);
+			 			
+        });
 });
