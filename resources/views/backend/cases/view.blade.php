@@ -17,6 +17,10 @@
                             <dd>{{ $case['spdp_number'] }}</dd>
                             <dt>Kasus :</dt>
                             <dd>{{ $case['name'] }}</dd>
+                            <dt>Tempat Kejadian  :</dt>
+                            <dd>{{ $case['crime_place'] }}</dd>
+                            <dt>Waktu Kejadian :</dt>
+                            <dd>{{ $case['crime_time'] }}</dd>
                             <dt>Pasal :</dt>
                             <dd>{{ nl2br($case['pasal']) }}</dd>
                             <dt>Penyidik :</dt>

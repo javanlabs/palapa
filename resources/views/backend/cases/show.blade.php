@@ -15,16 +15,54 @@
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <td colspan="8">
-                        <h4 class="mb-0">{{ $case['name'] }}</h4>
+                    <td colspan="3" width="50%">
+                        <h3 class="mb-0">{{ $case['name'] }}</h3>
                         <small class="text-muted">{{ $case['spdp_number'] }}</small>
+                    </td>
+                    <td colspan="3" rowspan="2">
+                        <dl>
+                            <dt>Pasal</dt>
+                            <dd>{{ nl2br($case['pasal']) }}</dd>
+                        </dl>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <dl>
+                            <dt>Tempat Kejadian</dt>
+                            <dd>{{ $case['crime_place'] }}</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Waktu Kejadian</dt>
+                            <dd>{{ $case['crime_time'] }}</dd>
+                        </dl>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <dl>
-                            <dt>Pasal</dt>
-                            <dd>{{ nl2br($case['pasal']) }}</dd>
+                            <dt>Jenis Kasus</dt>
+                            <dd><span class="label label-default">{{ $case['type_name'] }}</span></dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Status</dt>
+                            <dd><span class="label label-default">{{ $case['status_name'] }}</span></dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Usia Kasus</dt>
+                            <dd>
+                                @if($case['age'] !== false)
+                                    {{ $case['age'] }} hari
+                                @else
+                                    <span class="label label-default">{{ $case['status'] }}</span>
+                                @endif
+                            </dd>
                         </dl>
                     </td>
                     <td>
@@ -43,30 +81,6 @@
                         <dl>
                             <dt>Staff Administrasi</dt>
                             <dd>{{ $case['staff_name'] }}</dd>
-                        </dl>
-                    </td>
-                    <td>
-                        <dl>
-                            <dt>Usia Kasus</dt>
-                            <dd>
-                                @if($case['age'] !== false)
-                                    {{ $case['age'] }} hari
-                                @else
-                                    <span class="label label-default">{{ $case['status'] }}</span>
-                                @endif
-                            </dd>
-                        </dl>
-                    </td>
-                    <td>
-                        <dl>
-                            <dt>Jenis Kasus</dt>
-                            <dd><span class="label label-default">{{ $case['type_name'] }}</span></dd>
-                        </dl>
-                    </td>
-                    <td>
-                        <dl>
-                            <dt>Status</dt>
-                            <dd><span class="label label-primary">{{ $case['status_name'] }}</span></dd>
                         </dl>
                     </td>
                 </tr>
