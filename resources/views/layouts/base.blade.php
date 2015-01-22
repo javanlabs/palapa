@@ -77,7 +77,7 @@
                         window.location.href = data.redirect;
                     });
                 },
-                idle: 1000  * 60 * 3 // 3 minute
+                idle: 1000  * 60 * 15 // 15 minute
             })
             @endif
 
