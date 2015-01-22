@@ -600,7 +600,7 @@ class SettingSeeder extends Seeder{
         return DB::table('settings')->insert([
             ['key' => 'kajari_name', 'value' => 'HADI SUMARTONO, SH.'],
             ['key' => 'kajari_nip', 'value' => '195811171979011002'],
-            ['key' => 'kajari_jabatan', 'value' => 'Kajari Jember'],
+            ['key' => 'kajari_jabatan', 'value' => 'Jaksa Utama Pratama'],
             ['key' => 'kepala_kejaksaan_provinsi', 'value' => 'Jawa Timur'],
             ['key' => 'kepala_kepolisian', 'value' => 'Jember']
         ]);

@@ -74,7 +74,7 @@
 					:
 			</td>
 			<td>
-					{{$suspect->suspectPob->nama}}
+					{{$suspect->pob?$suspect->pob->nama:''}}
 			</td>
 		</tr>
 		<tr>

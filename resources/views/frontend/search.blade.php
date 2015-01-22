@@ -58,7 +58,14 @@
             <tr>
                 <td>
                     <h5 class="mb-0">{{ $item['name'] }}</h5>
-                    <small class="text-muted">No SPDP {{ $item['spdp_number'] }}</small>
+                    <small class="text-muted">No SPDP {{ $item['spdp_number'] }}
+<br/>
+                    <strong>Tersangka</strong>
+                    @foreach($item->suspects as $suspect)
+                    {{$suspect->name}} 
+                    @endforeach
+                    </small>
+
                 </td>
                 <td style="padding: 20px 10px">
                     <div><i class="ion-person"></i> {{ $item['prosecutor_name'] }}</div>
