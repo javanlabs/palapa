@@ -43,7 +43,11 @@
                                 {{$suspect->name}}
                             @endforeach
                             </small>
-
+                        </td>
+                        <td>
+                            <div><i class="ion-person"></i> {{ $item['prosecutor_name'] }}</div>
+                            <hr style="margin-top: 10px; margin-bottom:10px; border-style: dashed none none"/>
+                            <div><i class="ion-ios-people"></i> {{ $item['penyidik_name'] }}</div>
                         </td>
                         <td>
                             <span class="badge badge-status {{ $item['status'] }}">{{ $item['status'] }}</span>
