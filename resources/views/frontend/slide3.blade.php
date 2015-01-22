@@ -27,9 +27,14 @@
 @yield('script-end');
 
 <script>
-    (function($){
-
-    })(jQuery);
+    $(document).ready(function() {
+        $("body").backgroundCycle({
+            imageUrls: {{ json_encode($images) }},
+            fadeSpeed: 2000,
+            duration: 5000,
+            backgroundSize: SCALING_MODE_COVER
+        });
+    });
 </script>
 </body>
 </html>

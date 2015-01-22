@@ -17,7 +17,6 @@
     <script src="{{ asset('vendor/videojs/videojs-playlists.js') }}"></script>
     <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
-    <script src="{{ asset('vendor/background.cycle.js') }}"></script>
 </head>
 
 <body id="screensaver">
