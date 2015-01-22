@@ -13,8 +13,9 @@
 
 // home screen
 $router->get('/', ['as' => 'home', 'uses' => 'FrontendController@getIndex']);
-$router->get('slide', ['as' => 'slide', 'uses' => 'FrontendController@getSlide2']);
+$router->get('slide', ['as' => 'slide', 'uses' => 'FrontendController@getSlide']);
 $router->get('slide2', ['as' => 'slide2', 'uses' => 'FrontendController@getSlide2']);
+$router->get('slide3', ['as' => 'slide3', 'uses' => 'FrontendController@getSlide3']);
 
 $router->controller('frontend', 'FrontendController', [
     'getSearch'  => 'frontend.search',
