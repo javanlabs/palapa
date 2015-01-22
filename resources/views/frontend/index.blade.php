@@ -138,8 +138,6 @@
 @section('script-end')
     @parent
 
-    <script type="text/javascript" src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
-
     <script>
         $(function(){
 

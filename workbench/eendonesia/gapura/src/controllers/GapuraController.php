@@ -3,6 +3,7 @@
 use Eendonesia\Gapura\Repository\RepositoryInterface;
 use Eendonesia\Gapura\Requests\Login;
 use Eendonesia\Gapura\Requests\Register;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as Controller;
 use Illuminate\Support\MessageBag;
 
@@ -37,9 +38,16 @@ class GapuraController extends Controller {
         return redirect()->back()->withInput()->withErrors(new MessageBag(['email' => 'invalid credentials', 'password' => 'invalid credentials']));
     }
 
-    public function getLogout(RepositoryInterface $repo)
+    public function getLogout(RepositoryInterface $repo, Request $request)
     {
         $repo->logout();
+
+        if($request->ajax())
+        {
+            $json = ['status' => 1, 'redirect' => route('home')];
+            return response()->json($json);
+        }
+
         return redirect()->route($this->config->get('gapura::default_guest'));
     }
 

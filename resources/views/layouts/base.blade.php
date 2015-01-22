@@ -43,6 +43,8 @@
     <script src="{{ asset('vendor/moment-with-locales.js') }}"></script>
     <script src="{{ asset('vendor/jquery.cookie.js') }}"></script>
     <script src="{{ asset('vendor/jquery.blockUI.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
+
     <script>
         var BLOCKUI_STYLE = {
             message: 'Loading...',
@@ -65,7 +67,18 @@
         };
 
         $(function() {
+
             moment.locale('id');
+
+            $(document).idle({
+                onIdle: function(){
+                    $.get( "{{ route('gapura.logout') }}", function( data ) {
+                        window.location.href = data.redirect;
+                    });
+                },
+                idle: 1000  * 60 * 3 // 3 minute
+            })
+
         });
 
     </script>
