@@ -44,4 +44,20 @@ class Phase extends Model {
     {
         return $this->ordinal >= $phase->ordinal;
     }
+
+    public function getDurationAttribute()
+    {
+        return $this->countDuration();
+    }
+
+    public function countDuration()
+    {
+        $duration = 0;
+        foreach($this->checklist as $checklist)
+        {
+            $duration += $checklist->duration;
+        }
+
+        return $duration;
+    }
 }
