@@ -92,10 +92,19 @@ class EloquentRepository implements RepositoryInterface {
             $query->where('type_id', '=', $type);
         }
 
+        $ids = DB::table('suspects')->join('cases_suspects', 'cases_suspects.suspects_id', '=', 'suspects.id')->select('cases_suspects.cases_id')->where('suspects.name', 'LIKE', '%'.$keyword.'%')->get();
+        $cases_ids = array();
+        foreach($ids as $t){
+            $cases_ids[] = $t->cases_id;
+        }
+            
+
+
         if($keyword)
         {
-            $query->where(function($query2) use ($keyword){
-                $query2->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
+            $query->where(function($query2) use ($keyword, $cases_ids){
+                $query2->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')->orWhereIn('id', $cases_ids);
+
             });
         }
 
