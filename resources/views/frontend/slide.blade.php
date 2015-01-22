@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{asset('favicon.ico')}}">
-
+    <link rel="stylesheet" href="{{ asset('compiled/bootstrap-custom.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendor/slide/css/style.css') }}" />
     <script type="text/javascript" src="{{ asset('vendor/slide/js/modernizr.custom.21750.js') }}"></script>
     <noscript>
@@ -19,34 +19,26 @@
 
 <a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
 
+@include('frontend.ticker', ['cases' => $cases])
+
 <div class="container">
     <div id="bx-wrapper" class="bx-wrapper">
         <div class="bx-loading">
             <span>Loading...</span>
         </div>
-        <div class="bx-content">
-            <h3></h3>
-            <h2>Jadwal Sidang</h2>
-        </div>
         <div class="bx-container">
-            @if($cases->count() > 0)
-                @foreach($cases as $case)
-                <img src="{{ $images[array_rand($images)] }}" data-title="{{ $case['name'] }}" data-subtitle="{{ $case['schedule_for_human'] }}"/>
-                @endforeach
-            @else
-                @foreach($images as $img)
-                    <img src="{{ $img }}" data-title="" data-subtitle=""/>
-                @endforeach
-            @endif
+            @foreach($images as $img)
+                <img src="{{ $img }}" data-title="" data-subtitle=""/>
+            @endforeach
         </div>
         <div class="bx-overlay"></div>
     </div>
 </div>
 <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/slide/js/StackBlur.js') }}"></script>
-{{--<script type="text/javascript" src="{{ asset('vendor/jquery.fittext.js') }}"></script>--}}
-{{--<script type="text/javascript" src="{{ asset('vendor/jquery.textfill.js') }}"></script>--}}
 <script type="text/javascript" src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
+
+@yield('script-end')
 
 <script type="text/javascript">
     $(function() {
@@ -74,9 +66,6 @@
                     bxImgsCount			= $bxImgs.length,
             // the thumb elements
                     $thumbs				= $bxWrapper.find('div.bx-thumbs > a').hide(),
-            // the title for the current image
-                    $title				= $bxWrapper.find('h2:first'),
-                    $subtitle			= $bxWrapper.find('h3:first'),
             // current image's index
                     current				= 0,
             // variation to show the image:
@@ -89,7 +78,7 @@
                     isAnim				= false,
             // check if canvas is supported
                     supportCanvas 		= Modernizr.canvas,
-                    slideshow_interval	= 3000,
+                    slideshow_interval	= 8000,
                     slideshow_time,
             // init function
                     init				= function() {
@@ -308,18 +297,6 @@
                         // if canvas is supported
                         if( supportCanvas ) {
 
-                            $.when( $title.fadeOut() ).done( function() {
-
-                                $title.text( $bxNextImage.data('title') );
-//                                $title.fitText();
-//                                $title.textfill({});
-
-                            });
-                            $.when( $subtitle.fadeOut() ).done( function() {
-
-                                $subtitle.text( $bxNextImage.data('subtitle') );
-                            });
-
                             $bxCanvas.css( 'z-index', 100 ).css('visibility','visible');
 
                             $.when( $bxImage.fadeOut( animOptions.speed ) ).done( function() {
@@ -327,8 +304,6 @@
                                 switch( animOptions.variation ) {
 
                                     case 1 	:
-                                        $title.fadeIn( animOptions.speed );
-                                        $subtitle.fadeIn( animOptions.speed );
                                         $.when( $bxNextImage.fadeIn( animOptions.speed ) ).done( function() {
 
                                             $bxCanvas.css( 'z-index', 1 ).css('visibility','hidden');
@@ -347,9 +322,6 @@
                                                 'z-index' 		: 1,
                                                 'visibility'	: 'hidden'
                                             }).show();
-
-                                            $title.fadeIn( animOptions.speed );
-                                            $subtitle.fadeIn( animOptions.speed );
 
                                             $.when( $bxNextImage.fadeIn( animOptions.speed ) ).done( function() {
 
@@ -370,8 +342,6 @@
                         // if canvas is not shown just work with the bg images
                         else {
 
-                            $title.hide().text( $bxNextImage.attr('title') ).fadeIn( animOptions.speed );
-                            $subtitle.hide().text( $bxNextImage.attr('subtitle') ).fadeIn( animOptions.speed );
                             $.when( $bxNextImage.css( 'z-index', 102 ).fadeIn( animOptions.speed ) ).done( function() {
 
                                 current = pos;
