@@ -43,6 +43,8 @@ class FrontendController extends Controller {
 
     public function getSlide(CasesRepository $caseRepository)
     {
+        return redirect()->route('slide3');
+
         $files = File::allFiles(base_path('public/vendor/slide/images/large'));
         $images = [];
         foreach($files as $file)
