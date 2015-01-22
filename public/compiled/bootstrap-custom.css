@@ -6927,3 +6927,77 @@ h2.page-title {
   background-color: transparent;
   border: 0 none;
 }
+body#screensaver {
+  overflow: hidden;
+  height: 100%;
+}
+#wrap {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background-color: black;
+}
+#wrap img.bgfade {
+  position: absolute;
+  top: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.container {
+  width: 80%;
+  margin: 20px auto;
+  margin-top: 25%;
+  background: #fff;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1em;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px 0 rgba(20, 20, 20, 0.6);
+  text-shadow: 1px 1px 5px #ffffff;
+}
+#slider {
+  position: absolute;
+  background: transparent url('../images/transparent.png') repeat;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+#items-slider {
+  color: #fff;
+}
+#items-slider .item {
+  padding: 20px 50px;
+}
+#items-slider .item .name {
+  font-size: 3em;
+  line-height: 1em;
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+#items-slider .item .time {
+  color: #f1a417;
+  font-size: 2em;
+  line-height: 1em;
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+#btn-stop {
+  position: absolute;
+  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: 0 none;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+  opacity: .5;
+}
+#btn-stop:hover {
+  opacity: 1;
+}
