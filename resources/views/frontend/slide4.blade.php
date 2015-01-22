@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="{{ asset('compiled/bootstrap-custom.min.css') }}">
     <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
-    <script src="{{ asset('vendor/background.cycle.js') }}"></script>
+    <script src="{{ asset('vendor/jquery.backstretch.min.js') }}"></script>
 </head>
 
 <body id="screensaver">
-<div class="bx-overlay"></div>
+{{--<div class="bx-overlay"></div>--}}
 <a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
 
 @include('frontend.ticker', ['cases' => $cases])
@@ -28,12 +28,7 @@
 
 <script>
     $(document).ready(function() {
-        $("body").backgroundCycle({
-            imageUrls: {{ json_encode($images) }},
-            fadeSpeed: 2000,
-            duration: 5000,
-            backgroundSize: SCALING_MODE_STRETCH
-        });
+        $.backstretch({{ json_encode($images)  }}, {duration: 2000, fade: 750});
     });
 </script>
 </body>

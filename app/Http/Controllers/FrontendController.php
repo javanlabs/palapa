@@ -79,4 +79,17 @@ class FrontendController extends Controller {
 
         return view('frontend.slide3', compact('images', 'cases'));
     }
+
+    public function getSlide4(CasesRepository $caseRepository)
+    {
+        $images = $videos = [];
+        foreach(File::allFiles(base_path('public/upload/slide/images')) as $file)
+        {
+            $images[] = asset('upload/slide/images/' . $file->getFilename());
+        }
+
+        $cases = $caseRepository->upcomingSidang();
+
+        return view('frontend.slide4', compact('images', 'cases'));
+    }
 }
