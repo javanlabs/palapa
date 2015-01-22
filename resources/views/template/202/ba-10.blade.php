@@ -48,7 +48,7 @@
 	Kebangsaan /Kewarganegaraan </td><td>:</td><td>{{$suspect->nationality}}</td>
 </td></tr>
 <tr><td>
-	Tempat tinggal </td><td>:</td><td>{{$suspect->address}} {{$suspect->addressCity->nama}}</td>
+	Tempat tinggal </td><td>:</td><td>{{$suspect->address}} {{$suspect->city?$suspect->city->nama:''}}</td>
 </td></tr>
 <tr><td>
 	Agama </td><td>:</td><td>{{$suspect->religion}}</td>
