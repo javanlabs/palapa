@@ -16,7 +16,7 @@
 </head>
 
 <body id="screensaver">
-
+<div class="bx-overlay"></div>
 <a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
 
 <div id="wrap">
