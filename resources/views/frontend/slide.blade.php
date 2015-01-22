@@ -15,13 +15,13 @@
         </style>
     </noscript>
 </head>
-<body>
+<body id="screensaver">
 
 <a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
 
 @include('frontend.ticker', ['cases' => $cases])
 
-<div class="container">
+<div>
     <div id="bx-wrapper" class="bx-wrapper">
         <div class="bx-loading">
             <span>Loading...</span>
