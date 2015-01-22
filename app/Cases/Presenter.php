@@ -298,6 +298,10 @@ trait Presenter {
 
     public function getPersidanganDateForHumanAttribute()
     {
-        return Carbon::createFromFormat('Y-m-d', $this->attributes['persidangan_date'])->formatLocalized('%d %B %Y');
+        $timestamp = strtotime($this->attributes['persidangan_date']);
+        $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];
+
+
+        return $days[date('w', $timestamp)]." - ".Carbon::createFromFormat('Y-m-d', $this->attributes['persidangan_date'])->formatLocalized('%d %B %Y');
     }
 }
