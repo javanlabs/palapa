@@ -585,17 +585,11 @@ class PostSeeder extends Seeder{
 
     public function run()
     {
-        $authorId = 1;
-        $faker = Factory::create();
-        $now = Carbon::now()->toDateTimeString();
-        $posts = [];
+       
+        DB::table('posts')->truncate();
 
-        foreach(range(1, 10) as $item)
-        {
-            $posts[] = ['author_id' => $authorId, 'title' => $faker->sentence(5), 'content' => $faker->paragraph(10), 'position' => $faker->randomElement(['pembinaan', 'intelijen']), 'created_at' => $now, 'updated_at' => $now];
-        }
-
-        return DB::table('posts')->insert($posts);
+        return DB::insert(file_get_contents(base_path()."/database/seeds/posts.sql"));
+               
     }
 }
 
