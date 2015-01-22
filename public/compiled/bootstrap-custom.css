@@ -6707,6 +6707,13 @@ footer a:hover {
   font-weight: 400;
   margin-right: 10px;
 }
+.section-menu-grid .jadwal-sidang .court .date .badge {
+  margin-left: 10px;
+  background-color: #000;
+  font-weight: 600;
+  color: #999;
+  font-size: .75em;
+}
 body.login {
   background: transparent url("../images/wallpaper.jpg") no-repeat center center;
 }
@@ -6958,7 +6965,7 @@ body#screensaver {
 }
 #slider {
   position: absolute;
-  background: transparent url('../images/transparent.png') repeat;
+  background-color: rgba(0, 0, 0, 0.6);
   width: 50%;
   height: 100%;
   top: 0;

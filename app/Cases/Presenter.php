@@ -285,4 +285,9 @@ trait Presenter {
     {
         return $this->crime_time->formatLocalized('%d %B %Y %H:%M');
     }
+
+    public function getPersidanganDateForHumanAttribute()
+    {
+        return $this->persidangan_date->formatLocalized('%d %B %Y');
+    }
 }
