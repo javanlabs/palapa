@@ -20,7 +20,7 @@
 
         <form action="" class="mb">
             <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Cari Nama Kasus Atau Nomor SPDP..." value="{{ Input::get('q') }}">
+                <input type="text" name="q" class="form-control" placeholder="Cari nama kasus, nomor SPDP atau nama tersangka..." value="{{ Input::get('q') }}">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="submit">Cari</button>
                 </span>
@@ -36,6 +36,13 @@
                         <td>
                             <h5 class="mb-0">{{ $item['name'] }}</h5>
                             <small class="text-muted">{{ $item['spdp_number'] }}</small>
+                            <br/>
+                            <small class="text-muted">
+                            <strong>Tersangka</strong>
+                            @foreach($item->suspects as $suspect)
+                                {{$suspect->name}}
+                            @endforeach
+                            </small>
 
                         </td>
                         <td>
