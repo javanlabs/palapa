@@ -470,7 +470,7 @@ class SopSeeder extends Seeder {
 
                 //Tahap Penuntutan
                 ['phase_id' => 4, 'name' => 'Pembuatan Surat Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 21],
-                ['phase_id' => 4, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'ticker_id'=>14, 'duration' => 15, 'direction' => 'next', 'ordinal' => 22],
+                ['phase_id' => 4, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'ticker_id'=>14, 'duration' => 15, 'direction' => 'next', 'ordinal' => 22,'related_data' => json_encode(['persidangan_date']), 'date_label' => 'Tanggal Pelimpahan'],
 
                 //Tahap Persidangan
                 ['phase_id' => 5, 'name' => 'Pembacaan Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 23],
