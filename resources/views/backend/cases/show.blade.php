@@ -260,7 +260,7 @@
                 return false;
             }
 
-            $.blockUI({message:null});
+            $.blockUI(BLOCKUI_STYLE);
 
             $.get($(this).data('url'), '', function(response, status){
                 $.unblockUI();
@@ -302,7 +302,7 @@
 
         $('.box-tersangka .item').on('click', function(e){
             e.preventDefault();
-            $.blockUI({message:null});
+            $.blockUI(BLOCKUI_STYLE);
             $.get($(this).attr('href'), '', function(response, status){
                 $.unblockUI();
                 var modal = $(response);

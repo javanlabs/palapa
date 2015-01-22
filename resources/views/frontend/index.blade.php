@@ -163,7 +163,7 @@
 
             $('.btn-detail').on('click', function(e){
                 e.preventDefault();
-                $.blockUI({message:null});
+                $.blockUI(BLOCKUI_STYLE);
 
                 $.get($(this).attr('href'), '', function(response, status){
                     $.unblockUI();

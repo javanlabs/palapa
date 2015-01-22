@@ -50,7 +50,7 @@
         $(function(){
             $(document).on('click', '.btn-case-count', function(e){
                 e.preventDefault();
-                $.blockUI({message:null});
+                $.blockUI(BLOCKUI_STYLE);
                 $.get($(this).attr('href'), '', function(response, status){
                     $.unblockUI();
                     var modal = $(response);

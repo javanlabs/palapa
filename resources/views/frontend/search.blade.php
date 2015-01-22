@@ -48,8 +48,8 @@
                     <th width="200px">Jaksa/Penyidik</th>
                     @foreach($phases as $phase)
                     <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="{{ $phase['name'] }}">{{ $phase['icon'] }}</th>
-                    @endforeach                    
-                    <th width="100px"></th>                    
+                    @endforeach
+                    <th width="100px"></th>
                 </tr>
             </thead>
             @foreach($cases as $item)
@@ -60,7 +60,7 @@
 <br/>
                     <strong>Tersangka</strong>
                     @foreach($item->suspects as $suspect)
-                    {{$suspect->name}} 
+                    {{$suspect->name}}
                     @endforeach
                     </small>
 
@@ -77,10 +77,10 @@
                         @endforeach
                     </div>
                     <small class="text-muted">Update terakhir: {{ $item['last_update'] }}</small>
-                </td>                
+                </td>
                 <td class="text-center">
                     <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil <i class="fa fa-chevron-right"></i></a>
-                </td> 
+                </td>
             </tr>
             @endforeach
         </table>
@@ -107,7 +107,7 @@
 
         $('.btn-detail').on('click', function(e){
             e.preventDefault();
-            $.blockUI({message:null});
+            $.blockUI(BLOCKUI_STYLE);
 
             $.get($(this).attr('href'), '', function(response, status){
                 $.unblockUI();
