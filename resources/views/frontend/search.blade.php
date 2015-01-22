@@ -48,10 +48,8 @@
                     <th width="200px">Jaksa/Penyidik</th>
                     @foreach($phases as $phase)
                     <th width="50px" class="text-center" data-toggle="tooltip" data-placement="top" title="{{ $phase['name'] }}">{{ $phase['icon'] }}</th>
-                    @endforeach
-                    @if(Auth::check())
-                    <th width="100px"></th>
-                    @endif
+                    @endforeach                    
+                    <th width="100px"></th>                    
                 </tr>
             </thead>
             @foreach($cases as $item)
@@ -79,12 +77,10 @@
                         @endforeach
                     </div>
                     <small class="text-muted">Update terakhir: {{ $item['last_update'] }}</small>
-                </td>
-                @if(Auth::check())
+                </td>                
                 <td class="text-center">
                     <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil <i class="fa fa-chevron-right"></i></a>
-                </td>
-                @endif
+                </td> 
             </tr>
             @endforeach
         </table>
