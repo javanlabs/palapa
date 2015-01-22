@@ -44,17 +44,24 @@ class Reinstall extends Command {
 		$db = DB::connection()->getDatabaseName();
 		$tables = DB::select(DB::raw("select * from information_schema.tables where table_schema = '$db'"));
 
+		$dataTables = array('suspects', 'cases', 'cases_activities', 'cases_checklist', 'cases_documents', 'cases_phases_history', 'cases_suspects');
+
 		foreach($tables as $table)
 		{
-			if($table->TABLE_TYPE == 'BASE TABLE')
-			{
-				DB::statement('DROP TABLE ' . $table->TABLE_NAME);
-				$this->info('Drop table ' . $table->TABLE_NAME);
+			if(!in_array($table->TABLE_NAME, $dataTables)){
+				if($table->TABLE_TYPE == 'BASE TABLE')
+				{
+					DB::statement('DROP TABLE ' . $table->TABLE_NAME);
+					$this->info('Drop table ' . $table->TABLE_NAME);
+				}
+				else
+				{
+					DB::statement('DROP VIEW ' . $table->TABLE_NAME);
+					$this->info('Drop view ' . $table->TABLE_NAME);
+				}
 			}
-			else
-			{
-				DB::statement('DROP VIEW ' . $table->TABLE_NAME);
-				$this->info('Drop view ' . $table->TABLE_NAME);
+			else{
+				$this->info("Skipping data table : ". $table->TABLE_NAME);
 			}
 		}
 
