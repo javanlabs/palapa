@@ -47,7 +47,11 @@ class Phase extends Model {
 
     public function getDurationAttribute()
     {
-        return $this->countDuration();
+//         get duration from column
+        return $this->attributes['duration'];
+
+//        get duration by calculation
+//        return $this->countDuration();
     }
 
     public function countDuration()
