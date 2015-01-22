@@ -145,7 +145,7 @@
 
             $(document).idle({
                 onIdle: function(){
-                    document.location = '{{ route('slide') }}';
+                    document.location = '{{ route('slide2') }}';
                 },
                 idle: 1000 * 60 * 10 // 10 minute
             })
