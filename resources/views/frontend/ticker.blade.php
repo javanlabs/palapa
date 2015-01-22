@@ -5,7 +5,7 @@
                 <li>
                     <div class="item">
                         <h3 class="name">Sidang {{ $item['name'] }}</h3>
-                        <div class="time">{{ $item['schedule_for_human'] }}</div>
+                        <div class="time">{{$item['persidangan_date_for_human']}}</div>
                     </div>
                 </li>
             @endforeach

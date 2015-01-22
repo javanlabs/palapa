@@ -25,7 +25,7 @@
                         @endif
                         <dt>Alamat </dt>
                         <dd>
-                            {{ $suspect->address }}<br/>
+                            {{ $suspect->address }} {{ $suspect->city?$suspect->city->nama:'' }}<br/>
                         </dd>
                         @if($suspect['is_individu'])
                         <dt>Kewarganegaraan </dt>
@@ -46,11 +46,11 @@
             <div class="modal-footer">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                    {{ Form::delete(route('backend.suspect.destroy', $suspect['id']), 'Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-danger']) }}
                     <a class="btn btn-primary" href="{{ route('backend.suspect.edit', [$suspect['id']]) }}">Edit</a>
                 </div>
                 <div class="col-md-4 text-right">
-                    {{ Form::delete(route('backend.suspect.destroy', $suspect['id']), 'Hapus Tersangka', ['class' => 'form-delete'], ['class' => 'btn btn-danger']) }}
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>                    
                 </div>
             </div>
         </div>
