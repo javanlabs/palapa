@@ -56,11 +56,12 @@
 				<td></td>
 				<td></td>
 				<td colspan='3'><br/><br/><br/>
-<p style="text-align: justify">
+<p class="indent">
+
 	 Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor BP/09/XII/2014/Reskrim tanggal {{strftime("%e %B %Y")}} yang kami terima tanggal {{strftime("%e %B %Y")}} setelah dilakukan penelitian ternyata hasil penyidikannya sudah lengkap.
 </p><br/>
-<p style="text-align: justify">
-	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUHAP supaya Saudara menyerahkan tanggung jawab tersangka dan barang bukti kepada kami, guna menentukan apakah perkara tersebut sudah memenuhi persyaratan untuk dapat atau tidak dilimpahkan ke Pengadilan
+<p class="indent">
+Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUHAP supaya Saudara menyerahkan tanggung jawab tersangka dan barang bukti kepada kami, guna menentukan apakah perkara tersebut sudah memenuhi persyaratan untuk dapat atau tidak dilimpahkan ke Pengadilan
 </p></td>
 			</tr>
 			<tr>
