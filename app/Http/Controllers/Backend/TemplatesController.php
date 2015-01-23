@@ -17,6 +17,8 @@ class TemplatesController extends Controller {
     function __construct(RepositoryInterface $repo)
     {
         $this->repo = $repo;
+
+        return parent::__construct();
     }
 
     public function index()

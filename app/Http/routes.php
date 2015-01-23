@@ -28,7 +28,7 @@ $router->controller('frontend', 'FrontendController', [
 $router->get('page/{category}/{id?}', ['as'=>'frontend.post', 'uses'=>'PostController@show']);
 
 //BACKEND
-$router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($router){
+$router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' => 'auth'], function($router){
 
     $router->get('/', ['as' => 'admin.home', 'uses' => 'DefaultController@getIndex']);
 

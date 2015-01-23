@@ -23,6 +23,8 @@ class OfficerController extends BackendController {
         $this->repo = $repo;
         View::share('page', 'backend-officer');
         $this->lookup = $lookup;
+
+        return parent::__construct();
     }
 
     public function index(Request $request)

@@ -3,11 +3,11 @@
 use App\Http\Requests;
 
 
-class FilesController extends Controller {
+class FilesController extends BackendController {
 
     public function index()
     {
-        //
+        return view('backend.files.index');
     }
 
     public function create()

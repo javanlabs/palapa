@@ -51,6 +51,8 @@ class CaseController extends BackendController {
         $this->officer = $officer;
         $this->moderator = $moderator;
         $this->sopRepo = $sopRepo;
+
+        return parent::__construct();
     }
 
     public function index()

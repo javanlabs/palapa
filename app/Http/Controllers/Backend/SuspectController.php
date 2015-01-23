@@ -28,6 +28,8 @@ class SuspectController extends Controller {
         $this->repo = $repo;
         View::share('page', '');
         $this->lookup = $lookup;
+
+        return parent::__construct();
     }
 	public function index()
 	{
