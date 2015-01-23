@@ -6727,7 +6727,8 @@ body.login .navbar-header {
   background-color: #fff;
   opacity: .8;
 }
-body.login footer {
+body.login footer,
+body.login footer a {
   color: #fff;
   opacity: .8;
 }
