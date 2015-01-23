@@ -303,10 +303,21 @@ trait Presenter {
 
     public function getPersidanganDateForHumanAttribute()
     {
-        $timestamp = strtotime($this->attributes['persidangan_date']);
-        $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];
+        if($this->attributes['persidangan_date'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['persidangan_date'])->formatLocalized('%A, %d %B %Y');
+        }
 
+        return false;
+    }
 
-        return $days[date('w', $timestamp)]." - ".Carbon::createFromFormat('Y-m-d', $this->attributes['persidangan_date'])->formatLocalized('%d %B %Y');
+    public function getSpdpDateForHumanAttribute()
+    {
+        if($this->attributes['spdp_date'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['spdp_date'])->formatLocalized('%d %B %Y');
+        }
+
+        return false;
     }
 }
