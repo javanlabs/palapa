@@ -147,9 +147,7 @@
 		</table>
 		@endforeach
 		<p>
-			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->spdp_date}} dari penyidik {{$case->penyidik->name}}<br>
-			<br>
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->spdp_date}} dari penyidik {{$case->penyidik->name}}
 		</p>
 	</td>
 </tr>
@@ -266,7 +264,7 @@
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong><br>
 		</p>
 		<p>
-			<br/><br/><br/>
+			<br/><br/>
 		</p>
         <p style="border-bottom: 1px solid #000; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
@@ -288,26 +286,16 @@
 </tbody>
 </table>
 <footer></footer>
+<h1 style="text-align: center;">KEJAKSAAN NEGERI JEMBER</h1>
+<HR/>
 <table>
 <tbody>
-<tr>
-	<td style="text-align: center;" width="250px">
-		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
-		"UNTUK KEADILAN"
-		</strong>
-	</td>
-	<td width="300px">
-	</td>
-	<td style="text-align: right;">
-		<strong>P-16</strong>
-	</td>
-</tr>
 </tbody>
 </table>
 <p style="text-align: center;">
 	<strong>SURAT PERINTAH</strong><b><br>
-	<strong>PENUNJUKAN PETUGAS ADMINISTRASI<br>
-	 Nomor: PRINT - /0.5.12/
+	<strong><U>PENUNJUKAN PETUGAS ADMINISTRASI</U><br>
+	 Nomor: Print - /0.5.12/
 	</strong></b>
 </p>
 <p style="text-align: center;">
@@ -344,11 +332,11 @@ Dasar
 	</td>
 	<td>
 		<ol>
-			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tinda Pidana Kepala Kejaksaan Negeri Jember Nomor: </li>
+			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tinda Pidana Kepala Kejaksaan Negeri Jember Nomor: Print..... Tanggal </li>
 			<li>Dalam rangka melaksanakan fungsi administrasi perkara tindak pidana umum, dipandang perlu menunuk Pegawai Tata Usaha Kejaksaan</li>
 			<li>Sebagai perwujudannya perlu menerbitkan Surat Perintah</li>
 		</ol>
-		<p>
+		<p style="text-align: center">
 			<b>MEMERINTAHKAN:</b>
 		</p>
 	</td>
@@ -369,19 +357,13 @@ Dasar
 		<tbody>
 		<tr>
 			<td width="20px">
-				<p>
 					1.
-				</p>
 			</td>
 			<td width="100px">
-				<p>
 					Nama
-				</p>
 			</td>
 			<td width="10px">
-				<p>
 					:
-				</p>
 			</td>
 			<td>
 				{{$case->staff->name}}
@@ -410,7 +392,7 @@ Dasar
 					:
 			</td>
 			<td>
-				Tata Usaha Kejaksaan Negeri Jember
+				Tata Usaha Kejaksaan Negeri Jember <br/>
 			</td>
 		</tr>
 		</tbody>
@@ -465,7 +447,7 @@ Dasar
 			</strong>
 		</p>
 		<p>
-			<br/><br/><br/>
+			<br/><br/>
 		</p>
         <p style="border-bottom: 1px solid #000; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>

@@ -58,7 +58,7 @@
 		<p>
 			Kepala Rutan
 		</p>
-		<br/><br/><br/>
+		<br/><br/>
 		<p>
 			Kepala Lembaga Pemasyarakatan
 		</p>
@@ -70,7 +70,7 @@
 		<p>
 			Jaksa Penuntut Umum,
 		</p>
-		<br/><br/><br/>
+		<br/><br/>
 		<p>
 			<strong>({{$case->jaksa->name}})</strong>
 		</p>
@@ -84,7 +84,7 @@
 		<p>
 			Terdakwa/Terpidana
 		</p>
-				<br/><br/><br/>
+				<br/><br/>
 
 		<p>
 			<strong>({{$suspect->name}})</strong>

@@ -14,7 +14,7 @@ class AddCategoryToCase extends Migration {
 	{
 		Schema::table('cases', function(Blueprint $table)
 		{
-            $table->enum('category', ['TPUL', 'ORHARGA', 'KAMTIBUM', 'PERKARA ANAK DIVERSI', 'PERKARA ANAK DIVERSI','PERKARA ANAK KORBAN', 'PERKARA ANAK PRA PENUNTUTAN'])->nullable()->after('type_id');
+            $table->enum('category', ['tpul', 'orharga', 'kamtibum'])->nullable()->after('type_id');
 		});
 	}
 
