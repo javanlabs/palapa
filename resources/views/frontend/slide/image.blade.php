@@ -11,7 +11,7 @@
 @section('content')
     <div id="bx-wrapper" class="bx-wrapper">
         <div class="bx-loading">
-            <span>Loading...</span>
+            <span>Memuat Gambar...</span>
         </div>
         <div class="bx-container">
             @foreach($images as $img)
