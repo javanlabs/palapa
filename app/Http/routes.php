@@ -58,6 +58,8 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend'], function($rout
     $router->resource('templates', 'TemplatesController');
     $router->resource('document', 'DocumentController');
     $router->resource('suspect', 'SuspectController');
+
+    $router->resource('files', 'FilesController');
 });
 
 // GLOBAL ROUTE

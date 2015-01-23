@@ -41,3 +41,9 @@
     border-bottom: 1px solid #000;
     text-align: center;
 }
+p {
+    text-align: justify;
+}
+.indent{
+    text-indent: 3em;
+}
