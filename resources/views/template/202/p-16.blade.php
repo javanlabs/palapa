@@ -148,7 +148,7 @@
 		@endforeach
 		<p>
 			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->spdp_date}} dari penyidik {{$case->penyidik->name}}<br>
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case['spdp_date_for_human']}} dari penyidik {{$case->penyidik->name}}<br>
 			<br>
 		</p>
 	</td>
@@ -259,7 +259,7 @@
 		<p>
 			Dikeluarkan di    : Jember
 			<br>
-			Pada tanggal      : {{date('d-m-Y')}}
+			Pada tanggal      : {{strftime("%e %B %Y")}}
 		</p>
 		<hr>
 		<p style="text-align:center;">
@@ -463,7 +463,7 @@ Dasar
 			Dikeluarkan di : Jember
 		</p>
 		<p>
-			Pada tanggal : {{date('d-m-Y')}}
+			Pada tanggal : {{strftime("%e %B %Y")}}
 		</p>
 		<p style="text-align: center;">
 			<strong data-redactor-tag="strong">

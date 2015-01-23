@@ -25,7 +25,7 @@
 </p>
 <p>
 	<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
-	Pada hari ini {{$days[date('w')]}} tanggal {{date('d-m-Y')}} saya:
+	Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}} saya:
 </p>
 <p>
 	<strong>Nama :</strong> {{$case->jaksa->name}}

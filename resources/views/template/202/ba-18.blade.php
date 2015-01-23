@@ -28,7 +28,7 @@
 
 	<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
 
-	 Pada hari ini {{$days[date('w')]}} tanggal {{date('d-m-Y')}} bertempat di…………………………..., kami :
+	 Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}} bertempat di…………………………..., kami :
 </p>
 <table>
 <tr>

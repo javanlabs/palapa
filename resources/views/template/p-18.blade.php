@@ -83,7 +83,7 @@
 		<p>
 			Dikeluarkan di    : Jember
 			<br>
-			Pada tanggal      : {{date('d-m-Y')}}
+			Pada tanggal      : {{strftime("%e %B %Y")}}
 		</p>
 		<hr>
 		<p style="text-align:center;">
