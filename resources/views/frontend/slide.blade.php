@@ -220,7 +220,8 @@
                             width	: new_w,
                             height	: new_h,
                             left	: ( w_w - new_w ) / 2,
-                            top		: ( w_h - new_h ) / 2
+//                            top		: ( w_h - new_h ) / 2
+                            top		: 0
                         };
 
                     },

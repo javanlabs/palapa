@@ -11,8 +11,13 @@
                     <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="list-group">
+                                @if(Auth::user()->can_manage_pidum)
                                 <a class="list-group-item" href="" data-id="201"><i class="fa fa-check"></i> PIDANA UMUM</a>
+                                @endif
+
+                                @if(Auth::user()->can_manage_pidsus)
                                 <a class="list-group-item" href="" data-id="202"><i class="fa fa-check"></i> PIDANA KHUSUS</a>
+                                @endif
                             </div>
                         </div>
                     </div>

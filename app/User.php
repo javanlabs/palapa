@@ -25,4 +25,37 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+    public function groups()
+    {
+        return $this->belongsToMany('Eendonesia\Moderator\Models\Group', 'acl_users_groups', 'user_id', 'group_id');
+    }
+
+    public function hasGroup($name)
+    {
+        foreach($this->groups as $group)
+        {
+            if($group->name == $name)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function getCanManagePidumAttribute()
+    {
+        return $this->hasGroup('pidum') || $this->hasGroup('root');
+    }
+
+    public function getCanManagePidsusAttribute()
+    {
+        return $this->hasGroup('pidsus') || $this->hasGroup('root');
+    }
+
+    public function canManage($case)
+    {
+        $isCaseCreator = $case->author_id == $this->id;
+        return $this->hasGroup('root') || $isCaseCreator;
+    }
 }

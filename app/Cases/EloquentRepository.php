@@ -83,9 +83,14 @@ class EloquentRepository implements RepositoryInterface {
         return $this->case->findOrFail($id)->delete();
     }
 
-    public function search($keyword, $type = null)
+    public function search($keyword, $type = null, $includeDraft = false)
     {
-        $query = $this->case->published()->orderBy('updated_at', 'DESC');
+        $query = $this->case->orderBy('updated_at', 'DESC');
+
+        if(!$includeDraft)
+        {
+            $query->published();
+        }
 
         if($type)
         {
@@ -96,15 +101,19 @@ class EloquentRepository implements RepositoryInterface {
         $cases_ids = array();
         foreach($ids as $t){
             $cases_ids[] = $t->cases_id;
-        }            
+        }
+
+
 
         if($keyword)
         {
-            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')->orWhereIn('id', $cases_ids);
-            
+            $query->where(function($query2) use ($keyword, $cases_ids){
+                $query2->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')->orWhereIn('id', $cases_ids);
+
+            });
         }
-        
-        return $query->paginate(15);
+
+        return $query->paginate();
     }
 
     public function activities($case)

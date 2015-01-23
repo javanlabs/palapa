@@ -55,7 +55,7 @@ class CaseController extends BackendController {
 
     public function index()
     {
-        $cases = $this->repo->search(Input::get('q'));
+        $cases = $this->repo->search(Input::get('q'), null, true);
         return view('backend.cases.index', compact('cases'));
     }
 
@@ -109,6 +109,12 @@ class CaseController extends BackendController {
     public function show($id)
     {
         $case = $this->repo->find($id);
+
+        if(!Auth::user()->canManage($case))
+        {
+            return redirect()->route('backend.cases.index')->with('flash.warning', 'Anda tidak diijinkan untuk mengedit data kasus ini');
+        }
+
         $phases = $this->sopRepo->byType($case->type_id);
         $activities = $this->repo->activities($case);
         $checklistIds = $case->checklist->lists('id');
