@@ -24,7 +24,7 @@
 	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
 	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
 	</strong></b>
-	<strong>Nomor: PRINT - ... /0.5.12/</strong>
+	<strong>Nomor: Print - ... /0.5.12/</strong>
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
@@ -85,7 +85,7 @@
 					:
 			</td>
 			<td>
-					{{$suspect->age}}/{{$suspect->dob?$suspect->dob:'-'}}
+					{{$suspect->age}} tahun/{{$suspect->dob?$suspect->dob:'-'}}
 			</td>
 		</tr>
 		<tr>
@@ -148,7 +148,7 @@
 		@endforeach
 		<p>
 			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->tgl_spdp}} dari penyidik {{$case->penyidik->name}}<br>
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->spdp_date}} dari penyidik {{$case->penyidik->name}}<br>
 			<br>
 		</p>
 	</td>
@@ -269,11 +269,8 @@
 			<br/><br/><br/>
 		</p>
 		<p style="text-align:center;">
-				{{$setting['kajari_name']}}
-		</p>
-		<hr>
-		<p style="text-align: center;">
-			               {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+				<u>{{$setting['kajari_name']}}</u><br/>
+			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
 		</p>
 	</td>
 </tr>
@@ -416,7 +413,7 @@ Dasar
 					:
 			</td>
 			<td>
-				{{$case->staff->name}}
+				Tata Usaha Kejaksaan Negeri Jember
 			</td>
 		</tr>
 		</tbody>
