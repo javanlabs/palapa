@@ -22,8 +22,8 @@
 			<tr>
 				<td width="100px">Nomor</td>
 				<td width="15px">:</td>
-				<td width="300px">B- /0.5.12/Ep.1/I/2015</td>
-				<td width="40px" rowspan='4'></td>
+				<td width="250px">B- /0.5.12/Ep.1/I/2015</td>
+				<td width="90px" rowspan='4'></td>
 				<td>Jember, {{strftime("%e %B %Y")}}</td>				
 			</tr>
 			<tr>
