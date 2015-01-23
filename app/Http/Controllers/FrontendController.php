@@ -65,6 +65,10 @@ class FrontendController extends Controller {
             $videos[] = ['src' => [asset('upload/slide/videos/' . $file->getFilename())]];
         }
 
+        if(empty($videos))
+        {
+            return redirect()->route('slide.image');
+        }
         return view('frontend.slide.video', compact('videos'));
     }
 

@@ -55,7 +55,7 @@
                 // (2) - blurs the current one, fades out, shows the next one (but initially blurred)
                 // speed is the speed of the animation
                 // blur Factor is the factor used in the StackBlur script
-                        animOptions			= { speed : 500, variation : 2, blurFactor : 10 },
+                        animOptions			= { speed : 500, variation : 1, blurFactor : 5 },
                 // control if currently animating
                         isAnim				= false,
                 // check if canvas is supported
@@ -179,22 +179,20 @@
                             var $win	= $( window ),
                                     w_w		= $win.width(),
                                     w_h		= $win.height(),
-                                    r_w		= w_h / w_w,
+                                    r_w		= w_w / w_h,
                                     i_w		= $img.width,
                                     i_h		= $img.height,
-                                    r_i		= i_h / i_w,
-                                    new_w, new_h, new_left, new_top;
+                                    r_i		= i_w / i_h,
+                                    new_w, new_h;
 
                             if( r_w > r_i ) {
-
                                 new_h	= w_h;
-                                new_w	= w_h / r_i;
-
+                                new_w	= new_h/i_h*i_w;
                             }
                             else {
 
-                                new_h	= w_w * r_i;
-                                new_w	= w_w;
+                                new_h	= w_h;
+                                new_w	= i_h * r_i;
 
                             }
 
