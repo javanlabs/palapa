@@ -29,7 +29,7 @@
 </p>
 <p>
 	<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
-	Pada hari ini {{$days[date('w')]}} tanggal {{date('d-m-Y')}} saya Jaksa Penyidik/Penuntut Umum *) dalam Perkara tersangka/terdakwa :
+	Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}} saya Jaksa Penyidik/Penuntut Umum *) dalam Perkara tersangka/terdakwa :
 </p>
 <table>
 <tr><td width="200px">

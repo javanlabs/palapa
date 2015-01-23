@@ -23,7 +23,7 @@
 	<strong>PENUNJUKAN JAKSA PENUNTUT UMUM</strong><br>
 	<strong>UNTUK PENYELESAIAN PERKARA TINDAK PIDANA</strong><br>
 	</strong></b>
-	<strong>Nomor: PRINT - ... /0.5.12/</strong>
+	<strong>Nomor: Print - ... /0.5.12/</strong>
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
@@ -147,7 +147,7 @@
 		@endforeach
 		<p>
 			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->spdp_date}} dari penyidik {{$case->penyidik->name}}<br>
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case['spdp_date_for_human']}} dari penyidik {{$case->penyidik->name}}<br>
 			<br>
 		</p>
 	</td>
@@ -266,22 +266,16 @@
 		<p>
 			Dikeluarkan di    : Jember
 			<br>
-			Pada tanggal      : {{$case->spdp_date}}
+			Pada tanggal      : {{strftime("%e %B %Y")}}
 		</p>
 		<hr>
 		<p style="text-align:center;">
-			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong><br>
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
-			<br>
+			<br/><br/>
 		</p>
-		<p style="text-align:center;">
-				{{$setting['kajari_name']}}
-		</p>
-		<hr>
-		<p style="text-align: center;">
-			               {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
-		</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>

@@ -288,7 +288,7 @@
 	</td>
 	<td>
 		<p>
-			Jember, {{date('d-m-Y')}}
+			Jember, {{strftime("%e %B %Y")}}
 		</p>
 		<p>
 			JAKSA PENUNTUT UMUM

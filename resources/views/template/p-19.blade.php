@@ -30,7 +30,7 @@
 	</td>
 	<td rowspan="4">
 		<p>
-			Jember, {{date('d-m-Y')}}
+			Jember, {{strftime("%e %B %Y")}}
 		</p>
 		<p>
 			KEPADA YTH.
@@ -85,7 +85,7 @@
 	<br>
 </p>
 <p style="text-align: justify;">
-	    Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {{$case->suspectNames()}}, Berkas Perkara Nomor: {{$case->spdp_number}} tanggal {{$case->spdp_date}} yang kami terima tanggal {{$case->spdp_date_received}} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:
+	    Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {{$case->suspectNames()}}, Berkas Perkara Nomor: {{$case->spdp_number}} tanggal {{$case['spdp_date_for_human']}} yang kami terima tanggal {{$case->spdp_date_received}} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:
 	<ol>
 		<li></li>
 	</ol>
@@ -106,26 +106,18 @@
 	</td>
 	<td>
 		<p>
-			Dikeluarkan di : Jember
-		</p>
-		<p>
-			Pada tanggal : {{date('d-m-Y')}}
-		</p>
-		<p style="text-align: center;">
-			<strong data-redactor-tag="strong">
-			KEPALA KEJAKSAAN NEGERI JEMBER
-			</strong>
-		</p>
-		<p>
+			Dikeluarkan di    : Jember
 			<br>
-		</p>
-		<p style="text-align:center;">
-				{{$setting['kajari_name']}}
+			Pada tanggal      : {{strftime("%e %B %Y")}}
 		</p>
 		<hr>
-		<p style="text-align: center;">
-			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+		<p style="text-align:center;">
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
+		<p>
+			<br/><br/>
+		</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>

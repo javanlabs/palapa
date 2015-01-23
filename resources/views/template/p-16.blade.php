@@ -24,7 +24,7 @@
 	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
 	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
 	</strong></b>
-	<strong>Nomor: Print - ... /0.5.12/</strong>
+	<strong>Nomor: Print - /0.5.12/Ep.1/ /2015</strong>
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
@@ -147,7 +147,7 @@
 		</table>
 		@endforeach
 		<p>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->spdp_date}} dari penyidik {{$case->penyidik->name}}
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada tanggal {{$case['spdp_date_for_human']}} dari penyidik: {{$case->penyidik->name}}
 		</p>
 	</td>
 </tr>
@@ -257,16 +257,16 @@
 		<p>
 			Dikeluarkan di    : Jember
 			<br>
-			Pada tanggal      : {{date('d-m-Y')}}
+			Pada tanggal      : {{strftime("%e %B %Y")}}
 		</p>
 		<hr>
 		<p style="text-align:center;">
-			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong><br>
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>
 		</p>
-        <p style="border-bottom: 1px solid #000; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>
@@ -295,7 +295,7 @@
 <p style="text-align: center;">
 	<strong>SURAT PERINTAH</strong><b><br>
 	<strong><U>PENUNJUKAN PETUGAS ADMINISTRASI</U><br>
-	 Nomor: Print - /0.5.12/
+	 Nomor: Print - /0.5.12/Ep.1/ /2015
 	</strong></b>
 </p>
 <p style="text-align: center;">
@@ -332,7 +332,7 @@ Dasar
 	</td>
 	<td>
 		<ol>
-			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tinda Pidana Kepala Kejaksaan Negeri Jember Nomor: Print..... Tanggal </li>
+			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tindak Pidana Kepala Kejaksaan Negeri Jember Nomor: Print- /0.5.12/Ep.1/ /2015 Tanggal </li>
 			<li>Dalam rangka melaksanakan fungsi administrasi perkara tindak pidana umum, dipandang perlu menunuk Pegawai Tata Usaha Kejaksaan</li>
 			<li>Sebagai perwujudannya perlu menerbitkan Surat Perintah</li>
 		</ol>
@@ -435,21 +435,20 @@ Dasar
 		</p>
 	</td>
 	<td>
+		<br/>
 		<p>
-			Dikeluarkan di : Jember
+			Dikeluarkan di    : Jember
+			<br>
+			Pada tanggal      : {{strftime("%e %B %Y")}}
 		</p>
-		<p>
-			Pada tanggal : {{date('d-m-Y')}}
-		</p>
-		<p style="text-align: center;">
-			<strong data-redactor-tag="strong">
-			KEPALA KEJAKSAAN NEGERI JEMBER
-			</strong>
+		<hr>
+		<p style="text-align:center;">
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>
 		</p>
-        <p style="border-bottom: 1px solid #000; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>

@@ -81,26 +81,18 @@
 	</td>
 	<td>
 		<p>
-			Dikeluarkan di : Jember
-		</p>
-		<p>
-			Pada tanggal : {{date('d-m-Y')}}
-		</p>
-		<p style="text-align: center;">
-			<strong data-redactor-tag="strong">
-			KEPALA KEJAKSAAN NEGERI JEMBER
-			</strong>
-		</p>
-		<p>
+			Dikeluarkan di    : Jember
 			<br>
-		</p>
-		<p style="text-align:center;">
-				{{$setting['kajari_name']}}
+			Pada tanggal      : {{strftime("%e %B %Y")}}
 		</p>
 		<hr>
-		<p style="text-align: center;">
-			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
+		<p style="text-align:center;">
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
+		<p>
+			<br/><br/>
+		</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>

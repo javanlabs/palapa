@@ -76,7 +76,7 @@
 			Dikeluarkan di : Jember
 		</p>
 		<p>
-			Pada tanggal : {{date('d-m-Y')}}
+			Pada tanggal : {{strftime("%e %B %Y")}}
 		</p>
 		<p style="text-align: center;">
 			<strong data-redactor-tag="strong">
