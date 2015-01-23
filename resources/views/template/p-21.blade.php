@@ -21,7 +21,7 @@
 		<table>
 			<tr>
 				<td width="100px">Nomor</td>
-				<td width="5px">:</td>
+				<td width="15px">:</td>
 				<td width="300px">B- /0.5.12/Ep.1/I/2015</td>
 				<td width="40px" rowspan='4'></td>
 				<td>Jember, {{strftime("%e %B %Y")}}</td>				
@@ -50,7 +50,7 @@
 			<tr>
 				<td>Perihal</td>
 				<td>:</td>
-				<td>Pemberitahuan hasil penyidikan perkara pidana a.n. tersangka {{$case->suspectNames()}} sudah lengkap<HR/></td>
+				<td style="text-align: justify">Pemberitahuan hasil penyidikan perkara pidana a.n. tersangka {{$case->suspectNames()}} sudah lengkap<HR/></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -66,7 +66,7 @@
 			<tr>
 				<td></td>
 				<td></td>
-				<td colspan='3'>
+				<td colspan='3'><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian untuk dimaklumi.
 				</td>
 			</tr>
