@@ -261,12 +261,12 @@
 		</p>
 		<hr>
 		<p style="text-align:center;">
-			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong><br>
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>
 		</p>
-        <p style="border-bottom: 1px solid #000; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>
@@ -436,20 +436,18 @@ Dasar
 	</td>
 	<td>
 		<p>
-			Dikeluarkan di : Jember
+			Dikeluarkan di    : Jember
+			<br>
+			Pada tanggal      : {{date('d-m-Y')}}
 		</p>
-		<p>
-			Pada tanggal : {{date('d-m-Y')}}
-		</p>
-		<p style="text-align: center;">
-			<strong data-redactor-tag="strong">
-			KEPALA KEJAKSAAN NEGERI JEMBER
-			</strong>
+		<hr>
+		<p style="text-align:center;">
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>
 		</p>
-        <p style="border-bottom: 1px solid #000; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>

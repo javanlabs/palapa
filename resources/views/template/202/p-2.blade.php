@@ -18,7 +18,7 @@
 
 <p style="text-align: center;">
     <strong><u data-redactor-tag="u">SURAT PERINTAH PENYELIDIKAN</u></strong>
-    <br><strong>NOMOR: PRINT ................................</strong>
+    <br><strong>NOMOR: Print ................................</strong>
 </p>
 
 <p style="text-align: center">KEPALA KEJAKSAAN NEGERI JEMBER</p>

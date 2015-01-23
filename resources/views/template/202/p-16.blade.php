@@ -24,7 +24,7 @@
 	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
 	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
 	</strong></b>
-	<strong>Nomor: PRINT - ... /0.5.12/</strong>
+	<strong>Nomor: Print - ... /0.5.12/</strong>
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
@@ -263,7 +263,7 @@
 		</p>
 		<hr>
 		<p style="text-align:center;">
-			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong><br>
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>
@@ -313,7 +313,7 @@
 <p style="text-align: center;">
 	<strong>SURAT PERINTAH</strong><b><br>
 	<strong>PENUNJUKAN PETUGAS ADMINISTRASI<br>
-	 Nomor: PRINT - /0.5.12/
+	 Nomor: Print - /0.5.12/
 	</strong></b>
 </p>
 <p style="text-align: center;">
