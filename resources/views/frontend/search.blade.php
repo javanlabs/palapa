@@ -58,7 +58,7 @@
                     <h5 class="mb-0">{{ $item['name'] }}</h5>
                     <small class="text-muted">No SPDP {{ $item['spdp_number'] }}
 <br/>
-                    <strong>Tersangka</strong>
+                    <strong>{{$item->category}}:</strong>
                     @foreach($item->suspects as $suspect)
                     {{$suspect->name}}
                     @endforeach

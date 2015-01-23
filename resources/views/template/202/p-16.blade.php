@@ -148,7 +148,7 @@
 		@endforeach
 		<p>
 			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->tgl_spdp}} dari penyidik {{$case->penyidik->name}}<br>
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case->spdp_date}} dari penyidik {{$case->penyidik->name}}<br>
 			<br>
 		</p>
 	</td>

@@ -96,19 +96,15 @@ class EloquentRepository implements RepositoryInterface {
         $cases_ids = array();
         foreach($ids as $t){
             $cases_ids[] = $t->cases_id;
-        }
-            
-
+        }            
 
         if($keyword)
         {
-            $query->where(function($query2) use ($keyword, $cases_ids){
-                $query2->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')->orWhereIn('id', $cases_ids);
-
-            });
+            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')->orWhereIn('id', $cases_ids);
+            
         }
-
-        return $query->paginate();
+        
+        return $query->paginate(15);
     }
 
     public function activities($case)

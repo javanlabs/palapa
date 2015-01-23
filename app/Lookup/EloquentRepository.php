@@ -88,7 +88,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function categoryPidum($empty = null)
     {
-        $list = ['tpul' => 'TPUL', 'orharga' => 'ORHARGA', 'kamtibum' => 'KAMTIBUM'];
+        $list = ['tpul' => 'TPUL', 'orharga' => 'ORHARGA', 'kamtibum' => 'KAMTIBUM', 'PERKARA ANAK DIVERSI'=> 'PERKARA ANAK DIVERSI', 'PERKARA ANAK KORBAN' => 'PERKARA ANAK KORBAN', 'PERKARA ANAK PRA PENUNTUTAN'=> 'PERKARA ANAK PRA PENUNTUTAN'];
 
         if($empty)
         {
