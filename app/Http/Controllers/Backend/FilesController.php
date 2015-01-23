@@ -47,6 +47,11 @@ class FilesController extends BackendController {
     {
         $paths = explode('/', $path);
 
+        if(!$path)
+        {
+            unset($paths[0]);
+        }
+
         $breadcrumbs = [
             route('backend.files.index', ['path' => ''])  => 'Home'
         ];
