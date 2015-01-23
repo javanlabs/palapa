@@ -83,9 +83,14 @@ class EloquentRepository implements RepositoryInterface {
         return $this->case->findOrFail($id)->delete();
     }
 
-    public function search($keyword, $type = null)
+    public function search($keyword, $type = null, $includeDraft = false)
     {
-        $query = $this->case->published()->orderBy('updated_at', 'DESC');
+        $query = $this->case->orderBy('updated_at', 'DESC');
+
+        if(!$includeDraft)
+        {
+            $query->published();
+        }
 
         if($type)
         {
@@ -97,7 +102,7 @@ class EloquentRepository implements RepositoryInterface {
         foreach($ids as $t){
             $cases_ids[] = $t->cases_id;
         }
-            
+
 
 
         if($keyword)

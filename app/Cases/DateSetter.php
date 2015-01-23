@@ -34,4 +34,12 @@ trait DateSetter {
         $this->attributes['persidangan_date'] = $value;
     }
 
+    public function setCrimeTimeAttribute($value)
+    {
+        if($value)
+        {
+            $this->attributes['crime_time'] = $value;
+        }
+    }
+
 }

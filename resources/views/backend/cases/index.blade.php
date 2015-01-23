@@ -54,9 +54,11 @@
                             <span class="badge badge-type {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
                         </td>
                         <td class="text-right">
+                            @if(Auth::user()->canManage($item))
                             <a class="btn btn-default btn-sm" href="{{ $item['permalink_edit'] }}">
                                  Detil <i class="ion-ios-arrow-forward"></i>
                             </a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
