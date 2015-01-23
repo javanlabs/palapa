@@ -1,13 +1,29 @@
 <?php namespace App\Http\Controllers\Backend;
 
+use App\FileManager\FileManager;
 use App\Http\Requests;
-
+use Illuminate\Http\Request;
 
 class FilesController extends BackendController {
 
-    public function index()
+
+    /**
+     * @var FileManager
+     */
+    private $fileManager;
+
+    function __construct(FileManager $fileManager)
     {
-        return view('backend.files.index');
+        $this->fileManager = $fileManager;
+    }
+
+    public function index(Request $request)
+    {
+        $path = $request->get('path', '');
+        $paths = $this->buildBreadcrumbs($path);
+        $items = $this->fileManager->all($path);
+
+        return view('backend.files.index', compact('items', 'paths'));
     }
 
     public function create()
@@ -27,4 +43,21 @@ class FilesController extends BackendController {
     {
     }
 
+    protected function buildBreadcrumbs($path)
+    {
+        $paths = explode('/', $path);
+
+        $breadcrumbs = [
+            route('backend.files.index', ['path' => ''])  => 'Home'
+        ];
+
+        $stack = '';
+        foreach($paths as $segment)
+        {
+            $stack .= $segment . '/';
+            $breadcrumbs[route('backend.files.index', ['path' => $stack])] = $segment;
+        }
+
+        return $breadcrumbs;
+    }
 }
