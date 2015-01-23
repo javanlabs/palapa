@@ -19,7 +19,7 @@
 
 <a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
 
-@include('frontend.ticker', ['cases' => $cases])
+
 
 <div>
     <div id="bx-wrapper" class="bx-wrapper">
