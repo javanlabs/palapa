@@ -268,10 +268,7 @@
 		<p>
 			<br/><br/><br/>
 		</p>
-		<p style="text-align:center;">
-				<u>{{$setting['kajari_name']}}</u><br/>
-			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
-		</p>
+        <p style="border-bottom: 1px solid #000; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>
@@ -470,13 +467,7 @@ Dasar
 		<p>
 			<br/><br/><br/>
 		</p>
-		<p style="text-align:center;">
-				{{$setting['kajari_name']}}
-		</p>
-		<hr>
-		<p style="text-align: center;">
-			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
-		</p>
+        <p style="border-bottom: 1px solid #000; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>
