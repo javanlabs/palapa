@@ -221,7 +221,7 @@
                             height	: new_h,
                             left	: ( w_w - new_w ) / 2,
 //                            top		: ( w_h - new_h ) / 2
-                            top		: 0
+                            top		: ( w_h - new_h ) / 2
                         };
 
                     },

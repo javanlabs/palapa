@@ -36,3 +36,8 @@
 @media print {
     footer {page-break-after: always;}
 }
+
+.nama-nip {
+    border-bottom: 1px solid #000;
+    text-align: center;
+}

@@ -41,7 +41,12 @@ class FrontendController extends Controller {
         return view('frontend.officer', compact('officers'))->with('page', 'officer');
     }
 
-    public function getSlide(CasesRepository $caseRepository)
+    public function getSlide()
+    {
+        return redirect()->route('slide.image');
+    }
+
+    public function getSlideImage()
     {
         $images = [];
         foreach(File::allFiles(base_path('public/upload/slide/images')) as $file)
@@ -49,12 +54,10 @@ class FrontendController extends Controller {
             $images[] = asset('upload/slide/images/' . $file->getFilename());
         }
 
-        $cases = $caseRepository->upcomingSidang();
-
-        return view('frontend.slide', compact('images', 'cases'));
+        return view('frontend.slide.image', compact('images'));
     }
 
-    public function getSlide2(CasesRepository $caseRepository)
+    public function getSlideVideo()
     {
         $videos = [];
         foreach(File::allFiles(base_path('public/upload/slide/videos')) as $file)
@@ -62,22 +65,14 @@ class FrontendController extends Controller {
             $videos[] = ['src' => [asset('upload/slide/videos/' . $file->getFilename())]];
         }
 
-        $cases = $caseRepository->upcomingSidang();
-
-        return view('frontend.slide2', compact('videos', 'cases'));
+        return view('frontend.slide.video', compact('videos'));
     }
 
-    public function getSlide3(CasesRepository $caseRepository)
+    public function getSlideSidang(CasesRepository $caseRepository)
     {
-        $images = $videos = [];
-        foreach(File::allFiles(base_path('public/upload/slide/images')) as $file)
-        {
-            $images[] = asset('upload/slide/images/' . $file->getFilename());
-        }
-
         $cases = $caseRepository->upcomingSidang();
 
-        return view('frontend.slide3', compact('images', 'cases'));
+        return view('frontend.slide.sidang', compact('cases'));
     }
 
     public function getSlide4(CasesRepository $caseRepository)

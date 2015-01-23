@@ -21,7 +21,7 @@
         $(function(){
             $('#items-slider').vTicker({
                 speed: 500,
-                pause: 5000,
+                pause: {{ Config::get('slide.interval') }},
                 animation: 'fade',
                 mousePause: false,
                 showItems: 8

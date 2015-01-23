@@ -6578,6 +6578,12 @@ button.close {
   color: #c4c4c4;
   font-weight: 600;
 }
+.navbar-user {
+  border-bottom: 1px solid #eeeeee;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
 footer {
   padding: 40px;
   margin-top: 100px;
@@ -6966,7 +6972,7 @@ body#screensaver {
 #slider {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
-  width: 50%;
+  width: 80%;
   height: 100%;
   top: 0;
   right: 0;
@@ -6987,7 +6993,7 @@ body#screensaver {
   color: #f1a417;
   font-size: 2em;
   line-height: 1em;
-  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
 }
 #btn-stop {
   position: absolute;
@@ -7030,4 +7036,27 @@ body#screensaver {
   z-index: 10;
   top: 0;
   left: 0;
+}
+body#screensaver.screensaver-5 .section-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  background-color: red;
+}
+body#screensaver.screensaver-5 #items-slider .item {
+  padding: 10px 20px 10px 50px;
+}
+body#screensaver.screensaver-5 #items-slider .item .name {
+  font-size: 1.5em;
+  line-height: 1em;
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+body#screensaver.screensaver-5 #items-slider .item .time {
+  color: #f1a417;
+  font-size: 1em;
+  line-height: 1em;
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
 }

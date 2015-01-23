@@ -10,25 +10,36 @@
 
     <link rel="icon" type="image/png" href="{{asset('favicon.ico')}}">
     <link rel="stylesheet" href="{{ asset('compiled/bootstrap-custom.min.css') }}">
+
+    @yield('style-head')
+    @yield('script-head')
     <script src="{{ asset('vendor/jquery/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
 </head>
 
-<body id="screensaver" class="screensaver-5">
-    <a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
-    @include('frontend.ticker', ['cases' => $cases])
+<body id="screensaver">
+<a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
 
-    <table class="section-left">
-        <tr><td>slideshow</td></tr>
-        <tr><td>text</td></tr>
-    </table>
+@yield('content')
 
-    @yield('script-end');
+<script src="{{ asset('vendor/jquery.blockUI.js') }}"></script>
+<script src="{{ asset('compiled/app.js') }}"></script>
+@yield('script-end');
 
 <script>
-    $(document).ready(function() {
+    (function($){
 
-    });
+        $(document).idle({
+            onIdle: function(){
+                $('#btn-stop').hide()
+            },
+            onActive: function(){
+                $('#btn-stop').show()
+            },
+            idle: 1000
+        })
+
+    })(jQuery);
 </script>
 </body>
 </html>
