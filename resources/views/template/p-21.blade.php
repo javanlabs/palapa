@@ -50,7 +50,7 @@
 			<tr>
 				<td>Perihal</td>
 				<td>:</td>
-				<td>Pemberitahuan hasil penyidikan perkara pidana a.n. tersangka {{$case->suspectNames()}} sudah lengkap<HR/></td>
+				<td style="text-align: justify">Pemberitahuan hasil penyidikan perkara pidana a.n. tersangka {{$case->suspectNames()}} sudah lengkap<HR/></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -66,7 +66,7 @@ Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUH
 			<tr>
 				<td></td>
 				<td></td>
-				<td colspan='3'>
+				<td colspan='3'><br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian untuk dimaklumi.
 				</td>
 			</tr>
