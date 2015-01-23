@@ -32,13 +32,13 @@
                     {{ BootForm::select('Tempat Lahir', 'pob_id')->options($cities)->select($suspect['pob_id']) }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::text('Tanggal Lahir', 'dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2)->value($suspect['dob']) }}
+                    {{ BootForm::text('Tanggal Lahir', 'dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2)->value($suspect['dob'])->id('dob') }}
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Umur</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="age" value="{{ Input::old('age', $suspect['age']) }}">
+                            <input type="text" class="form-control" name="age" value="{{ Input::old('age', $suspect['age']) }}" id="age">
                             <span class="input-group-addon">tahun</span>
                         </div>
                     </div>
@@ -99,6 +99,11 @@
                 }
 
             }).trigger("change");
+
+            $('#dob').on('change', function(){
+                var age = moment().diff(moment($(this).val(), 'DD-MM-YYYY'), 'years');
+                $('#age').val(age);
+            });
         });
     </script>
 @stop
