@@ -21,10 +21,10 @@
 		<table>
 			<tr>
 				<td width="100px">Nomor</td>
-				<td width="5px">:</td>
-				<td width="300px">B- /0.5.12/Ep.1/I/2015</td>
-				<td width="40px" rowspan='4'></td>
-				<td>Jember, {{strftime("%e %B %Y")}}</td>
+				<td width="15px">:</td>
+				<td width="250px">B- /0.5.12/Ep.1/I/2015</td>
+				<td width="90px" rowspan='4'></td>
+				<td>Jember, {{strftime("%e %B %Y")}}</td>				
 			</tr>
 			<tr>
 				<td>Sifat</td>
@@ -33,12 +33,12 @@
 				<td rowspan='3'><p>
 			KEPADA YTH.
 		</p>
-
+		
 		<p>
 			KEPALA KEPOLISIAN SEKTOR KALIWATES<BR/>
-
+		
 			DI - <BR/>
-
+		
 			 <CENTER><u>…………………………</u></CENTER>
 		</p></td>
 			</tr>
@@ -56,8 +56,9 @@
 				<td></td>
 				<td></td>
 				<td colspan='3'><br/><br/><br/>
-<p>
-	 <span style='width:50px'></span>Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor BP/09/XII/2014/Reskrim tanggal {{strftime("%e %B %Y")}} yang kami terima tanggal {{strftime("%e %B %Y")}} setelah dilakukan penelitian ternyata hasil penyidikannya sudah lengkap.
+<p class="indent">
+
+	 Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor BP/09/XII/2014/Reskrim tanggal {{strftime("%e %B %Y")}} yang kami terima tanggal {{strftime("%e %B %Y")}} setelah dilakukan penelitian ternyata hasil penyidikannya sudah lengkap.
 </p><br/>
 <p class="indent">
 Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUHAP supaya Saudara menyerahkan tanggung jawab tersangka dan barang bukti kepada kami, guna menentukan apakah perkara tersebut sudah memenuhi persyaratan untuk dapat atau tidak dilimpahkan ke Pengadilan
@@ -71,13 +72,13 @@ Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUH
 				</td>
 			</tr>
 
-		</table>
-
+		</table>		
+	
 <table>
 <tbody>
 <tr>
 	<td style='width:400px'>
-
+		
 	</td>
 	<td>
 		<br/><br/><br/><br/>
