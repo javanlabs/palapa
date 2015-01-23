@@ -31,7 +31,7 @@
         setTimeout(function(){
             $.blockUI(BLOCKUI_STYLE);
             window.location.href = '{{ route('slide.sidang')  }}';
-        }, SLIDE_INTERVAL * IMAGE_COUNT);
+        }, SLIDE_INTERVAL * IMAGE_COUNT * 2);
 
         $(function() {
 
@@ -186,8 +186,8 @@
                                     new_w, new_h;
 
                             if( r_w > r_i ) {
-                                new_h	= w_h;
-                                new_w	= new_h/i_h*i_w;
+                                new_w	= w_w;
+                                new_h	= new_w/i_w*i_h;
                             }
                             else {
 
@@ -200,8 +200,8 @@
                                 width	: new_w,
                                 height	: new_h,
                                 left	: ( w_w - new_w ) / 2,
-//                            top		: ( w_h - new_h ) / 2
-                                top		: 0
+                                top		: ( w_h - new_h ) / 2
+//                                top		: 0
                             };
 
                         },
