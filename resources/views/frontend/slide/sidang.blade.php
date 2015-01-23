@@ -10,6 +10,7 @@
 
 @section('content')
 
+    <h1 class="slide-title">Jadwal Sidang Kejaksaan Negeri Jember</h1>
     @include('frontend.ticker', ['cases' => $cases])
 
 @stop
