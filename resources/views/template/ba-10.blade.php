@@ -82,7 +82,7 @@
 		<p>
 			Tersangka/Terdakwa *)
 		</p>		
-				<br/><br/><br/>
+				<br/><br/>
 
 		<p>
 			<strong>({{$suspect->name}})</strong>
@@ -92,7 +92,7 @@
 		<p>
 			Jaksa Penyidik/Penuntut Umum
 		</p>
-		<br/><br/><br/>
+		<br/><br/>
 		<p>
 			<strong>({{$case->jaksa->name}})</strong>
 		</p>
@@ -106,7 +106,7 @@
 		<p>
 	Kepala Rutan *)
 </p>
-<br/><br/><br/>
+<br/><br/>
 <p>
 	(<u> </u>)
 </p>

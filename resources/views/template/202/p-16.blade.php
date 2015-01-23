@@ -266,7 +266,7 @@
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong><br>
 		</p>
 		<p>
-			<br/><br/><br/>
+			<br/><br/>
 		</p>
 		<p style="text-align:center;">
 				{{$setting['kajari_name']}}
@@ -471,7 +471,7 @@ Dasar
 			</strong>
 		</p>
 		<p>
-			<br/><br/><br/>
+			<br/><br/>
 		</p>
 		<p style="text-align:center;">
 				{{$setting['kajari_name']}}

@@ -127,7 +127,7 @@
 		<p>
 			1. Penuntut Umum
 		</p>
-		<br/><br/><br/>
+		<br/><br/>
 		<p>
 			<strong>({{$case->jaksa->name}})</strong>
 		</p>
