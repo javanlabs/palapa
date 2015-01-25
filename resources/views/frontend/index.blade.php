@@ -92,7 +92,7 @@
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
-                </td>                
+                </td>
                 <td class="item">
                     <div class="inner">
                         <a href="{{ route('frontend.search') }}" data-keymap="5">
@@ -115,7 +115,7 @@
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
-                </td>                                
+                </td>
                 <td class="item">
                     <div class="inner">
                         <a href="{{ route('frontend.officer') }}" data-keymap="6">
@@ -127,7 +127,7 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.officer') }}" data-keymap="9">
+                        <a href="{{ route('frontend.sidang') }}" data-keymap="9">
                             <small class="keymap">9</small>
                             <h3 class="title">Jadwal Sidang</h3>
                             <i class="ion-ios-arrow-forward icon"></i>

@@ -41,6 +41,24 @@ class FrontendController extends Controller {
         return view('frontend.officer', compact('officers'))->with('page', 'officer');
     }
 
+    public function getSidang(CasesRepository $caseRepository)
+    {
+        $cases = $caseRepository->upcomingSidang();
+
+        return view('frontend.sidang', compact('cases'));
+    }
+
+    public function getCase(CasesRepository $caseRepository, RepositoryInterface $sopRepo, $id)
+    {
+        $case = $caseRepository->find($id);
+        $phases = $sopRepo->byType($case->type_id);
+        $activities = $caseRepository->activities($case);
+        $suspects = $case->suspects;
+
+        return view('frontend.case', compact('case', 'phases', 'activities', 'suspects'));
+
+    }
+
     public function getSlide()
     {
         return redirect()->route('slide.image');

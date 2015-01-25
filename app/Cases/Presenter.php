@@ -6,7 +6,7 @@ trait Presenter {
 
     public function getPermalinkAttribute()
     {
-        return route('backend.cases.view', [$this->id]);
+        return route('cases.view', [$this->id]);
     }
 
     public function getPermalinkEditAttribute()

@@ -22,7 +22,9 @@ $router->get('slide5', ['as' => 'slide5', 'uses' => 'FrontendController@getSlide
 $router->controller('frontend', 'FrontendController', [
     'getSearch'  => 'frontend.search',
     'getOfficer'  => 'frontend.officer',
+    'getSidang'  => 'frontend.sidang',
 ]);
+$router->get('frontend/case/{id}', ['as' => 'cases.view', 'uses' => 'FrontendController@getCase']);
 
 // CMS a.k.a static page
 $router->get('page/{category}/{id?}', ['as'=>'frontend.post', 'uses'=>'PostController@show']);
