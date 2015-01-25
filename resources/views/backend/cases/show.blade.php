@@ -170,6 +170,27 @@
             @endif
         </div>
 
+        <div class="panel panel-default box-tersangka">
+            <div class="panel-heading">
+                <i class="icon ion-eye"></i> Saksi
+                <a href="/backend/witness/create?case_id={{$case->id}}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
+            </div>
+            @if(count($case->witness))
+                <?php $count = 1;?>
+                <table class="table table-condensed items">
+                    @foreach($case->witness as $item)
+                        <tr>
+                            <td>
+                                <a class="item" href="{{ route('backend.witness.show', [$item['id']]) }}">
+                                    <h5 class="name ell">{{ $item['sex_icon'] }} {{ $item['name'] }}</h5>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            @endif
+        </div>
+
         <div class="panel panel-default">
             <div class="panel-heading"><i class="ion-document-text icon"></i> Dokumen</div>
             @if($case['is_allow_create_document'])

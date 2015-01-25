@@ -6,12 +6,12 @@ use Eendonesia\Wilayah\Kabupaten;
 use Input, View;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Cases\RepositoryInterface;
-use App\Cases\Suspects;
-use App\Cases\SuspectsForm;
+use App\Cases\Witness;
+use App\Cases\WitnessForm;
 use App\Cases\Cases;
 
 
-class SuspectController extends BackendController {
+class WitnessController extends BackendController {
 
 	/**
 	 * Display a listing of the resource.
@@ -46,11 +46,9 @@ class SuspectController extends BackendController {
 		$cities = ['' => '--Pilih Kota--'] + Kabupaten::lists('nama', 'id');
         $religions = $this->lookup->religions();
         $jenisKelamins = $this->lookup->jenisKelamins();
-        $jenisTahanan = $this->lookup->jenisTahanan();
-        $status = $this->lookup->statusTersangka();
 
         $case_id = Input::get('case_id');
-		return view('backend.suspects.create', compact('jenisKelamins', 'cities', 'religions', 'jenisTahanan', 'status', 'case_id'));
+		return view('backend.witness.create', compact('jenisKelamins', 'cities', 'religions', 'case_id'));
 	}
 
 	/**
@@ -58,11 +56,12 @@ class SuspectController extends BackendController {
 	 *
 	 * @return Response
 	 */
-	public function store(SuspectsForm $form)
+	public function store(WitnessForm $form)
 	{
 		$case = Cases::find($form->get('case_id'));
-		$suspect = Suspects::create($form->all());
-		$case->suspects()->save($suspect);
+
+		$witness = Witness::create($form->all());
+		$case->witness()->save($witness);
 		return redirect()->route('backend.cases.show', $case->id);
 
 	}
@@ -75,9 +74,9 @@ class SuspectController extends BackendController {
 	 */
 	public function show($id)
 	{
-        $suspect = Suspects::findOrFail($id);
+        $witness = Witness::findOrFail($id);
 
-        return view('backend.suspects.show', compact('suspect'));
+        return view('backend.witness.show', compact('witness'));
 	}
 
 	/**
@@ -88,16 +87,14 @@ class SuspectController extends BackendController {
 	 */
 	public function edit($id)
 	{
-		$suspect = Suspects::findOrFail($id);
-        $caseId = $suspect->cases()->first()->id;
+		$witness = Witness::findOrFail($id);
+        $caseId = $witness->cases()->first()->id;
 
 		$cities = ['' => '--Pilih Kota--'] + Kabupaten::lists('nama', 'id');
 		$religions = $this->lookup->religions();
-		$jenisTahanan = $this->lookup->jenisTahanan();
         $jenisKelamins = $this->lookup->jenisKelamins();
-		$status = $this->lookup->statusTersangka();
 
-		return view('backend.suspects.edit', compact('suspect', 'cities', 'religions', 'jenisTahanan', 'jenisKelamins', 'status', 'caseId'));
+		return view('backend.witness.edit', compact('witness', 'cities', 'religions', 'jenisKelamins', 'caseId'));
 	}
 
 	/**
@@ -106,10 +103,10 @@ class SuspectController extends BackendController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(SuspectsForm $form, $id)
+	public function update(WitnessForm $form, $id)
 	{
-		$suspect = Suspects::findOrFail($id);
-		$suspect->update($form->all());
+		$witness = Witness::findOrFail($id);
+		$witness->update($form->all());
 
 		return redirect()->route('backend.cases.show', [$form->get('case_id')]);
 	}
@@ -122,10 +119,10 @@ class SuspectController extends BackendController {
 	 */
 	public function destroy($id)
 	{
-        $suspect = Suspects::findOrFail($id);
-        $case = $suspect->cases()->first();
+        $witness = Witness::findOrFail($id);
+        $case = $witness->cases()->first();
 
-		$case->suspects()->detach([$id]);
+		$case->witness()->detach([$id]);
 		return redirect()->route('backend.cases.show', [$case->id]);
 	}
 

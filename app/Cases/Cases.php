@@ -32,6 +32,11 @@ class Cases extends Model {
         return $this->belongsToMany('App\Cases\Suspects');
     }
 
+    public function witness()
+    {
+        return $this->belongsToMany('App\Cases\Witness');
+    }
+
     public function suspectNames(){
         $suspects = array();
         foreach($this->suspects as $row){

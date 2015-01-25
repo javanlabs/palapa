@@ -65,6 +65,23 @@
                     </table>
                 </div>
 
+                <div class="panel panel-default panel-tersangka">
+                    <div class="panel-heading"><i class="icon ion-eye"></i> Saksi</div>
+                    <table class="table">
+                        <tbody class="items">
+                        @forelse($witness as $person)
+                            <tr>
+                                <td>{{ $person['sex_icon'] }} {{ $person['name'] }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>Data saksi belum tersedia</td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Riwayat</div>
                     <table class="table">

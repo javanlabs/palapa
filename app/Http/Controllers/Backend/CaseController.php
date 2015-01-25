@@ -103,8 +103,9 @@ class CaseController extends BackendController {
         $phases = $this->sopRepo->byType($case->type_id);
         $activities = $this->repo->activities($case);
         $suspects = $case->suspects;
+        $witness = $case->witness;
 
-        return view('backend.cases.view', compact('case', 'phases', 'activities', 'suspects'));
+        return view('backend.cases.view', compact('case', 'phases', 'activities', 'suspects', 'witness'));
 
     }
 
