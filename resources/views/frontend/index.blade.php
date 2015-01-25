@@ -56,18 +56,18 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}?type=201" data-keymap="1">
+                        <a href="{{ route('frontend.post', ['category' => 'pembinaan']) }}" data-keymap="1">
                             <small class="keymap">1</small>
-                            <h3 class="title">Pidum</h3>
+                            <h3 class="title">Pembinaan</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.officer') }}" data-keymap="4">
+                        <a href="{{ route('frontend.search') }}?type=202" data-keymap="4">
                             <small class="keymap">4</small>
-                            <h3 class="title">Jaksa</h3>
+                            <h3 class="title">Pidsus</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
@@ -86,18 +86,18 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}?type=202" data-keymap="2">
+                        <a href="{{ route('frontend.post', ['category' => 'intelijen']) }}" data-keymap="2">
                             <small class="keymap">2</small>
-                            <h3 class="title">Pidsus</h3>
+                            <h3 class="title">Intelijen</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
-                </td>
+                </td>                
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.post', ['category' => 'pembinaan']) }}" data-keymap="5">
+                        <a href="{{ route('frontend.search') }}" data-keymap="5">
                             <small class="keymap">5</small>
-                            <h3 class="title">Pembinaan</h3>
+                            <h3 class="title">Datun</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
@@ -109,24 +109,29 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}" data-keymap="3">
+                        <a href="{{ route('frontend.search') }}?type=201" data-keymap="3">
                             <small class="keymap">3</small>
-                            <h3 class="title">Datun</h3>
+                            <h3 class="title">Pidum</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
-                </td>
+                </td>                                
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.post', ['category' => 'intelijen']) }}" data-keymap="6">
+                        <a href="{{ route('frontend.officer') }}" data-keymap="6">
                             <small class="keymap">6</small>
-                            <h3 class="title">Intelijen</h3>
+                            <h3 class="title">Jaksa</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
                 <td class="item">
                     <div class="inner">
+                        <a href="{{ route('frontend.officer') }}" data-keymap="9">
+                            <small class="keymap">9</small>
+                            <h3 class="title">Jadwal Sidang</h3>
+                            <i class="ion-ios-arrow-forward icon"></i>
+                        </a>
                     </div>
                 </td>
             </tr>
