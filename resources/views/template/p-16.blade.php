@@ -52,9 +52,9 @@
 			<li>Undang-Undang Nomor: 16 Tahun 2004 tentang Kejaksaan Republik Indonesia.</li>
 			<li>Surat Pemberitahuan dimulainya Penyidikan terhadap tersangka:</li>
 		</ol>
-		@foreach($case->suspects as $suspect)
 		<table style="margin-left: 20px">
 		<tbody>
+		@foreach($case->suspects as $suspect)		
 		<tr>
 			<td width="150px">
 					Nama Lengkap
@@ -143,12 +143,21 @@
 					{{$suspect->education}}
 			</td>
 		</tr>
+		<tr>
+			<td colspan='3'></td>
+		</tr>
+		@endforeach
+		<tr>
+			<td colspan='3'>
+				<br/>
+				<p>
+				Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada tanggal {{$case['spdp_date_for_human']}} dari penyidik: {{$case->penyidik->name}}
+				</p>
+			</td>
+		</tr>
 		</tbody>
 		</table>
-		@endforeach
-		<p>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada tanggal {{$case['spdp_date_for_human']}} dari penyidik: {{$case->penyidik->name}}
-		</p>
+
 	</td>
 </tr>
 <tr>

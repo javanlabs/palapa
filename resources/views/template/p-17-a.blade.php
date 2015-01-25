@@ -11,7 +11,7 @@
 	</td>
 	<td style="text-align: right;">
 		<strong>
-			P‑17
+			
 		</strong>
 	</td>
 </tr>
@@ -57,7 +57,7 @@
 				$suspects[] = $row->name;
 			}
 		?>
-			Permintaan Perkembangan Hasil Penyidikan atas nama {{implode(', ', $suspects)}} yang disangka melanggar pasal {{$case->pasal}}
+			Pengembalian SPDP atas nama {{implode(', ', $suspects)}} yang disangka melanggar pasal {{$case->pasal}}
 					<HR/></td>
 			</tr>
 			<tr>
@@ -65,12 +65,12 @@
 				<td></td>
 				<td colspan='3'><br/><br/><br/>
 <p class='indent'>
-	 Sehubungan dengan Surat Pemberitahuan dimulainya Penyidikan atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date?$case->spdp_date:'____________'}} yang kami terima pada tanggal {{$case->spdp_date_received?$case->spdp_date_received:'____________'}} hingga saat ini kami belum menerima hasil penyidikan perkara, tersebut.
+	Sehubungan dengan penyerahan Surat Perintah Penyidikan (SPDP) perkara pidana atas nama tersangka {{implode(', ', $suspects)}} Nomor: {{$case->spdp_number}} tanggal
+	{{$case->spdp_date}} yang kami terima tanggal  hingga saat ini kami belum menerima hasil Penyidikan Berkas Perkara tersebut, oleh karna itu mengingat dalam 
+	Jangka Waktu yang cukup lama yaitu 90 (Sembilan Puluh) hari jesak diterbitkannya SPDP Penyidik belum menyerahkan Hasil Penyidikannya, maka dengan ini kami
+	kembalikan Surat Pemberitahuan di mulainya Penyidikan (SPDP) tersebut.
 </p>
-<br/>
-<p class='indent'>
-	 Mengingat Surat Pemberitahuan dimulainya Penyidikan sudah kami terima cukup lama, dengan ini kami minta perkembangan penyidikan perkara tersebut.
-</p></td>
+<br/></td>
 			</tr>
 			<tr>
 				<td></td>

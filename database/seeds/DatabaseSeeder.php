@@ -97,6 +97,11 @@ class TemplateSeeder extends Seeder{
                 'case_type_id' => 201
             ],
             [
+                'short_title' => 'P-17-a',
+                'title' => 'Pengembalian SPDP setelah P-17',
+                'case_type_id' => 201
+            ],
+            [
                 'short_title' => 'P-18',
                 'title' => 'Hasil Penyidikan Belum Lengkap',
                 'case_type_id' => 201
@@ -112,6 +117,11 @@ class TemplateSeeder extends Seeder{
                 'case_type_id' => 201
             ],
             [
+                'short_title' => 'P-20-a',
+                'title' => 'Pengembalian SPDP setelah P-20',
+                'case_type_id' => 201
+            ],
+            [
                 'short_title' => 'P-21',
                 'title' => 'Pemberitahuan Hasil Penyidikan Sudah Lengkap',
                 'case_type_id' => 201
@@ -124,6 +134,11 @@ class TemplateSeeder extends Seeder{
             [
                 'short_title' => 'P-16A',
                 'title' => 'Surat Perintah Penunjukan JPU untuk Penyelesaian Perkara Tindak Pidana',
+                'case_type_id' => 201
+            ],
+            [
+                'short_title' => 'T-7',
+                'title' => 'Surat Perintah Penahanan',
                 'case_type_id' => 201
             ],
             [

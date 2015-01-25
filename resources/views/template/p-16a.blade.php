@@ -19,10 +19,10 @@
 	</strong>
 </p>
 <p style="text-align: center;">
-	<strong>SURAT PERINTAH</strong><b><br>
-	<strong>PENUNJUKAN JAKSA PENUNTUT UMUM</strong><br>
-	<strong>UNTUK PENYELESAIAN PERKARA TINDAK PIDANA</strong><br>
-	</strong></b>
+	<strong>SURAT PERINTAH PENUNJUKAN</strong><br>
+	<strong> JAKSA PENUNTUT UMUM UNTUK PENYELESAIAN</strong><br>
+	<strong><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERKARA TINDAK PIDANA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></strong><br>
+	</strong>
 	<strong>Nomor: Print - ... /0.5.12/</strong>
 </p>
 <p style="text-align: center;">
@@ -47,8 +47,8 @@
 	</td>
 	<td>
 		<ol>
-			<li>1.	Undang undang Republik Indonesia Nomor 8 Tahun 1981 tentang Kitab Undang Undang Hukum Acara Pidana (KUHAP) pasal 8 ayat (3), b, pasal 138, pasal 109, pasal 110 dan pasal 140 KUHAP.</li>
-			<li>2.	Undang Undang Republik Indonesia Nomor 5 tahun 1991 tentang Kejaksaan Republik Indonesia.</li>
+			<li>Undang undang Republik Indonesia Nomor 8 Tahun 1981 tentang Kitab Undang Undang Hukum Acara Pidana (KUHAP) pasal 8 ayat (3), b, pasal 138, pasal 109, pasal 110 dan pasal 140 KUHAP.</li>
+			<li>Undang Undang Republik Indonesia Nomor 5 tahun 1991 tentang Kejaksaan Republik Indonesia.</li>
 			<li>Surat Pemberitahuan dimulainya Penyidikan terhadap tersangka:</li>
 		</ol>
 		@foreach($case->suspects as $suspect)
@@ -260,7 +260,15 @@
 <table>
 <tbody>
 <tr>
-	<td width="60%">
+	<td width="60%" style='vertical-align:bottom'>
+		
+			<strong><u>TEMBUSAN:</u></strong>
+		<br/>
+		<ol>
+			<li>Yth. Ketua Pengadilan Negeri Jember;</li>
+			<li>Yth. Penyidik {{$case->penyidik->name}}</li>
+			<li>Arsip.</li>
+		</ol>
 	</td>
 	<td>
 		<p>
@@ -276,20 +284,6 @@
 			<br/><br/>
 		</p>
         <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
-	</td>
-</tr>
-<tr>
-	<td>
-		<p>
-			Tembusan:
-		</p>
-		<ol>
-			<li>Yth. Ketua Pengadilan Negeri Jember;</li>
-			<li>Yth. Penyidik {{$case->penyidik->name}}</li>
-			<li>Arsip.</li>
-		</ol>
-	</td>
-	<td>
 	</td>
 </tr>
 </tbody>

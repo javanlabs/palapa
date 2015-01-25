@@ -11,7 +11,7 @@
 	</td>
 	<td style="text-align: right;">
 		<strong>
-			P‑17
+		
 		</strong>
 	</td>
 </tr>
@@ -57,7 +57,7 @@
 				$suspects[] = $row->name;
 			}
 		?>
-			Permintaan Perkembangan Hasil Penyidikan atas nama {{implode(', ', $suspects)}} yang disangka melanggar pasal {{$case->pasal}}
+			Pengembalian SPDP atas nama {{implode(', ', $suspects)}} yang disangka melanggar pasal {{$case->pasal}}.
 					<HR/></td>
 			</tr>
 			<tr>
@@ -65,18 +65,20 @@
 				<td></td>
 				<td colspan='3'><br/><br/><br/>
 <p class='indent'>
-	 Sehubungan dengan Surat Pemberitahuan dimulainya Penyidikan atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date?$case->spdp_date:'____________'}} yang kami terima pada tanggal {{$case->spdp_date_received?$case->spdp_date_received:'____________'}} hingga saat ini kami belum menerima hasil penyidikan perkara, tersebut.
+	 Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor ………………… tanggal……………… yang kami terima tanggal ....... kami beritahukan
+	 kepada saudara bahwa terharap berkas perkara tersebut telah kami kirimkan surat P-18 dengan Nomor: B-148/O.5.12/Ep.1/08/2014 tertanggal ....... dan ditindak lanjuti dengan 
+	 P-19 Nomor: B-148.a/O.5.12/Ep.1/08/2014 tertanggal ....... yang pada isinya memberitahuan bahwa berkas belum lengkap. Dalam jangka waktu 14 hari penyidik belum mengirimkan kembali berkas tersebu sehingga penuntut umum mengirimkan Pemberitahuan bahwa waktu penyidikan tambahan sudah hasib (P-20)
+	 dengan nomor: B-18 NomorB-148/O.5.12/Ep.1/08/2014 tertanggal ....., sampai saat ini sudah 30 hari lebih berkas perkara belum kami terima, sehubungan dengan hal tersebut di atas guna 
+	 memperoleh kepastian hukum dalam penanganan perkara atas nama {{implode(', ', $suspects)}}, bersama ini kami kembalikan SPDP berkara tersebut kepada saudara.
+	
 </p>
-<br/>
-<p class='indent'>
-	 Mengingat Surat Pemberitahuan dimulainya Penyidikan sudah kami terima cukup lama, dengan ini kami minta perkembangan penyidikan perkara tersebut.
-</p></td>
+<br/></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td></td>
-				<td colspan='3'><br/>
-<p class='indent'>Demikian untuk dimaklumi.</p>
+				<td colspan='3'>
+	<p class='indent'>Demikian untuk dimaklumi.</p>
 				</td>
 			</tr>
 

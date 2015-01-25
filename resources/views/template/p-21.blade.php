@@ -68,7 +68,7 @@ Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUH
 				<td></td>
 				<td></td>
 				<td colspan='3'><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Demikian untuk dimaklumi.
+<p class='indent'>Demikian untuk dimaklumi.</p>
 				</td>
 			</tr>
 
