@@ -20,8 +20,8 @@
         </div>
         <div class="col-md-6 text-right">
             <img class="logo" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
-            <h1>APLIKASI MONITORING KASUS</h1>
-            <h3>Kejaksaan Negeri Jember</h3>
+            <h1>PROFIL KEJAKSAAN NEGERI JEMBER</h1>
+            {{--<h3>Kejaksaan Negeri Jember</h3>--}}
         </div>
     </div>
 </nav>

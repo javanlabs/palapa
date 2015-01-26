@@ -1,3 +1,11 @@
+@if(Auth::check())
+    <div class="navbar-user">
+        <div class="container-fluid">
+            Login sebagai <strong>{{ Auth::user()->name }}</strong> <a href="{{ route('gapura.logout') }}" class="btn btn-xs btn-warning">Logout</a>
+        </div>
+    </div>
+@endif
+
 <nav class="navbar navbar-header" role="navigation">
     <div class="container-fluid">
         <div class="col-md-6">
@@ -8,8 +16,8 @@
         </div>
         <div class="col-md-6 text-right">
             <img class="logo" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
-            <h1>APLIKASI MONITORING KASUS</h1>
-            <h3>Kejaksaan Negeri Jember</h3>
+            <h1>PROFIL KEJAKSAAN NEGERI JEMBER</h1>
+            {{--<h3>Kejaksaan Negeri Jember</h3>--}}
         </div>
     </div>
 </nav>
