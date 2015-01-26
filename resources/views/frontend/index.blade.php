@@ -65,18 +65,18 @@
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.search') }}?type=202" data-keymap="4">
-                            <small class="keymap">4</small>
-                            <h3 class="title">Pidsus</h3>
+                        <a href="{{ route('frontend.post', ['category' => 'intelijen']) }}" data-keymap="2">
+                            <small class="keymap">2</small>
+                            <h3 class="title">Intelijen</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
                 </td>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('dashboard.index') }}" data-keymap="7">
-                            <small class="keymap">7</small>
-                            <h3 class="title">Statistik</h3>
+                        <a href="{{ route('frontend.search') }}?type=201" data-keymap="3">
+                            <small class="keymap">3</small>
+                            <h3 class="title">Pidum</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
@@ -86,9 +86,9 @@
             <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.post', ['category' => 'intelijen']) }}" data-keymap="2">
-                            <small class="keymap">2</small>
-                            <h3 class="title">Intelijen</h3>
+                        <a href="{{ route('frontend.search') }}?type=202" data-keymap="4">
+                            <small class="keymap">4</small>
+                            <h3 class="title">Pidsus</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
@@ -103,20 +103,6 @@
                     </div>
                 </td>
                 <td class="item">
-                </td>
-            </tr>
-
-            <tr>
-                <td class="item">
-                    <div class="inner">
-                        <a href="{{ route('frontend.search') }}?type=201" data-keymap="3">
-                            <small class="keymap">3</small>
-                            <h3 class="title">Pidum</h3>
-                            <i class="ion-ios-arrow-forward icon"></i>
-                        </a>
-                    </div>
-                </td>
-                <td class="item">
                     <div class="inner">
                         <a href="{{ route('frontend.officer') }}" data-keymap="6">
                             <small class="keymap">6</small>
@@ -125,14 +111,28 @@
                         </a>
                     </div>
                 </td>
+            </tr>
+
+            <tr>
                 <td class="item">
                     <div class="inner">
-                        <a href="{{ route('frontend.sidang') }}" data-keymap="9">
-                            <small class="keymap">9</small>
+                        <a href="{{ route('dashboard.index') }}" data-keymap="7">
+                            <small class="keymap">7</small>
+                            <h3 class="title">Statistik</h3>
+                            <i class="ion-ios-arrow-forward icon"></i>
+                        </a>
+                    </div>
+                </td>
+                <td class="item">
+                    <div class="inner">
+                        <a href="{{ route('frontend.sidang') }}" data-keymap="8">
+                            <small class="keymap">8</small>
                             <h3 class="title">Jadwal Sidang</h3>
                             <i class="ion-ios-arrow-forward icon"></i>
                         </a>
                     </div>
+                </td>
+                <td class="item">
                 </td>
             </tr>
 
