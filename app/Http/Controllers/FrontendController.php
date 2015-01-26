@@ -87,6 +87,8 @@ class FrontendController extends Controller {
             $images[] = asset('upload/slide/images/' . $file->getFilename());
         }
 
+        natsort($images);
+
         return view('frontend.slide.image', compact('images'));
     }
 
@@ -102,6 +104,7 @@ class FrontendController extends Controller {
         {
             return redirect()->route('slide.image');
         }
+        natsort($videos);
         return view('frontend.slide.video', compact('videos'));
     }
 
@@ -119,6 +122,7 @@ class FrontendController extends Controller {
         {
             $images[] = asset('upload/slide/images/' . $file->getFilename());
         }
+        natsort($images);
 
         $cases = $caseRepository->upcomingSidang();
 
@@ -132,6 +136,7 @@ class FrontendController extends Controller {
         {
             $images[] = asset('upload/slide/images/' . $file->getFilename());
         }
+        natsort($images);
 
         $cases = $caseRepository->upcomingSidang();
 
