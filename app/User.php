@@ -61,6 +61,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function canManage($case)
     {
         $isCaseCreator = $case->author_id == $this->id;
-        return $this->hasGroup('root') || $isCaseCreator;
+        $isCaseStaff = $case->staff_id == $this->id;
+        $isCaseJaksa = $case->jaksa_id == $this->id;
+        return $this->hasGroup('root') || $isCaseCreator || $isCaseStaff || $isCaseJaksa;
     }
 }
