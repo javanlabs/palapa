@@ -20,7 +20,7 @@
                     <div class="panel-body">
                         @if($officer->user)
                             <p>Petugas yang bersangkutan lupa password? Klik tombol dibawah ini untuk reset password.</p>
-                            <a href="" class="btn btn-info">Reset Password</a>
+                            <a href="{{ route('backend.user.reset_password', ['id' => $officer['id']]) }}" class="btn btn-info btn-reset-password">Reset Password</a>
                             <hr/>
                             <p>Dengan mengklik tombol dibawah ini, maka petugas yang bersangkutan tidak lagi bisa login ke aplikasi. Informasi lainnya tetap akan disimpan di sistem.</p>
                             {{ Form::delete(route('backend.user.destroy', [$officer['id']]), 'Hapus Akun', ['class' => 'form-delete'], ['class' => 'btn btn-danger']) }}
@@ -33,4 +33,29 @@
             </div>
         </div>
     </div>
+@stop
+
+@section('script-end')
+    @parent
+    <script>
+        $(function(){
+            $(document).on('click', '.btn-reset-password', function(e){
+                e.preventDefault();
+                var btn = $(e.currentTarget);
+
+                btn.button('loading');
+                $.ajax({
+                    url: btn.attr('href'),
+                    type: 'get',
+                    dataType: 'json'
+                }).done(function(response){
+                    bootbox.alert("Password baru: " + response.password);
+                }).fail(function(){
+                    alert('Oops, tidak bisa melakukan perubahan password saati ini. Coba lagi beberapa saat atau hubungi admin.');
+                }).always(function(){
+                    btn.button('reset');
+                });
+            });
+        });
+    </script>
 @stop

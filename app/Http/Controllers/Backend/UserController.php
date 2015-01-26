@@ -12,10 +12,15 @@ class UserController extends BackendController {
      * @var
      */
     private $officerRepo;
+    /**
+     * @var
+     */
+    private $moderator;
 
-    function __construct(RepositoryInterface $officerRepo)
+    function __construct(RepositoryInterface $officerRepo, \Eendonesia\Moderator\RepositoryInterface $moderator)
     {
         $this->officerRepo = $officerRepo;
+        $this->moderator = $moderator;
 
         return parent::__construct();
     }
@@ -42,5 +47,13 @@ class UserController extends BackendController {
 
         with(new UserCreator())->deleteFromOfficer($officer);
         return redirect()->route('backend.officers.edit', [$id])->with('flash.success', 'Akun baru berhasil dihapus');
+    }
+
+    public function resetPassword(Request $form)
+    {
+        $officer = $this->officerRepo->find($form->get('id'));
+        $password = $this->moderator->resetOfficerPassword($officer);
+
+        return json_encode(['status' => 1, 'password' => $password]);
     }
 }
