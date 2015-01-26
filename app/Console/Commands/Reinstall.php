@@ -44,7 +44,8 @@ class Reinstall extends Command {
 		$db = DB::connection()->getDatabaseName();
 		$tables = DB::select(DB::raw("select * from information_schema.tables where table_schema = '$db'"));
 
-		$dataTables = array('suspects', 'cases', 'cases_activities', 'cases_checklist', 'cases_documents', 'cases_phases_history', 'cases_suspects');
+//		$dataTables = array('suspects', 'cases', 'cases_activities', 'cases_checklist', 'cases_documents', 'cases_phases_history', 'cases_suspects');
+        $dataTables = [];
 
 		foreach($tables as $table)
 		{

@@ -24,10 +24,12 @@ class PostsController extends Controller {
         $position = $request->get('position', 'pembinaan');
 
         $posts = $this->repo->getByPosition($position);
-        $countPembinaan = $this->repo->countByPosition('pembinaan');
-        $countIntelijen = $this->repo->countByPosition('intelijen');
+        $count['pembinaan'] = $this->repo->countByPosition('pembinaan');
+        $count['intelijen'] = $this->repo->countByPosition('intelijen');
+        $count['pidum'] = $this->repo->countByPosition('pidum');
+        $count['pidsus'] = $this->repo->countByPosition('pidsus');
 
-        return view('skrip::posts.index', compact('posts', 'countPembinaan', 'countIntelijen', 'position'));
+        return view('skrip::posts.index', compact('posts', 'count', 'position'));
     }
 
     public function create()
