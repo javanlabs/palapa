@@ -53,6 +53,8 @@ class EloquentRepository implements RepositoryInterface{
         $input['password'] = Hash::make($input['password']);
         $user = $this->user->create($input);
         $user->groups()->sync(array_get($input, 'groups'));
+
+        return $user;
     }
 
     public function updateUser($id, $input)
@@ -81,6 +83,11 @@ class EloquentRepository implements RepositoryInterface{
     public function findGroupById($id)
     {
         return $this->group->findOrFail($id);
+    }
+
+    public function findGroupByName($name)
+    {
+        return $this->group->whereName($name)->first();
     }
 
     public function addGroup($input)

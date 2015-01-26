@@ -63,6 +63,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
     $router->resource('document', 'DocumentController');
     $router->resource('suspect', 'SuspectController');
     $router->resource('witness', 'WitnessController');
+    $router->resource('user', 'UserController');
 
     $router->resource('files', 'FilesController');
 });

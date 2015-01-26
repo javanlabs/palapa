@@ -30,6 +30,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('Eendonesia\Moderator\Models\Group', 'acl_users_groups', 'user_id', 'group_id');
     }
 
+    public function officer()
+    {
+        return $this->hasOne('App\Officer\Officer');
+    }
+
     public function hasGroup($name)
     {
         foreach($this->groups as $group)
