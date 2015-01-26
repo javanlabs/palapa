@@ -19,12 +19,14 @@ $router->get('slide/video', ['as' => 'slide.video', 'uses' => 'FrontendControlle
 $router->get('slide/sidang', ['as' => 'slide.sidang', 'uses' => 'FrontendController@getSlideSidang']);
 $router->get('slide5', ['as' => 'slide5', 'uses' => 'FrontendController@getSlide5']);
 
+$router->get('frontend/post-by-case-type/{id?}', ['as'=>'frontend.post.byCaseType', 'uses'=>'FrontendController@getPost']);
+$router->get('frontend/case/{id}', ['as' => 'cases.view', 'uses' => 'FrontendController@getCase']);
+
 $router->controller('frontend', 'FrontendController', [
     'getSearch'  => 'frontend.search',
     'getOfficer'  => 'frontend.officer',
     'getSidang'  => 'frontend.sidang',
 ]);
-$router->get('frontend/case/{id}', ['as' => 'cases.view', 'uses' => 'FrontendController@getCase']);
 
 // CMS a.k.a static page
 $router->get('page/{category}/{id?}', ['as'=>'frontend.post', 'uses'=>'PostController@show']);

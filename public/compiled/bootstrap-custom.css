@@ -6732,15 +6732,15 @@ body.login footer a {
   color: #fff;
   opacity: .8;
 }
-#page-post-view {
+.list-group.list-group-menu {
   margin-top: 40px;
 }
-#page-post-view .list-group .list-group-item {
+.list-group.list-group-menu .list-group-item {
   padding: 20px 5px 20px 15px;
   font-size: 1.3em;
   line-height: 1.7;
 }
-#page-post-view .list-group .badge {
+.list-group.list-group-menu .badge {
   background-color: transparent;
   color: #eeeeee;
 }

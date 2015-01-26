@@ -7,7 +7,7 @@
 @section('content')
     <div class="container-fluid" id="page-post-view">
         <div class="col-md-3">
-            <div class="list-group">
+            <div class="list-group list-group-menu">
                 @foreach($allPostInCategory as $item)
                 <a href="{{ route('frontend.post', ['category' => $category, 'id' => $item['id']]) }}" class="list-group-item ellipsis {{ ($item['id'] == $id)?'active':'' }}">
                     <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>

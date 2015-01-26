@@ -3,6 +3,8 @@
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Menu\RepositoryInterface as MenuRepository;
 use App\Sop\RepositoryInterface;
+use Eendonesia\Skrip\Post\EloquentRepository;
+use Eendonesia\Skrip\Post\RepositoryInterface as PostRepository;
 use Illuminate\Http\Request;
 use App\Cases\RepositoryInterface as CasesRepository;
 use App\Officer\RepositoryInterface as OfficerRepository;
@@ -22,7 +24,7 @@ class FrontendController extends Controller {
         return view('frontend.index', compact('menu', 'stat', 'cases'));
     }
 
-    public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, LookupRepository $lookup)
+    public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, LookupRepository $lookup, PostRepository $postRepo)
     {
         $keyword = $request->get('q');
         $type = $request->get('type');
@@ -32,7 +34,20 @@ class FrontendController extends Controller {
 
         $types = $lookup->lists('kasus');
 
-        return view('frontend.search', compact('cases', 'phases', 'type', 'keyword', 'types'))->with('page', 'search')->with('keyword',$keyword);
+        $allPostInCategory = $postRepo->getByPosition($type);
+        $position = $type;
+
+        return view('frontend.search', compact('cases', 'phases', 'type', 'keyword', 'types', 'allPostInCategory', 'position'))->with('page', 'search')->with('keyword',$keyword);
+    }
+
+    public function getPost(PostRepository $postRepo, LookupRepository $lookup, $id)
+    {
+        $post = $postRepo->find($id);
+        $allPostInCategory = $postRepo->getByPosition($post->position);
+        $type = $post->position;
+        $types = $lookup->lists('kasus');
+
+        return view('frontend.postByCaseType', compact('allPostInCategory', 'post', 'type', 'types', 'id'));
     }
 
     public function getOfficer(OfficerRepository $officer)
