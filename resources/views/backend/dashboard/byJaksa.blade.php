@@ -1,15 +1,13 @@
-@extends('layouts.full.full')
+@extends('backend.dashboard.layout')
 
-@section('breadcrumb')
-    @parent
-    <span class="trail">Statistik</span>
+@section('menu-dashboard')
+    @include('backend.dashboard.menu', ['active' => 'byJaksa'])
 @stop
 
-@section('content')
+@section('content-dashboard')
 
-    <div class="container">
-        @include('backend.dashboard.tab', ['active' => 'byJaksa'])
-
+    <div class="panel panel-default">
+        <div class="panel-heading">Rekapitulasi Jumlah Kasus Per Jaksa</div>
         <table class="table">
             <thead>
             <tr>
@@ -31,6 +29,6 @@
             @endforeach
             </tbody>
         </table>
-
     </div>
+
 @stop

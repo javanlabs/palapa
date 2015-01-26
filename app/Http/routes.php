@@ -54,6 +54,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
     $router->get('dashboard/byPhase', ['as' => 'dashboard.byPhase', 'uses' => 'DashboardController@getByPhase']);
     $router->get('dashboard/byStatus', ['as' => 'dashboard.byStatus', 'uses' => 'DashboardController@getByStatus']);
     $router->get('dashboard/byJaksa', ['as' => 'dashboard.byJaksa', 'uses' => 'DashboardController@getByJaksa']);
+    $router->get('dashboard/pidumByCategory', ['as' => 'dashboard.pidumByCategory', 'uses' => 'DashboardController@getPidumByCategory']);
 
     $router->get('setting/index', ['as' => 'setting.index', 'uses' => 'SettingController@index']);
     $router->get('setting/sop', ['as' => 'setting.sop', 'uses' => 'SettingController@sop']);
