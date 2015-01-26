@@ -95,7 +95,7 @@
 </table>
 <footer>
 <p>
-	<strong>Tembusan:</strong>
+	<strong><u><strong>TEMBUSAN:</strong></u></strong>
 </p>
 <p>
 	1.Kajari

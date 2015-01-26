@@ -19,13 +19,10 @@
 </table>
 
 <p style="text-align: center;">
-	<strong>BERITA ACARA</strong>
-</p>
-<p style="text-align: center;">
-	<strong>PELAKSANAAN PERINTAH PENAHANAN</strong>
-</p>
-<p style="text-align: center;">
-	<strong>PENAHANAN LANJUTAN *)</strong>
+	<strong>BERITA ACARA<br/>
+	PELAKSANAAN PERINTAH PENAHANAN<br/>
+	<u>PENAHANAN LANJUTAN *)</u></strong>
+	
 </p>
 <p>
 	<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
@@ -79,37 +76,36 @@
 <tbody>
 <tr align='center'>
 	<td>
-		<p>
+	
 			Tersangka/Terdakwa *)
-		</p>		
-				<br/><br/>
+	
+				<br/><br/><br/>
 
-		<p>
+		
 			<strong>({{$suspect->name}})</strong>
-		</p>
+	
 	</td>
 	<td>
-		<p>
+		
 			Jaksa Penyidik/Penuntut Umum
-		</p>
-		<br/><br/>
-		<p>
-			<strong>({{$case->jaksa->name}})</strong>
-		</p>
-		<p>
+		
+		<br/><br/><br/>
+		
+			<strong>({{$case->jaksa->name}})</strong><br/>
+		
 			{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
-		</p>
+		
 	</td>
 </tr>
-<tr align='center'>
-	<td colspan='2'>
-		<p>
-	Kepala Rutan *)
-</p>
-<br/><br/>
-<p>
+<tr>
+	<td colspan='2' style='text-align: center'>
+		
+	KEPALA RUTAN
+
+<br/><br/><br/>
+
 	(<u> </u>)
-</p>
+
 	</td>
 	</tr>
 </tbody>

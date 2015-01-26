@@ -280,7 +280,7 @@
 <tr>
 	<td>
 		<p>
-			Tembusan:
+			<u><strong>TEMBUSAN:</strong></u>
 		</p>
 		<ol>
 			<li>Yth. Ketua Pengadilan Negeri Jember;</li>
@@ -485,7 +485,7 @@ Dasar
 <tr>
 	<td>
 		<p>
-			Tembusan:
+			<u><strong>TEMBUSAN:</strong></u>
 		</p>
 		<ol>
 			<li>Yth. Ketua Pengadilan Negeri Jember;</li>

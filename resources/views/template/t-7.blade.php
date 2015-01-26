@@ -19,10 +19,9 @@
 	</strong>
 </p>
 <p style="text-align: center;">
-	<strong>SURAT PERINTAH</strong><b><br>
-	<strong>PENUNJUKAN JAKSA PENUNTUT UMUM</strong><br>
-	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
-	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
+	<strong>SURAT PERINTAH PENAHANAN/</strong><b><br>
+	<strong>PENGALIHAN JENIS PENAHANAN</strong><br>	
+	<strong><u data-redactor-tag="u">(TINGKAT PENUNTUTAN)</u><br>
 	</strong></b>
 	<strong>Nomor: Print - /0.5.12/Ep.1/ /2015</strong>
 </p>
@@ -47,12 +46,112 @@
 		</p>
 	</td>
 	<td>
-		<ol>
-			<li>Undang-Undang No. 8 Tahun 1981 tentang Hukum Acara Pidana (KUHAP) Pasal 8 ayat (3) a, Pasal 14 a, b, i, Pasal 109 dan pasal 138 KUHAP</li>
+		<ol>			
+			<li>Undang-Undang No. 8 Tahun 1981 tentang Hukum Acara Pidana Pasal 14c, 20 (2), 21, 22, 23, 25</li>
 			<li>Undang-Undang Nomor: 16 Tahun 2004 tentang Kejaksaan Republik Indonesia.</li>
-			<li>Surat Pemberitahuan dimulainya Penyidikan terhadap tersangka:</li>
+			<li>Undang-Undang No. 1 Tahun 1964 Tentang KUHP</li>
+			<li>Berkas Perkara dari Penyidik Nomer BP/13/IX/2014/Polsek. Tgl. 23 September 2014 dalam perkara atas nama tersangka {{$case->suspectNames()}}, Nomor: SPP/16/IX/2014/Reskrim tanggal ..... 2015		
+			<li>Saran dari Jaksa Penuntut Umum {{$case->jaksa->name}}, NIP. {{$case->jaksa->nip}} Pangkat {{$case->jaksa->pangkat->name}} pada Kejaksan Negeri Jember.</li>
+		</ol>		
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			Pertimbangan
+		</p>
+	</td>
+	<td>
+		<p>
+			:
+		</p>
+	</td>
+	<td>
+		<ol>
+			<li>
+				<strong>Uraian singkat perkara:</strong><br/>
+				Bahwa tersangka melakukan tindak pidana {{$case->kasus}} yang terjadi pada hari tanggal {{$case->crime_time}} bertempat di {{$case->crime_place}}.
+			</li>
+			<li>Melanggar pasal: {{$case->pasal}}</li>
+			<li>Dari Penyidik, diperoleh bukti yang cukup, terdakwa diduga keras melakukan tinda pidana yang dapat dikenakan penahanan dan dikhawatirkan akan melarikan diri, merusak atau menghilangkan barang bukti, dan atau mengulangi tindak pidana.
+			<li>Oleh karena itu dianggap perlu untuk mengeluarkan Surat Perintah.</li>
 		</ol>
-		<table style="margin-left: 20px">
+		<p style="margin-left: 150px">
+			<b>MEMERINTAHKAN:</b>
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p>
+			Kepada
+		</p>
+	</td>
+	<td width="20px">
+		<p>
+			:
+		</p>
+	</td>
+	<td>
+		<table>
+		<tbody>
+		<tr>
+			<td width="20px">
+					1.
+			</td>
+			<td width="100px">
+					Nama
+			</td>
+			<td width="10px">
+					:
+			</td>
+			<td>
+				{{$case->jaksa->name}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+					Pangkat/NIP
+			</td>
+			<td>
+					:
+			</td>
+			<td>
+				{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+					Jabatan
+			</td>
+			<td>
+					:
+			</td>
+			<td>
+				{{$case->jaksa->jabatan->name}}
+			</td>
+		</tr>
+		</tbody>
+		</table>
+		<br>
+	</td>
+</tr>
+<tr>
+	<td>
+			Untuk
+	</td>
+	<td>
+			:
+	</td>
+	<td>
+		<ol>
+			<li>
+				Menahan/Melanjutkan Penahanan/Pengalihan Jenis Penahanan terdakwa:
+<table style="margin-left: 20px">
 		<tbody>
 		@foreach($case->suspects as $suspect)		
 		<tr>
@@ -151,107 +250,14 @@
 			<td colspan='3'>
 				<br/>
 				<p>
-				Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada tanggal {{$case['spdp_date_for_human']}} dari penyidik: {{$case->penyidik->name}}
+					Dengan Ketentuan Bahwa ia ditahan di <strong>RUTAN/RUMAH/KOTA</strong> JEMBER selama 20 hari terhitung mulai tanggal _____ sampai dengan tanggal _____
 				</p>
 			</td>
 		</tr>
 		</tbody>
 		</table>
-
-	</td>
-</tr>
-<tr>
-	<td>
-		<p>
-			Pertimbangan
-		</p>
-	</td>
-	<td>
-		<p>
-			:
-		</p>
-	</td>
-	<td>
-		<ol>
-			<li>Bahwa dengan diterimanya Pemberitahuan Dimulainya Penyidikan, dipandang perlu untuk menugaskan seorang/beberapa orang Jaksa Penuntut Umum untuk mengikuti perkembangan penyidikan dan meniliti hasil penyidikan<strong> </strong>perkara tersebut sesuai dengan peraturan perundang-undangan dan ketentuan administrasi perkara tindak pidana.</li>
-			<li>Bahwa sebagai pelaksanaannya perlu dikeluarkan Surat perintah Kepala Kejaksaan Negeri Jember</li>
-		</ol>
-		<p style="margin-left: 150px">
-			<b>MEMERINTAHKAN:</b>
-		</p>
-	</td>
-</tr>
-<tr>
-	<td>
-		<p>
-			Kepada
-		</p>
-	</td>
-	<td width="20px">
-		<p>
-			:
-		</p>
-	</td>
-	<td>
-		<table>
-		<tbody>
-		<tr>
-			<td width="20px">
-					1.
-			</td>
-			<td width="100px">
-					Nama
-			</td>
-			<td width="10px">
-					:
-			</td>
-			<td>
-				{{$case->jaksa->name}}
-			</td>
-		</tr>
-		<tr>
-			<td>
-			</td>
-			<td>
-					Pangkat/NIP
-			</td>
-			<td>
-					:
-			</td>
-			<td>
-				{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
-			</td>
-		</tr>
-		<tr>
-			<td>
-			</td>
-			<td>
-					Jabatan
-			</td>
-			<td>
-					:
-			</td>
-			<td>
-				{{$case->jaksa->jabatan->name}}
-			</td>
-		</tr>
-		</tbody>
-		</table>
-		<br>
-	</td>
-</tr>
-<tr>
-	<td>
-			Untuk
-	</td>
-	<td>
-			:
-	</td>
-	<td>
-		<ol>
-			<li>Mengikuti perkembangan penyidikan.</li>
-			<li>Melakukan penelitian hasil penyidikan atas nama tersangkat tersebut.</li>
-			<li>Melakukan penelitian SP-3 dari penyidik.</li>
+			</li>
+			<li>Membaca Berita Acara Penahanan/Pengalihan Jenis Tahanan</li>			
 		</ol>
 	</td>
 </tr>
@@ -280,12 +286,16 @@
 </tr>
 <tr>
 	<td>
+		Kepada : yang bersangkutan <u>untuk dilaksanakan</u>
 		<p>
 			<u><strong>TEMBUSAN:</strong></u>
 		</p>
 		<ol>
-			<li>Yth. Ketua Pengadilan Negeri Jember;</li>
-			<li>Yth. Penyidik {{$case->penyidik->name}}</li>
+			<li>Yth. Bapak Kejati Jatim.</li>
+			<li>Yth. Ketua Pengadilan Negeri Jember.</li>
+			<li>Yth. Keluarga Terdakwa</li>
+			<li>Yth. Penyidik</li>
+			<li>Yth. Bapak Kepala Rutan Jember.</li>
 			<li>Arsip.</li>
 		</ol>
 	</td>

@@ -105,7 +105,7 @@
 	<td>
 		<br/><br/><br/><br/>
 		<p>
-			Tembusan:
+			<u><strong>TEMBUSAN:</strong></u>
 		</p>
 		<ol>
 			<li>Yth. Kepala Kejaksaan Tinggi Jawa Timur;</li>

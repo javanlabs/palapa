@@ -158,7 +158,7 @@
 <tr>
 	<td>
 		<p>
-			Tembusan:
+			<u><strong>TEMBUSAN:</strong></u>
 		</p>
 		<ol>
 			<li>Yth. Ketua PN/PT/MA</li>

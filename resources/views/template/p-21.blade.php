@@ -95,7 +95,7 @@ Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUH
 	<td>
 		<br/><br/><br/><br/>
 		<p>
-			Tembusan:
+			<u><strong>TEMBUSAN:</strong></u>
 		</p>
 		<ol>
 			<li>Yth. Kepala Kejaksaan Tinggi Jawa Timur;</li>

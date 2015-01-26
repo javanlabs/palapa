@@ -56,12 +56,12 @@
 				<td></td>
 				<td></td>
 				<td colspan='3'><br/><br/><br/>
-<p class='indent'>
-	 Menyusul surat kami Nomor …………tanggal …………………..*) perihal pemberitahuan hasil penyidikan sudah lengkap atas nama tersangka tersebut pada pokok surat (P‑21), namun sampai saat ini tanggung jawab atas tersangka dan barang bukti belum diserahkan kepada kami (Penyerahan Berkas Perkara Tahap Kedua).
-</p>
-<p class='indent'>
-	 Karena itu, diminta agar penyerahan tanggung jawab tersangka dan barang buktinya, dilaksanakan dalam waktu yang tidak lama.
-</p></td>
+					<p class='indent'>
+						 Menyusul surat kami Nomor …………tanggal …………………..*) perihal pemberitahuan hasil penyidikan sudah lengkap atas nama tersangka tersebut pada pokok surat (P‑21), namun sampai saat ini tanggung jawab atas tersangka dan barang bukti belum diserahkan kepada kami (Penyerahan Berkas Perkara Tahap Kedua).
+					</p>
+					<p class='indent'>
+						 Karena itu, diminta agar penyerahan tanggung jawab tersangka dan barang buktinya, dilaksanakan dalam waktu yang tidak lama.
+					</p></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -94,7 +94,7 @@
 	<td>
 		<br/><br/><br/><br/>
 		<p>
-			Tembusan:
+			<u><strong>TEMBUSAN:</strong></u>
 		</p>
 		<ol>
 			<li>Yth. Kepala Kejaksaan Tinggi Jawa Timur;</li>
