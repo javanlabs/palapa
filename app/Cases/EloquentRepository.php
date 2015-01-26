@@ -34,13 +34,6 @@ class EloquentRepository implements RepositoryInterface {
     public function all($keyword = null)
     {
         return $this->case->orderBy('created_at', 'desc')->get();
-
-        if($keyword)
-        {
-            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
-        }
-
-
     }
 
     public function byJaksa($jaksaId)

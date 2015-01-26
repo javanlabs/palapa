@@ -100,6 +100,9 @@
                             </tr>
                         @endforeach
                     </table>
+                    <div class="panel-footer">
+                        {{ $cases->render() }}
+                    </div>
                 </div>
             @else
                 @if(Input::get('q'))
