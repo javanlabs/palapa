@@ -6580,6 +6580,7 @@ button.close {
 }
 .navbar-user {
   border-bottom: 1px solid #eeeeee;
+  background-color: #fbfbfb;
   height: 50px;
   line-height: 50px;
   text-align: center;
