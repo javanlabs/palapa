@@ -1,5 +1,6 @@
 <?php namespace App\Cases;
 
+use App\Sop\Checklist;
 use App\Sop\Phase;
 use App\Sop\RepositoryInterface as SopRepo;
 use Carbon\Carbon;
@@ -57,6 +58,20 @@ class EloquentRepository implements RepositoryInterface {
         if($defaultPhase)
         {
             $case->phase()->associate($defaultPhase)->save();
+
+            // auto checklist SPDP
+            if(isset($input['spdp_date']) && isset($input['spdp_number']))
+            {
+                $checklist = Checklist::where('phase_id', '=', $defaultPhase->id)->whereOrdinal(1)->first();
+
+                if($checklist)
+                {
+                    $data['date'] = (new Carbon())->format('d-m-Y');
+                    $data['note'] = 'Checklist otomatis ketika register kasus';
+                    $this->sop->addChecklist($case, $checklist, $data);
+                }
+            }
+
         }
         else
         {

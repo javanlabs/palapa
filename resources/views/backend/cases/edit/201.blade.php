@@ -6,4 +6,3 @@
 {{ BootForm::select('Penyidik', 'penyidik_id')->options($penyidikLookup)->select('e'.$case->penyidik_id) }}
 {{ BootForm::select('Jaksa Penuntut Umum', 'jaksa_id')->options($jaksaLookup)->select($case->jaksa_id) }}
 {{ BootForm::select('Staff Administrasi', 'staff_id')->options($staffLookup)->select($case->staff_id) }}
-

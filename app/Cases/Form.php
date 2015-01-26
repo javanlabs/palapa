@@ -12,7 +12,6 @@ class Form extends FormRequest {
 	public function rules()
 	{
 		return [
-//            'pasal'            => 'required',
 			'kasus'            => 'required',
 		];
 	}
