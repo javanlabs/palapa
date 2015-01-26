@@ -34,7 +34,7 @@
                     </td>
                 </tr>
             @empty
-                <tr><td colspan="4">Saat ini belum ada jadwal sidang.</td></tr>
+                <tr><td colspan="4"><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
             @endforelse
             </tbody>
         </table>
