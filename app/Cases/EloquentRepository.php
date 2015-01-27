@@ -1,5 +1,6 @@
 <?php namespace App\Cases;
 
+use App\Lookup\EloquentRepository as LookupRepo;
 use App\Sop\Checklist;
 use App\Sop\Phase;
 use App\Sop\RepositoryInterface as SopRepo;
@@ -22,25 +23,23 @@ class EloquentRepository implements RepositoryInterface {
      * @type SopRepo
      */
     private $sop;
+    /**
+     * @var LookupRepo
+     */
+    private $lookupRepo;
 
-    function __construct(Cases $case, Phase $phase, SopRepo $sop)
+    function __construct(Cases $case, Phase $phase, SopRepo $sop, LookupRepo $lookupRepo)
     {
 
         $this->case = $case;
         $this->phase = $phase;
         $this->sop = $sop;
+        $this->lookupRepo = $lookupRepo;
     }
 
     public function all($keyword = null)
     {
         return $this->case->orderBy('created_at', 'desc')->get();
-
-        if($keyword)
-        {
-            $query->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%');
-        }
-
-
     }
 
     public function byJaksa($jaksaId)
@@ -272,6 +271,54 @@ class EloquentRepository implements RepositoryInterface {
         }
 
         return array_values($json);
+    }
+
+    public function statisticByCategory($year, $type)
+    {
+        $json = [];
+
+        $categories = $this->lookupRepo->categoryPidum();
+
+        //initialization
+        foreach(range(1,12) as $month)
+        {
+            $json[$month]['month'] = Carbon::createFromDate(null, $month, null)->formatLocalized('%B');
+            $json[$month]['year'] = $year;
+
+            foreach($categories as $key => $value)
+            {
+                $json[$month][$key] = 0;
+            }
+        }
+
+        $stat = DB::table('cases')
+                  ->select([DB::raw('count(id) count'), 'category', DB::raw('MONTH(start_date) month')])
+                  ->whereRaw("YEAR(start_date) = $year")
+                  ->whereNotNull('category')
+                  ->groupBy(['category', 'month'])
+                  ->get();
+
+
+        foreach($stat as $row)
+        {
+            $json[$row->month][$row->category] = $row->count;
+        }
+
+        $series = [];
+        $colors = \Config::get('color');
+        $i = 1;
+
+        foreach($categories as $key => $val)
+        {
+            $series[] = [
+                'valueField'    => $key,
+                'name'          => $val,
+                'color'         => $colors[array_rand(array_slice($colors, $i - 1, 1), 1)]
+            ];
+            $i++;
+        }
+
+        return ['series' => $series, 'data' => array_values($json)];
     }
 
     public function countActive()

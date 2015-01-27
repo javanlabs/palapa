@@ -1,20 +1,19 @@
-@extends('layouts.full.full')
+@extends('backend.dashboard.layout')
 
-@section('breadcrumb')
-    @parent
-    <span class="trail">Statistik</span>
+@section('menu-dashboard')
+    @include('backend.dashboard.menu', ['active' => 'byStatus'])
 @stop
 
-@section('content')
+@section('content-dashboard')
 
-    <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Statistik Perbandingan Kasus Baru - Kasus Ditutup Tahun {{ $year }}</div>
 
-        @include('backend.dashboard.tab', ['active' => 'byStatus'])
+        <div class="pad">
+            <div id="chart" style="width: 100%; height: 300px"></div>
+        </div>
 
-        <div id="chart" style="width: 100%; height: 300px"></div>
-
-        <hr/>
-
+        <div class="panel-heading">Rekapitulasi Bulanan</div>
         <table class="table table-condensed">
             <thead>
             <tr>
@@ -35,6 +34,8 @@
             </tbody>
         </table>
     </div>
+
+
 @stop
 
 

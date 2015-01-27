@@ -1,46 +1,49 @@
-@extends('layouts.full.full')
+@extends('backend.dashboard.layout')
 
-@section('breadcrumb')
-    @parent
-    <span class="trail">Statistik</span>
+@section('menu-dashboard')
+    @include('backend.dashboard.menu', ['active' => 'byPhase'])
 @stop
 
-@section('content')
+@section('content-dashboard')
 
-    <div class="container">
-        @include('backend.dashboard.tab', ['active' => 'byPhase'])
+    <div class="panel panel-default">
+        <div class="panel-heading">Statistik Kasus Berdasar Tahapan Tahun {{ $year }}</div>
 
-        <label for="">Pilih Jenis Kasus:</label>
-        {{ Form::open(['id' => 'formType', 'method' => 'GET']) }}
-        {{ Form::select('type', $types, $type, ['id' => 'selectType', 'style' => 'width: 300px;']) }}
-        {{ Form::hidden('year', $year) }}
-        {{ Form::close() }}
-        <hr />
-
-        <div id="chart" style="width: 100%; height: 300px"></div>
-
+        <div class="pad">
+            {{ Form::open(['id' => 'formType', 'method' => 'GET']) }}
+            <label for="">Pilih Jenis Kasus:</label>
+            {{ Form::select('type', $types, $type, ['id' => 'selectType', 'style' => 'width: 300px;']) }}
+            {{ Form::hidden('year', $year) }}
+            {{ Form::close() }}
+        </div>
         <hr/>
 
-        <table class="table table-condensed">
-            <thead>
-            <tr>
-                <th>Bulan</th>
-                @foreach($stat['series'] as $row)
-                    <th>{{ $row['name'] }}</th>
-                @endforeach
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($stat['data'] as $row)
+        <div class="pad">
+            <div id="chart" style="width: 100%; height: 300px" class="mb"></div>
+        </div>
+
+            <div class="panel-heading">Rekapitulasi Bulanan</div>
+            <table class="table">
+                <thead>
                 <tr>
-                    <td>{{ $row['month'] }} {{ $row['year'] }}</td>
-                    @foreach($stat['series'] as $phase)
-                        <td>{{ $row[$phase['name']] }}</td>
+                    <th>Bulan</th>
+                    @foreach($stat['series'] as $row)
+                        <th>{{ $row['name'] }}</th>
                     @endforeach
                 </tr>
-            @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach($stat['data'] as $row)
+                    <tr>
+                        <td>{{ $row['month'] }} {{ $row['year'] }}</td>
+                        @foreach($stat['series'] as $phase)
+                            <td>{{ $row[$phase['name']] }}</td>
+                        @endforeach
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+
     </div>
 @stop
 
