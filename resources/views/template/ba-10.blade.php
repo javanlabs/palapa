@@ -22,11 +22,10 @@
 	<strong>BERITA ACARA<br/>
 	PELAKSANAAN PERINTAH PENAHANAN<br/>
 	<u>PENAHANAN LANJUTAN *)</u></strong>
-	
+
 </p>
 <p>
-	<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
-	Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}} saya Jaksa Penyidik/Penuntut Umum *) dalam Perkara tersangka/terdakwa :
+	Pada hari ini {{ strftime('%A') }} tanggal {{strftime("%e %B %Y")}} saya Jaksa Penyidik/Penuntut Umum *) dalam Perkara tersangka/terdakwa :
 </p>
 <table>
 <tr><td width="200px">
@@ -64,7 +63,7 @@
 </td></tr>
 </table>
 <p>
-	Berdasarkan Surat Perintah Kepala Kejaksaan Negeri Jember Nomor .... tanggal .... untuk melakukan Penahanan terhadap tersangka {{$case->suspectNames()}} yang disangka melanggar pasal {{$case->pasal}} terhitung mulai tanggal {{strftime("%e %B %Y")}} - {{strftime("%e %B %Y")}} di Rumah Tahanan Negara / Rumah / Kota selama 20 hari. Penahanan tersebut dilakukan, karena tersangka dikhawatirkan akan melarikan diri, merusak atau menghilangkan barang bukti dan atau mengulangi tindak pidana.
+	Berdasarkan Surat Perintah Kepala Kejaksaan Negeri Jember Nomor .... tanggal .... untuk melakukan Penahanan terhadap tersangka {{$case->suspectNames()}} yang disangka melanggar pasal {{$case->pasal}} terhitung mulai tanggal {{strftime("%e %B %Y")}} - {{ Carbon\Carbon::now()->addDays(20)->formatLocalized("%e %B %Y")}} di Rumah Tahanan Negara / Rumah / Kota selama 20 hari. Penahanan tersebut dilakukan, karena tersangka dikhawatirkan akan melarikan diri, merusak atau menghilangkan barang bukti dan atau mengulangi tindak pidana.
 </p>
 <p>
 	Demikian Berita Acara ini dibuat dengan sebenar‑benarnya atas kekuatan sumpah jabatan dan untuk memperkuatnya tersangka/ terdakwa membubuhkan tanda tangannya
@@ -76,25 +75,25 @@
 <tbody>
 <tr align='center'>
 	<td>
-	
+
 			Tersangka
-	
+
 				<br/><br/><br/>
 
-		
+
 			<strong>({{$suspect->name}})</strong>
-	
+
 	</td>
 	<td>
-		
+
 			Jaksa Penyidik/Penuntut Umum
-		
+
 		<br/><br/><br/>
-		
+
 			<strong>({{$case->jaksa->name}})</strong><br/>
-		
+
 			{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
-		
+
 	</td>
 </tr>
 <tr>
