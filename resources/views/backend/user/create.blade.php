@@ -20,7 +20,7 @@
             {{ BootForm::text('Password', 'password') }}
         </div>
         <div class="panel-footer">
-            <a class="btn btn-default" href="{{ route('backend.officers.show', [$officer['id']]) }}">Batal</a>
+            <a class="btn btn-default" href="{{ route('backend.officers.edit', [$officer['id']]) }}">Batal</a>
             {{ BootForm::submit('Simpan', 'btn-primary') }}
         </div>
     </div>
