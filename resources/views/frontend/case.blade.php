@@ -30,49 +30,15 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-information"></i> Info Kasus</div>
-                    <div class="panel-body">
-                        <dl class="dl-horizontal section-info mb-lg">
-                            <dt>No SPDP :</dt>
-                            <dd>{{ $case['spdp_number'] }}</dd>
-                            <dt>Kasus :</dt>
-                            <dd>{{ $case['name'] }}</dd>
-                            <dt>Tempat Kejadian :</dt>
-                            <dd>{{ $case['crime_place'] }}</dd>
-                            <dt>Waktu Kejadian :</dt>
-                            <dd>{{ $case['crime_time_for_human'] }}</dd>
-                            <dt>Pasal :</dt>
-                            <dd>{{ nl2br($case['pasal']) }}</dd>
-                            <dt>Penyidik :</dt>
-                            <dd>{{ $case['penyidik_name'] }}</dd>
-
-                            <dt>Jaksa :</dt>
-                            <dd>{{ $case['prosecutor_name'] }}</dd>
-                            <dt>Staff Administrasi :</dt>
-                            <dd>{{ $case['staff_name'] }}</dd>
-                            <dt>Usia Kasus :</dt>
-                            <dd>
-                                @if($case['age'] === false)
-                                    <span class="label label-default">{{ $case['status'] }}</span>
-                                @else
-                                    @if($case['age'] == 0)
-                                        <span class="label label-success">Didaftarkan Hari Ini</span>
-                                    @else
-                                        {{ $case['age'] }} hari
-                                    @endif
-                                @endif
-                            </dd>
-                            <dt>Status :</dt>
-                            <dd><span class="label label-default">{{ $case['status_name'] }}</span></dd>
-                        </dl>
-                    </div>
+                    @include('modules.case.tabular', ['case' => $case])
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Jadwal Sidang</div>
+                    <div class="panel-heading"><i class="icon fa fa-gavel"></i> Jadwal Sidang</div>
                     <table class="table">
                         <tbody>
                         @forelse($courts as $item)
                             <tr>
-                                <td width="130px">
+                                <td width="200px">
                                     <small class="text-muted">{{ $item['date_for_human'] }}</small>
                                 </td>
                                 <td>
@@ -83,7 +49,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="2">Riwayat kasus belum tersedia</td>
+                                <td>Jadwal sidang belum tersedia</td>
                             </tr>
                         @endforelse
                         </tbody>
@@ -108,7 +74,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="2">Riwayat kasus belum tersedia</td>
+                                <td>Riwayat kasus belum tersedia</td>
                             </tr>
                         @endforelse
                         </tbody>

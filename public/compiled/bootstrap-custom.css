@@ -6826,6 +6826,9 @@ body.login footer a {
   width: 30px;
   text-align: center;
 }
+table.table-case-info tbody tr td {
+  padding: 20px;
+}
 #page-admin {
   margin-top: 50px;
 }
