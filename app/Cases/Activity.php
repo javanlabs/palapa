@@ -25,5 +25,8 @@ class Activity extends Model {
     {
         return Carbon::createFromFormat('Y-m-d', $this->attributes['date'])->format('d-m-Y');
     }
-
+    public function getDateForHumanAttribute()
+    {
+        return Carbon::createFromFormat('Y-m-d', $this->attributes['date'])->formatLocalized('%d %B %Y');
+    }
 }

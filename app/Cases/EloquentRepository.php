@@ -136,6 +136,7 @@ class EloquentRepository implements RepositoryInterface {
         foreach($case->activities as $activity)
         {
             $activities[] = [
+                'date_for_human' => $activity['date_for_human'],
                 'date'  => $activity['date'],
                 'name'  => $activity['title'],
                 'note'  => $activity['content']
