@@ -17,7 +17,8 @@
                 <tr>
                     <td colspan="3" width="50%">
                         <h3 class="mb-0">{{ $case['name'] }}</h3>
-                        <small class="text-muted">{{ $case['spdp_number'] }}</small>
+                        <small class="text-muted"><strong>No SPDP:</strong> {{ $case['spdp_number'] }}</small><br/>
+                        <small class="text-muted"><strong>Tersangka:</strong> {{ $case->suspectNames() }}</small><br/>
                     </td>
                     <td colspan="3" rowspan="2">
                         <dl>
@@ -41,6 +42,24 @@
                     </td>
                 </tr>
                 <tr>
+                     <td>
+                        <dl>
+                            <dt>Penyidik</dt>
+                            <dd>{{ $case['penyidik_name'] }}</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Jaksa</dt>
+                            <dd>{{ $case['prosecutor_name'] }}</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <dl>
+                            <dt>Staff Administrasi</dt>
+                            <dd>{{ $case['staff_name'] }}</dd>
+                        </dl>
+                    </td>
                     <td>
                         <dl>
                             <dt>Jenis Kasus</dt>
@@ -65,24 +84,7 @@
                             </dd>
                         </dl>
                     </td>
-                    <td>
-                        <dl>
-                            <dt>Penyidik</dt>
-                            <dd>{{ $case['penyidik_name'] }}</dd>
-                        </dl>
-                    </td>
-                    <td>
-                        <dl>
-                            <dt>Jaksa</dt>
-                            <dd>{{ $case['prosecutor_name'] }}</dd>
-                        </dl>
-                    </td>
-                    <td>
-                        <dl>
-                            <dt>Staff Administrasi</dt>
-                            <dd>{{ $case['staff_name'] }}</dd>
-                        </dl>
-                    </td>
+                   
                 </tr>
                 </tbody>
             </table>
