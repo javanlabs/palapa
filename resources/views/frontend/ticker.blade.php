@@ -1,15 +1,45 @@
 <div id="slider">
     <div id="items-slider">
         <ul>
-            @foreach($items as $item)
-                <li>
-                    <div class="item">
-                        <h3 class="name">Sidang {{ $item['agenda'] }}</h3>
-                        <div class="time">{{$item['date_for_human']}}</div>
-                    </div>
-                </li>
-            @endforeach
-        </ul>
+            <li>
+        <div class="item">
+        <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nama Tersangka</th>
+                            <th>Kasus/Pasal</th>
+                            <th>Agenda</th>
+                            <th>Jaksa Penuntut Umum</th>
+                            <th>Tanggal</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @forelse($items as $item)
+                        <tr class='item'>
+                            <td>
+                                {{$item->cases->suspectNames()}}
+                            </td>
+                            <td>
+                                {{$item->cases->kasus}}/{{$item->cases->pasal}}
+                            </td>
+                            <td>
+                                {{ $item['agenda'] }}
+                            </td>
+                            <td>
+                                {{$item->cases['jaksa_name']}}
+                            </td>
+                            <td style="padding-top: 20px">
+                                {{$item['date_for_human']}}
+                            </td>
+                        </tr>
+                    @empty
+                        <tr><td><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
+                    @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    </ul>       
     </div>
 </div>
 
