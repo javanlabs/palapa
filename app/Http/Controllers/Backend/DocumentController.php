@@ -36,6 +36,7 @@ class DocumentController extends Controller {
 		if(!View::exists($templateFile)){
 			return 'template not found';
 		}
+setlocale(LC_TIME,'id_ID.utf8');
 
         $setting = Setting::lists('value', 'key');
         $today['day'] = date('l');
