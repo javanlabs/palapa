@@ -53,12 +53,14 @@
                         if(!isAnim)
                         {
                             isAnim = true;
-                            $('html, body').animate({scrollTop: delta}, duration, 'linear', function(){
-                                setTimeout(function(){
-                                    $.blockUI(BLOCKUI_STYLE);
-                                    window.location.href = '{{ route('slide.sidang')  }}';
-                                }, 3000);
-                            });
+                            setTimeout(function(){
+                                $('html, body').animate({scrollTop: delta}, duration, 'linear', function(){
+                                    setTimeout(function(){
+                                        $.blockUI(BLOCKUI_STYLE);
+                                        window.location.href = '{{ route('slide.sidang')  }}';
+                                    }, 2000);
+                                });
+                            }, 2000);
                         }
                     }
 

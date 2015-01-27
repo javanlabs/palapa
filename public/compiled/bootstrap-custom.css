@@ -6960,9 +6960,6 @@ body#screensaver .slide-title {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
 }
-body#screensaver.scroll {
-  overflow: auto;
-}
 #slider {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
