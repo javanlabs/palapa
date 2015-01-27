@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Cases\Court\Court;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Menu\RepositoryInterface as MenuRepository;
 use App\Sop\RepositoryInterface;
@@ -21,8 +22,9 @@ class FrontendController extends Controller {
         $stat['newThisWeek'] = $caseRepository->countNewThisWeek();
         $stat['newThisMonth'] = $caseRepository->countNewThisMonth();
         $cases = $caseRepository->upcomingSidang();
+        $courts = Court::with('cases')->upcoming()->get();
 
-        return view('frontend.index', compact('menu', 'stat', 'cases'));
+        return view('frontend.index', compact('menu', 'stat', 'cases', 'courts'));
     }
 
     public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, LookupRepository $lookup, PostRepository $postRepo)
@@ -57,11 +59,11 @@ class FrontendController extends Controller {
         return view('frontend.officer', compact('officers'))->with('page', 'officer');
     }
 
-    public function getSidang(CasesRepository $caseRepository)
+    public function getSidang()
     {
-        $cases = $caseRepository->upcomingSidang();
+        $courts = Court::with('cases')->upcoming()->get();
 
-        return view('frontend.sidang', compact('cases'));
+        return view('frontend.sidang', compact('courts'));
     }
 
     public function getCase(CasesRepository $caseRepository, RepositoryInterface $sopRepo, $id)

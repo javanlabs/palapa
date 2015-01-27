@@ -16,6 +16,11 @@ class Court extends Model {
         return $this->belongsTo('App\Cases\Cases', 'case_id');
     }
 
+    public function scopeUpcoming($query)
+    {
+        return $query->where('date', '>=', Carbon::now()->toDateString())->orderBy('date', 'asc');
+    }
+
     public function getDateAttribute()
     {
         if($this->attributes['date'])
@@ -48,6 +53,32 @@ class Court extends Model {
         }
 
         $this->attributes['date'] = $value;
+    }
+
+    public function getScheduleInDaysAttribute()
+    {
+        if($this->attributes['date'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['date'])->diffInDays(new Carbon());
+        }
+
+        return false;
+    }
+
+    public function getScheduleForHumanAttribute()
+    {
+        if($this['schedule_in_days'] == 0)
+        {
+            return 'hari ini';
+        }
+        elseif($this['schedule_in_days'] == 1)
+        {
+            return "besok";
+        }
+        else
+        {
+            return $this['schedule_in_days'] . " hari lagi";
+        }
     }
 
 }

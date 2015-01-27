@@ -12,23 +12,23 @@
         </div>
         <table class="table">
             <tbody>
-            @forelse($cases as $item)
+            @forelse($courts as $item)
                 <tr>
                     <td>
                         <h3>
-                            <a href="{{ $item['permalink'] }}" class="btn-detail court">
-                                {{ $item['name'] }}
+                            <a href="{{ $item['cas']['permalink'] }}" class="btn-detail court">
+                                {{ $item['agenda'] }}
                             </a>
                         </h3>
                     </td>
                     <td style="padding-top: 20px">
-                        {{$item['persidangan_date_for_human']}}
+                        {{$item['date_for_human']}}
                     </td>
                     <td style="padding-top: 20px">
                         <span class="badge">{{ $item['schedule_for_human'] }}</span>
                     </td>
                     <td style="padding-top: 20px">
-                        <a href="{{ $item['permalink'] }}" class="btn-detail btn btn-default">
+                        <a href="{{ $item['cases']['permalink'] }}" class="btn-detail btn btn-default">
                             Info Kasus <i class="ion-ios-arrow-forward"></i>
                         </a>
                     </td>
