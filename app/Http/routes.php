@@ -17,6 +17,7 @@ $router->get('slide', ['as' => 'slide', 'uses' => 'FrontendController@getSlide']
 $router->get('slide/image', ['as' => 'slide.image', 'uses' => 'FrontendController@getSlideImage']);
 $router->get('slide/video', ['as' => 'slide.video', 'uses' => 'FrontendController@getSlideVideo']);
 $router->get('slide/sidang', ['as' => 'slide.sidang', 'uses' => 'FrontendController@getSlideSidang']);
+$router->get('slide/scroll', ['as' => 'slide.scroll', 'uses' => 'FrontendController@getSlideScroll']);
 $router->get('slide5', ['as' => 'slide5', 'uses' => 'FrontendController@getSlide5']);
 
 $router->get('frontend/post-by-case-type/{id?}', ['as'=>'frontend.post.byCaseType', 'uses'=>'FrontendController@getPost']);

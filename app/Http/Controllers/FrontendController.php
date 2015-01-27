@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Cases\RepositoryInterface as CasesRepository;
 use App\Officer\RepositoryInterface as OfficerRepository;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 
 class FrontendController extends Controller {
 
@@ -84,12 +85,31 @@ class FrontendController extends Controller {
         $images = [];
         foreach(File::allFiles(base_path('public/upload/slide/images')) as $file)
         {
-            $images[] = asset('upload/slide/images/' . $file->getFilename());
+            $info = getimagesize($file);
+            $images[] = ['name' => $file->getFilename(), 'url' => asset('upload/slide/images/' . $file->getFilename()), 'width'=>$info[0], 'height' => $info[1]];
         }
 
-        natsort($images);
+        usort($images, function($a, $b){
+            return $a['name'] > $b['name'];
+        });
 
         return view('frontend.slide.image', compact('images'));
+    }
+
+    public function getSlideScroll()
+    {
+        $images = [];
+        foreach(File::allFiles(base_path('public/upload/slide/scroll')) as $file)
+        {
+            $info = getimagesize($file);
+            $images[] = ['name' => $file->getFilename(), 'url' => asset('upload/slide/scroll/' . $file->getFilename()), 'width'=>$info[0], 'height' => $info[1]];
+        }
+
+        usort($images, function($a, $b){
+            return $a['name'] > $b['name'];
+        });
+
+        return view('frontend.slide.scroll', compact('images'));
     }
 
     public function getSlideVideo()

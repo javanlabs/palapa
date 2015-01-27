@@ -17,14 +17,14 @@
     <script src="{{ asset('vendor/jquery.idle.min.js') }}"></script>
 </head>
 
-<body id="screensaver">
+<body id="screensaver" class="@yield('body-class')">
 <a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
 
 @yield('content')
 
 <script src="{{ asset('vendor/jquery.blockUI.js') }}"></script>
 <script src="{{ asset('compiled/app.js') }}"></script>
-@yield('script-end');
+@yield('script-end')
 
 <script>
     (function($){
