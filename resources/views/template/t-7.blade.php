@@ -64,7 +64,7 @@
 		<ol>
 			<li>
 				<strong>Uraian singkat perkara:</strong><br/>
-				Bahwa tersangka melakukan tindak pidana {{$case->kasus}} yang terjadi pada hari tanggal {{$case->crime_time}} bertempat di {{$case->crime_place}}.
+				Bahwa tersangka melakukan tindak pidana {{$case->kasus}} yang terjadi pada {{$case->crime_time_for_human}} bertempat di {{$case->crime_place}}.
 			</li>
 			<li>Melanggar pasal: {{$case->pasal}}</li>
 			<li>Dari Penyidik, diperoleh bukti yang cukup, terdakwa diduga keras melakukan tinda pidana yang dapat dikenakan penahanan dan dikhawatirkan akan melarikan diri, merusak atau menghilangkan barang bukti, dan atau mengulangi tindak pidana.
@@ -264,7 +264,7 @@
 		<tr>
 			<td colspan='3'>				
 				<p>
-					Dengan Ketentuan Bahwa ia ditahan di <strong>RUTAN/RUMAH/KOTA</strong> JEMBER selama 20 hari terhitung mulai tanggal _____ sampai dengan tanggal _____
+					Dengan Ketentuan Bahwa ia ditahan di <strong>RUTAN/RUMAH/KOTA</strong> JEMBER selama 20 hari terhitung mulai tanggal {{strftime("%e %B %Y")}} sampai dengan tanggal {{ Carbon\Carbon::now()->addDays(20)->formatLocalized("%e %B %Y")}}
 				</p>
 			</td>
 		</tr>

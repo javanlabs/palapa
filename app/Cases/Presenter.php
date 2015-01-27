@@ -295,7 +295,7 @@ trait Presenter {
     {
         if($this->attributes['crime_time'])
         {
-            return $this->crime_time->formatLocalized('%d %B %Y %H:%M');
+            return $this->crime_time->formatLocalized('hari %A tanggal %d %B %Y %H:%M');
         }
 
         return false;
