@@ -58,7 +58,7 @@
 </tbody>
 </table>
 <p>
-	 Sehubungan dengan Surat Pemberitahuan dimulainya Penyidikan atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date?$case->spdp_date:'____________'}} yang kami terima pada tanggal {{$case->spdp_date_received?$case->spdp_date_received:'____________'}} hingga saat ini kami belum menerima hasil penyidikan perkara, tersebut.
+	 Sehubungan dengan Surat Pemberitahuan dimulainya Penyidikan atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date_for_human?$case->spdp_date_for_human:'____________'}} yang kami terima pada tanggal {{$case->getChecklistDate(1)}} hingga saat ini kami belum menerima hasil penyidikan perkara, tersebut.
 </p>
 <p>
 	 Mengingat Surat Pemberitahuan dimulainya Penyidikan sudah kami terima cukup lama, dengan ini kami minta perkembangan penyidikan perkara tersebut.

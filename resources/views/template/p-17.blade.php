@@ -65,7 +65,7 @@
 				<td></td>
 				<td colspan='3'><br/><br/><br/>
 <p class='indent'>
-	 Sehubungan dengan Surat Pemberitahuan dimulainya Penyidikan atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date?$case->spdp_date:'____________'}} yang kami terima pada tanggal {{$case->spdp_date_received?$case->spdp_date_received:'____________'}} hingga saat ini kami belum menerima hasil penyidikan perkara, tersebut.
+	 Sehubungan dengan Surat Pemberitahuan dimulainya Penyidikan atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date_for_human?$case->spdp_date_for_human:'____________'}} yang kami terima pada tanggal {{$case->getChecklistDate(1)}} hingga saat ini kami belum menerima hasil penyidikan perkara, tersebut.
 </p>
 <br/>
 <p class='indent'>
