@@ -25,6 +25,11 @@
                             <dt>Pasal</dt>
                             <dd>{{ nl2br($case['pasal']) }}</dd>
                         </dl>
+                        <hr/>
+                        <dl>
+                            <dt>Tersangka</dt>
+                            <dd>{{ $case->suspectNames() }}</dd>
+                        </dl>
                     </td>
                 </tr>
                 <tr>
@@ -156,10 +161,8 @@
                 <i class="icon ion-ios-body"></i> Tersangka
                 <a href="/backend/suspect/create?case_id={{$case->id}}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
             </div>
-            @if(count($case->suspects))
-            <?php $count = 1;?>
             <table class="table table-condensed items">
-                @foreach($case->suspects as $item)
+                @forelse($case->suspects as $item)
                     <tr>
                         <td>
                             <a class="item" href="{{ route('backend.suspect.show', [$item['id']]) }}">
@@ -167,9 +170,12 @@
                             </a>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td><small class="empty">Belum Ada</small></td>
+                    </tr>
+                @endforelse
             </table>
-            @endif
         </div>
 
         <div class="panel panel-default box-tersangka">
@@ -177,20 +183,46 @@
                 <i class="icon ion-eye"></i> Saksi
                 <a href="/backend/witness/create?case_id={{$case->id}}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
             </div>
-            @if(count($case->witness))
-                <?php $count = 1;?>
-                <table class="table table-condensed items">
-                    @foreach($case->witness as $item)
-                        <tr>
-                            <td>
-                                <a class="item" href="{{ route('backend.witness.show', [$item['id']]) }}">
-                                    <h5 class="name ell">{{ $item['sex_icon'] }} {{ $item['name'] }}</h5>
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </table>
-            @endif
+            <table class="table table-condensed items">
+                @forelse($case->witness as $item)
+                    <tr>
+                        <td>
+                            <a class="item" href="{{ route('backend.witness.show', [$item['id']]) }}">
+                                <h5 class="name ell">{{ $item['sex_icon'] }} {{ $item['name'] }}</h5>
+                            </a>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td><small class="empty">Belum Ada</small></td>
+                    </tr>
+                @endforelse
+            </table>
+        </div>
+
+        <div class="panel panel-default box-sidang">
+            <div class="panel-heading">
+                <i class="icon fa fa-gavel"></i> Jadwal Sidang
+                <a href="{{ route('backend.courts.create', ['case_id' => $case['id']]) }}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
+            </div>
+            <table class="table table-condensed items">
+                @forelse($case->courts as $item)
+                    <tr>
+                        <td><small class="text-muted">{{ $item['date_for_human'] }}</small></td>
+                        <td>{{ $item['agenda'] }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a class="btn btn-xs btn-default" href="{{ route('backend.courts.edit', [$item['id']]) }}">Edit</a>
+                                {{ Form::delete(route('backend.courts.destroy', $item['id']), 'Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-danger btn-xs']) }}
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3"><small class="empty">Belum Ada</small></td>
+                    </tr>
+                @endforelse
+            </table>
         </div>
 
         <div class="panel panel-default">

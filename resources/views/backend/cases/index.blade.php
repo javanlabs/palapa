@@ -54,11 +54,14 @@
                             <span class="badge badge-type {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
                         </td>
                         <td class="text-right">
-                            @if(Auth::user()->canManage($item))
-                            <a class="btn btn-default btn-sm" href="{{ $item['permalink_edit'] }}">
-                                 Detil <i class="ion-ios-arrow-forward"></i>
-                            </a>
-                            @endif
+                            <div class="btn-group">
+                                <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil</a>
+                                @if(Auth::user()->canManage($item))
+                                    <a class="btn btn-default btn-sm" href="{{ $item['permalink_edit'] }}">
+                                        Edit <i class="ion-ios-arrow-forward"></i>
+                                    </a>
+                                @endif
+                            </div>
                         </td>
                     </tr>
                 @endforeach
@@ -68,4 +71,25 @@
             </div>
         </div>
     </div>
+@stop
+
+@section('script-end')
+    @parent
+    <script>
+        $(function(){
+            $('.btn-detail').on('click', function(e){
+                e.preventDefault();
+                $.blockUI(BLOCKUI_STYLE);
+
+                $.get($(this).attr('href'), '', function(response, status){
+                    $.unblockUI();
+                    $(response).modal('show');
+                    $(response).on('hidden.bs.modal', function(e){
+                        $(response).remove();
+                    });
+                });
+
+            });
+        });
+    </script>
 @stop

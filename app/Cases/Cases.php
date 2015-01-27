@@ -37,6 +37,11 @@ class Cases extends Model {
         return $this->belongsToMany('App\Cases\Witness');
     }
 
+    public function courts()
+    {
+        return $this->hasMany('App\Cases\Court\Court', 'case_id');
+    }
+
     public function suspectNames(){
         $suspects = array();
         foreach($this->suspects as $row){

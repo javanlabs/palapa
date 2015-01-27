@@ -40,12 +40,12 @@
                 <td colspan="2" class="jadwal-sidang animated fadeIn" style="padding: 10px 40px">
                     <h3 class="caption">Jadwal Sidang</h3>
                     <div class="inner">
-                        @forelse($cases as $item)
-                            <a href="{{ $item['permalink'] }}" class="btn-detail court">
+                        @forelse($courts as $item)
+                            <a href="{{ $item['case']['permalink'] }}" class="btn-detail court">
                                 <small class="date">
-                                    {{$item['persidangan_date_for_human']}} <span class="badge">{{ $item['schedule_for_human'] }}</span>
+                                    {{$item['date_for_human']}} <span class="badge">{{ $item['schedule_for_human'] }}</span>
                                 </small>
-                                {{ $item['name'] }}
+                                {{ $item['agenda'] }}
                             </a>
                         @empty
                             Tidak Ada

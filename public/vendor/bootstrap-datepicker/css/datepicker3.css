@@ -17,7 +17,7 @@
   z-index: 1050 !important;
 }
 .datepicker-inline {
-  width: 220px;
+  width: 100%;
 }
 .datepicker.datepicker-rtl {
   direction: rtl;
@@ -96,6 +96,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+    width: 100%;
 }
 .datepicker table tr td,
 .datepicker table tr th {
@@ -131,6 +132,7 @@
   color: #000000;
   background-color: #ffdb99;
   border-color: #ffb733;
+  border-radius: 50%;
 }
 .datepicker table tr td.today:hover,
 .datepicker table tr td.today:hover:hover,
