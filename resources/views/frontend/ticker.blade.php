@@ -1,11 +1,11 @@
 <div id="slider">
     <div id="items-slider">
         <ul>
-            @foreach($cases as $item)
+            @foreach($items as $item)
                 <li>
                     <div class="item">
-                        <h3 class="name">Sidang {{ $item['name'] }}</h3>
-                        <div class="time">{{$item['persidangan_date_for_human']}}</div>
+                        <h3 class="name">Sidang {{ $item['agenda'] }}</h3>
+                        <div class="time">{{$item['date_for_human']}}</div>
                     </div>
                 </li>
             @endforeach

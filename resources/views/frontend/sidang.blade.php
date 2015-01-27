@@ -26,7 +26,7 @@
                         <tr>
                             <td>
                                 <h3>
-                                    <a href="{{ $item['cas']['permalink'] }}" class="btn-detail court">
+                                    <a href="{{ $item['cases']['permalink'] }}" class="btn-detail court">
                                         {{ $item['agenda'] }}
                                     </a>
                                 </h3>

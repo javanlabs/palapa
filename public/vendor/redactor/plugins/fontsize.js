@@ -23,6 +23,7 @@ if (!RedactorPlugins) var RedactorPlugins = {};
 			},
 			set: function(size)
 			{
+                console.log(this.inline);
 				this.inline.format('span', 'style', 'font-size: ' + size + 'px;');
 			},
 			reset: function()
