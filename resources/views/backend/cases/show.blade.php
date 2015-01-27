@@ -24,6 +24,11 @@
                             <dt>Pasal</dt>
                             <dd>{{ nl2br($case['pasal']) }}</dd>
                         </dl>
+                        <hr/>
+                        <dl>
+                            <dt>Tersangka</dt>
+                            <dd>{{ $case->suspectNames() }}</dd>
+                        </dl>
                     </td>
                 </tr>
                 <tr>
