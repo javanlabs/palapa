@@ -34,6 +34,11 @@ class Officer extends Model {
         return $this->hasMany('App\Cases\Cases', 'jaksa_id')->whereNull('cases.finish_date')->published();
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
     public function scopeStaff($query)
     {
         return $query->whereRole(self::ROLE_STAFF);

@@ -15,7 +15,7 @@
         </div>
         <div class="bx-container">
             @foreach($images as $img)
-                <img src="{{ $img }}" data-title="" data-subtitle=""/>
+                <img src="{{ $img['url'] }}" data-title="" data-subtitle=""/>
             @endforeach
         </div>
         <div class="bx-overlay"></div>
@@ -30,7 +30,7 @@
 
         setTimeout(function(){
             $.blockUI(BLOCKUI_STYLE);
-            window.location.href = '{{ route('slide.sidang')  }}';
+            window.location.href = '{{ route('slide.scroll')  }}';
         }, SLIDE_INTERVAL * IMAGE_COUNT * 2);
 
         $(function() {

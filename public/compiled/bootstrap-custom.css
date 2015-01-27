@@ -6960,29 +6960,6 @@ body#screensaver .slide-title {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
 }
-#wrap {
-  position: fixed;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}
-#wrap img.bgfade {
-  position: absolute;
-  top: 0;
-  display: none;
-  width: 100%;
-  height: auto;
-  z-index: -1;
-}
-.bx-overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  background: transparent url(../images/pattern.png) repeat top left;
-  z-index: 10;
-}
 #slider {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
@@ -7010,7 +6987,7 @@ body#screensaver .slide-title {
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
 }
 #btn-stop {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   bottom: 20px;
   right: 20px;
@@ -7027,50 +7004,17 @@ body#screensaver .slide-title {
 #btn-stop:hover {
   opacity: 1;
 }
-.videojs-background-wrap {
-  overflow: hidden;
-  position: absolute;
-  height: 100%;
+.ss-container img {
+  display: block;
   width: 100%;
-  top: 0;
-  left: 0;
-  z-index: -998;
 }
-.video-js,
-.video-js .vjs-tech {
-  position: relative !important;
-  width: 100% !important;
-  height: 100% !important;
-  margin: auto !important;
-}
-.section-video {
+.ss-overlay,
+.ss-loading {
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.3) url(../images/pattern.png) repeat top left;
   z-index: 10;
-  top: 0;
-  left: 0;
-}
-body#screensaver.screensaver-5 .section-left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  background-color: red;
-}
-body#screensaver.screensaver-5 #items-slider .item {
-  padding: 10px 20px 10px 50px;
-}
-body#screensaver.screensaver-5 #items-slider .item .name {
-  font-size: 1.5em;
-  line-height: 1em;
-  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
-}
-body#screensaver.screensaver-5 #items-slider .item .time {
-  color: #f1a417;
-  font-size: 1em;
-  line-height: 1em;
-  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
 }

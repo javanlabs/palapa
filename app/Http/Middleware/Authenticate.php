@@ -41,7 +41,7 @@ class Authenticate implements Middleware {
 			}
 			else
 			{
-				return redirect()->guest('gapura/login');
+				return redirect()->guest('gapura/login')->with('flash.warning', 'Silakan login terlebih dahulu');
 			}
 		}
 
