@@ -65,6 +65,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
     $router->resource('document', 'DocumentController');
     $router->resource('suspect', 'SuspectController');
     $router->resource('witness', 'WitnessController');
+    $router->resource('courts', 'CourtController', ['only' => ['create', 'store', 'edit', 'update', 'destroy']]);
 
     $router->resource('user', 'UserController', ['only' => ['create', 'store', 'destroy']]);
     $router->get('user/reset-password', ['as' => 'backend.user.reset_password', 'uses' => 'UserController@resetPassword']);

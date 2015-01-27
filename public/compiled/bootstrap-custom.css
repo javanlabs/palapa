@@ -6896,11 +6896,16 @@ h2.page-title {
   -o-text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
 }
-.empty {
+div.empty {
   font-size: 2em;
   font-weight: 300;
   color: #777777;
   margin: 100px;
+}
+small.empty,
+span.empty {
+  color: #777777;
+  font-size: 14px;
 }
 .form-group {
   margin-bottom: 30px;
