@@ -14,8 +14,11 @@
                         <tbody class="items">
                         @forelse($suspects as $suspect)
                             <tr>
-                                <td>{{ $suspect['sex_icon'] }} {{ $suspect['name'] }}</td>
+                                <td>{{ $suspect['sex_icon'] }}</td>
+                                <td>{{ $suspect['name'] }}</td>
+                                <td>{{$suspect->address}} {{$suspect->city->nama}}</td>
                             </tr>
+
                         @empty
                             <tr>
                                 <td>Data tersangka belum tersedia</td>
@@ -24,7 +27,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="panel panel-default">
+
+    <div class="container-fluid section-entry">
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-information"></i> Info Kasus</div>
                     <div class="panel-body">
                         <dl class="dl-horizontal section-info mb-lg">
@@ -61,7 +68,33 @@
                             <dd><span class="label label-default">{{ $case['status_name'] }}</span></dd>
                         </dl>
                     </div>
-                </div>                
+                </div>  
+        </div>
+        <div class="col-md-6">
+             <div class="panel panel-default">
+                    <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Jadwal Sidang</div>
+                    <table class="table">
+                        <tbody>
+                        @forelse($case->courts() as $item)
+                            <tr>
+                                <td width="130px"><small class="text-muted">{{ $item['date_for_human'] }}</small></td>
+                                <td>
+                                    <strong>{{ $item['agenda'] }}</strong>
+                                    <p>{{ $item['note'] }}</p>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="2">Riwayat kasus belum tersedia</td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+
+                              
 
                 <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Riwayat</div>
