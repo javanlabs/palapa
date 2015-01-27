@@ -8,7 +8,22 @@
                 <h2 class="modal-title mb-0">{{ $case['name'] }}</h2>
             </div>
             <div class="modal-body">
-
+                <div class="panel panel-default panel-tersangka">
+                    <div class="panel-heading"><i class="icon ion-ios-body"></i> Tersangka</div>
+                    <table class="table">
+                        <tbody class="items">
+                        @forelse($suspects as $suspect)
+                            <tr>
+                                <td>{{ $suspect['sex_icon'] }} {{ $suspect['name'] }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>Data tersangka belum tersedia</td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                </div>
                 <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-information"></i> Info Kasus</div>
                     <div class="panel-body">
@@ -46,24 +61,7 @@
                             <dd><span class="label label-default">{{ $case['status_name'] }}</span></dd>
                         </dl>
                     </div>
-                </div>
-
-                <div class="panel panel-default panel-tersangka">
-                    <div class="panel-heading"><i class="icon ion-ios-body"></i> Tersangka</div>
-                    <table class="table">
-                        <tbody class="items">
-                        @forelse($suspects as $suspect)
-                            <tr>
-                                <td>{{ $suspect['sex_icon'] }} {{ $suspect['name'] }}</td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td>Data tersangka belum tersedia</td>
-                            </tr>
-                        @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                </div>                
 
                 <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Riwayat</div>
@@ -71,7 +69,7 @@
                         <tbody>
                         @forelse($activities as $item)
                             <tr>
-                                <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
+                                <td width="130px"><small class="text-muted">{{ $item['date_for_human'] }}</small></td>
                                 <td>
                                     <strong>{{ $item['name'] }}</strong>
                                     <p>{{ $item['note'] }}</p>
