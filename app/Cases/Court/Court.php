@@ -21,6 +21,16 @@ class Court extends Model {
         return $query->where('date', '>=', Carbon::now()->toDateString())->orderBy('date', 'asc');
     }
 
+    public function scopeByDate($query, $date)
+    {
+        if($date)
+        {
+            $query->where('date', '=', Carbon::createFromFormat('d-m-Y', $date)->toDateString());
+        }
+
+        return $query;
+    }
+
     public function getDateAttribute()
     {
         if($this->attributes['date'])

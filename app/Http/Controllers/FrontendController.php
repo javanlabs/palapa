@@ -4,6 +4,7 @@ use App\Cases\Court\Court;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Menu\RepositoryInterface as MenuRepository;
 use App\Sop\RepositoryInterface;
+use Carbon\Carbon;
 use Eendonesia\Skrip\Post\EloquentRepository;
 use Eendonesia\Skrip\Post\RepositoryInterface as PostRepository;
 use Illuminate\Http\Request;
@@ -59,11 +60,19 @@ class FrontendController extends Controller {
         return view('frontend.officer', compact('officers'))->with('page', 'officer');
     }
 
-    public function getSidang()
+    public function getSidang(Request $request)
     {
-        $courts = Court::with('cases')->upcoming()->get();
+        $date = $request->get('date');
+        $dateForHuman = null;
 
-        return view('frontend.sidang', compact('courts'));
+        if($date)
+        {
+            $dateForHuman = Carbon::createFromFormat('d-m-Y', $date)->formatLocalized('%A, %d %B %Y');
+        }
+
+        $courts = Court::with('cases')->upcoming()->byDate($date)->get();
+
+        return view('frontend.sidang', compact('courts', 'date', 'dateForHuman'));
     }
 
     public function getCase(CasesRepository $caseRepository, RepositoryInterface $sopRepo, $id)
