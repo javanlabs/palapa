@@ -254,4 +254,9 @@ class Cases extends Model {
             }
         }
     }
+
+    public function getLatestActivityAttribute(){
+        $latest = \DB::table('cases_checklist')->where('case_id','=',$this->attributes['id'])->orderBy('created_at','DESC')->first();
+        return $latest;
+    }
 }
