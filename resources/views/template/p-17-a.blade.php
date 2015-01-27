@@ -66,7 +66,7 @@
 				<td colspan='3'><br/><br/><br/>
 <p class='indent'>
 	Sehubungan dengan penyerahan Surat Perintah Penyidikan (SPDP) perkara pidana atas nama tersangka {{implode(', ', $suspects)}} Nomor: {{$case->spdp_number}} tanggal
-	{{$case->spdp_date}} yang kami terima tanggal  hingga saat ini kami belum menerima hasil Penyidikan Berkas Perkara tersebut, oleh karna itu mengingat dalam 
+	{{$case->spdp_date_for_human}} yang kami terima tanggal {{$case->getChecklistDate(1)}} hingga saat ini kami belum menerima hasil Penyidikan Berkas Perkara tersebut, oleh karna itu mengingat dalam 
 	Jangka Waktu yang cukup lama yaitu 90 (Sembilan Puluh) hari jesak diterbitkannya SPDP Penyidik belum menyerahkan Hasil Penyidikannya, maka dengan ini kami
 	kembalikan Surat Pemberitahuan di mulainya Penyidikan (SPDP) tersebut.
 </p>

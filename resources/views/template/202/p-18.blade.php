@@ -66,7 +66,7 @@
 </table>
 	
 <p>
-	 Sehubungan penyerahan berkas perkara pidana atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date?$case->spdp_date:'____________'}} yang kami terima pada tanggal {{$case->spdp_date_received?$case->spdp_date_received:'____________'}} setelah kami lakukan penelitian sesuai dengan pasal 110 dan 138 (1) KUHAP, ternyata hasil penyidikannya belum lengkap.
+	 Sehubungan penyerahan berkas perkara pidana atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date_for_human?$case->spdp_date_for_human:'____________'}} yang kami terima pada tanggal {{$case->getChecklistDate(1)?$case->getChecklistDate(1):'____________'}} setelah kami lakukan penelitian sesuai dengan pasal 110 dan 138 (1) KUHAP, ternyata hasil penyidikannya belum lengkap.
 </p>
 <p>
 	 Pengembalian berkas beserta petunjuknya menyusul.
