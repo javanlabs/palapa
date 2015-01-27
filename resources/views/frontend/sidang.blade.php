@@ -40,11 +40,11 @@
                             <td>
                                 {{$item->cases->kasus}}/{{$item->cases->pasal}}
                             </td>
-                            <td>                                
-                                {{ $item['agenda'] }}                                
+                            <td>
+                                {{ $item['agenda'] }}
                             </td>
                             <td>
-                                {{$item->cases->jaksa->name}}
+                                {{$item->cases['jaksa_name']}}
                             </td>
                             <td style="padding-top: 20px">
                                 {{$item['date_for_human']}}
@@ -56,7 +56,7 @@
                             </td>
                         </tr>
                     @empty
-                        <tr><td colspan="4"><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
+                        <tr><td><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
                     @endforelse
                     </tbody>
                 </table>

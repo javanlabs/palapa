@@ -81,8 +81,9 @@ class FrontendController extends Controller {
         $phases = $sopRepo->byType($case->type_id);
         $activities = $caseRepository->activities($case);
         $suspects = $case->suspects;
+        $courts = $case->courts;
 
-        return view('frontend.case', compact('case', 'phases', 'activities', 'suspects'));
+        return view('frontend.case', compact('case', 'phases', 'activities', 'suspects', 'courts'));
 
     }
 

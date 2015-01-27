@@ -16,7 +16,7 @@
                             <tr>
                                 <td>{{ $suspect['sex_icon'] }}</td>
                                 <td>{{ $suspect['name'] }}</td>
-                                <td>{{$suspect->address}} {{$suspect->city->nama}}</td>
+                                <td>{{$suspect['address']}} {{$suspect['city_name']}}</td>
                             </tr>
 
                         @empty
@@ -28,10 +28,7 @@
                     </table>
                 </div>
 
-    <div class="container-fluid section-entry">
-
-        <div class="col-md-6">
-            <div class="panel panel-default">
+                <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-information"></i> Info Kasus</div>
                     <div class="panel-body">
                         <dl class="dl-horizontal section-info mb-lg">
@@ -39,7 +36,7 @@
                             <dd>{{ $case['spdp_number'] }}</dd>
                             <dt>Kasus :</dt>
                             <dd>{{ $case['name'] }}</dd>
-                            <dt>Tempat Kejadian  :</dt>
+                            <dt>Tempat Kejadian :</dt>
                             <dd>{{ $case['crime_place'] }}</dd>
                             <dt>Waktu Kejadian :</dt>
                             <dd>{{ $case['crime_time_for_human'] }}</dd>
@@ -68,18 +65,19 @@
                             <dd><span class="label label-default">{{ $case['status_name'] }}</span></dd>
                         </dl>
                     </div>
-                </div>  
-        </div>
-        <div class="col-md-6">
-             <div class="panel panel-default">
+                </div>
+                <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Jadwal Sidang</div>
                     <table class="table">
                         <tbody>
-                        @forelse($case->courts() as $item)
+                        @forelse($courts as $item)
                             <tr>
-                                <td width="130px"><small class="text-muted">{{ $item['date_for_human'] }}</small></td>
+                                <td width="130px">
+                                    <small class="text-muted">{{ $item['date_for_human'] }}</small>
+                                </td>
                                 <td>
                                     <strong>{{ $item['agenda'] }}</strong>
+
                                     <p>{{ $item['note'] }}</p>
                                 </td>
                             </tr>
@@ -91,10 +89,7 @@
                         </tbody>
                     </table>
                 </div>
-        </div>
-    </div>
 
-                              
 
                 <div class="panel panel-default">
                     <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Riwayat</div>
@@ -102,9 +97,12 @@
                         <tbody>
                         @forelse($activities as $item)
                             <tr>
-                                <td width="130px"><small class="text-muted">{{ $item['date_for_human'] }}</small></td>
+                                <td width="130px">
+                                    <small class="text-muted">{{ $item['date_for_human'] }}</small>
+                                </td>
                                 <td>
                                     <strong>{{ $item['name'] }}</strong>
+
                                     <p>{{ $item['note'] }}</p>
                                 </td>
                             </tr>
