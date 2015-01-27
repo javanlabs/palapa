@@ -139,11 +139,11 @@ class FrontendController extends Controller {
         return view('frontend.slide.video', compact('videos'));
     }
 
-    public function getSlideSidang(CasesRepository $caseRepository)
+    public function getSlideSidang()
     {
-        $cases = $caseRepository->upcomingSidang();
+        $courts = Court::with('cases')->upcoming()->get();
 
-        return view('frontend.slide.sidang', compact('cases'));
+        return view('frontend.slide.sidang', compact('courts'));
     }
 
     public function getSlide4(CasesRepository $caseRepository)

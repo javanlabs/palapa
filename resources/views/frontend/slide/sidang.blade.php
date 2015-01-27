@@ -11,7 +11,7 @@
 @section('content')
 
     <h1 class="slide-title">Jadwal Sidang Kejaksaan Negeri Jember</h1>
-    @include('frontend.ticker', ['cases' => $cases])
+    @include('frontend.ticker', ['items' => $courts])
 
 @stop
 
@@ -19,7 +19,7 @@
     <script src="{{ asset('vendor/jquery.backstretch.min.js') }}"></script>
     <script>
         var SLIDE_INTERVAL = {{ Config::get('slide.interval')  }};
-        var ITEM_COUNT = {{ count($cases)  }};
+        var ITEM_COUNT = {{ count($courts)  }};
 
         setTimeout(function(){
             $.blockUI(BLOCKUI_STYLE);
