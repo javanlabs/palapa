@@ -64,20 +64,20 @@
 </td></tr>
 </table>
 <p>
-	berdasarkan Surat Perintah Kepala Kejaksaan …………………Nomor ……………………… tanggal………………………….untuk melakukan Penahanan/penahanan lanjutan *) terhadap tersangka/terdakwa *) yang disangka/didakwa *) melanggar pasal…………….terhitung mulai tanggal …………..di Rumah Tahanan Negara / Rumah / Kota *) selama …………… Penahanan/penahanan lanjutan *) tersebut dilakukan, . karena tersangka/terdakwa *) dikhawatirkan akan melarikan diri, merusak atau menghilangkan barang bukti dan atau mengulangi tindak pidana *).
+	Berdasarkan Surat Perintah Kepala Kejaksaan Negeri Jember Nomor .... tanggal .... untuk melakukan Penahanan terhadap tersangka {{$case->suspectNames()}} yang disangka melanggar pasal {{$case->pasal}} terhitung mulai tanggal {{strftime("%e %B %Y")}} - {{strftime("%e %B %Y")}} di Rumah Tahanan Negara / Rumah / Kota selama 20 hari. Penahanan tersebut dilakukan, karena tersangka dikhawatirkan akan melarikan diri, merusak atau menghilangkan barang bukti dan atau mengulangi tindak pidana.
 </p>
 <p>
-	-------------------Demikian Berita Acara ini dibuat dengan sebenar‑benarnya atas kekuatan sumpah jabatan dan untuk memperkuatnya tersangka/ terdakwa membubuhkan tanda tangannya
+	Demikian Berita Acara ini dibuat dengan sebenar‑benarnya atas kekuatan sumpah jabatan dan untuk memperkuatnya tersangka/ terdakwa membubuhkan tanda tangannya
 </p>
 <p>
-	------------Berita Acara ini ditutup dan ditanda tangani pada hari dan tanggal tersebut diatas ---
+	Berita Acara ini ditutup dan ditanda tangani pada hari dan tanggal tersebut diatas ---
 </p>
 <table>
 <tbody>
 <tr align='center'>
 	<td>
 	
-			Tersangka/Terdakwa *)
+			Tersangka
 	
 				<br/><br/><br/>
 
@@ -99,12 +99,9 @@
 </tr>
 <tr>
 	<td colspan='2' style='text-align: center'>
-		
+		<br/>
 	KEPALA RUTAN
 
-<br/><br/><br/>
-
-	(<u> </u>)
 
 	</td>
 	</tr>

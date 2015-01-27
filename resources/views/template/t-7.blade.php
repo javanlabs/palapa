@@ -9,15 +9,12 @@
 	<td width="300px">
 	</td>
 	<td style="text-align: right;">
-		<strong>P-16</strong>
+		<strong>T-7</strong>
 	</td>
 </tr>
 </tbody>
 </table>
-<p style="text-align: center;">
-	<strong><br>
-	</strong>
-</p>
+
 <p style="text-align: center;">
 	<strong>SURAT PERINTAH PENAHANAN/</strong><b><br>
 	<strong>PENGALIHAN JENIS PENAHANAN</strong><br>	
@@ -27,10 +24,6 @@
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
-</p>
-<p style="text-align: center;">
-	<strong><br>
-	</strong>
 </p>
 <table>
 <tbody>
@@ -51,6 +44,7 @@
 			<li>Undang-Undang Nomor: 16 Tahun 2004 tentang Kejaksaan Republik Indonesia.</li>
 			<li>Undang-Undang No. 1 Tahun 1964 Tentang KUHP</li>
 			<li>Berkas Perkara dari Penyidik Nomer BP/13/IX/2014/Polsek. Tgl. 23 September 2014 dalam perkara atas nama tersangka {{$case->suspectNames()}}, Nomor: SPP/16/IX/2014/Reskrim tanggal ..... 2015		
+			<li>Surat Perintah Penahanan dari {{$case->penyidik->name}} atas nama tersangka {{$case->suspectNames()}} Nomor: SPP/16/IX/2014/Reskrim tanggal .... 2015</li>
 			<li>Saran dari Jaksa Penuntut Umum {{$case->jaksa->name}}, NIP. {{$case->jaksa->nip}} Pangkat {{$case->jaksa->pangkat->name}} pada Kejaksan Negeri Jember.</li>
 		</ol>		
 	</td>
@@ -136,8 +130,7 @@
 			</td>
 		</tr>
 		</tbody>
-		</table>
-		<br>
+		</table>		
 	</td>
 </tr>
 <tr>
@@ -243,12 +236,33 @@
 			</td>
 		</tr>
 		<tr>
+			<td>
+					Register Perkara No.
+			</td>
+			<td>
+					:
+			</td>
+			<td>
+					
+			</td>
+		</tr>
+<tr>
+			<td>
+					Register Tahanan No.
+			</td>
+			<td>
+					:
+			</td>
+			<td>
+					
+			</td>
+		</tr>
+		<tr>
 			<td colspan='3'></td>
 		</tr>
 		@endforeach
 		<tr>
-			<td colspan='3'>
-				<br/>
+			<td colspan='3'>				
 				<p>
 					Dengan Ketentuan Bahwa ia ditahan di <strong>RUTAN/RUMAH/KOTA</strong> JEMBER selama 20 hari terhitung mulai tanggal _____ sampai dengan tanggal _____
 				</p>
@@ -296,188 +310,6 @@
 			<li>Yth. Keluarga Terdakwa</li>
 			<li>Yth. Penyidik</li>
 			<li>Yth. Bapak Kepala Rutan Jember.</li>
-			<li>Arsip.</li>
-		</ol>
-	</td>
-	<td>
-	</td>
-</tr>
-</tbody>
-</table>
-<footer></footer>
-<h1 style="text-align: center;">KEJAKSAAN NEGERI JEMBER</h1>
-<HR/>
-<table>
-<tbody>
-</tbody>
-</table>
-<p style="text-align: center;">
-	<strong>SURAT PERINTAH</strong><b><br>
-	<strong><U>PENUNJUKAN PETUGAS ADMINISTRASI</U><br>
-	 Nomor: Print - /0.5.12/Ep.1/ /2015
-	</strong></b>
-</p>
-<p style="text-align: center;">
-	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
-</p>
-<table>
-<tbody>
-<tr>
-	<td width="100px">
-Dasar
-	</td>
-	<td width="20px">
-			:
-	</td>
-	<td>
-		<ol>
-			<li>Undang-Undang No. 16 Tahun 2004 tentang Kejaksaan Republik Indonesia</li>
-			<li>Keputusan Presiden Republik Indonesia No. 86 Tahun 1999 tentang Susunan Organisasi Tata Kerja Kejaksaan Republik Indonesia</li>
-			<li>Keputusan Jaksa Agung Republik Indonesia Nomor: KEP-115/JA/10/1999 Tentang Susuan Organisasi dan tata Kerja Kejaksaan Republik Indonesia beserta perubahannya.</li>
-			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/10/2011 tanggal 29 Oktober 2010 Tentang Standar Operasional Prosedur (SOP) Penangangan Perkara Tindak Pidana Umum.</li>
-		</ol>
-	</td>
-</tr>
-<tr>
-	<td>
-		<p>
-			Pertimbangan
-		</p>
-	</td>
-	<td>
-		<p>
-			:
-		</p>
-	</td>
-	<td>
-		<ol>
-			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tindak Pidana Kepala Kejaksaan Negeri Jember Nomor: Print- /0.5.12/Ep.1/ /2015 Tanggal </li>
-			<li>Dalam rangka melaksanakan fungsi administrasi perkara tindak pidana umum, dipandang perlu menunuk Pegawai Tata Usaha Kejaksaan</li>
-			<li>Sebagai perwujudannya perlu menerbitkan Surat Perintah</li>
-		</ol>
-		<p style="text-align: center">
-			<b>MEMERINTAHKAN:</b>
-		</p>
-	</td>
-</tr>
-<tr>
-	<td>
-		<p>
-			Kepada
-		</p>
-	</td>
-	<td>
-		<p>
-			:
-		</p>
-	</td>
-	<td>
-		<table>
-		<tbody>
-		<tr>
-			<td width="20px">
-					1.
-			</td>
-			<td width="100px">
-					Nama
-			</td>
-			<td width="10px">
-					:
-			</td>
-			<td>
-				{{$case->staff->name}}
-			</td>
-		</tr>
-		<tr>
-			<td>
-			</td>
-			<td>
-					Pangkat/NIP
-			</td>
-			<td>
-					:
-			</td>
-			<td>
-				{{$case->staff->pangkat->name}}/{{$case->staff->nip}}
-			</td>
-		</tr>
-		<tr>
-			<td>
-			</td>
-			<td>
-					Jabatan
-			</td>
-			<td>
-					:
-			</td>
-			<td>
-				Tata Usaha Kejaksaan Negeri Jember <br/>
-			</td>
-		</tr>
-		</tbody>
-		</table>
-	</td>
-</tr>
-<tr>
-	<td>
-		<p>
-			Untuk
-		</p>
-	</td>
-	<td>
-		<p>
-			:
-		</p>
-	</td>
-	<td>
-		<?php
-			$suspects = array();
-			foreach($case->suspects as $row){
-				$suspects[] = $row->name;
-			}
-		?>
-		<ol>
-			<li>Membantu melaksanakan fungsi administrasi dalam perkara Tindak Pidana tersangka atas nama {{implode(', ', $suspects)}} diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}}</li>
-			<li>Melaksanakan Surat Perintah ini dengan penuh rasa tanggung jawab.</li>
-			<li>Surat Perintah ini berlaku selama 60 hari.</li>
-		</ol>
-	</td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr>
-	<td style:'width=60px'>
-		<p>
-			Kepada : Yang bersangkutan untuk dilaksanakan
-		</p>
-	</td>
-	<td>
-		<br/>
-		<p>
-			Dikeluarkan di    : Jember
-			<br>
-			Pada tanggal      : {{strftime("%e %B %Y")}}
-		</p>
-		<hr>
-		<p style="text-align:center;">
-			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
-		</p>
-		<p>
-			<br/><br/>
-		</p>
-        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
-	</td>
-</tr>
-<tr>
-	<td>
-		<p>
-			<u><strong>TEMBUSAN:</strong></u>
-		</p>
-		<ol>
-			<li>Yth. Ketua Pengadilan Negeri Jember;</li>
-			<li>Yth. Penyidik {{$case->penyidik->name}}</li>
 			<li>Arsip.</li>
 		</ol>
 	</td>

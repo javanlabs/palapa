@@ -15,10 +15,6 @@
 </tbody>
 </table>
 <p style="text-align: center;">
-	<strong><br>
-	</strong>
-</p>
-<p style="text-align: center;">
 	<strong>SURAT PERINTAH PENUNJUKAN</strong><br>
 	<strong> JAKSA PENUNTUT UMUM UNTUK PENYELESAIAN</strong><br>
 	<strong><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERKARA TINDAK PIDANA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></strong><br>
@@ -27,10 +23,6 @@
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
-</p>
-<p style="text-align: center;">
-	<strong><br>
-	</strong>
 </p>
 <table>
 <tbody>
@@ -145,10 +137,8 @@
 		</tbody>
 		</table>
 		@endforeach
-		<p>
-			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case['spdp_date_for_human']}} dari penyidik {{$case->penyidik->name}}<br>
-			<br>
+		<p>			
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} dari penyidik {{$case->penyidik->name}}<br>			
 		</p>
 	</td>
 </tr>
