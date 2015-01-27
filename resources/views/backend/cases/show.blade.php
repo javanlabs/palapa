@@ -18,7 +18,6 @@
                     <td colspan="3" width="50%">
                         <h3 class="mb-0">{{ $case['name'] }}</h3>
                         <small class="text-muted"><strong>No SPDP:</strong> {{ $case['spdp_number'] }}</small><br/>
-                        <small class="text-muted"><strong>Tersangka:</strong> {{ $case->suspectNames() }}</small><br/>
                     </td>
                     <td colspan="3" rowspan="2">
                         <dl>

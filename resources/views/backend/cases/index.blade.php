@@ -50,17 +50,20 @@
                             <div><i class="ion-ios-people"></i> {{ $item['penyidik_name'] }}</div>
                         </td>
                         <td>
-                            <span class="badge badge-status {{ $item['status'] }}">{{ $item['status'] }}</span>
+                            <span class="badge badge-status {{ $item['status'] }}">{{ $item->getLatestActivityAttribute() }}</span>
                             <span class="badge badge-type {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
                         </td>
                         <td class="text-right">
                             <div class="btn-group">
-                                <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil</a>
                                 @if(Auth::user()->canManage($item))
                                     <a class="btn btn-default btn-sm" href="{{ $item['permalink_edit'] }}">
                                         Edit <i class="ion-ios-arrow-forward"></i>
                                     </a>
+                                @else
+                                    <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil</a>
                                 @endif
+                                
+                                
                             </div>
                         </td>
                     </tr>

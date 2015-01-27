@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Sop\Checklist;
 
 class Cases extends Model {
 
@@ -262,6 +263,11 @@ class Cases extends Model {
 
     public function getLatestActivityAttribute(){
         $latest = \DB::table('cases_checklist')->where('case_id','=',$this->attributes['id'])->orderBy('created_at','DESC')->first();
-        return $latest;
+        if($latest){
+            $checklist = Checklist::find($latest->checklist_id);
+            return $checklist->name;    
+        }        
+        else
+            return '';
     }
 }

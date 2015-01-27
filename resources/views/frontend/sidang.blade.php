@@ -21,21 +21,33 @@
                     <div class="subtitle">Jadwal Sidang @if($date) <span class="badge">{{ $dateForHuman }}</span> @endif</div>
                 </div>
                 <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nama Tersangka</th>
+                            <th>Kasus/Pasal</th>
+                            <th>Agenda</th>
+                            <th>Jaksa Penuntut Umum</th>
+                            <th>Tanggal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tbody>
                     @forelse($courts as $item)
                         <tr>
                             <td>
-                                <h3>
-                                    <a href="{{ $item['cases']['permalink'] }}" class="btn-detail court">
-                                        {{ $item['agenda'] }}
-                                    </a>
-                                </h3>
+                                {{$item->cases->suspectNames()}}
+                            </td>
+                            <td>
+                                {{$item->cases->kasus}}/{{$item->cases->pasal}}
+                            </td>
+                            <td>                                
+                                {{ $item['agenda'] }}                                
+                            </td>
+                            <td>
+                                {{$item->cases->jaksa->name}}
                             </td>
                             <td style="padding-top: 20px">
                                 {{$item['date_for_human']}}
-                            </td>
-                            <td style="padding-top: 20px">
-                                <span class="badge">{{ $item['schedule_for_human'] }}</span>
                             </td>
                             <td style="padding-top: 20px">
                                 <a href="{{ $item['cases']['permalink'] }}" class="btn-detail btn btn-default">
