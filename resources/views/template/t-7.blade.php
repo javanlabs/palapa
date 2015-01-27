@@ -280,7 +280,19 @@
 <table>
 <tbody>
 <tr>
-	<td width="50%">
+	<td width="50%" style='vertical-align: bottom'>
+		Kepada : yang bersangkutan <u>untuk dilaksanakan</u>
+		<p>
+			<u><strong>TEMBUSAN:</strong></u>
+		</p>
+		<ol>
+			<li>Yth. Bapak Kejati Jatim.</li>
+			<li>Yth. Ketua Pengadilan Negeri Jember.</li>
+			<li>Yth. Keluarga Terdakwa</li>
+			<li>Yth. Penyidik</li>
+			<li>Yth. Bapak Kepala Rutan Jember.</li>
+			<li>Arsip.</li>
+		</ol>
 	</td>
 	<td>
 		<p>
@@ -296,24 +308,6 @@
 			<br/><br/>
 		</p>
         <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
-	</td>
-</tr>
-<tr>
-	<td>
-		Kepada : yang bersangkutan <u>untuk dilaksanakan</u>
-		<p>
-			<u><strong>TEMBUSAN:</strong></u>
-		</p>
-		<ol>
-			<li>Yth. Bapak Kejati Jatim.</li>
-			<li>Yth. Ketua Pengadilan Negeri Jember.</li>
-			<li>Yth. Keluarga Terdakwa</li>
-			<li>Yth. Penyidik</li>
-			<li>Yth. Bapak Kepala Rutan Jember.</li>
-			<li>Arsip.</li>
-		</ol>
-	</td>
-	<td>
 	</td>
 </tr>
 </tbody>
