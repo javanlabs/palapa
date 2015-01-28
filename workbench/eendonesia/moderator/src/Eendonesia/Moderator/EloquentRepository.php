@@ -52,7 +52,7 @@ class EloquentRepository implements RepositoryInterface{
     {
         $input['password'] = Hash::make($input['password']);
         $user = $this->user->create($input);
-        $user->groups()->sync(array_get($input, 'groups'));
+        $user->groups()->sync(array_get($input, 'groups', []));
 
         return $user;
     }
