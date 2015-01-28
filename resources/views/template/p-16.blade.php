@@ -355,7 +355,7 @@ Dasar
 	</td>
 	<td>
 		<ol>
-			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tindak Pidana Kepala Kejaksaan Negeri Jember Nomor: Print- /0.5.12/Ep.1/ /2015 Tanggal </li>
+			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tindak Pidana Kepala Kejaksaan Negeri Jember Nomor: Print- /0.5.12/{{$category}}/ /2015 Tanggal {{$case->getChecklistDate(1)}}</li>
 			<li>Dalam rangka melaksanakan fungsi administrasi perkara tindak pidana umum, dipandang perlu menunuk Pegawai Tata Usaha Kejaksaan</li>
 			<li>Sebagai perwujudannya perlu menerbitkan Surat Perintah</li>
 		</ol>

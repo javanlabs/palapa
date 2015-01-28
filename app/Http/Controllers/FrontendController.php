@@ -54,10 +54,13 @@ class FrontendController extends Controller {
         return view('frontend.postByCaseType', compact('allPostInCategory', 'post', 'type', 'types', 'id'));
     }
 
-    public function getOfficer(OfficerRepository $officer)
-    {
+    public function getOfficer(PostRepository $postRepo,OfficerRepository $officer)
+    {        
+        $allPostInCategory = $postRepo->getByPosition('pembinaan');
         $officers = $officer->jaksa();
-        return view('frontend.officer', compact('officers'))->with('page', 'officer');
+        $category = 'pembinaan';
+        $id = 'jaksa';
+        return view('frontend.officer', compact('officers','allPostInCategory', 'category', 'id'))->with('page', 'officer');
     }
 
     public function getSidang(Request $request)
