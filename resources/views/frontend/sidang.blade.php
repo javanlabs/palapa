@@ -23,12 +23,12 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Nama Tersangka</th>
-                            <th>Kasus/Pasal</th>
-                            <th>Agenda</th>
-                            <th>Jaksa Penuntut Umum</th>
-                            <th>Tanggal</th>
-                            <th></th>
+                            <th width='20%'>Nama Tersangka</th>
+                            <th width='20%'>Kasus/Pasal</th>
+                            <th width='20%'>Agenda</th>
+                            <th width='20%'>Jaksa Penuntut Umum</th>
+                            <th width='10%'>Tanggal</th>
+                            <th width='10%'></th>
                         </tr>
                     </thead>
                     <tbody>

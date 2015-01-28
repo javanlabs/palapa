@@ -66,11 +66,11 @@
 			<li>Undang-Undang Nomor: 16 Tahun 2004 tentang Kejaksaan Republik Indonesia.</li>
 			<li>Surat Pemberitahuan dimulainya Penyidikan terhadap tersangka:</li>
 		</ol>
-		<table style="margin-left: 20px">
+		<table>
 		<tbody>
 		@foreach($case->suspects as $suspect)		
 		<tr>
-			<td width="150px">
+			<td width="150px"  style="padding-left: 27px">
 					Nama Lengkap
 			</td>
 			<td width="20px">
@@ -81,7 +81,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Tempat Lahir
 			</td>
 			<td>
@@ -92,7 +92,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Umur/Tanggal Lahir
 			</td>
 			<td>
@@ -103,7 +103,18 @@
 			</td>
 		</tr>
 		<tr>
+			<td width="150px"  style="padding-left: 27px">
+					Jenis Kelamin
+			</td>
 			<td>
+					:
+			</td>
+			<td>
+					{{$suspect->sex}}
+			</td>
+		</tr>
+		<tr>
+			<td width="150px"  style="padding-left: 27px">
 					Kebangsaan/Kewarganegaraan
 			</td>
 			<td>
@@ -114,7 +125,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Tempat Tinggal
 			</td>
 			<td>
@@ -125,7 +136,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Agama
 			</td>
 			<td>
@@ -136,7 +147,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Pekerjaan
 			</td>
 			<td>
@@ -147,7 +158,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Pendidikan
 			</td>
 			<td>
@@ -246,7 +257,7 @@
 					:
 			</td>
 			<td>
-				{{$case->jaksa->jabatan->name}}
+				Jaksa Penuntut Umum
 			</td>
 		</tr>
 		</tbody>
@@ -276,13 +287,21 @@
 <tr>
 	<td width="50%">
 	</td>
-	<td>
-		<p>
-			Dikeluarkan di    : Jember
-			<br>
-			Pada tanggal      : {{$case->getChecklistDate(1)}}
-		</p>
-		<hr>
+	<td>		
+		<table>
+			<tr>
+				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
+				<td width='5px'>:</td>
+				<td>Jember</td>
+			</tr>
+			<tr>
+				<td style='padding-left: 20px'>Pada tanggal</td>
+				<td>:</td>
+				<td>{{$case->getChecklistDate(1)}}</td>
+			</tr>
+		</table>		
+		<hr/>
+		<br/>
 		<p style="text-align:center;">
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
@@ -459,11 +478,18 @@ Dasar
 	</td>
 	<td>
 		<br/>
-		<p>
-			Dikeluarkan di    : Jember
-			<br>
-			Pada tanggal      : {{$case->getChecklistDate(1)}}
-		</p>
+		<table>
+			<tr>
+				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
+				<td width='5px'>:</td>
+				<td>Jember</td>
+			</tr>
+			<tr>
+				<td style='padding-left: 20px'>Pada tanggal</td>
+				<td>:</td>
+				<td>{{$case->getChecklistDate(1)}}</td>
+			</tr>
+		</table>
 		<hr>
 		<p style="text-align:center;">
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>

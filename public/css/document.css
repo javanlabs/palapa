@@ -42,6 +42,9 @@
 p {
     text-align: justify;
 }
+li {
+    text-align: justify;
+}
 .indent{
     text-indent: 3em;
 }

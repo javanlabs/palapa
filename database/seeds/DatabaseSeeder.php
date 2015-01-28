@@ -411,9 +411,9 @@ class OfficerSeeder extends Seeder {
     {
         $now = Carbon::now()->toDateTimeString();
 
-        DB::table('officers')->truncate();
+        // DB::table('officers')->truncate();
 
-        DB::insert(file_get_contents(base_path()."/database/seeds/officer.sql"));
+        // DB::insert(file_get_contents(base_path()."/database/seeds/officer.sql"));
         return true;
     }
 }
@@ -427,13 +427,13 @@ class SopSeeder extends Seeder {
 
         DB::table('sop_phase')->insert(
             [
-                ['id' => 1, 'case_type_id' => 201, 'name' => 'Pra Penuntutan', 'duration' => 32, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 2, 'case_type_id' => 201, 'name' => 'Tahap 1', 'duration' => 30, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
-                ['id' => 3, 'case_type_id' => 201, 'name' => 'Tahap 2', 'duration' => 32, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
-                ['id' => 4, 'case_type_id' => 201, 'name' => 'Penuntutan', 'duration' => 15, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
-                ['id' => 5, 'case_type_id' => 201, 'name' => 'Tahap Persidangan', 'duration' => 7, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 1, 'case_type_id' => 201, 'name' => 'Pra Penuntutan', 'duration' => 30, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
+                ['id' => 2, 'case_type_id' => 201, 'name' => 'Tahap 1', 'duration' => 14, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
+                ['id' => 3, 'case_type_id' => 201, 'name' => 'Tahap 2', 'duration' => 20, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
+                ['id' => 4, 'case_type_id' => 201, 'name' => 'Penuntutan', 'duration' => 0, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
+                ['id' => 5, 'case_type_id' => 201, 'name' => 'Tahap Persidangan', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
                 ['id' => 6, 'case_type_id' => 201, 'name' => 'Upaya Hukum', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 7, 'case_type_id' => 201, 'name' => 'Eksekusi', 'duration' => 7, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 7, 'case_type_id' => 201, 'name' => 'Eksekusi', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
 
                 ['id' => 19, 'case_type_id' => 202, 'name' => 'Tahap Penyelidikan', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
                 ['id' => 20, 'case_type_id' => 202, 'name' => 'Tahap Penyidikan', 'duration' => 2, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
