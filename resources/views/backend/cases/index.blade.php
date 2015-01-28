@@ -41,17 +41,21 @@
                             <strong>Tersangka</strong>
                             @foreach($item->suspects as $suspect)
                                 {{$suspect->name}}
-                            @endforeach
+                            @endforeach                            
                             </small>
                         </td>
                         <td>
                             <div><i class="ion-person"></i> {{ $item['prosecutor_name'] }}</div>
                             <hr style="margin-top: 10px; margin-bottom:10px; border-style: dashed none none"/>
                             <div><i class="ion-ios-people"></i> {{ $item['penyidik_name'] }}</div>
+
                         </td>
-                        <td>
-                            <span class="badge badge-status {{ $item['status'] }}">{{ $item->getLatestActivityAttribute() }}</span>
+                        <td width='100px'>
+                            <!-- <span class="badge badge-status {{ $item['status'] }}">{{ $item->getLatestActivityAttribute() }}</span> -->
                             <span class="badge badge-type {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
+                            <small class="text-muted">
+                            <i>{{ $item->getLatestActivityAttribute() }}</i>
+                        </small>
                         </td>
                         <td class="text-right">
                             <div class="btn-group">

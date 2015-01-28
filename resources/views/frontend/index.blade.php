@@ -43,9 +43,9 @@
                         @forelse($courts as $item)
                             <a href="{{ $item['case']['permalink'] }}" class="btn-detail court">
                                 <small class="date">
-                                    {{$item['date_for_human']}} <span class="badge">{{ $item['schedule_for_human'] }}</span>
+                                    {{$item['date_for_human']}}
                                 </small>
-                                {{ $item['agenda'] }}
+                                {{$item->cases->suspectNames()}} - {{ $item['agenda'] }}
                             </a>
                         @empty
                             Tidak Ada
