@@ -20,10 +20,12 @@
 @media print {
     @page {
         margin-top: 5mm;
+        margin-right: 20mm;
+        margin-left: 20mm;
     }
     *{
         margin: 0;
-        padding: 0;
+        padding: 0;   
     }
     .print-f4 {
         width:168mm;

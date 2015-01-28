@@ -7,7 +7,12 @@ class Template extends Model {
 
     protected $table = 'templates';
 
-    protected $fillable = ['title', 'content', 'case_type_id'];
+    protected $fillable = ['title', 'content', 'case_type_id', 'checklist_id'];
+
+    public function checklist()
+    {
+        return $this->belongsTo('App\Sop\Checklist', 'checklist_id');
+    }
 
     public function getFileAttribute()
     {

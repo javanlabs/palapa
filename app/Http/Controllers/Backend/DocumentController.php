@@ -9,8 +9,18 @@ use Auth;
 use App\Cases\Document;
 use Input;
 use View;
+use App\Sop\RepositoryInterface as SopRepo;
+use App\Sop\Checklist;
+use Carbon\Carbon;
 
 class DocumentController extends Controller {
+	private $sop;
+
+	function __construct(SopRepo $sop)
+    {        
+        $this->sop = $sop;
+        
+    }
 
 	public function create()
 	{
@@ -36,22 +46,13 @@ class DocumentController extends Controller {
 		if(!View::exists($templateFile)){
 			return 'template not found';
 		}
-setlocale(LC_TIME,'id_ID.utf8');
+		setlocale(LC_TIME,'id_ID.utf8');
 
         $setting = Setting::lists('value', 'key');
         $today['day'] = date('l');
         $today['date'] = date('d-m-Y');
 
         $content = view($templateFile, compact('case', 'setting', 'today'));
-
-
-		// $document = Document::create([
-		// 	'title'		=> $template->title,
-		// 	'content'	=> $content
-		// ]);
-		// $document->cases()->associate($case)->save();
-		// $document->template()->associate($template)->save();
-		// return redirect()->route('backend.document.edit', [$document->id]);
 
 		return view('backend.document.create', compact('document', 'content', 'case', 'template'));
 
@@ -66,6 +67,15 @@ setlocale(LC_TIME,'id_ID.utf8');
 		]);
 		$document->cases()->associate($case)->save();
 		$document->template()->associate($template)->save();
+		//Input ke checklist 
+		$checklist = Checklist::find($template->checklist_id);
+
+        if($checklist)
+        {
+            $data['date'] = date('d-m-Y');
+            $data['note'] = 'Dokumen '.$template->short_title;            
+            $this->sop->addChecklist($case, $checklist, $data);
+        }
 		return redirect()->route('backend.document.edit', [$document->id]);
 	}
 
@@ -82,14 +92,21 @@ setlocale(LC_TIME,'id_ID.utf8');
 	{
 		$document = Document::findOrFail($id);
 		$document->update(Input::only('content'));
-
+		$template = $document->template;
+		$case = $document->cases;
+		$checklist = $template->checklist;
+		$this->sop->updateChecklist($case, $checklist);
 		return redirect()->route('backend.cases.show', $document->cases->id);
 	}
 
 	public function destroy($id)
-	{
-		Document::findOrFail($id)->delete();
-
+	{		
+		$document = Document::find($id);
+		$template = $document->template;
+		$checklist = $template->checklist;
+		$case = $document->cases;
+		$this->sop->removeChecklist($case, $checklist);
+		$document->delete();
 		return redirect()->back();
 	}
 

@@ -43,10 +43,6 @@
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 </p>
-<p style="text-align: center;">
-	<strong><br>
-	</strong>
-</p>
 <table>
 <tbody>
 <tr>
@@ -99,7 +95,7 @@
 					:
 			</td>
 			<td>
-					{{$suspect->age}} tahun/{{$suspect->dob?$suspect->dob:'-'}}
+					{{$suspect->age}} tahun/{{$suspect->dob?$suspect->dob_for_human:'-'}}
 			</td>
 		</tr>
 		<tr>
@@ -357,7 +353,7 @@ Dasar
 			<li>Undang-Undang No. 16 Tahun 2004 tentang Kejaksaan Republik Indonesia</li>
 			<li>Keputusan Presiden Republik Indonesia No. 86 Tahun 1999 tentang Susunan Organisasi Tata Kerja Kejaksaan Republik Indonesia</li>
 			<li>Keputusan Jaksa Agung Republik Indonesia Nomor: KEP-115/JA/10/1999 Tentang Susuan Organisasi dan tata Kerja Kejaksaan Republik Indonesia beserta perubahannya.</li>
-			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/10/2011 tanggal 29 Oktober 2010 Tentang Standar Operasional Prosedur (SOP) Penangangan Perkara Tindak Pidana Umum.</li>
+			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/06/2011 tanggal 29 September 2011 Tentang Standar Operasional Prosedur (SOP) Penangangan Perkara Tindak Pidana Umum.</li>
 		</ol>
 	</td>
 </tr>
@@ -439,6 +435,7 @@ Dasar
 		</tr>
 		</tbody>
 		</table>
+		<br/>
 	</td>
 </tr>
 <tr>

@@ -229,6 +229,12 @@ class Cases extends Model {
         return $this->save();
     }
 
+    public function publish()
+    {
+        $this->status = self::STATUS_ONGOING;
+        return $this->save();
+    }
+
     public function finish()
     {
         $this->status = self::STATUS_FINISH;

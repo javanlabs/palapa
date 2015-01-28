@@ -131,5 +131,14 @@ class Suspects extends Model {
 
         return false;
     }
+    public function getDobForHumanAttribute()
+    {
+        if($this->attributes['dob'])
+        {
+            return Carbon::createFromFormat('Y-m-d', $this->attributes['dob'])->formatLocalized('%d %B %Y');
+        }
+
+        return false;
+    }
 
 }
