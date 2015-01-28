@@ -5,7 +5,23 @@
 @stop
 
 @section('content')
-
+<div class="container-fluid" id="page-post-view">
+        <div class="col-md-3">
+            <div class="list-group list-group-menu">
+                @foreach($allPostInCategory as $item)
+                <a href="{{ route('frontend.post', ['category' => $category, 'id' => $item['id']]) }}" class="list-group-item ellipsis {{ ($item['id'] == $id)?'active':'' }}">
+                    <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
+                    {{ $item['title'] }}
+                </a>
+                @endforeach
+                <a href="{{ route('frontend.officer') }}" class="list-group-item ellipsis {{ ('jaksa' == $id)?'active':'' }}">
+                    <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
+                    Jaksa
+                </a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="subtitle">Daftar Jaksa di Kejaksaan Negeri Jember</div>
@@ -40,6 +56,8 @@
     </tbody>
     </table>
 
+    </div>
+        </div>
     </div>
 
 @stop

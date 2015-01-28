@@ -14,6 +14,12 @@
                     {{ $item['title'] }}
                 </a>
                 @endforeach
+                @if($category == 'pembinaan')
+                <a href="{{ route('frontend.officer') }}" class="list-group-item ellipsis {{ ('jaksa' == $id)?'active':'' }}">
+                    <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
+                    Jaksa
+                </a>
+                @endif
             </div>
         </div>
         <div class="col-md-9">
