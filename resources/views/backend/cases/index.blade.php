@@ -53,7 +53,7 @@
                             <!-- <span class="badge badge-status {{ $item['status'] }}">{{ $item->getLatestActivityAttribute() }}</span> -->
                             <span class="badge badge-type {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
                             <small class="text-muted">
-                            <i>{{ $item->getLatestActivityAttribute() }}</i>
+                            <i>{{ $item->getLatestActivityAttribute()?$item->getLatestActivityAttribute()->name:'' }}</i>
                         </small>
                         </td>
                         <td class="text-right">

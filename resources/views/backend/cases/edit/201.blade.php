@@ -1,3 +1,5 @@
+{{ BootForm::text('Nomor SPDP', 'spdp_number')->value($case->spdp_number) }}
+{{ BootForm::text('Tanggal SPDP', 'spdp_date')->addClass('datepicker')->data('provide', 'datepicker')->value($case->spdp_date) }}
 {{ BootForm::text('Kasus Posisi', 'kasus')->value($case->kasus) }}
 {{ BootForm::select('Kategori', 'category')->options($categories)->select($case->category) }}
 {{ BootForm::text('Tempat Kejadian', 'crime_place')->value($case->crime_place) }}

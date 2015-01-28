@@ -19,7 +19,7 @@ class Cases extends Model {
 
     protected $table = 'cases';
 
-    protected $fillable = ['name', 'spdp_number', 'pasal', 'kasus', 'crime_place', 'crime_time', 'start_date', 'spdp_date', 'spdp_number', 'persidangan_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
+    protected $fillable = ['name', 'spdp_number', 'pasal', 'category', 'kasus', 'crime_place', 'crime_time', 'start_date', 'spdp_date', 'spdp_number', 'persidangan_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id'];
 
     protected $dates = ['start_date', 'finish_date', 'spdp_date', 'crime_time', 'persidangan_date'];
 
@@ -265,7 +265,7 @@ class Cases extends Model {
         $latest = \DB::table('cases_checklist')->where('case_id','=',$this->attributes['id'])->orderBy('created_at','DESC')->first();
         if($latest){
             $checklist = Checklist::find($latest->checklist_id);
-            return $checklist->name;    
+            return $checklist;    
         }        
         else
             return '';

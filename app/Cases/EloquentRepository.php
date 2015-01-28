@@ -65,7 +65,7 @@ class EloquentRepository implements RepositoryInterface {
 
                 if($checklist)
                 {
-                    $data['date'] = (new Carbon())->format('d-m-Y');
+                    $data['date'] = $input['spdp_diterima_date'];
                     $data['note'] = 'Checklist otomatis ketika register kasus';
                     $this->sop->addChecklist($case, $checklist, $data);
                 }

@@ -24,7 +24,21 @@
 	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
 	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
 	</strong></b>
-	<strong>Nomor: Print - /0.5.12/Ep.1/ /2015</strong>
+	<?php 
+	$category = '';
+	switch($case->category){			
+		case 'kamtibum':
+		$category = 'Ep.1';
+		break;
+		case 'oharda':
+		$category = 'Epp.1';
+		break;
+		case 'tpul':
+		$category = 'Euh.1';
+		break;
+	}
+	?>
+	<strong>Nomor: Print - /0.5.12/{{$category}}/ /2015</strong>
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
@@ -151,7 +165,7 @@
 			<td colspan='3'>
 				<br/>
 				<p>
-				Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada tanggal {{$case['spdp_date_for_human']}} dari penyidik: {{$case->penyidik->name}}
+				Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada tanggal {{$case->getChecklistDate(1)}} dari penyidik: {{$case->penyidik->name}}
 				</p>
 			</td>
 		</tr>
@@ -266,7 +280,7 @@
 		<p>
 			Dikeluarkan di    : Jember
 			<br>
-			Pada tanggal      : {{strftime("%e %B %Y")}}
+			Pada tanggal      : {{$case->getChecklistDate(1)}}
 		</p>
 		<hr>
 		<p style="text-align:center;">
@@ -304,7 +318,7 @@
 <p style="text-align: center;">
 	<strong>SURAT PERINTAH</strong><b><br>
 	<strong><U>PENUNJUKAN PETUGAS ADMINISTRASI</U><br>
-	 Nomor: Print - /0.5.12/Ep.1/ /2015
+	 Nomor: Print - /0.5.12/{{$category}}/ /2015
 	</strong></b>
 </p>
 <p style="text-align: center;">
@@ -448,7 +462,7 @@ Dasar
 		<p>
 			Dikeluarkan di    : Jember
 			<br>
-			Pada tanggal      : {{strftime("%e %B %Y")}}
+			Pada tanggal      : {{$case->getChecklistDate(1)}}
 		</p>
 		<hr>
 		<p style="text-align:center;">

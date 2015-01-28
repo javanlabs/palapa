@@ -42,7 +42,8 @@
                                     @endif
 
                                     <i class="fa fa-check"></i>
-                                    {{ $item['name'] }}
+                                    {{ $item['name'] }}<br/>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class='small'><i>{{$case->getChecklistDate($item['id'])}}</i></span>
 
                                 </li>
                             @else

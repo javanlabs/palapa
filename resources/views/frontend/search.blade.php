@@ -92,7 +92,7 @@
                                             <div class="progress-bar progress-bar-{{ $item->getPhaseHistoryStatus($phase->id) }}" role="progressbar" style="width: {{ 100/count($phases) }}%" data-toggle="popover" title="{{ $phase->name }}" data-content="{{ $item->getPhaseHistoryDescription($phase->id) }}"></div>
                                         @endforeach
                                     </div>
-                                    <small class="text-muted"><strong><?php echo ($item->getLatestActivityAttribute());?></strong> : {{ $item['last_update'] }}</small>
+                                    <small class="text-muted"><strong><?php echo ($item->getLatestActivityAttribute()?$item->getLatestActivityAttribute()->name:'');?></strong> : {{ $item['last_update'] }}</small>
                                     <div>
                                                                     
                                 </div>
