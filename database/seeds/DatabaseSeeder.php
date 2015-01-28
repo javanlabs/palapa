@@ -104,6 +104,13 @@ class TemplateSeeder extends Seeder{
                 'case_type_id' => 201,
                 'checklist_id' => 4
             ],
+
+            [
+                'short_title'  => 'P-7',
+                'title'        => 'Matrik Perkara Tindak Pidana',
+                'case_type_id' => 201,
+                'checklist_id' => null
+            ],
             [
                 'short_title' => 'P-18',
                 'title' => 'Hasil Penyidikan Belum Lengkap',

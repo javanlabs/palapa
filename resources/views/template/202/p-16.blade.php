@@ -24,14 +24,24 @@
 	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
 	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
 	</strong></b>
-	<strong>Nomor: Print - ... /0.5.12/</strong>
+	<?php 
+	$category = '';
+	switch($case->category){			
+		case 'kamtibum':
+		$category = 'Ep.1';
+		break;
+		case 'oharda':
+		$category = 'Epp.1';
+		break;
+		case 'tpul':
+		$category = 'Euh.1';
+		break;
+	}
+	?>
+	<strong>Nomor: Print - /0.5.12/{{$category}}/ /2015</strong>
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
-</p>
-<p style="text-align: center;">
-	<strong><br>
-	</strong>
 </p>
 <table>
 <tbody>
@@ -52,11 +62,11 @@
 			<li>Undang-Undang Nomor: 16 Tahun 2004 tentang Kejaksaan Republik Indonesia.</li>
 			<li>Surat Pemberitahuan dimulainya Penyidikan terhadap tersangka:</li>
 		</ol>
-		@foreach($case->suspects as $suspect)
-		<table style="margin-left: 20px">
+		<table>
 		<tbody>
+		@foreach($case->suspects as $suspect)		
 		<tr>
-			<td width="150px">
+			<td width="150px"  style="padding-left: 27px">
 					Nama Lengkap
 			</td>
 			<td width="20px">
@@ -67,7 +77,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Tempat Lahir
 			</td>
 			<td>
@@ -78,18 +88,29 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Umur/Tanggal Lahir
 			</td>
 			<td>
 					:
 			</td>
 			<td>
-					{{$suspect->age}}/{{$suspect->dob?$suspect->dob:'-'}}
+					{{$suspect->age}} tahun/{{$suspect->dob?$suspect->dob_for_human:'-'}}
 			</td>
 		</tr>
 		<tr>
+			<td width="150px"  style="padding-left: 27px">
+					Jenis Kelamin
+			</td>
 			<td>
+					:
+			</td>
+			<td>
+					{{$suspect->sex}}
+			</td>
+		</tr>
+		<tr>
+			<td width="150px"  style="padding-left: 27px">
 					Kebangsaan/Kewarganegaraan
 			</td>
 			<td>
@@ -100,7 +121,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Tempat Tinggal
 			</td>
 			<td>
@@ -111,7 +132,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Agama
 			</td>
 			<td>
@@ -122,7 +143,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Pekerjaan
 			</td>
 			<td>
@@ -133,7 +154,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Pendidikan
 			</td>
 			<td>
@@ -143,14 +164,21 @@
 					{{$suspect->education}}
 			</td>
 		</tr>
+		<tr>
+			<td colspan='3'></td>
+		</tr>
+		@endforeach
+		<tr>
+			<td colspan='3'>
+				<br/>
+				<p>
+				Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada tanggal {{$case->getChecklistDate(1)}} dari penyidik: {{$case->penyidik->name}}
+				</p>
+			</td>
+		</tr>
 		</tbody>
 		</table>
-		@endforeach
-		<p>
-			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case['spdp_date_for_human']}} dari penyidik {{$case->penyidik->name}}<br>
-			<br>
-		</p>
+
 	</td>
 </tr>
 <tr>
@@ -225,7 +253,7 @@
 					:
 			</td>
 			<td>
-				{{$case->jaksa->jabatan->name}}
+				Jaksa Penuntut Umum
 			</td>
 		</tr>
 		</tbody>
@@ -253,28 +281,30 @@
 <table>
 <tbody>
 <tr>
-	<td width="60%">
+	<td width="50%">
 	</td>
-	<td>
-		<p>
-			Dikeluarkan di    : Jember
-			<br>
-			Pada tanggal      : {{strftime("%e %B %Y")}}
-		</p>
-		<hr>
+	<td>		
+		<table>
+			<tr>
+				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
+				<td width='5px'>:</td>
+				<td>Jember</td>
+			</tr>
+			<tr>
+				<td style='padding-left: 20px'>Pada tanggal</td>
+				<td>:</td>
+				<td>{{$case->getChecklistDate(1)}}</td>
+			</tr>
+		</table>		
+		<hr/>
+		<br/>
 		<p style="text-align:center;">
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>
 		</p>
-		<p style="text-align:center;">
-				{{$setting['kajari_name']}}
-		</p>
-		<hr>
-		<p style="text-align: center;">
-			               {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
-		</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>
@@ -294,26 +324,16 @@
 </tbody>
 </table>
 <footer></footer>
+<h1 style="text-align: center;">KEJAKSAAN NEGERI JEMBER</h1>
+<HR/>
 <table>
 <tbody>
-<tr>
-	<td style="text-align: center;" width="250px">
-		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
-		"UNTUK KEADILAN"
-		</strong>
-	</td>
-	<td width="300px">
-	</td>
-	<td style="text-align: right;">
-		<strong>P-16</strong>
-	</td>
-</tr>
 </tbody>
 </table>
 <p style="text-align: center;">
 	<strong>SURAT PERINTAH</strong><b><br>
-	<strong>PENUNJUKAN PETUGAS ADMINISTRASI<br>
-	 Nomor: Print - /0.5.12/
+	<strong><U>PENUNJUKAN PETUGAS ADMINISTRASI</U><br>
+	 Nomor: Print - /0.5.12/{{$category}}/ /2015
 	</strong></b>
 </p>
 <p style="text-align: center;">
@@ -333,7 +353,7 @@ Dasar
 			<li>Undang-Undang No. 16 Tahun 2004 tentang Kejaksaan Republik Indonesia</li>
 			<li>Keputusan Presiden Republik Indonesia No. 86 Tahun 1999 tentang Susunan Organisasi Tata Kerja Kejaksaan Republik Indonesia</li>
 			<li>Keputusan Jaksa Agung Republik Indonesia Nomor: KEP-115/JA/10/1999 Tentang Susuan Organisasi dan tata Kerja Kejaksaan Republik Indonesia beserta perubahannya.</li>
-			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/10/2011 tanggal 29 Oktober 2010 Tentang Standar Operasional Prosedur (SOP) Penangangan Perkara Tindak Pidana Umum.</li>
+			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/06/2011 tanggal 29 September 2011 Tentang Standar Operasional Prosedur (SOP) Penangangan Perkara Tindak Pidana Umum.</li>
 		</ol>
 	</td>
 </tr>
@@ -350,11 +370,11 @@ Dasar
 	</td>
 	<td>
 		<ol>
-			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tinda Pidana Kepala Kejaksaan Negeri Jember Nomor: </li>
+			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tindak Pidana Kepala Kejaksaan Negeri Jember Nomor: Print- /0.5.12/{{$category}}/ /2015 Tanggal {{$case->getChecklistDate(1)}}</li>
 			<li>Dalam rangka melaksanakan fungsi administrasi perkara tindak pidana umum, dipandang perlu menunuk Pegawai Tata Usaha Kejaksaan</li>
 			<li>Sebagai perwujudannya perlu menerbitkan Surat Perintah</li>
 		</ol>
-		<p>
+		<p style="text-align: center">
 			<b>MEMERINTAHKAN:</b>
 		</p>
 	</td>
@@ -375,19 +395,13 @@ Dasar
 		<tbody>
 		<tr>
 			<td width="20px">
-				<p>
 					1.
-				</p>
 			</td>
 			<td width="100px">
-				<p>
 					Nama
-				</p>
 			</td>
 			<td width="10px">
-				<p>
 					:
-				</p>
 			</td>
 			<td>
 				{{$case->staff->name}}
@@ -416,11 +430,12 @@ Dasar
 					:
 			</td>
 			<td>
-				{{$case->staff->name}}
+				Tata Usaha Kejaksaan Negeri Jember <br/>
 			</td>
 		</tr>
 		</tbody>
 		</table>
+		<br/>
 	</td>
 </tr>
 <tr>
@@ -459,27 +474,27 @@ Dasar
 		</p>
 	</td>
 	<td>
-		<p>
-			Dikeluarkan di : Jember
-		</p>
-		<p>
-			Pada tanggal : {{strftime("%e %B %Y")}}
-		</p>
-		<p style="text-align: center;">
-			<strong data-redactor-tag="strong">
-			KEPALA KEJAKSAAN NEGERI JEMBER
-			</strong>
+		<br/>
+		<table>
+			<tr>
+				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
+				<td width='5px'>:</td>
+				<td>Jember</td>
+			</tr>
+			<tr>
+				<td style='padding-left: 20px'>Pada tanggal</td>
+				<td>:</td>
+				<td>{{$case->getChecklistDate(1)}}</td>
+			</tr>
+		</table>
+		<hr>
+		<p style="text-align:center;">
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>
 		</p>
-		<p style="text-align:center;">
-				{{$setting['kajari_name']}}
-		</p>
-		<hr>
-		<p style="text-align: center;">
-			    {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
-		</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>

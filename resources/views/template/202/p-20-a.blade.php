@@ -11,7 +11,7 @@
 	</td>
 	<td style="text-align: right;">
 		<strong>
-			P‑21
+		
 		</strong>
 	</td>
 </tr>
@@ -50,25 +50,35 @@
 			<tr>
 				<td>Perihal</td>
 				<td>:</td>
-				<td style="text-align: justify">Pemberitahuan hasil penyidikan perkara pidana a.n. tersangka {{$case->suspectNames()}} sudah lengkap<HR/></td>
+				<td style="text-align: justify">
+					<?php
+			$suspects = array();
+			foreach($case->suspects as $row){
+				$suspects[] = $row->name;
+			}
+		?>
+			Pengembalian SPDP atas nama {{implode(', ', $suspects)}} yang disangka melanggar pasal {{$case->pasal}}.
+					<HR/></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td></td>
 				<td colspan='3'><br/><br/><br/>
-<p class="indent">
-
-	 Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor BP/09/XII/2014/Reskrim tanggal {{strftime("%e %B %Y")}} yang kami terima tanggal {{strftime("%e %B %Y")}} setelah dilakukan penelitian ternyata hasil penyidikannya sudah lengkap.
-</p><br/>
-<p class="indent">
-Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUHAP supaya Saudara menyerahkan tanggung jawab tersangka dan barang bukti kepada kami, guna menentukan apakah perkara tersebut sudah memenuhi persyaratan untuk dapat atau tidak dilimpahkan ke Pengadilan
-</p></td>
+<p class='indent'>
+	 Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor ………………… tanggal……………… yang kami terima tanggal ....... kami beritahukan
+	 kepada saudara bahwa terharap berkas perkara tersebut telah kami kirimkan surat P-18 dengan Nomor: B-148/O.5.12/Ep.1/08/2014 tertanggal ....... dan ditindak lanjuti dengan 
+	 P-19 Nomor: B-148.a/O.5.12/Ep.1/08/2014 tertanggal ....... yang pada isinya memberitahuan bahwa berkas belum lengkap. Dalam jangka waktu 14 hari penyidik belum mengirimkan kembali berkas tersebu sehingga penuntut umum mengirimkan Pemberitahuan bahwa waktu penyidikan tambahan sudah hasib (P-20)
+	 dengan nomor: B-18 NomorB-148/O.5.12/Ep.1/08/2014 tertanggal ....., sampai saat ini sudah 30 hari lebih berkas perkara belum kami terima, sehubungan dengan hal tersebut di atas guna 
+	 memperoleh kepastian hukum dalam penanganan perkara atas nama {{implode(', ', $suspects)}}, bersama ini kami kembalikan SPDP berkara tersebut kepada saudara.
+	
+</p>
+<br/></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td></td>
-				<td colspan='3'><br/>
-<p class='indent'>Demikian untuk dimaklumi.</p>
+				<td colspan='3'>
+	<p class='indent'>Demikian untuk dimaklumi.</p>
 				</td>
 			</tr>
 

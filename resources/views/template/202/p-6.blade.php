@@ -16,26 +16,30 @@
 </table>
 
 <p style="text-align: center"><strong>LAPORAN TERJADINYA TINDAK PIDANA</strong></p>
-
-<p>Pada hari ini {{ $today['day'] }} tanggal {{ $today['date'] }}</p>
+<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
+<p>Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}}</p>
 <p>Saya :</p>
 
 <table>
     <tr>
         <td style="width: 150px">Nama</td>
-        <td>:</td>
+        <td width='5px'>:</td>
+        <td>{{($case->penyidikInternal)?$case->penyidikInternal->name:''}}</td>
     </tr>
     <tr>
         <td>Pangkat</td>
         <td>:</td>
+        <td>{{$case->penyidikInternal?$case->penyidikInternal->pangkat->name:''}}</td>
     </tr>
     <tr>
         <td>NIP</td>
         <td>:</td>
+        <td>{{$case->penyidikInternal?$case->penyidikInternal->nip:''}}</td>
     </tr>
     <tr>
         <td>Jabatan</td>
-        <td>: Jaksa pada Kejaksaan</td>
+        <td>:</td>
+        <td>Jaksa pada Kejaksaan</td>
     </tr>
 </table>
 

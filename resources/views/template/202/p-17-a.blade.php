@@ -11,7 +11,7 @@
 	</td>
 	<td style="text-align: right;">
 		<strong>
-			P‑21
+			
 		</strong>
 	</td>
 </tr>
@@ -50,19 +50,27 @@
 			<tr>
 				<td>Perihal</td>
 				<td>:</td>
-				<td style="text-align: justify">Pemberitahuan hasil penyidikan perkara pidana a.n. tersangka {{$case->suspectNames()}} sudah lengkap<HR/></td>
+				<td style="text-align: justify">
+					<?php
+			$suspects = array();
+			foreach($case->suspects as $row){
+				$suspects[] = $row->name;
+			}
+		?>
+			Pengembalian SPDP atas nama {{implode(', ', $suspects)}} yang disangka melanggar pasal {{$case->pasal}}
+					<HR/></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td></td>
 				<td colspan='3'><br/><br/><br/>
-<p class="indent">
-
-	 Sehubungan dengan penyerahan berkas perkara pidana atas nama tersangka {{$case->suspectNames()}} Nomor BP/09/XII/2014/Reskrim tanggal {{strftime("%e %B %Y")}} yang kami terima tanggal {{strftime("%e %B %Y")}} setelah dilakukan penelitian ternyata hasil penyidikannya sudah lengkap.
-</p><br/>
-<p class="indent">
-Sesuai dengan ketentuan pasal 8 ayat (3) b, pasal 138 ayat (1) dan pasal 139 KUHAP supaya Saudara menyerahkan tanggung jawab tersangka dan barang bukti kepada kami, guna menentukan apakah perkara tersebut sudah memenuhi persyaratan untuk dapat atau tidak dilimpahkan ke Pengadilan
-</p></td>
+<p class='indent'>
+	Sehubungan dengan penyerahan Surat Perintah Penyidikan (SPDP) perkara pidana atas nama tersangka {{implode(', ', $suspects)}} Nomor: {{$case->spdp_number}} tanggal
+	{{$case->spdp_date_for_human}} yang kami terima tanggal {{$case->getChecklistDate(1)}} hingga saat ini kami belum menerima hasil Penyidikan Berkas Perkara tersebut, oleh karna itu mengingat dalam 
+	Jangka Waktu yang cukup lama yaitu 90 (Sembilan Puluh) hari jesak diterbitkannya SPDP Penyidik belum menyerahkan Hasil Penyidikannya, maka dengan ini kami
+	kembalikan Surat Pemberitahuan di mulainya Penyidikan (SPDP) tersebut.
+</p>
+<br/></td>
 			</tr>
 			<tr>
 				<td></td>

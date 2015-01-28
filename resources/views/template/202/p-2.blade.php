@@ -52,8 +52,8 @@
         <td>
             <ol>
                 <li>
-                    Laporan/informasi tanggal .................
-                    <br/>tentang, adanya tindak pidana ...........................................
+                    Laporan/informasi tanggal {{$case->getChecklistDate(43)}}
+                    <br/>tentang, adanya tindak pidana {{$case->kasus}}
                 </li>
                 <li>Sebelum dilakukan penyidikan dipandang perlu lebih dahulu melakukan penyelidikan guna menentukan dapat atau tidaknya dilakukan penyidikan.</li>
             </ol>

@@ -15,22 +15,14 @@
 </tbody>
 </table>
 <p style="text-align: center;">
-	<strong><br>
+	<strong>SURAT PERINTAH PENUNJUKAN</strong><br>
+	<strong> JAKSA PENUNTUT UMUM UNTUK PENYELESAIAN</strong><br>
+	<strong><u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PERKARA TINDAK PIDANA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></strong><br>
 	</strong>
-</p>
-<p style="text-align: center;">
-	<strong>SURAT PERINTAH</strong><b><br>
-	<strong>PENUNJUKAN JAKSA PENUNTUT UMUM</strong><br>
-	<strong>UNTUK PENYELESAIAN PERKARA TINDAK PIDANA</strong><br>
-	</strong></b>
 	<strong>Nomor: Print - ... /0.5.12/</strong>
 </p>
 <p style="text-align: center;">
 	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
-</p>
-<p style="text-align: center;">
-	<strong><br>
-	</strong>
 </p>
 <table>
 <tbody>
@@ -47,8 +39,8 @@
 	</td>
 	<td>
 		<ol>
-			<li>1.	Undang undang Republik Indonesia Nomor 8 Tahun 1981 tentang Kitab Undang Undang Hukum Acara Pidana (KUHAP) pasal 8 ayat (3), b, pasal 138, pasal 109, pasal 110 dan pasal 140 KUHAP.</li>
-			<li>2.	Undang Undang Republik Indonesia Nomor 5 tahun 1991 tentang Kejaksaan Republik Indonesia.</li>
+			<li>Undang undang Republik Indonesia Nomor 8 Tahun 1981 tentang Kitab Undang Undang Hukum Acara Pidana (KUHAP) pasal 8 ayat (3), b, pasal 138, pasal 109, pasal 110 dan pasal 140 KUHAP.</li>
+			<li>Undang Undang Republik Indonesia Nomor 5 tahun 1991 tentang Kejaksaan Republik Indonesia.</li>
 			<li>Surat Pemberitahuan dimulainya Penyidikan terhadap tersangka:</li>
 		</ol>
 		@foreach($case->suspects as $suspect)
@@ -145,10 +137,8 @@
 		</tbody>
 		</table>
 		@endforeach
-		<p>
-			<br>
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} yang diterima di Kejaksaan Negeri Jember pada {{$case['spdp_date_for_human']}} dari penyidik {{$case->penyidik->name}}<br>
-			<br>
+		<p>			
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} dari penyidik {{$case->penyidik->name}}<br>			
 		</p>
 	</td>
 </tr>
@@ -260,35 +250,10 @@
 <table>
 <tbody>
 <tr>
-	<td width="60%">
-	</td>
-	<td>
-		<p>
-			Dikeluarkan di    : Jember
-			<br>
-			Pada tanggal      : {{$case['spdp_date_for_human']}}
-		</p>
-		<hr>
-		<p style="text-align:center;">
-			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
-		</p>
-		<p>
-			<br>
-		</p>
-		<p style="text-align:center;">
-				{{$setting['kajari_name']}}
-		</p>
-		<hr>
-		<p style="text-align: center;">
-			               {{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}
-		</p>
-	</td>
-</tr>
-<tr>
-	<td>
-		<p>
-			<u><strong>TEMBUSAN:</strong></u>
-		</p>
+	<td width="60%" style='vertical-align:bottom'>
+		
+			<strong><u>TEMBUSAN:</u></strong>
+		<br/>
 		<ol>
 			<li>Yth. Ketua Pengadilan Negeri Jember;</li>
 			<li>Yth. Penyidik {{$case->penyidik->name}}</li>
@@ -296,6 +261,19 @@
 		</ol>
 	</td>
 	<td>
+		<p>
+			Dikeluarkan di    : Jember
+			<br>
+			Pada tanggal      : {{strftime("%e %B %Y")}}
+		</p>
+		<hr>
+		<p style="text-align:center;">
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
+		</p>
+		<p>
+			<br/><br/>
+		</p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 </tbody>

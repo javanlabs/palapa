@@ -74,18 +74,47 @@
 <p>Atas kehadiran Saudara kami sampaikan terima kasih.</p>
 
 <table>
-    <tbody><tr>
-        <td style="width: 400px"></td>
-        <td>
-            KEPALA KEJAKSAAN NEGERI JEMBER
-        </td>
-    </tr>
-    </tbody></table>
-
-<p>TEMBUSAN</p>
-<ol>
-    <li>
-        ..................................
-    </li>
-    <li>Arsip.</li>
-</ol>
+<tbody>
+<tr>
+    <td width="50%">
+    </td>
+    <td>        
+        <table>
+            <tr>
+                <td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
+                <td width='5px'>:</td>
+                <td>Jember</td>
+            </tr>
+            <tr>
+                <td style='padding-left: 20px'>Pada tanggal</td>
+                <td>:</td>
+                <td>{{strftime("%e %B %Y")}}</td>
+            </tr>
+        </table>        
+        <hr/>
+        <br/>
+        <p style="text-align:center;">
+            <strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
+        </p>
+        <p>
+            <br/><br/>
+        </p>
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
+    </td>
+</tr>
+<tr>
+    <td>
+        <p>
+            <u><strong>TEMBUSAN:</strong></u>
+        </p>
+        <ol>
+            <li>Yth. Ketua Pengadilan Negeri Jember;</li>
+            <li>Yth. Penyidik {{$case->penyidik->name}}</li>
+            <li>Arsip.</li>
+        </ol>
+    </td>
+    <td>
+    </td>
+</tr>
+</tbody>
+</table>

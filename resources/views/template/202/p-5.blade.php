@@ -115,7 +115,7 @@
             <br/>
             <br/>
             <br/>
-            ........................
+           <strong>{{($case->penyidikInternal)?$case->penyidikInternal->name:''}}</strong>
         </td>
     </tr>
     </tbody></table>

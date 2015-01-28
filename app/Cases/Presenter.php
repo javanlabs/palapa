@@ -322,6 +322,9 @@ trait Presenter {
     }
 
     public function getChecklistDate($cheklistId){
-        return Carbon::createFromFormat('Y-m-d', \DB::table('cases_checklist')->where('case_id', '=', $this->attributes['id'])->where('checklist_id', '=', $cheklistId)->pluck('date'))->formatLocalized('%d %B %Y');
+        $date = \DB::table('cases_checklist')->where('case_id', '=', $this->attributes['id'])->where('checklist_id', '=', $cheklistId)->pluck('date');
+        if($date)
+        return Carbon::createFromFormat('Y-m-d', $date)->formatLocalized('%d %B %Y');
+        return strftime("%e %B %Y");
     }
 }
