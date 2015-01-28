@@ -35,9 +35,8 @@
                     <tr>
                         <td>
                             <h5 class="mb-0">{{ $item['name'] }}</h5>
-                            <small class="text-muted">{{ $item['spdp_number'] }}</small>
-                            <br/>
-                            <small class="text-muted">
+                            {{strtoupper($item->category)}} - <small class="text-muted">{{ $item['spdp_number'] }}</small>
+                            <br/>                            
                             <strong>Tersangka</strong>
                             @foreach($item->suspects as $suspect)
                                 {{$suspect->name}}
