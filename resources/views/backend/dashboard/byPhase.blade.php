@@ -7,7 +7,7 @@
 @section('content-dashboard')
 
     <div class="panel panel-default">
-        <div class="panel-heading">Statistik Kasus Berdasar Tahapan Tahun {{ $year }}</div>
+        <div class="panel-heading">Statistik Perkara Berdasar Tahapan Tahun {{ $year }}</div>
 
         <div class="pad">
             {{ Form::open(['id' => 'formType', 'method' => 'GET']) }}

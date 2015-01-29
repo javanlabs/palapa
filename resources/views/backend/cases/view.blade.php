@@ -15,7 +15,7 @@
                         <dl class="dl-horizontal section-info mb-lg">
                             <dt>No SPDP :</dt>
                             <dd>{{ $case['spdp_number'] }}</dd>
-                            <dt>Kasus :</dt>
+                            <dt>Perkara :</dt>
                             <dd>{{ $case['name'] }}</dd>
                             <dt>Tempat Kejadian  :</dt>
                             <dd>{{ $case['crime_place'] }}</dd>
@@ -30,7 +30,7 @@
                             <dd>{{ $case['prosecutor_name'] }}</dd>
                             <dt>Staff Administrasi :</dt>
                             <dd>{{ $case['staff_name'] }}</dd>
-                            <dt>Usia Kasus :</dt>
+                            <dt>Usia Perkara :</dt>
                             <dd>
                                 @if($case['age'] === false)
                                     <span class="label label-default">{{ $case['status'] }}</span>

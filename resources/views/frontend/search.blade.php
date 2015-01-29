@@ -11,7 +11,7 @@
             <div class="list-group list-group-menu">
                 <a href="{{ route('frontend.search') }}?type={{ $type }}" class="list-group-item ellipsis active">
                     <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
-                    Daftar Kasus
+                    Daftar Perkara
                 </a>
                 @foreach($allPostInCategory as $item)
                     <a href="{{ route('frontend.post.byCaseType', ['id' => $item['id']]) }}" class="list-group-item ellipsis">
@@ -47,7 +47,7 @@
             @if(count($cases) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
-                        <div class="subtitle pull-left">{{ count($cases) }} kasus ditemukan</div>
+                        <div class="subtitle pull-left">{{ count($cases) }} perkara</div>
                         <div class="pull-right" style="font-size: .9em">
                             <i class="fa fa-square success" style="color: {{ Config::get('color.green') }}"></i> Tepat Waktu
                             &nbsp;&nbsp;&nbsp;

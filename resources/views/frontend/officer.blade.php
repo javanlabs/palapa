@@ -48,7 +48,7 @@
                 @else
                     <span class="">{{ $jaksa['active_cases_count'] }}</span>
                 @endif
-                Kasus Aktif
+                Perkara Aktif
             </a>
         </td>
     </tr>

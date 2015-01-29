@@ -6,7 +6,7 @@
     <input type="hidden" name="type_id" value="{{ Input::get('type') }}"/>
 
 
-    <h2 class="page-title">Register Kasus <span class="label label-info">{{ $type['name'] }}</span></h2>
+    <h2 class="page-title">Register Perkara <span class="label label-info">{{ $type['name'] }}</span></h2>
     @include('backend.cases.form.' . $type['id'])
     {{ BootForm::submit('Submit', 'btn-primary') }}
 
