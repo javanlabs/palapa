@@ -10,13 +10,7 @@
     <div id="page-case-index">
         <h2 class="page-title">Manajemen Kasus</h2>
 
-
-        {{--<ul class="nav nav-tabs mb">--}}
-            {{--<li role="presentation" class="active"><a href=""><span class="badge">129</span> Kasus</a></li>--}}
-            {{--<li role="presentation"><a href="">Active</a></li>--}}
-            {{--<li role="presentation"><a href="">Suspended</a></li>--}}
-            {{--<li role="presentation"><a href="">Finished</a></li>--}}
-        {{--</ul>--}}
+        @include('backend.cases.tab', ['officer' => $officer])
 
         <form action="" class="mb">
             <div class="input-group">
@@ -36,11 +30,11 @@
                         <td>
                             <h5 class="mb-0">{{ $item['name'] }}</h5>
                             {{strtoupper($item->category)}} - <small class="text-muted">{{ $item['spdp_number'] }}</small>
-                            <br/>                            
+                            <br/>
                             <strong>Tersangka</strong>
                             @foreach($item->suspects as $suspect)
                                 {{$suspect->name}}
-                            @endforeach                            
+                            @endforeach
                             </small>
                         </td>
                         <td>
@@ -65,8 +59,8 @@
                                 @else
                                     <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil</a>
                                 @endif
-                                
-                                
+
+
                             </div>
                         </td>
                     </tr>

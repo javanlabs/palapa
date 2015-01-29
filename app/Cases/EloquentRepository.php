@@ -1,6 +1,7 @@
 <?php namespace App\Cases;
 
 use App\Lookup\EloquentRepository as LookupRepo;
+use App\Officer\Officer;
 use App\Sop\Checklist;
 use App\Sop\Phase;
 use App\Sop\RepositoryInterface as SopRepo;
@@ -97,7 +98,7 @@ class EloquentRepository implements RepositoryInterface {
         return $this->case->findOrFail($id)->delete();
     }
 
-    public function search($keyword, $type = null, $includeDraft = false)
+    public function search($keyword, $type = null, $includeDraft = false, $owner = null)
     {
         $query = $this->case->orderBy('updated_at', 'DESC');
 
@@ -109,6 +110,19 @@ class EloquentRepository implements RepositoryInterface {
         if($type)
         {
             $query->where('type_id', '=', $type);
+        }
+
+        if($owner)
+        {
+            $query->orWhere(function($query2) use ($owner) {
+                return $query2->orWhere('author_id', '=', $owner->id)
+                    ->orWhere('staff_id', '=', $owner->id)
+                    ->orWhere('jaksa_id', '=', $owner->id)
+                    ->orWhere(function($query3) use ($owner) {
+                        return $query3->where('penyidik_id', '=', $owner->id)
+                            ->where('penyidik_type', '=', 'internal');
+                    });
+            });
         }
 
         $ids = DB::table('suspects')->join('cases_suspects', 'cases_suspects.suspects_id', '=', 'suspects.id')->select('cases_suspects.cases_id')->where('suspects.name', 'LIKE', '%'.$keyword.'%')->get();
@@ -320,6 +334,26 @@ class EloquentRepository implements RepositoryInterface {
         }
 
         return ['series' => $series, 'data' => array_values($json)];
+    }
+
+    public function count()
+    {
+        return $this->case->count();
+    }
+
+    public function countByOwner($owner)
+    {
+        $query = $this->case->orWhere(function($query2) use ($owner) {
+            return $query2->orWhere('author_id', '=', $owner->id)
+                          ->orWhere('staff_id', '=', $owner->id)
+                          ->orWhere('jaksa_id', '=', $owner->id)
+                          ->orWhere(function($query3) use ($owner) {
+                              return $query3->where('penyidik_id', '=', $owner->id)
+                                            ->where('penyidik_type', '=', 'internal');
+                          });
+        });
+
+        return $query->count();
     }
 
     public function countActive()
