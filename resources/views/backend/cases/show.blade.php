@@ -155,7 +155,9 @@
                 <tr>
                     <td>
                         <h5>{{ $item['short_title'] }} {{ $item['title'] }}</h5>
+                        @if(in_array($item['id'], $documentsIds))
                         {{ Form::delete(route('backend.document.destroy', [array_search( $item['id'], $documentsIds)]), '<i class="ion-backspace-outline"></i> Hapus Dokumen', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-link btn-delete']) }}
+                        @endif
                     </td>
                     <td width="100px" class="text-center">
                         @if(in_array($item['id'], $documentsIds))
