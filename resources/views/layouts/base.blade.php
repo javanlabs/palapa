@@ -31,7 +31,7 @@
 </head>
 
 <body class="@yield('body-class')">
-
+    <?php setlocale(LC_TIME,'id_ID.utf8');?>
     @include('layouts.elements.alert')
 
     @yield('body')
