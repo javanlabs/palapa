@@ -110,11 +110,15 @@ class EloquentRepository implements RepositoryInterface {
         if($type)
         {
             $query->where('type_id', '=', $type);
-        }        
+        }
         if($me){
-            $officer_id = Auth::user()->officer->id;  
-            $user_id = Auth::user()->id;  
-            $query->where(function($query2) use ($officer_id, $user_id){                
+            $officer_id = -999;
+            if(Auth::user()->officer)
+            {
+                $officer_id = Auth::user()->officer->id;
+            }
+            $user_id = Auth::user()->id;
+            $query->where(function($query2) use ($officer_id, $user_id){
                 $query2->where('jaksa_id',$officer_id)->orWhere('staff_id', $officer_id)->orWhere('author_id', $user_id);
             });
         }
@@ -328,6 +332,26 @@ class EloquentRepository implements RepositoryInterface {
         }
 
         return ['series' => $series, 'data' => array_values($json)];
+    }
+
+    public function count()
+    {
+        return $this->case->count();
+    }
+
+    public function countByOwner($owner)
+    {
+        $query = $this->case->orWhere(function($query2) use ($owner) {
+            return $query2->orWhere('author_id', '=', $owner->id)
+                          ->orWhere('staff_id', '=', $owner->id)
+                          ->orWhere('jaksa_id', '=', $owner->id)
+                          ->orWhere(function($query3) use ($owner) {
+                              return $query3->where('penyidik_id', '=', $owner->id)
+                                            ->where('penyidik_type', '=', 'internal');
+                          });
+        });
+
+        return $query->count();
     }
 
     public function countActive()
