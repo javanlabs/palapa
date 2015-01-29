@@ -2,7 +2,7 @@
     <tbody>
     <tr>
     </tr><tr>
-        <td style="text-align: center;" width="250px">
+        <td style="text-align: center;" width="300px">
             <strong>KEJAKSAAN NEGERI JEMBER</strong>
         </td>
         <td width="300px">

@@ -2,7 +2,7 @@
 <tbody>
 <tr>
 	<tr>
-	<td style="text-align: center;" width="250px">
+	<td style="text-align: center;" width="300px">
 		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
 		"UNTUK KEADILAN"
 		</strong>
