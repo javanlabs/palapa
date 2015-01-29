@@ -19,6 +19,7 @@
             <div class="text-center" style="margin-bottom: 20px">
 
                 {{ Form::open(['route' => ['frontend.search'], 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
+                {{ Form::hidden('type', $type) }}
                 <div class="well clearfix" style="padding: 40px">
                     {{--<div class="col-md-4">--}}
                         {{--{{ Form::select('type', $types, Input::get('type'), ['class' => 'form-control']) }}--}}
