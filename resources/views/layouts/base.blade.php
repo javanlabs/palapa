@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/ionicons/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/hover-min.css') }}">
 
     @yield('style-head')
 

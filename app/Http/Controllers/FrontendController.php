@@ -25,7 +25,7 @@ class FrontendController extends Controller {
         $cases = $caseRepository->upcomingSidang();
         $courts = Court::with('cases')->upcoming()->get();
 
-        return view('frontend.index', compact('menu', 'stat', 'cases', 'courts'));
+        return view('frontend.index2', compact('menu', 'stat', 'cases', 'courts'));
     }
 
     public function getSearch(Request $request, CasesRepository $repository, RepositoryInterface $sop, LookupRepository $lookup, PostRepository $postRepo)
@@ -55,7 +55,7 @@ class FrontendController extends Controller {
     }
 
     public function getOfficer(PostRepository $postRepo,OfficerRepository $officer)
-    {        
+    {
         $allPostInCategory = $postRepo->getByPosition('pembinaan');
         $officers = $officer->jaksa();
         $category = 'pembinaan';

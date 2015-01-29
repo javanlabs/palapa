@@ -6519,6 +6519,7 @@ button.close {
   width: 100%;
   overflow: hidden;
   border-bottom: 1px solid #eeeeee;
+  background: #fff;
 }
 .navbar-header .logo {
   width: 60px;
@@ -7037,4 +7038,63 @@ body#screensaver .slide-title {
 }
 .table.table-list tbody tr:hover td .btn-delete {
   opacity: 1;
+}
+body.home-simple {
+  background: #000000 url('../images/gavel.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+body.home-simple .list-group.list-menu .list-group-item {
+  border: 0 none;
+  font-size: 1.5em;
+  line-height: 2.5em;
+  padding-left: 50px;
+  padding-right: 25px;
+  color: #fff;
+  display: block !important;
+  text-transform: uppercase;
+}
+body.home-simple .list-group.list-menu .list-group-item .icon {
+  float: right;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-1 {
+  background-color: #f5a623;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-2 {
+  background-color: #f5d223;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-3 {
+  background-color: #48a092;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-4 {
+  background-color: #488da0;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-5 {
+  background-color: #4876a0;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-1:before,
+body.home-simple .list-group.list-menu .list-group-item.item-1:after {
+  background-color: #db8c0a;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-2:before,
+body.home-simple .list-group.list-menu .list-group-item.item-2:after {
+  background-color: #dbb80a;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-3:before,
+body.home-simple .list-group.list-menu .list-group-item.item-3:after {
+  background-color: #387d72;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-4:before,
+body.home-simple .list-group.list-menu .list-group-item.item-4:after {
+  background-color: #386e7d;
+}
+body.home-simple .list-group.list-menu .list-group-item.item-5:before,
+body.home-simple .list-group.list-menu .list-group-item.item-4:after {
+  background-color: #385c7d;
+}
+body.home-simple footer a,
+body.home-simple footer * {
+  color: #fff;
 }

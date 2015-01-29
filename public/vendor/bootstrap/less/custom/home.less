@@ -1,0 +1,43 @@
+body.home-simple {
+  background: #000 url('../images/gavel.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  .list-group.list-menu {
+    .list-group-item {
+      border: 0 none;
+      font-size: 1.5em;
+      line-height: 2.5em;
+      padding-left: 50px;
+      padding-right: 25px;
+      color: #fff;
+      display: block !important;
+      text-transform: uppercase;
+      .icon {
+        float: right;
+      }
+
+      &.item-1 {background-color: #F5A623}
+      &.item-2 {background-color: #F5D223}
+      &.item-3 {background-color: #48A092}
+      &.item-4 {background-color: #488DA0}
+      &.item-5 {background-color: #4876A0}
+
+
+      &.item-1:before, &.item-1:after {background-color: darken(#F5A623, 10%)}
+      &.item-2:before, &.item-2:after {background-color: darken(#F5D223, 10%)}
+      &.item-3:before, &.item-3:after {background-color: darken(#48A092, 10%)}
+      &.item-4:before, &.item-4:after {background-color: darken(#488DA0, 10%)}
+      &.item-5:before, &.item-4:after {background-color: darken(#4876A0, 10%)}
+
+    }
+  }
+
+  footer {
+    a, * {
+      color: #fff;
+    }
+  }
+}
