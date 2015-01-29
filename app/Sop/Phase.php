@@ -20,12 +20,12 @@ class Phase extends Model {
 
     public function nextPhase()
     {
-        return $this->where('ordinal', '>', $this->ordinal)->orderBy('ordinal', 'asc')->first();
+        return $this->where('case_type_id', '=', $this->case_type_id)->where('ordinal', '>', $this->ordinal)->orderBy('ordinal', 'asc')->first();
     }
 
     public function prevPhase()
     {
-        return $this->where('ordinal', '<', $this->ordinal)->orderBy('ordinal', 'desc')->first();
+        return $this->where('case_type_id', '=', $this->case_type_id)->where('ordinal', '<', $this->ordinal)->orderBy('ordinal', 'desc')->first();
     }
 
     public function close()
