@@ -47,7 +47,7 @@
 		<table style="margin-left: 20px">
 		<tbody>
 		<tr>
-			<td width="150px">
+			<td width="150px"  style="padding-left: 27px">
 					Nama Lengkap
 			</td>
 			<td width="20px">
@@ -58,7 +58,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Tempat Lahir
 			</td>
 			<td>
@@ -69,18 +69,29 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Umur/Tanggal Lahir
 			</td>
 			<td>
 					:
 			</td>
 			<td>
-					{{$suspect->age}}/{{$suspect->dob?$suspect->dob:'-'}}
+					{{$suspect->age}} tahun/{{$suspect->dob?$suspect->dob_for_human:'-'}}
 			</td>
 		</tr>
 		<tr>
+			<td width="150px"  style="padding-left: 27px">
+					Jenis Kelamin
+			</td>
 			<td>
+					:
+			</td>
+			<td>
+					{{$suspect->sex}}
+			</td>
+		</tr>
+		<tr>
+			<td width="150px"  style="padding-left: 27px">
 					Kebangsaan/Kewarganegaraan
 			</td>
 			<td>
@@ -91,7 +102,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Tempat Tinggal
 			</td>
 			<td>
@@ -102,7 +113,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Agama
 			</td>
 			<td>
@@ -113,7 +124,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Pekerjaan
 			</td>
 			<td>
@@ -124,7 +135,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td width="150px"  style="padding-left: 27px">
 					Pendidikan
 			</td>
 			<td>
@@ -261,11 +272,19 @@
 		</ol>
 	</td>
 	<td>
-		<p>
-			Dikeluarkan di    : Jember
-			<br>
-			Pada tanggal      : {{strftime("%e %B %Y")}}
-		</p>
+		<br/>
+		<table>
+			<tr>
+				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
+				<td width='5px'>:</td>
+				<td>Jember</td>
+			</tr>
+			<tr>
+				<td style='padding-left: 20px'>Pada tanggal</td>
+				<td>:</td>
+				<td>{{$case->getChecklistDate(1)}}</td>
+			</tr>
+		</table>
 		<hr>
 		<p style="text-align:center;">
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>

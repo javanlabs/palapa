@@ -144,11 +144,11 @@
 		<ol>
 			<li>
 				Menahan/Melanjutkan Penahanan/Pengalihan Jenis Penahanan terdakwa:
-<table style="margin-left: 20px">
+<table>
 		<tbody>
 		@foreach($case->suspects as $suspect)		
 		<tr>
-			<td width="150px">
+			<td>
 					Nama Lengkap
 			</td>
 			<td width="20px">
@@ -177,7 +177,18 @@
 					:
 			</td>
 			<td>
-					{{$suspect->age}} tahun/{{$suspect->dob?$suspect->dob:'-'}}
+					{{$suspect->age}} tahun/{{$suspect->dob?$suspect->dob_for_human:'-'}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+					Jenis Kelamin
+			</td>
+			<td>
+					:
+			</td>
+			<td>
+					{{$suspect->sex}}
 			</td>
 		</tr>
 		<tr>
@@ -295,11 +306,19 @@
 		</ol>
 	</td>
 	<td>
-		<p>
-			Dikeluarkan di    : Jember
-			<br>
-			Pada tanggal      : {{strftime("%e %B %Y")}}
-		</p>
+		<br/>
+		<table>
+			<tr>
+				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
+				<td width='5px'>:</td>
+				<td>Jember</td>
+			</tr>
+			<tr>
+				<td style='padding-left: 20px'>Pada tanggal</td>
+				<td>:</td>
+				<td>{{$case->getChecklistDate(1)}}</td>
+			</tr>
+		</table>
 		<hr>
 		<p style="text-align:center;">
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
