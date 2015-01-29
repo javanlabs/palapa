@@ -356,7 +356,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function countByOwner($owner)
     {
-        $query = $this->case->orWhere(function($query2) use ($owner) {
+        $query = $this->case->where(function($query2) use ($owner) {
             return $query2->orWhere('author_id', '=', $owner->id)
                           ->orWhere('staff_id', '=', $owner->id)
                           ->orWhere('jaksa_id', '=', $owner->id)
