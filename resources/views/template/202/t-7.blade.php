@@ -1,7 +1,7 @@
 <table>
 <tbody>
 <tr>
-	<td style="text-align: center;" width="250px">
+	<td style="text-align: center;" width="300px">
 		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
 		"UNTUK KEADILAN"
 		</strong>
@@ -23,7 +23,7 @@
 	<strong>Nomor: Print - /0.5.12/Ep.1/ /2015</strong>
 </p>
 <p style="text-align: center;">
-	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
+	<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 </p>
 <table>
 <tbody>
@@ -310,7 +310,7 @@
 		<table>
 			<tr>
 				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
-				<td width='5px'>:</td>
+				<td width='10px'>:</td>
 				<td>Jember</td>
 			</tr>
 			<tr>
@@ -321,7 +321,7 @@
 		</table>
 		<hr>
 		<p style="text-align:center;">
-			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
+			<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>

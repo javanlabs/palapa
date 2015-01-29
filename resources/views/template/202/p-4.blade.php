@@ -2,7 +2,7 @@
     <tbody>
     <tr>
     </tr><tr>
-        <td style="text-align: center;" width="250px">
+        <td style="text-align: center;" width="300px">
             <strong>KEJAKSAAN NEGERI JEMBER</strong>
         </td>
         <td width="300px">
@@ -82,7 +82,7 @@
         <table>
             <tr>
                 <td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
-                <td width='5px'>:</td>
+                <td width='10px'>:</td>
                 <td>Jember</td>
             </tr>
             <tr>
@@ -94,7 +94,7 @@
         <hr/>
         <br/>
         <p style="text-align:center;">
-            <strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
+            <br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
         </p>
         <p>
             <br/><br/>
