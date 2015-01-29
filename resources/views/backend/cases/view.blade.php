@@ -10,7 +10,7 @@
             <div class="modal-body">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading"><i class="icon ion-ios-information"></i> Info Kasus</div>
+                    <div class="panel-heading"><i class="icon ion-ios-information"></i> Info</div>
                     <div class="panel-body">
                         <dl class="dl-horizontal section-info mb-lg">
                             <dt>No SPDP :</dt>

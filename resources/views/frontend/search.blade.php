@@ -98,7 +98,7 @@
                                 </div>
                                 </td>
                                 <td class="text-center">
-                                    <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil <i class="fa fa-chevron-right"></i></a>
+                                    <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info <i class="fa fa-chevron-right"></i></a>
                                 </td>
                             </tr>
                         @endforeach

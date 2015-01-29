@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="panel-heading"><i class="icon ion-ios-information"></i> Info Kasus</div>
+                    <div class="panel-heading"><i class="icon ion-ios-information"></i> Info</div>
                     @include('modules.case.tabular', ['case' => $case])
                 </div>
                 <div class="panel panel-default">

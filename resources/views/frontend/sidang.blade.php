@@ -51,12 +51,12 @@
                             </td>
                             <td style="padding-top: 20px">
                                 <a href="{{ $item['cases']['permalink'] }}" class="btn-detail btn btn-default">
-                                    Info Kasus <i class="ion-ios-arrow-forward"></i>
+                                    Info <i class="ion-ios-arrow-forward"></i>
                                 </a>
                             </td>
                         </tr>
                     @empty
-                        <tr><td><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
+                        <tr><td colspan='6'><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
                     @endforelse
                     </tbody>
                 </table>

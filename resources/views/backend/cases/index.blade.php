@@ -63,7 +63,7 @@
                                         Edit <i class="ion-ios-arrow-forward"></i>
                                     </a>
                                 @else
-                                    <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info Detil</a>
+                                    <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info</a>
                                 @endif
                                 
                                 
