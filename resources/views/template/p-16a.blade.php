@@ -22,26 +22,22 @@
 	<strong>Nomor: Print - ... /0.5.12/</strong>
 </p>
 <p style="text-align: center;">
-	<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
+	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 </p>
 <table>
 <tbody>
 <tr>
-	<td width="100px">
-		<p>
+	<td width="100px">	
 			Dasar
-		</p>
 	</td>
-	<td width="20px">
-		<p>
-			:
-		</p>
+	<td width="20px">		
+			:		
 	</td>
 	<td>
 		<ol>
-			<li>Undang undang Republik Indonesia Nomor 8 Tahun 1981 tentang Kitab Undang Undang Hukum Acara Pidana (KUHAP) pasal 8 ayat (3), b, pasal 138, pasal 109, pasal 110 dan pasal 140 KUHAP.</li>
-			<li>Undang Undang Republik Indonesia Nomor 5 tahun 1991 tentang Kejaksaan Republik Indonesia.</li>
-			<li>Surat Pemberitahuan dimulainya Penyidikan terhadap tersangka:</li>
+			<li>Undang-undang No.8 Tahun 1981 tentang Hukum Acara Pidana (KUHAP) pasal 8 ayat 3, pasal 137, pasal 139 dan pasal 140 KUHAP</li>
+			<li>Undang Undang Nomor: 16 Tahun 2004 tentang Kejaksaan Republik Indonesia</li>
+			<li>Berkas perkara tahap ke II atas nama tersangka.</li>
 		</ol>
 		@foreach($case->suspects as $suspect)
 		<table>
@@ -149,25 +145,22 @@
 		</table>
 		@endforeach
 		<p>			
-			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} dari penyidik {{$case->penyidik->name}}<br>			
+			Diduga melakukan tindak pidana sebagaimana diatur dalam {{$case->pasal}} dari penyidik {{$case->penyidik->name}}			
 		</p>
 	</td>
 </tr>
 <tr>
-	<td>
-		<p>
+	<td>		
 			Pertimbangan
-		</p>
+		
 	</td>
-	<td>
-		<p>
-			:
-		</p>
+	<td>		
+			:		
 	</td>
 	<td>
 		<ol>
-			<li>Bahwa dengan diterimanya berkas perkara, tersangka dan barang bukti, dipandang perlu untuk menugaskan seorang/beberapa orang Jaksa Penuntut Umum untuk melakukan penuntutan/penyelesaian perkara tindak pidana tersebut sesuai dengan peraturan perundang¬ undangan dan ketentuan administrasi perkara, tindak pidana.</li>
-			<li>Bahwa sebagai pelaksanaannya perlu dikeluarkan Surat perintah Kepala Kejaksaan Negeri Jember</li>
+			<li>Bahwa dengan diterimanya berkas perkara, tersangka dan barang bukti, dipandang perlu untuk menugaskan seorang/beberapa orang Jaksa Penuntut Umum untuk melakukan penuntutan/penyelesaian perkara tindak pidana tersebut sesuai dengan peraturan perundang-undangan dan ketentuan administrasi perkara tindak pidana.</li>
+			<li>Bahwa sebagai pelaksanaannya perlu dikeluarkan Surat perintah Kepala Kejaksaan Negeri Jember.</li>
 		</ol>
 		<p style="margin-left: 150px">
 			<b>MEMERINTAHKAN:</b>
@@ -229,8 +222,7 @@
 			</td>
 		</tr>
 		</tbody>
-		</table>
-		<br>
+		</table>		
 	</td>
 </tr>
 <tr>
@@ -252,7 +244,7 @@
 			<li>Memberi pertimbangan atas permohonan grasi terpidana.</li>
 			<li>Memberikan jawaban/tangkisan atas permohonan Peninjauan kembali putusan pengadilan yang sudah memperoleh kekuatan hukum tetap.</li>
 			<li>Menandatangani berita acara perneriksaan PK</li>
-			<li>Melaporkan setiap pelaksanaan tindakan hukum berdasarkan perintah penugasan ini dengan berita acara kepada pejabat pengendali penanganan perkara pidana yang bersangkutan.</li>			
+			<li>Melaporkan setiap pelaksanaan tindakan hukum berdasarkan perintah penugasan ini dengan berita acara.</li>			
 		</ol>
 	</td>
 </tr>
@@ -261,7 +253,7 @@
 <table>
 <tbody>
 <tr>
-	<td width="60%" style='vertical-align:bottom'>
+	<td width="50%" style='vertical-align:bottom'>
 		
 			<strong><u>TEMBUSAN:</u></strong>
 		<br/>
@@ -271,8 +263,7 @@
 			<li>Arsip.</li>
 		</ol>
 	</td>
-	<td>
-		<br/>
+	<td>		
 		<table>
 			<tr>
 				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
@@ -287,7 +278,7 @@
 		</table>
 		<hr>
 		<p style="text-align:center;">
-			<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
 			<br/><br/>
@@ -297,4 +288,3 @@
 </tr>
 </tbody>
 </table>
-<footer></footer>

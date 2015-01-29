@@ -37,7 +37,7 @@
     div{
         border: 0 none !important;
     }
-    footer {page-break-after: always;}
+    footer {page-break-after: always;}    
 }
 
 .nama-nip {
@@ -52,4 +52,5 @@ li {
 }
 .indent{
     text-indent: 3em;
+    line-height: 2em;
 }

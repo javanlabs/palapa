@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama kasus atau nomor SPDP">
+                            <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama perkara atau nomor SPDP">
 
                     <span class="input-group-btn">
                         <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span> Cari Kasus</button>
@@ -98,7 +98,7 @@
                 </div>
             @else
                 @if(Input::get('q'))
-                    <p class="alert alert-warning">Tidak ada kasus sesuai kriteria pencarian Anda.</p>
+                    <p class="alert alert-warning">Tidak ada perkara sesuai kriteria pencarian Anda.</p>
                 @endif
             @endif
         </div>

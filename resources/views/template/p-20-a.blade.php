@@ -17,7 +17,9 @@
 </tr>
 </tbody>
 </table>
-
+<p>
+	<br>
+</p>
 		<table>
 			<tr>
 				<td width="100px">Nomor</td>

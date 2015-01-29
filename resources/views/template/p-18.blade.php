@@ -17,7 +17,9 @@
 </tr>
 </tbody>
 </table>
-
+<p>
+	<br>
+</p>
 		<table>
 			<tr>
 				<td width="100px">Nomor</td>
@@ -70,15 +72,8 @@
 <p>
 	 Pengembalian berkas beserta petunjuknya menyusul.
 </p>
-<br/></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td colspan='3'>
-	<p class='indent'>Demikian untuk dimaklumi.</p>
-				</td>
-			</tr>
+<p class='indent'>Demikian untuk dimaklumi.</p>
+</td>			
 
 		</table>		
 	

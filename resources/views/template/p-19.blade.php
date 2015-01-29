@@ -1,12 +1,18 @@
 <table>
 <tbody>
 <tr>
-	<td width="250px">
+	<td style="text-align: center;" width="300px">
 		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
 		</strong>
+		<br/><br/>
+	</td>
+	<td width="300px">
 	</td>
 	<td style="text-align: right;">
-		<strong>P-19</strong>
+		<strong>
+		P-19
+		</strong>
 	</td>
 </tr>
 </tbody>
@@ -14,34 +20,16 @@
 <p>
 	<br>
 </p>
-<p>
-	<span></span><br>
-</p>
 <table>
 <tbody>
 <tr>
-	<td width="120px">
-		Nomor
-	</td>
-	<td width="20px">
-		:
-	</td>
-	<td width="220px">
-	</td>
-	<td rowspan="4">
-		<p>
-			Jember, {{strftime("%e %B %Y")}}
-		</p>
-		<p>
-			KEPADA YTH.
-		</p>
-		<p>
-			KEPALA KEPOLISIAN {{$case->penyidik->name}}
-		</p>
-		<p>
-			DI ...........
-		</p>
-	</td>
+	<tr>
+				<td width="100px">Nomor</td>
+				<td width="15px">:</td>
+				<td width="250px">B- /0.5.12/Ep.1/I/2015</td>
+				<td width="90px" rowspan='4'></td>
+				<td>Jember, {{strftime("%e %B %Y")}}</td>				
+			</tr>
 </tr>
 <tr>
 	<td>
@@ -53,6 +41,17 @@
 	<td>
 		Biasa
 	</td>
+	<td rowspan='3'><p>
+			KEPADA YTH.
+		</p>
+		
+		<p>
+			KEPALA KEPOLISIAN SEKTOR KALIWATES<BR/>
+		
+			DI - <BR/>
+		
+			 <CENTER><u>JEMBER</u></CENTER>
+		</p></td>
 </tr>
 <tr>
 	<td>
@@ -76,6 +75,22 @@
 		Pengembalian perkara pidana atas nama {{$case->suspectNames()}} melanggar {{$case->pasal}}, untuk dilengkapi
 	</td>
 </tr>
+<tr>
+				<td></td>
+				<td></td>
+				<td colspan='3'><br/><br/><br/>
+<p  class='indent'>
+	    Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {{$case->suspectNames()}}, Berkas Perkara Nomor: {{$case->spdp_number}} tanggal {{$case['spdp_date_for_human']}} yang kami terima tanggal {{$case->getChecklistDate(1)}} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:
+	<ol>
+		<li></li>
+	</ol>
+</p>
+<br/>
+<p class='indent'>
+			Demikian untuk dilaksanakan.
+		</p>
+</td>
+			</tr>
 </tbody>
 </table>
 <p>
@@ -84,25 +99,12 @@
 <p>
 	<br>
 </p>
-<p style="text-align: justify;">
-	    Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {{$case->suspectNames()}}, Berkas Perkara Nomor: {{$case->spdp_number}} tanggal {{$case['spdp_date_for_human']}} yang kami terima tanggal {{$case->getChecklistDate(1)}} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:
-	<ol>
-		<li></li>
-	</ol>
-</p>
-<p>
-	<br>
-</p>
-<p>
-	<br>
-</p>
+
 <table>
 <tbody>
 <tr>
 	<td style='width:400px'>
-		<p>
-			Demikian untuk dilaksanakan.
-		</p>
+		
 	</td>
 	<td>
 		<br/>
