@@ -16,21 +16,21 @@
         </div>
         <div class="col-md-9" style="margin-top: 40px">
 
-            <div class="text-center" style="margin-bottom: 20px">
+            <div class="text-center well" style="margin-bottom: 20px">
 
                 {{ Form::open(['route' => ['frontend.search'], 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
                 {{ Form::hidden('type', $type) }}
-                <div class="well clearfix" style="padding: 40px">
+                <div class="row" style="">
                     {{--<div class="col-md-4">--}}
                         {{--{{ Form::select('type', $types, Input::get('type'), ['class' => 'form-control']) }}--}}
                     {{--</div>--}}
                     <div class="col-md-12">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama perkara atau nomor SPDP">
+                            <input type="text" class="form-control input-lg" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama perkara atau nomor SPDP">
 
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><span class="ion-ios-search-strong"></span> Cari Kasus</button>
-                    </span>
+                            <span class="input-group-btn">
+                                <button class="btn btn-lg btn-default" type="submit"><span class="ion-ios-search-strong"></span> Cari Kasus</button>
+                            </span>
                         </div>
                     </div>
                 </div>
