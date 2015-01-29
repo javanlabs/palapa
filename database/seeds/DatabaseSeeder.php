@@ -590,12 +590,12 @@ class SopSeeder extends Seeder {
                 ['id' => 7, 'case_type_id' => 201, 'name' => 'Eksekusi', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
 
                 ['id' => 19, 'case_type_id' => 202, 'name' => 'Tahap Pra Penyelidikan', 'duration' => 11, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 20, 'case_type_id' => 202, 'name' => 'Tahap Penyelidikan', 'duration' => 72, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 21, 'case_type_id' => 202, 'name' => 'Tahap Penyidikan', 'duration' => 120, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
-                ['id' => 22, 'case_type_id' => 202, 'name' => 'Pra Penuntutan', 'duration' => 27, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
-                ['id' => 23, 'case_type_id' => 202, 'name' => 'Penuntutan', 'duration' => 28, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
-                ['id' => 24, 'case_type_id' => 202, 'name' => 'Persidangan', 'duration' => 120, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
-                ['id' => 25, 'case_type_id' => 202, 'name' => 'Upaya Hukum dan Eksekusi', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],    
+                ['id' => 20, 'case_type_id' => 202, 'name' => 'Tahap Penyelidikan', 'duration' => 72, 'ordinal' => 2, 'icon' => '<i class="fa fa-file-o"></i>'],
+                ['id' => 21, 'case_type_id' => 202, 'name' => 'Tahap Penyidikan', 'duration' => 120, 'ordinal' => 3, 'icon' => '<i class="fa fa-file-o"></i>'],
+                ['id' => 22, 'case_type_id' => 202, 'name' => 'Pra Penuntutan', 'duration' => 27, 'ordinal' => 4, 'icon' => '<strong>1</strong>'],
+                ['id' => 23, 'case_type_id' => 202, 'name' => 'Penuntutan', 'duration' => 28, 'ordinal' => 5, 'icon' => '<strong>2</strong>'],
+                ['id' => 24, 'case_type_id' => 202, 'name' => 'Persidangan', 'duration' => 120, 'ordinal' => 6, 'icon' => '<i class="fa fa-legal"></i>'],
+                ['id' => 25, 'case_type_id' => 202, 'name' => 'Upaya Hukum dan Eksekusi', 'duration' => 0, 'ordinal' => 7, 'icon' => '<i class="fa fa-institution"></i>'],
 
                 /* Datun Bankum*/
                 ['id' => 31, 'case_type_id' => 211, 'name' => 'Persiapan', 'duration' => 30, 'ordinal' => 1, 'icon' => '<i class="fa fa-institution"></i>'],
@@ -684,7 +684,7 @@ class SopSeeder extends Seeder {
                 // Pra Penyelidikan
                 ['id'=>43,'phase_id' => 19, 'name' => 'Penerimaan Berkas Sumber Penyelidikan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 1],
                 ['id'=>44,'phase_id' => 19, 'name' => 'Surat Tugas Survailance Pengumpulan Data dan Bahan Keterangan', 'duration' => 0, 'direction' => 'next', 'ordinal' => 2],
-                
+
                 //Tahap Penyelidikan
                 ['id'=>45,'phase_id' => 20, 'name' => 'P-2 Surat Perintah Penyelidikan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 3],
                 ['id'=>46,'phase_id' => 20, 'name' => 'P-3 Rencana Penyelidikan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 4],
@@ -734,13 +734,13 @@ class SopSeeder extends Seeder {
                 ['id'=>84,'phase_id' => 22, 'name' => 'BA-10 Berita Acara Perintah Pelaksanaan Perintah Penahanan - Penahanan Lanjutan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 42],
                 ['id'=>85,'phase_id' => 22, 'name' => 'BA-15 Berita Acara Penerimaan dan Penelitian Tersangka', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 43],
                 ['id'=>86,'phase_id' => 22, 'name' => 'BA-18 Berita Acara Penerimaan dan Penelitian Benda Sitaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 44],
-                ['id'=>87,'phase_id' => 22, 'name' => 'P-29 Surat Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 45],    
+                ['id'=>87,'phase_id' => 22, 'name' => 'P-29 Surat Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 45],
                 ['id'=>88,'phase_id' => 22, 'name' => 'P-31 Pelimpahan Perkara ke Pengadilan', 'duration' => 0, 'direction' => 'next', 'ordinal' => 46],
                 ['id'=>89,'phase_id' => 22, 'name' => 'P-33 Tanda Terima Surat Pelimpahan Perkara Acara Pemeriksaan Biasa', 'duration' => 0, 'direction' => 'next', 'ordinal' => 47],
-                ['id'=>90,'phase_id' => 22, 'name' => 'P-34 Tanda Terima Barang Bukti', 'duration' => 0, 'direction' => 'next', 'ordinal' => 48], 
+                ['id'=>90,'phase_id' => 22, 'name' => 'P-34 Tanda Terima Barang Bukti', 'duration' => 0, 'direction' => 'next', 'ordinal' => 48],
 
-                
-                //Persidangan 
+
+                //Persidangan
                 ['id'=>91,'phase_id' => 23, 'name' => 'Ketetapan Hari Sidang', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 49],
                 ['id'=>92,'phase_id' => 23, 'name' => 'Pembacaan Surat Dakwaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 50],
                 ['id'=>93,'phase_id' => 23, 'name' => 'Pembacaan Eksepsi', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 51],
