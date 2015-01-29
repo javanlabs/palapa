@@ -42,4 +42,15 @@ trait DateSetter {
         }
     }
 
+    public function setBerkasDateAttribute($value)
+    {
+        if($value)
+        {
+            $value = Carbon::createFromFormat('d-m-Y', $value)->toDateString();
+        }
+
+        $this->attributes['berkas_date'] = $value;
+    }
+
+
 }
