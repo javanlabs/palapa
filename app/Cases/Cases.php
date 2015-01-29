@@ -205,7 +205,12 @@ class Cases extends Model {
 
     public function removeActivity($checklist)
     {
-        return $this->activities()->where('checklist_id', '=', $checklist->id)->delete();
+        if($checklist)
+        {
+            return $this->activities()->where('checklist_id', '=', $checklist->id)->delete();
+        }
+
+        return false;
     }
 
     public function start($date)

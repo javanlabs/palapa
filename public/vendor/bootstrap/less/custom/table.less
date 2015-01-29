@@ -1,0 +1,21 @@
+.table.table-list {
+  tbody {
+    tr {
+      td {
+        padding-left: 20px;
+        padding-right: 20px;
+        .btn-delete {
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          color: @gray-light;
+        }
+      }
+
+      &:hover {
+        td {
+          .btn-delete {opacity: 1}
+        }
+      }
+    }
+  }
+}

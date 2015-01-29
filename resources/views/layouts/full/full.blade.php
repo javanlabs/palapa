@@ -36,9 +36,10 @@
                 e.preventDefault();
                 var btn = $(this);
                 bootbox.confirm("Anda yakin ingin menghapus data ini?", function(result) {
+                    console.log(result);
                     if(result == true)
                     {
-                        btn.parent('form').submit();
+                        btn.parents('form').submit();
                     }
                 });
             });

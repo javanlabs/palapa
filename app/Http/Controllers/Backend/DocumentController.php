@@ -17,9 +17,9 @@ class DocumentController extends Controller {
 	private $sop;
 
 	function __construct(SopRepo $sop)
-    {        
+    {
         $this->sop = $sop;
-        
+
     }
 
 	public function create()
@@ -67,13 +67,13 @@ class DocumentController extends Controller {
 		]);
 		$document->cases()->associate($case)->save();
 		$document->template()->associate($template)->save();
-		//Input ke checklist 
+		//Input ke checklist
 		$checklist = Checklist::find($template->checklist_id);
 
         if($checklist)
         {
             $data['date'] = date('d-m-Y');
-            $data['note'] = 'Dokumen '.$template->short_title;            
+            $data['note'] = 'Dokumen '.$template->short_title;
             $this->sop->addChecklist($case, $checklist, $data);
         }
 		return redirect()->route('backend.document.edit', [$document->id]);
@@ -100,7 +100,7 @@ class DocumentController extends Controller {
 	}
 
 	public function destroy($id)
-	{		
+	{
 		$document = Document::find($id);
 		$template = $document->template;
 		$checklist = $template->checklist;

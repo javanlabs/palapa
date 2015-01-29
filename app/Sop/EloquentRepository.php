@@ -94,7 +94,7 @@ class EloquentRepository implements RepositoryInterface {
         }
         else{
             $data['date'] = date('d-m-Y');
-            $data['note'] = 'Dokumen '.$template->short_title;            
+            $data['note'] = 'Dokumen '.$template->short_title;
             $this->addChecklist($case, $checklist, $data);
         }
         return true;
@@ -102,6 +102,11 @@ class EloquentRepository implements RepositoryInterface {
 
     public function removeChecklist($case, $checklist)
     {
+        if(!$checklist)
+        {
+            return false;
+        }
+        
         $case->checklist()->detach($checklist);
 
         $case->removeActivity($checklist);

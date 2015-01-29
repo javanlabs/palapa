@@ -7026,3 +7026,15 @@ body#screensaver .slide-title {
   background: rgba(0, 0, 0, 0.3) url(../images/pattern.png) repeat top left;
   z-index: 10;
 }
+.table.table-list tbody tr td {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.table.table-list tbody tr td .btn-delete {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  color: #777777;
+}
+.table.table-list tbody tr:hover td .btn-delete {
+  opacity: 1;
+}

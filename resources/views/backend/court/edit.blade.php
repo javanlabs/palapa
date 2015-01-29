@@ -29,8 +29,16 @@
             {{ BootForm::text('Tanggal', 'date')->addClass('datepicker')->data('provide', 'datepicker')->value($court['date']) }}
         </div>
         <div class="panel-footer">
-            <a class="btn btn-default" href="{{ route('backend.cases.show', [$case['id']]) }}">Batal</a>
-            {{ BootForm::submit('Simpan', 'btn-primary') }}
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 text-center">
+                    <a class="btn btn-default" href="{{ route('backend.cases.show', [$case['id']]) }}">Batal</a>
+                    {{ BootForm::submit('Simpan', 'btn-primary') }}
+                </div>
+                <div class="col-md-4 text-right">
+                    {{ Form::delete(route('backend.courts.destroy', $court['id']), 'Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-delete btn-danger']) }}
+                </div>
+            </div>
         </div>
     </div>
 

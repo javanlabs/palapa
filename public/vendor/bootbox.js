@@ -590,7 +590,6 @@
     }
 
     if (options.className) {
-        console.log(options.className);
       dialog.addClass(options.className);
     }
 

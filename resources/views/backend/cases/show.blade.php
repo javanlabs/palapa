@@ -126,15 +126,16 @@
                 <i class="icon fa fa-gavel"></i> Jadwal Sidang
                 <a href="{{ route('backend.courts.create', ['case_id' => $case['id']]) }}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
             </div>
-            <table class="table table-condensed items">
+            <table class="table table-list items">
                 @forelse($case->courts as $item)
                     <tr>
-                        <td><small class="text-muted">{{ $item['date_for_human'] }}</small></td>
+                        <td>
+                            <div><small class="text-muted">{{ $item['date_for_human'] }}</small></div>
+                        </td>
                         <td>{{ $item['agenda'] }}</td>
                         <td>
                             <div class="btn-group">
                                 <a class="btn btn-xs btn-default" href="{{ route('backend.courts.edit', [$item['id']]) }}">Edit</a>
-                                {{ Form::delete(route('backend.courts.destroy', $item['id']), '<i class="ion-close"></i>', ['class' => 'form-delete'], ['class' => 'btn btn-danger btn-xs']) }}
                             </div>
                         </td>
                     </tr>
@@ -149,18 +150,16 @@
         <div class="panel panel-default">
             <div class="panel-heading"><i class="ion-document-text icon"></i> Dokumen</div>
             @if($case['is_allow_create_document'])
-            <table class="table">
+            <table class="table table-list">
                 @foreach($templates as $item)
                 <tr>
                     <td>
                         <h5>{{ $item['short_title'] }} {{ $item['title'] }}</h5>
+                        {{ Form::delete(route('backend.document.destroy', [array_search( $item['id'], $documentsIds)]), '<i class="ion-backspace-outline"></i> Hapus Dokumen', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-link btn-delete']) }}
                     </td>
                     <td width="100px" class="text-center">
                         @if(in_array($item['id'], $documentsIds))
-                            <div class="btn-group text-center">
-                                <a class="btn btn-xs btn-default" href="{{ route('backend.document.edit', [array_search( $item['id'], $documentsIds)]) }}">Edit</a>
-                                {{ Form::delete(route('backend.document.destroy', [array_search( $item['id'], $documentsIds)]), '<i class="ion-close"></i>', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-danger btn-delete']) }}
-                            </div>
+                            <a class="btn btn-xs btn-default" href="{{ route('backend.document.edit', [array_search( $item['id'], $documentsIds)]) }}">Edit</a>
                         @else
                             <a class="btn btn-xs btn-default" href="{{ route('backend.document.create', ['template_id' => $item['id'], 'template' => strtolower($item['short_title']), 'case_id' => $case['id']]) }}">Buat Dokumen</a>
                         @endif
