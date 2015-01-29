@@ -22,7 +22,7 @@
                 @endif
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" style="padding-top: 40px">
             @if($post)
                 <h2 class="page-title">{{$post->title}}</h2>
                 {{$post->content}}
