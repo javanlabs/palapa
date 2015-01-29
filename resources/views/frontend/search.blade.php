@@ -41,7 +41,7 @@
             @if(count($cases) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading clearfix">
-                        <div class="subtitle pull-left">{{ count($cases) }} perkara</div>
+                        <div class="subtitle pull-left">{{ $count }} perkara</div>
                         <div class="pull-right" style="font-size: .9em">
                             <i class="fa fa-square success color-success"></i> Tepat Waktu
                             &nbsp;&nbsp;&nbsp;

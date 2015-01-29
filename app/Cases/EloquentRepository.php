@@ -100,46 +100,16 @@ class EloquentRepository implements RepositoryInterface {
 
     public function search($keyword, $type = null, $includeDraft = false, $me=false)
     {
-        $query = $this->case->orderBy('updated_at', 'DESC');
+        $query = $this->prepareSearch($keyword, $type, $includeDraft, $me);
 
-        if(!$includeDraft)
-        {
-            $query->published();
-        }
+        return $query->paginate(1);
+    }
 
-        if($type)
-        {
-            $query->where('type_id', '=', $type);
-        }
-        if($me){
-            $officer_id = -999;
-            if(Auth::user()->officer)
-            {
-                $officer_id = Auth::user()->officer->id;
-            }
-            $user_id = Auth::user()->id;
-            $query->where(function($query2) use ($officer_id, $user_id){
-                $query2->where('jaksa_id',$officer_id)->orWhere('staff_id', $officer_id)->orWhere('author_id', $user_id);
-            });
-        }
+    public function countSearch($keyword, $type = null, $includeDraft = false, $me=false)
+    {
+        $query = $this->prepareSearch($keyword, $type, $includeDraft, $me);
 
-        $ids = DB::table('suspects')->join('cases_suspects', 'cases_suspects.suspects_id', '=', 'suspects.id')->select('cases_suspects.cases_id')->where('suspects.name', 'LIKE', '%'.$keyword.'%')->get();
-        $cases_ids = array();
-        foreach($ids as $t){
-            $cases_ids[] = $t->cases_id;
-        }
-
-
-
-        if($keyword)
-        {
-            $query->where(function($query2) use ($keyword, $cases_ids){
-                $query2->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')->orWhereIn('id', $cases_ids);
-
-            });
-        }
-
-        return $query->paginate();
+        return $query->count();
     }
 
     public function activities($case)
@@ -397,6 +367,50 @@ class EloquentRepository implements RepositoryInterface {
     public function upcomingSidang()
     {
         return $this->case->where('persidangan_date', '>=', (new Carbon())->toDateString())->orderBy('persidangan_date')->get();
+    }
+
+    protected function prepareSearch($keyword, $type, $includeDraft, $me)
+    {
+        $query = $this->case->orderBy('updated_at', 'DESC');
+
+        if(!$includeDraft)
+        {
+            $query->published();
+        }
+
+        if($type)
+        {
+            $query->where('type_id', '=', $type);
+        }
+        if($me){
+            $officer_id = -999;
+            if(Auth::user()->officer)
+            {
+                $officer_id = Auth::user()->officer->id;
+            }
+            $user_id = Auth::user()->id;
+            $query->where(function($query2) use ($officer_id, $user_id){
+                $query2->where('jaksa_id',$officer_id)->orWhere('staff_id', $officer_id)->orWhere('author_id', $user_id);
+            });
+        }
+
+        $ids = DB::table('suspects')->join('cases_suspects', 'cases_suspects.suspects_id', '=', 'suspects.id')->select('cases_suspects.cases_id')->where('suspects.name', 'LIKE', '%'.$keyword.'%')->get();
+        $cases_ids = array();
+        foreach($ids as $t){
+            $cases_ids[] = $t->cases_id;
+        }
+
+
+
+        if($keyword)
+        {
+            $query->where(function($query2) use ($keyword, $cases_ids){
+                $query2->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')->orWhereIn('id', $cases_ids);
+
+            });
+        }
+
+        return $query;
     }
 }
 

@@ -34,6 +34,7 @@ class FrontendController extends Controller {
         $type = $request->get('type');
 
         $cases = $repository->search($keyword, $type);
+        $count = $repository->countSearch($keyword, $type);
         $phases = $sop->byType($type);
 
         $types = $lookup->lists('kasus');
@@ -41,7 +42,7 @@ class FrontendController extends Controller {
         $allPostInCategory = $postRepo->getByPosition($type);
         $position = $type;
 
-        return view('frontend.search', compact('cases', 'phases', 'type', 'keyword', 'types', 'allPostInCategory', 'position'))->with('page', 'search')->with('keyword',$keyword);
+        return view('frontend.search', compact('cases', 'phases', 'type', 'keyword', 'types', 'allPostInCategory', 'position', 'count'));
     }
 
     public function getPost(PostRepository $postRepo, LookupRepository $lookup, $id)
