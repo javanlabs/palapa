@@ -355,7 +355,7 @@ Dasar
 			<li>Undang-Undang No. 16 Tahun 2004 tentang Kejaksaan Republik Indonesia</li>
 			<li>Keputusan Presiden Republik Indonesia No. 86 Tahun 1999 tentang Susunan Organisasi Tata Kerja Kejaksaan Republik Indonesia</li>
 			<li>Keputusan Jaksa Agung Republik Indonesia Nomor: KEP-115/JA/10/1999 Tentang Susuan Organisasi dan tata Kerja Kejaksaan Republik Indonesia beserta perubahannya.</li>
-			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/06/2011 tanggal 29 September 2011 Tentang Standar Operasional Prosedur (SOP) Penangangan Perkara Tindak Pidana Umum.</li>
+			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/09/2011 tanggal 21 September 2011 Tentang Standar Operasional Prosedur (SOP) Penangangan Perkara Tindak Pidana Umum.</li>
 		</ol>
 	</td>
 </tr>

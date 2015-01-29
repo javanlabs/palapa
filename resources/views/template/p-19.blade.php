@@ -1,21 +1,24 @@
 <table>
 <tbody>
 <tr>
-	<td width="250px">
+	<td style="text-align: center;" width="300px">
 		<strong><u data-redactor-tag="u">KEJAKSAAN NEGERI JEMBER</u><br>
+		"UNTUK KEADILAN"
 		</strong>
+		<br/><br/>
+	</td>
+	<td width="300px">
 	</td>
 	<td style="text-align: right;">
-		<strong>P-19</strong>
+		<strong>
+		P-19
+		</strong>
 	</td>
 </tr>
 </tbody>
 </table>
 <p>
 	<br>
-</p>
-<p>
-	<span></span><br>
 </p>
 <table>
 <tbody>
@@ -76,6 +79,22 @@
 		Pengembalian perkara pidana atas nama {{$case->suspectNames()}} melanggar {{$case->pasal}}, untuk dilengkapi
 	</td>
 </tr>
+<tr>
+				<td></td>
+				<td></td>
+				<td colspan='3'><br/><br/><br/>
+<p  class='indent'>
+	    Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {{$case->suspectNames()}}, Berkas Perkara Nomor: {{$case->spdp_number}} tanggal {{$case['spdp_date_for_human']}} yang kami terima tanggal {{$case->getChecklistDate(1)}} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:
+	<ol>
+		<li></li>
+	</ol>
+</p>
+<br/>
+<p class='indent'>
+			Demikian untuk dilaksanakan.
+		</p>
+</td>
+			</tr>
 </tbody>
 </table>
 <p>
@@ -84,25 +103,12 @@
 <p>
 	<br>
 </p>
-<p style="text-align: justify;">
-	    Sehubungan dengan surat kami nomor B- /0.5.12/…1/…/201… tanggal ……. 201… sesuai dengan pasal 110 ayat (2), (3) dan 138 ayat (2) KUHAP, bersama ini kami kembalikan Berkas Perkara Pidana atas nama tersangka {{$case->suspectNames()}}, Berkas Perkara Nomor: {{$case->spdp_number}} tanggal {{$case['spdp_date_for_human']}} yang kami terima tanggal {{$case->getChecklistDate(1)}} untuk saudara lengkapi dalam waktu 14 hari seterimanya berkas perkara ini, dengan petunjuk-petunjuk sebagai berikut:
-	<ol>
-		<li></li>
-	</ol>
-</p>
-<p>
-	<br>
-</p>
-<p>
-	<br>
-</p>
+
 <table>
 <tbody>
 <tr>
 	<td style='width:400px'>
-		<p>
-			Demikian untuk dilaksanakan.
-		</p>
+		
 	</td>
 	<td>
 		<br/>

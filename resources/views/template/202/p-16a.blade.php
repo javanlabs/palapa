@@ -261,7 +261,7 @@
 <table>
 <tbody>
 <tr>
-	<td width="60%" style='vertical-align:bottom'>
+	<td width="50%" style='vertical-align:bottom'>
 		
 			<strong><u>TEMBUSAN:</u></strong>
 		<br/>

@@ -74,7 +74,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td>Riwayat kasus belum tersedia</td>
+                                <td>Riwayat perkara belum tersedia</td>
                             </tr>
                         @endforelse
                         </tbody>
