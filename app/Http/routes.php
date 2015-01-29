@@ -32,6 +32,12 @@ $router->controller('frontend', 'FrontendController', [
 // CMS a.k.a static page
 $router->get('page/{category}/{id?}', ['as'=>'frontend.post', 'uses'=>'PostController@show']);
 
+$router->get('statistic/index', ['as' => 'statistic.index', 'uses' => 'StatisticController@index']);
+$router->get('statistic/byPhase', ['as' => 'statistic.byPhase', 'uses' => 'StatisticController@byPhase']);
+$router->get('statistic/byStatus', ['as' => 'statistic.byStatus', 'uses' => 'StatisticController@byStatus']);
+$router->get('statistic/byJaksa', ['as' => 'statistic.byJaksa', 'uses' => 'StatisticController@byJaksa']);
+$router->get('statistic/byCategory', ['as' => 'statistic.byCategory', 'uses' => 'StatisticController@byCategory']);
+
 //BACKEND
 $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' => 'auth'], function($router){
 

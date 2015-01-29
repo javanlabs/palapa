@@ -8,18 +8,7 @@
 
     <div class="container-fluid">
         <div class="col-md-3">
-            <div class="list-group list-group-menu">
-                <a href="{{ route('frontend.search') }}?type={{ $type }}" class="list-group-item ellipsis active">
-                    <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
-                    Daftar Perkara
-                </a>
-                @foreach($allPostInCategory as $item)
-                    <a href="{{ route('frontend.post.byCaseType', ['id' => $item['id']]) }}" class="list-group-item ellipsis">
-                        <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
-                        {{ $item['title'] }}
-                    </a>
-                @endforeach
-            </div>
+            @include('frontend.tab', ['active' => 'perkara'])
         </div>
         <div class="col-md-9" style="margin-top: 40px">
 
@@ -94,7 +83,7 @@
                                     </div>
                                     <small class="text-muted"><strong><?php echo ($item->getLatestActivityAttribute()?$item->getLatestActivityAttribute()->name:'');?></strong> : {{ $item['last_update'] }}</small>
                                     <div>
-                                                                    
+
                                 </div>
                                 </td>
                                 <td class="text-center">

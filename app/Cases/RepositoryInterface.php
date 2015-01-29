@@ -20,7 +20,7 @@ interface RepositoryInterface {
 
     public function statisticByPhase($year, $type);
 
-    public function statisticByStatus($year);
+    public function statisticByStatus($year, $type = null);
 
     public function countActive();
 

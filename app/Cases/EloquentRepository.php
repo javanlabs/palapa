@@ -221,7 +221,7 @@ class EloquentRepository implements RepositoryInterface {
         return ['series' => $series, 'data' => array_values($json)];
     }
 
-    public function statisticByStatus($year)
+    public function statisticByStatus($year, $type = null)
     {
         $json = [];
 
@@ -234,24 +234,35 @@ class EloquentRepository implements RepositoryInterface {
             $json[$month]['close'] = 0;
         }
 
-        $openCases = $this->case
+        $query = $this->case
             ->select([
                     DB::raw('COUNT(1) as count'),
                     DB::raw('MONTH(start_date) as month'),
                 ])
             ->whereRaw('YEAR(start_date) = ' . $year)
-            ->groupBy([DB::raw('MONTH(start_date)')])
-            ->get();
+            ->groupBy([DB::raw('MONTH(start_date)')]);
 
-        $closedCases = $this->case
+        if($type)
+        {
+            $query->where('type_id', '=', $type);
+        }
+        $openCases = $query->get();
+
+        $query = $this->case
             ->select([
                     DB::raw('COUNT(1) as count'),
                     DB::raw('MONTH(start_date) as month'),
                 ])
             ->whereRaw('YEAR(start_date) = ' . $year)
             ->whereNotNull('finish_date')
-            ->groupBy([DB::raw('MONTH(finish_date)')])
-            ->get();
+            ->groupBy([DB::raw('MONTH(finish_date)')]);
+
+        if($type)
+        {
+            $query->where('type_id', '=', $type);
+        }
+
+        $closedCases = $query->get();
 
 
         foreach(range(1,12) as $month)
@@ -266,7 +277,7 @@ class EloquentRepository implements RepositoryInterface {
 
             if($openCase)
             {
-                $json[$month]['open'] = $openCase['count'];
+                $json[$month]['open'] = (int) $openCase['count'];
             }
 
             $closedCase = array_first($closedCases, function($key, $element) use ($month){
@@ -279,7 +290,7 @@ class EloquentRepository implements RepositoryInterface {
 
             if($closedCase)
             {
-                $json[$month]['close'] = $closedCase['count'];
+                $json[$month]['close'] = (int) $closedCase['count'];
             }
         }
 
@@ -304,17 +315,21 @@ class EloquentRepository implements RepositoryInterface {
             }
         }
 
-        $stat = DB::table('cases')
+        $query = DB::table('cases')
                   ->select([DB::raw('count(id) count'), 'category', DB::raw('MONTH(start_date) month')])
                   ->whereRaw("YEAR(start_date) = $year")
                   ->whereNotNull('category')
-                  ->groupBy(['category', 'month'])
-                  ->get();
+                  ->groupBy(['category', 'month']);
+        if($type)
+        {
+            $query->where('type_id', '=', $type);
+        }
 
+        $stat = $query->get();
 
         foreach($stat as $row)
         {
-            $json[$row->month][$row->category] = $row->count;
+            $json[$row->month][$row->category] = (int) $row->count;
         }
 
         $series = [];

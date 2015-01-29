@@ -6,8 +6,11 @@
 
 @section('content')
 
-    <div class="container-fluid" style="margin-top: 40px">
+    <div class="container-fluid">
         <div class="col-md-3">
+
+            @include('frontend.tab', ['active' => 'sidang'])
+
             <div class="panel panel-default text-center">
                 <div class="panel-heading">Pilih Tanggal</div>
                 <div class="panel-body">
@@ -15,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" style="margin-top: 40px">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="subtitle">Jadwal Sidang @if($date) <span class="badge">{{ $dateForHuman }}</span> @endif</div>

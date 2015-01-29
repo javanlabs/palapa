@@ -6925,7 +6925,10 @@ span.empty {
   margin-bottom: 10px;
 }
 .nav-tabs li a {
-  padding: 10px 50px;
+  background-color: #f4f4f4;
+  padding: 10px 20px;
+  color: #9d9d9d;
+  font-weight: 600;
 }
 .nav-tabs li.active .badge {
   background-color: #00805b;

@@ -63,7 +63,7 @@ class FrontendController extends Controller {
         return view('frontend.officer', compact('officers','allPostInCategory', 'category', 'id'))->with('page', 'officer');
     }
 
-    public function getSidang(Request $request)
+    public function getSidang(Request $request, PostRepository $postRepo)
     {
         $date = $request->get('date');
         $dateForHuman = null;
@@ -75,7 +75,10 @@ class FrontendController extends Controller {
 
         $courts = Court::with('cases')->upcoming()->byDate($date)->get();
 
-        return view('frontend.sidang', compact('courts', 'date', 'dateForHuman'));
+        $type = $request->get('type');
+        $allPostInCategory = $postRepo->getByPosition($type);
+
+        return view('frontend.sidang', compact('courts', 'date', 'dateForHuman', 'type', 'allPostInCategory'));
     }
 
     public function getCase(CasesRepository $caseRepository, RepositoryInterface $sopRepo, $id)

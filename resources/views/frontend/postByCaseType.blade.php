@@ -8,18 +8,7 @@
 
     <div class="container-fluid">
         <div class="col-md-3">
-            <div class="list-group list-group-menu">
-                <a href="{{ route('frontend.search') }}?type={{ $type }}" class="list-group-item ellipsis">
-                    <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
-                    Daftar Perkara
-                </a>
-                @foreach($allPostInCategory as $item)
-                    <a href="{{ route('frontend.post.byCaseType', ['id' => $item['id']]) }}" class="list-group-item ellipsis {{ (isset($post) && ($item['id'] == $id))?'active':'' }}">
-                        <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
-                        {{ $item['title'] }}
-                    </a>
-                @endforeach
-            </div>
+            @include('frontend.tab', ['active' => $post->id])
         </div>
         <div class="col-md-9" style="margin-top: 40px">
             <h2 class="page-title">{{$post->title}}</h2>
