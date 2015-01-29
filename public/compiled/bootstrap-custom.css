@@ -7110,3 +7110,6 @@ body.home-simple footer a,
 body.home-simple footer * {
   color: #fff;
 }
+body.frontend {
+  font-size: 2em;
+}

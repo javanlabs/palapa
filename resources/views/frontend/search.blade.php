@@ -1,5 +1,9 @@
 @extends('layouts.full.full')
 
+@section('body-class')
+    frontend
+@stop
+
 @section('breadcrumb')
     <span class="trail">{{ array_get($types, Input::get('type', 201), 'Cari Kasus') }}</span>
 @stop
