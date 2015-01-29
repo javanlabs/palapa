@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-md-9">
-            
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="subtitle">Daftar Jaksa di Kejaksaan Negeri Jember</div>
@@ -44,7 +44,7 @@
         <td>
             <a class="btn btn-sm btn-default btn-case-count" href="{{route('backend.cases.byJaksa', [$jaksa->id])}}">
                 @if($jaksa['active_cases_count'] > 0)
-                    <span class="label label-info">{{ $jaksa['active_cases_count'] }}</span>
+                    <span class="badge">{{ $jaksa['active_cases_count'] }}</span>
                 @else
                     <span class="">{{ $jaksa['active_cases_count'] }}</span>
                 @endif

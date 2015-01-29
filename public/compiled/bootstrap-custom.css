@@ -6859,6 +6859,15 @@ table.table-case-info tbody tr td {
 .mb-0 {
   margin-bottom: 0px;
 }
+.color-success {
+  color: #16a085;
+}
+.color-warning {
+  color: #f39c12;
+}
+.color-danger {
+  color: #c0392b;
+}
 h2.page-title {
   margin-top: 0;
   margin-bottom: 40px;

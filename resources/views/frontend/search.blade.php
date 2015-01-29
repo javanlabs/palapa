@@ -16,15 +16,15 @@
 
                 {{ Form::open(['route' => ['frontend.search'], 'method' => 'get', 'role' => 'form', 'id' => 'formSearch']) }}
                 <div class="well clearfix" style="padding: 40px">
-                    <div class="col-md-4">
-                        {{ Form::select('type', $types, Input::get('type'), ['class' => 'form-control']) }}
-                    </div>
-                    <div class="col-md-8">
+                    {{--<div class="col-md-4">--}}
+                        {{--{{ Form::select('type', $types, Input::get('type'), ['class' => 'form-control']) }}--}}
+                    {{--</div>--}}
+                    <div class="col-md-12">
                         <div class="input-group">
                             <input type="text" class="form-control" name="q" value="{{ Input::get('q') }}" placeholder="Cari nama perkara atau nomor SPDP">
 
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span> Cari Kasus</button>
+                        <button class="btn btn-default" type="submit"><span class="ion-ios-search-strong"></span> Cari Kasus</button>
                     </span>
                         </div>
                     </div>
@@ -38,11 +38,11 @@
                     <div class="panel-heading clearfix">
                         <div class="subtitle pull-left">{{ count($cases) }} perkara</div>
                         <div class="pull-right" style="font-size: .9em">
-                            <i class="fa fa-square success" style="color: {{ Config::get('color.green') }}"></i> Tepat Waktu
+                            <i class="fa fa-square success color-success"></i> Tepat Waktu
                             &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-square warning" style="color: {{ Config::get('color.yellow') }}"></i> Hampir Terlambat
+                            <i class="fa fa-square warning color-warning"></i> Hampir Terlambat
                             &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-square danger" style="color: {{ Config::get('color.red') }}"></i> Terlambat
+                            <i class="fa fa-square danger color-danger"></i> Terlambat
                         </div>
                     </div>
 
