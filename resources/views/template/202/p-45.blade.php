@@ -114,11 +114,19 @@
 		Demikian untuk maklum dan mohon petunjuk.
 	</td>
 	<td>
-		<p>
-			Dikeluarkan di    : Jember
-			<br>
-			Pada tanggal      : {{strftime("%e %B %Y")}}
-		</p>
+		<br/>
+		<table>
+			<tr>
+				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
+				<td width='5px'>:</td>
+				<td>Jember</td>
+			</tr>
+			<tr>
+				<td style='padding-left: 20px'>Pada tanggal</td>
+				<td>:</td>
+				<td>{{$case->getChecklistDate(1)}}</td>
+			</tr>
+		</table>
 		<hr>
 		<p style="text-align:center;">
 			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
