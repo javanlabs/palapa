@@ -10,7 +10,7 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>Edit Kasus <span class="label label-info">{{ $type['name'] }}</span></h4>
+            <h4>Edit Perkara <span class="label label-info">{{ $type['name'] }}</span></h4>
         </div>
         <div class="panel-body">
             @include('backend.cases.edit.' . $type['id'])

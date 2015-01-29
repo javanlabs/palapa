@@ -7,7 +7,7 @@
 @section('content-dashboard')
 
     <div class="panel panel-default">
-        <div class="panel-heading">Rekapitulasi Jumlah Kasus Per Jaksa</div>
+        <div class="panel-heading">Rekapitulasi Jumlah Perkara Per Jaksa</div>
         <table class="table">
             <thead>
             <tr>

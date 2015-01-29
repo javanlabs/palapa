@@ -4,7 +4,7 @@
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
-                <h4 class="modal-title">Jenis Kasus Apa Yang Ingin Anda Buat?</h4>
+                <h4 class="modal-title">Jenis Perkara Apa Yang Ingin Anda Buat?</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">

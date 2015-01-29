@@ -11,13 +11,13 @@
                 <td class="item-dark" style="padding: 20px">
                     <table width="100%">
                         <td class="counter counter-big">
-                            <h4 class="caption">Kasus Aktif</h4>
+                            <h4 class="caption">Perkara Aktif</h4>
                             <span class="number">{{ $stat['active'] }}</span>
                         </td>
                         <td>
                             <table width="100%">
                                 <tr>
-                                    <td colspan="3" class="counter"><h4 class="caption">Kasus Baru</h4></td>
+                                    <td colspan="3" class="counter"><h4 class="caption">Perkara Baru</h4></td>
                                 </tr>
                                 <tr>
                                     <td class="counter counter-small">

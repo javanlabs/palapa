@@ -67,7 +67,6 @@
 <p class='indent'>
 	 Sehubungan dengan Surat Pemberitahuan dimulainya Penyidikan atas nama tersangka {{implode(', ', $suspects)}} Nomor : {{$case->spdp_number?$case->spdp_number:'__________'}}. Tanggal {{$case->spdp_date_for_human?$case->spdp_date_for_human:'____________'}} yang kami terima pada tanggal {{$case->getChecklistDate(1)}} hingga saat ini kami belum menerima hasil penyidikan perkara, tersebut.
 </p>
-<br/>
 <p class='indent'>
 	 Mengingat Surat Pemberitahuan dimulainya Penyidikan sudah kami terima cukup lama, dengan ini kami minta perkembangan penyidikan perkara tersebut.
 </p></td>
@@ -89,19 +88,19 @@
 		
 	</td>
 	<td>
-		<br/><br/><br/><br/>
+		<br/><br/><br/>
 		<p style="text-align:center;">
 			<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
-			<br/><br/><br/><br/>
+			<br/><br/><br/>
 		</p>
         <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>
 </tr>
 <tr>
 	<td>
-		<br/><br/><br/><br/>
+		<br/><br/><br/>
 		<p>
 			<u><strong>TEMBUSAN:</strong></u>
 		</p>

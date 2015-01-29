@@ -7,7 +7,7 @@
 @section('content-dashboard')
 
     <div class="panel panel-default">
-        <div class="panel-heading">Statistik Perbandingan Kasus Baru - Kasus Ditutup Tahun {{ $year }}</div>
+        <div class="panel-heading">Statistik Perbandingan Perkara Baru - Perkara Ditutup Tahun {{ $year }}</div>
 
         <div class="pad">
             <div id="chart" style="width: 100%; height: 300px"></div>
@@ -18,8 +18,8 @@
             <thead>
             <tr>
                 <th>Bulan</th>
-                <th>Kasus Baru</th>
-                <th>Kasus Ditutup</th>
+                <th>Perkara Baru</th>
+                <th>Perkara Ditutup</th>
             </tr>
             </thead>
             <tbody>
@@ -68,12 +68,12 @@
             series: [
                 {
                     valueField: 'open',
-                    name: 'Kasus Baru',
+                    name: 'Perkara Baru',
                     color: '{{ Config::get('color.green') }}'
                 },
                 {
                     valueField: 'close',
-                    name: 'Kasus Ditutup',
+                    name: 'Perkara Ditutup',
                     color: '{{ Config::get('color.yellow') }}'
                 }
             ],

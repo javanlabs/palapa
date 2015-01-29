@@ -11,7 +11,7 @@
             <div class="list-group list-group-menu">
                 <a href="{{ route('frontend.search') }}?type={{ $type }}" class="list-group-item ellipsis">
                     <span class="badge"><i class="fa-2x ion-ios-arrow-forward"></i></span>
-                    Daftar Kasus
+                    Daftar Perkara
                 </a>
                 @foreach($allPostInCategory as $item)
                     <a href="{{ route('frontend.post.byCaseType', ['id' => $item['id']]) }}" class="list-group-item ellipsis {{ (isset($post) && ($item['id'] == $id))?'active':'' }}">
