@@ -57,23 +57,14 @@ class CaseController extends BackendController {
 
     public function index()
     {
-        $owner = null;
-        $officer = Input::get('officer');
+        $owner = Input::get('owner', 'all');
 
-        if($officer == 'my')
-        {
-            $owner = Auth::user();
-        }
-        else
-        {
-            $officer = 'all';
-        }
+        $cases = $this->repo->search(Input::get('q'), null, true, $owner=='me');
 
-        $cases = $this->repo->search(Input::get('q'), null, true, $owner);
-        $count['my'] = $this->repo->countByOwner(Auth::user());
-        $count['all'] = $this->repo->count(Auth::user());
+        $count['all'] = $this->repo->count();
+        $count['me'] = $this->repo->countByOwner(Auth::user());
 
-        return view('backend.cases.index', compact('cases', 'officer', 'count'));
+        return view('backend.cases.index', compact('cases', 'owner', 'count'));
     }
 
     public function create()

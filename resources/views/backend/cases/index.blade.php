@@ -10,7 +10,7 @@
     <div id="page-case-index">
         <h2 class="page-title">Manajemen Kasus</h2>
 
-        @include('backend.cases.tab', ['officer' => $officer])
+        @include('backend.cases.tab', ['owner' => $owner])
 
         <form action="" class="mb">
             <div class="input-group">
@@ -35,7 +35,6 @@
                             @foreach($item->suspects as $suspect)
                                 {{$suspect->name}}
                             @endforeach
-                            </small>
                         </td>
                         <td>
                             <div><i class="ion-person"></i> {{ $item['prosecutor_name'] }}</div>
