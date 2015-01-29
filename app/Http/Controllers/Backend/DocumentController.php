@@ -95,7 +95,7 @@ class DocumentController extends Controller {
 		$template = $document->template;
 		$case = $document->cases;
 		$checklist = $template->checklist;
-		$this->sop->updateChecklist($case, $checklist);
+		$this->sop->updateChecklist($case, $checklist,$template);
 		return redirect()->route('backend.cases.show', $document->cases->id);
 	}
 

@@ -85,9 +85,19 @@ class EloquentRepository implements RepositoryInterface {
         return true;
     }
 
-    public function updateChecklist($case, $checklist){
-        $sql = "UPDATE cases_checklist set updated_at = now() where case_id = :case_id and checklist_id = :checklist_id";
-        return \DB::statement($sql, array('checklist_id'=>$checklist->id, 'case_id'=>$case->id));
+    public function updateChecklist($case, $checklist, $template){
+        $row = \DB::table('cases_checklist')->where('case_id', $case->id)->where('checklist_id', $checklist->id)->first();
+
+        if($row){
+            $sql = "UPDATE cases_checklist set updated_at = now() where case_id = :case_id and checklist_id = :checklist_id";
+            \DB::statement($sql, array('checklist_id'=>$checklist->id, 'case_id'=>$case->id));
+        }
+        else{
+            $data['date'] = date('d-m-Y');
+            $data['note'] = 'Dokumen '.$template->short_title;            
+            $this->addChecklist($case, $checklist, $data);
+        }
+        return true;
     }
 
     public function removeChecklist($case, $checklist)
