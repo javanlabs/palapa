@@ -194,7 +194,7 @@
 	</td>
 	<td>
 		<ol>
-			<li>Bahwa dengan diterimanya Pemberitahuan Dimulainya Penyidikan, dipandang perlu untuk menugaskan seorang/beberapa orang Jaksa Penuntut Umum untuk mengikuti perkembangan penyidikan dan meniliti hasil penyidikan<strong> </strong>perkara tersebut sesuai dengan peraturan perundang-undangan dan ketentuan administrasi perkara tindak pidana.</li>
+			<li>Bahwa dengan diterimanya Pemberitahuan Dimulainya Penyidikan, dipandang perlu untuk menugaskan seorang/beberapa orang Jaksa Penuntut Umum untuk mengikuti perkembangan penyidikan dan meneliti hasil penyidikan<strong> </strong>perkara tersebut sesuai dengan peraturan perundang-undangan dan ketentuan administrasi perkara tindak pidana.</li>
 			<li>Bahwa sebagai pelaksanaannya perlu dikeluarkan Surat perintah Kepala Kejaksaan Negeri Jember</li>
 		</ol>
 		<p style="margin-left: 150px">
@@ -355,7 +355,7 @@ Dasar
 			<li>Undang-Undang No. 16 Tahun 2004 tentang Kejaksaan Republik Indonesia</li>
 			<li>Keputusan Presiden Republik Indonesia No. 86 Tahun 1999 tentang Susunan Organisasi Tata Kerja Kejaksaan Republik Indonesia</li>
 			<li>Keputusan Jaksa Agung Republik Indonesia Nomor: KEP-115/JA/10/1999 Tentang Susuan Organisasi dan tata Kerja Kejaksaan Republik Indonesia beserta perubahannya.</li>
-			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/09/2011 tanggal 21 September 2011 Tentang Standar Operasional Prosedur (SOP) Penangangan Perkara Tindak Pidana Umum.</li>
+			<li>Peraturan Jaksa Agung Republik Indonesia Nomor: PERJA-036/A/JA/09/2011 tanggal 21 September 2011 Tentang Standar Operasional Prosedur (SOP) Penanganan Perkara Tindak Pidana Umum.</li>
 		</ol>
 	</td>
 </tr>
@@ -373,7 +373,7 @@ Dasar
 	<td>
 		<ol>
 			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tindak Pidana Kepala Kejaksaan Negeri Jember Nomor: Print- /0.5.12/{{$category}}/ /2015 Tanggal {{$case->getChecklistDate(1)}}</li>
-			<li>Dalam rangka melaksanakan fungsi administrasi perkara tindak pidana umum, dipandang perlu menunuk Pegawai Tata Usaha Kejaksaan</li>
+			<li>Dalam rangka melaksanakan fungsi administrasi perkara tindak pidana umum, dipandang perlu menunjuk Pegawai Tata Usaha Kejaksaan</li>
 			<li>Sebagai perwujudannya perlu menerbitkan Surat Perintah</li>
 		</ol>
 		<p style="text-align: center">
