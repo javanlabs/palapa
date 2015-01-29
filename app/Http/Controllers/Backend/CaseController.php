@@ -56,8 +56,8 @@ class CaseController extends BackendController {
     }
 
     public function index()
-    {
-        $cases = $this->repo->search(Input::get('q'), null, true);
+    {        
+        $cases = $this->repo->search(Input::get('q'), null, true, Input::get('owner')=='me');
         return view('backend.cases.index', compact('cases'));
     }
 

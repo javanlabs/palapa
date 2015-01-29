@@ -6,6 +6,7 @@ use App\Sop\Phase;
 use App\Sop\RepositoryInterface as SopRepo;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class EloquentRepository implements RepositoryInterface {
 
@@ -97,7 +98,7 @@ class EloquentRepository implements RepositoryInterface {
         return $this->case->findOrFail($id)->delete();
     }
 
-    public function search($keyword, $type = null, $includeDraft = false)
+    public function search($keyword, $type = null, $includeDraft = false, $me=false)
     {
         $query = $this->case->orderBy('updated_at', 'DESC');
 
@@ -109,6 +110,13 @@ class EloquentRepository implements RepositoryInterface {
         if($type)
         {
             $query->where('type_id', '=', $type);
+        }        
+        if($me){
+            $officer_id = Auth::user()->officer->id;  
+            $user_id = Auth::user()->id;  
+            $query->where(function($query2) use ($officer_id, $user_id){                
+                $query2->where('jaksa_id',$officer_id)->orWhere('staff_id', $officer_id)->orWhere('author_id', $user_id);
+            });
         }
 
         $ids = DB::table('suspects')->join('cases_suspects', 'cases_suspects.suspects_id', '=', 'suspects.id')->select('cases_suspects.cases_id')->where('suspects.name', 'LIKE', '%'.$keyword.'%')->get();
