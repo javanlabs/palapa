@@ -102,7 +102,7 @@ class EloquentRepository implements RepositoryInterface {
     {
         $query = $this->prepareSearch($keyword, $type, $includeDraft, $me);
 
-        return $query->paginate(1);
+        return $query->paginate();
     }
 
     public function countSearch($keyword, $type = null, $includeDraft = false, $me=false)
