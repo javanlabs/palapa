@@ -586,8 +586,8 @@ class SopSeeder extends Seeder {
                 ['id' => 3, 'case_type_id' => 201, 'name' => 'Tahap 2', 'duration' => 20, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
                 ['id' => 4, 'case_type_id' => 201, 'name' => 'Penuntutan', 'duration' => 0, 'ordinal' => 4, 'icon' => '<i class="fa fa-legal"></i>'],
                 ['id' => 5, 'case_type_id' => 201, 'name' => 'Tahap Persidangan', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 6, 'case_type_id' => 201, 'name' => 'Upaya Hukum', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 7, 'case_type_id' => 201, 'name' => 'Eksekusi', 'duration' => 0, 'ordinal' => 5, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 6, 'case_type_id' => 201, 'name' => 'Upaya Hukum', 'duration' => 0, 'ordinal' => 6, 'icon' => '<i class="fa fa-institution"></i>'],
+                ['id' => 7, 'case_type_id' => 201, 'name' => 'Eksekusi', 'duration' => 0, 'ordinal' => 7, 'icon' => '<i class="fa fa-institution"></i>'],
 
                 ['id' => 19, 'case_type_id' => 202, 'name' => 'Tahap Pra Penyelidikan', 'duration' => 11, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
                 ['id' => 20, 'case_type_id' => 202, 'name' => 'Tahap Penyelidikan', 'duration' => 72, 'ordinal' => 2, 'icon' => '<i class="fa fa-file-o"></i>'],
