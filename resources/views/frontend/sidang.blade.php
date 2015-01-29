@@ -89,7 +89,7 @@
             $('.date-selection').datepicker({clearBtn: true});
             $('.date-selection').datepicker('setDate', '{{ Input::get('date')  }}');
             $('.date-selection').on('changeDate', function(e){
-                location.href = '{{ route('frontend.sidang') }}?date=' + e.format();
+                location.href = '{{ route('frontend.sidang') }}?date=' + e.format() + '&type={{ $type  }}';
             });
 
         });

@@ -7,7 +7,10 @@
 @section('content-dashboard')
 
     <div class="panel panel-default">
-        <div class="panel-heading">Statistik Pidum Berdasar Kategori Tahun {{ $year }}</div>
+        <div class="panel-heading">
+            Statistik Pidum Berdasar Kategori Tahun
+            @include('frontend.statistic.year')
+        </div>
 
         <div class="pad">
             <div id="chart" style="width: 100%; height: 300px" class="mb"></div>
