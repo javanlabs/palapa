@@ -6541,29 +6541,27 @@ button.close {
   line-height: 16px;
   margin: 0;
 }
-.navbar-header .time {
-  font-size: 48px;
+.navbar-header .clock .block-date {
+  display: inline-block;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.navbar-header .clock .block-date .day {
+  font-size: 20px;
+  display: block;
+}
+.navbar-header .clock .block-date .date {
+  color: #777777;
+}
+.navbar-header .clock .time {
+  font-size: 3em;
+  line-height: 1em;
   font-weight: 300;
   display: inline-block;
   margin-left: 30px;
   width: 200px;
   text-align: left;
-}
-.navbar-header .block-date {
-  display: inline-block;
-  text-align: right;
-  text-transform: uppercase;
-  font-weight: 300;
-  padding-top: 10px;
-}
-.navbar-header .block-date .day {
-  font-size: 20px;
-  line-height: 24px;
-  display: block;
-}
-.navbar-header .block-date .date {
-  font-size: 18px;
-  color: #777777;
 }
 .navbar-header .home {
   float: left;
@@ -7118,10 +7116,32 @@ body.home-simple footer * {
   color: #fff;
 }
 body.frontend {
-  font-size: 2.5em;
+  font-size: 1.5em;
 }
 body.frontend h2.page-title {
   font-size: 2.5em;
+  margin-bottom: 1em;
+}
+body.frontend .trail {
+  line-height: 2.25em;
+}
+body.frontend .content {
+  padding: 0 50px;
+}
+@media (min-width: 1200px) {
+  body.frontend {
+    font-size: 2.5em;
+  }
+  body.frontend h2.page-title {
+    font-size: 3em;
+    margin-bottom: 1em;
+  }
+  body.frontend .trail {
+    line-height: 2.25em;
+  }
+  body.frontend .content {
+    padding: 0 50px;
+  }
 }
 .nav-tabs .badge {
   background-color: #bbbbbb;

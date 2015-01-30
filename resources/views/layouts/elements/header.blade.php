@@ -10,7 +10,7 @@
     <div class="container-fluid">
         <div class="col-md-5">
             <div class="clock hidden animated fadeInDownBig">
-                <div class="block-date"><span class="day" id="clock-day"></span><span class="date" id="clock-date"></span></div>
+                <div class="block-date hidden-md hidden-sm hidden-xs"><span class="day" id="clock-day"></span><span class="date" id="clock-date"></span></div>
                 <div class="time" id="clock-time"></div>
             </div>
         </div>

@@ -43,8 +43,29 @@ body.home-simple {
 }
 
 body.frontend {
-  font-size: 2.5em;
+  font-size: 1.5em;
   h2.page-title {
     font-size: 2.5em;
+    margin-bottom: 1em;
+  }
+  .trail {
+    line-height: 2.25em;
+  }
+  .content {
+    padding: 0 50px;
+  }
+
+  @media (min-width: @screen-lg-min) {
+    font-size: 2.5em;
+    h2.page-title {
+      font-size: 3em;
+      margin-bottom: 1em;
+    }
+    .trail {
+      line-height: 2.25em;
+    }
+    .content {
+      padding: 0 50px;
+    }
   }
 }

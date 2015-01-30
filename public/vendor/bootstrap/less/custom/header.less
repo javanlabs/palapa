@@ -28,31 +28,32 @@
     margin: 0;
   }
 
-  .time {
-    font-size: 48px;
-    font-weight: 300;
-    display: inline-block;
-    margin-left: 30px;
-    width: 200px;
-    text-align: left;
-  }
-  .block-date {
-    display: inline-block;
-    text-align: right;
-    text-transform: uppercase;
-    font-weight: 300;
-    padding-top: 10px;
+  .clock {
+    .block-date {
+      display: inline-block;
+      text-align: right;
+      text-transform: uppercase;
+      font-weight: 300;
 
-    .day{
-      font-size: 20px;
-      line-height: 24px;
-      display: block;
+      .day{
+        font-size: 20px;
+        display: block;
+      }
+      .date {
+        color: @gray-light;
+      }
     }
-    .date {
-      font-size: 18px;
-      color: @gray-light;
+    .time {
+      font-size: 3em;
+      line-height: 1em;
+      font-weight: 300;
+      display: inline-block;
+      margin-left: 30px;
+      width: 200px;
+      text-align: left;
     }
   }
+
   .home {
     float: left;
     margin-right: 10px;

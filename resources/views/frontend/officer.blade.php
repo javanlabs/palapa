@@ -25,42 +25,42 @@
             </div>
         </div>
         <div class="col-md-9" style="padding-top: 40px">
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="subtitle">Daftar Jaksa di Kejaksaan Negeri Jember</div>
-        </div>
-    <table class="table">
-    <tbody>
-    @foreach($officers as $key=>$jaksa)
-    <tr>
-        <td style="padding-left:50px;">
-            <h4>{{ $jaksa->name }}</h4>
-        </td>
-        <td>
-            <dl class="dl-horizontal">
-                <dt>Pangkat / NIP</dt>
-                <dd>{{ $jaksa->pangkat_name }} / {{ $jaksa->nip }}</dd>
-                <dt>Jabatan</dt>
-                <dd>{{ $jaksa->jabatan_name }}</dd>
-            </dl>
-        </td>
-        <td>
-            <a class="btn btn-sm btn-default btn-case-count" href="{{route('backend.cases.byJaksa', [$jaksa->id])}}">
-                @if($jaksa['active_cases_count'] > 0)
-                    <span class="badge">{{ $jaksa['active_cases_count'] }}</span>
-                @else
-                    <span class="">{{ $jaksa['active_cases_count'] }}</span>
-                @endif
-                Perkara Aktif
-            </a>
-        </td>
-    </tr>
-    @endforeach
-    </tbody>
-    </table>
-
-    </div>
+            <div class="content">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="subtitle">Daftar Jaksa di Kejaksaan Negeri Jember</div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        @foreach($officers as $key=>$jaksa)
+                            <tr>
+                                <td>
+                                    <h4>{{ $jaksa->name }}</h4>
+                                </td>
+                                <td>
+                                    <dl class="dl-horizontal">
+                                        <dt>Pangkat / NIP</dt>
+                                        <dd>{{ $jaksa->pangkat_name }} / {{ $jaksa->nip }}</dd>
+                                        <dt>Jabatan</dt>
+                                        <dd>{{ $jaksa->jabatan_name }}</dd>
+                                    </dl>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-default btn-case-count" href="{{route('backend.cases.byJaksa', [$jaksa->id])}}">
+                                        @if($jaksa['active_cases_count'] > 0)
+                                            <span class="badge">{{ $jaksa['active_cases_count'] }}</span>
+                                        @else
+                                            <span class="">{{ $jaksa['active_cases_count'] }}</span>
+                                        @endif
+                                        Perkara Aktif
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
