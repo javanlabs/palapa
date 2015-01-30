@@ -5,7 +5,7 @@
     <span class="trail"><i class="fa fa-angle-right"></i></span>
     <span class="trail"><a href="{{ route('backend.cases.index') }}">Manajemen Kasus</a></span>
     <span class="trail"><i class="fa fa-angle-right"></i></span>
-    <span class="trail ell  ">{{ $case['spdp_number'] }}</span>
+    <span class="trail">{{ $case['spdp_number'] }}</span>
 @stop
 
 @section('content-admin')
