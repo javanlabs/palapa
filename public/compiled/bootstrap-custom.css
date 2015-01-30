@@ -7116,3 +7116,7 @@ body.frontend {
 body.frontend h2.page-title {
   font-size: 2.5em;
 }
+.nav-tabs .badge {
+  background-color: #bbbbbb;
+  border-radius: 50%;
+}
