@@ -43,6 +43,11 @@ class Cases extends Model {
         return $this->hasMany('App\Cases\Court\Court', 'case_id');
     }
 
+    public function evidences()
+    {
+        return $this->hasMany('App\Cases\Evidence\Evidence', 'case_id');
+    }
+
     public function suspectNames(){
         $suspects = array();
         foreach($this->suspects as $row){

@@ -130,8 +130,9 @@ class CaseController extends BackendController {
         $templates = Template::byCaseType($case->type_id)->get();
         $documentsIds = $case->documents->lists('template_id', 'id');
         $sop = $this->sopRepo;
+        $evidences = $case->evidences;
 
-        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'templates', 'documentsIds', 'sop'));
+        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'templates', 'documentsIds', 'sop', 'evidences'));
     }
 
     public function destroy($id)

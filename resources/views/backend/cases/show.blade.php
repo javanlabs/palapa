@@ -82,7 +82,7 @@
                 <i class="icon ion-ios-body"></i> Tersangka
                 <a href="/backend/suspect/create?case_id={{$case->id}}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
             </div>
-            <table class="table table-condensed items">
+            <table class="table table-list items">
                 @forelse($case->suspects as $item)
                     <tr>
                         <td>
@@ -104,13 +104,36 @@
                 <i class="icon ion-eye"></i> Saksi
                 <a href="/backend/witness/create?case_id={{$case->id}}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
             </div>
-            <table class="table table-condensed items">
+            <table class="table table-list items">
                 @forelse($case->witness as $item)
                     <tr>
                         <td>
                             <a class="item" href="{{ route('backend.witness.show', [$item['id']]) }}">
                                 <h5 class="name ell">{{ $item['sex_icon'] }} {{ $item['name'] }}</h5>
                             </a>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td><small class="empty">Belum Ada</small></td>
+                    </tr>
+                @endforelse
+            </table>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="icon ion-briefcase"></i> Barang Bukti
+                <a href="{{ route('backend.evidences.create', ['case_id' => $case['id']]) }}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
+            </div>
+            <table class="table table-list items">
+                @forelse($evidences as $item)
+                    <tr>
+                        <td>
+                            {{ $item['name'] }}
+                        </td>
+                        <td width="150px" class="text-center">
+                            {{ Form::delete(route('backend.evidences.destroy', [$item['id']]), '<i class="ion-backspace-outline"></i> Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-link btn-delete']) }}
                         </td>
                     </tr>
                 @empty
