@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-	use Authenticatable, CanResetPassword, RoleTrait;
+	use Authenticatable, CanResetPassword, RoleTrait, SoftDeletes;
 
 	/**
 	 * The database table used by the model.
@@ -63,7 +64,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         $isCaseCreator = $case->author_id == $this->id;
         $isCaseStaff = $case->staff_id == ($this->officer?$this->officer->id:'-');
         $isCaseJaksa = $case->jaksa_id == ($this->officer?$this->officer->id:'-');
-        
+
         return $this->hasGroup('root') || $isCaseCreator || $isCaseStaff || $isCaseJaksa;
     }
 }
