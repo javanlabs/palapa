@@ -11,8 +11,8 @@
     <div style="width: 80%; margin:100px auto">
         <div class="container-fluid">
             <div class="col-md-4"></div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <div class="col-md-3"></div>
+            <div class="col-md-5">
                 <div class="list-group list-menu">
                     <a class="list-group-item item-1 hvr-sweep-to-right" href="{{ route('frontend.post', ['category' => 'pembinaan']) }}">Pembinaan <i class="ion-ios-arrow-forward icon"></i></a>
                     <a class="list-group-item item-2 hvr-sweep-to-right" href="{{ route('frontend.post', ['category' => 'intelijen']) }}">Intelijen <i class="ion-ios-arrow-forward icon"></i></a>
