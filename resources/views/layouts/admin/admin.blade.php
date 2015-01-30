@@ -23,7 +23,8 @@
                     <a class="list-group-item" href="{{ route('backend.officers.index') }}"><i class="fa fa-users"></i> Manajemen SDM</a>
                     <a class="list-group-item" href="/skrip/posts"><i class="fa fa-info"></i> Halaman Informasi</a>
                     <a class="list-group-item" href="{{ route('backend.templates.index') }}"><i class="fa fa-file-text-o"></i> Template Surat</a>
-                    <a class="list-group-item" href="{{ route('moderator.users.index') }}"><i class="ion-person-stalker fa"></i> Manajemen User</a>
+                    <a class="list-group-item" href="{{ route('moderator.users.index') }}"><i class="ion-person fa"></i> Manajemen User</a>
+                    <a class="list-group-item" href="{{ route('moderator.permissions.index') }}"><i class="ion-key fa"></i> ACL</a>
                     <a class="list-group-item" href="{{ route('backend.files.index') }}"><i class="fa fa-folder-o"></i> File Manager</a>
                     <a class="list-group-item" href="{{ route('setting.index') }}"><i class="fa fa-gear"></i> Konfigurasi</a>
                     @endif
