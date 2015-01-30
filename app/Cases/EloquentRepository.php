@@ -326,12 +326,18 @@ class EloquentRepository implements RepositoryInterface {
 
     public function countByOwner($owner)
     {
-        $query = $this->case->where(function($query2) use ($owner) {
+        $officerId = -999;
+        if($owner->officer)
+        {
+            $officerId = $owner->officer->id;
+        }
+
+        $query = $this->case->where(function($query2) use ($owner, $officerId) {
             return $query2->orWhere('author_id', '=', $owner->id)
-                          ->orWhere('staff_id', '=', $owner->id)
-                          ->orWhere('jaksa_id', '=', $owner->id)
-                          ->orWhere(function($query3) use ($owner) {
-                              return $query3->where('penyidik_id', '=', $owner->id)
+                          ->orWhere('staff_id', '=', $officerId)
+                          ->orWhere('jaksa_id', '=', $officerId)
+                          ->orWhere(function($query3) use ($owner, $officerId) {
+                              return $query3->where('penyidik_id', '=', $officerId)
                                             ->where('penyidik_type', '=', 'internal');
                           });
         });
