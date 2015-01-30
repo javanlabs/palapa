@@ -1,11 +1,15 @@
 @extends('layouts.full.full')
 
+@section('body-class')
+    frontend
+@stop
+
 @section('breadcrumb')
     <span class="trail">Jaksa</span>
 @stop
 
 @section('content')
-<div class="container-fluid" id="page-post-view">
+<div class="container-fluid">
         <div class="col-md-3">
             <div class="list-group list-group-menu">
                 @foreach($allPostInCategory as $item)
@@ -20,7 +24,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9" style="padding-top: 40px">
 
     <div class="panel panel-default">
         <div class="panel-heading">
