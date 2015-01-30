@@ -5,13 +5,11 @@ use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Menu\RepositoryInterface as MenuRepository;
 use App\Sop\RepositoryInterface;
 use Carbon\Carbon;
-use Eendonesia\Skrip\Post\EloquentRepository;
 use Eendonesia\Skrip\Post\RepositoryInterface as PostRepository;
 use Illuminate\Http\Request;
 use App\Cases\RepositoryInterface as CasesRepository;
 use App\Officer\RepositoryInterface as OfficerRepository;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Input;
 
 class FrontendController extends Controller {
 
@@ -154,31 +152,4 @@ class FrontendController extends Controller {
         return view('frontend.slide.sidang', compact('courts'));
     }
 
-    public function getSlide4(CasesRepository $caseRepository)
-    {
-        $images = $videos = [];
-        foreach(File::allFiles(base_path('public/upload/slide/images')) as $file)
-        {
-            $images[] = asset('upload/slide/images/' . $file->getFilename());
-        }
-        natsort($images);
-
-        $cases = $caseRepository->upcomingSidang();
-
-        return view('frontend.slide4', compact('images', 'cases'));
-    }
-
-    public function getSlide5(CasesRepository $caseRepository)
-    {
-        $images = $videos = [];
-        foreach(File::allFiles(base_path('public/upload/slide/images')) as $file)
-        {
-            $images[] = asset('upload/slide/images/' . $file->getFilename());
-        }
-        natsort($images);
-
-        $cases = $caseRepository->upcomingSidang();
-
-        return view('frontend.slide5', compact('images', 'cases'));
-    }
 }
