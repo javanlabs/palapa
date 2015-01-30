@@ -32,7 +32,7 @@ class UsersController extends Controller {
     {
         $this->repo->addUser($form->all());
 
-        return redirect()->route('moderator.users.index');
+        return redirect()->route('moderator.users.index')->with('flash.success', 'User berhasil ditambah');
     }
 
     public function edit($id)
@@ -47,13 +47,13 @@ class UsersController extends Controller {
     public function update(User $form, $id)
     {
         $this->repo->updateUser($id, $form->only('email', 'name', 'groups'));
-        return redirect()->route('moderator.users.index');
+        return redirect()->route('moderator.users.index')->with('flash.success', 'Data user berhasil diperbarui');
     }
 
     public function destroy($id)
     {
         $this->repo->deleteUser($id);
 
-        return redirect()->route('moderator.users.index');
+        return redirect()->route('moderator.users.index')->with('flash.success', 'User telah berhasil dihapus');
     }
 }

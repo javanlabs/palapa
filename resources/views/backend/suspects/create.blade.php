@@ -10,7 +10,7 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>Tambah Tersangka</span></h4>
+            <h4>Tambah Tersangka</h4>
             <input type='hidden' name='case_id' value='{{$case_id}}'/>
         </div>
         <div class="panel-body">
