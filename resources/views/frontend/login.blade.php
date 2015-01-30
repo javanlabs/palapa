@@ -15,7 +15,7 @@ login
             <div class="panel panel-default pad-lg">
                 {{ BootForm::open(['action' => route('gapura.login')]) }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                {{ BootForm::text('Email', 'email') }}
+                {{ BootForm::text('Username', 'email') }}
                 {{ BootForm::password('Password', 'password') }}
                 {{ BootForm::submit('Login', 'btn-primary btn-block') }}
                 {{--<a href="{{ route('gapura.register') }}">Register</a>--}}
