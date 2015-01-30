@@ -41,12 +41,12 @@ class Officer extends Model {
 
     public function scopeStaff($query)
     {
-        return $query->whereRole(self::ROLE_STAFF);
+        return $query->whereRole(self::ROLE_STAFF)->orderBy('name');
     }
 
     public function scopeJaksa($query)
     {
-        return $query->whereRole(self::ROLE_JAKSA);
+        return $query->whereRole(self::ROLE_JAKSA)->orderBy('name');
     }
 
     public function getPangkatNameAttribute()
