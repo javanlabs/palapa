@@ -18,7 +18,7 @@
 </head>
 
 <body id="screensaver" class="@yield('body-class')">
-<a href="{{ route('home') }}" id="btn-stop">Exit Screensaver</a>
+<a href="{{ route('home') }}" id="btn-stop">Menu Utama</a>
 
 @yield('content')
 
