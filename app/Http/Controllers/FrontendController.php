@@ -9,6 +9,8 @@ use Eendonesia\Skrip\Post\RepositoryInterface as PostRepository;
 use Illuminate\Http\Request;
 use App\Cases\RepositoryInterface as CasesRepository;
 use App\Officer\RepositoryInterface as OfficerRepository;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 
 class FrontendController extends Controller {

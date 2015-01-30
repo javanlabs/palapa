@@ -8,10 +8,7 @@
     <meta name="description" content="{{ Config::get('meta.title') }}" />
     <title>{{ Config::get('meta.title') }}</title>
 
-    <link rel="icon"
-      type="image/png"
-      href="{{asset('favicon.ico')}}">
-    {{--<link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">--}}
+    <link rel="icon" type="image/png" href="{{asset('favicon.ico')}}">
     <link rel="stylesheet" href="{{ asset('compiled/bootstrap-custom.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/ionicons/css/ionicons.min.css') }}">
@@ -32,7 +29,6 @@
 </head>
 
 <body class="@yield('body-class')">
-    <?php setlocale(LC_TIME,'id_ID.utf8');?>
     @include('layouts.elements.alert')
 
     @yield('body')
@@ -60,7 +56,7 @@
                         window.location.href = data.redirect;
                     });
                 },
-                idle: 1000  * 60 * 15 // 15 minute
+                idle: 1000  * 60 * 3 // 3 minute
             })
             @endif
 
