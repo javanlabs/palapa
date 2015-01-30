@@ -38,6 +38,8 @@ $router->get('statistic/byStatus', ['as' => 'statistic.byStatus', 'uses' => 'Sta
 $router->get('statistic/byJaksa', ['as' => 'statistic.byJaksa', 'uses' => 'StatisticController@byJaksa']);
 $router->get('statistic/byCategory', ['as' => 'statistic.byCategory', 'uses' => 'StatisticController@byCategory']);
 
+$router->get('cases/byJaksa/{id}', ['as'=>'backend.cases.byJaksa', 'uses' => 'Backend\CaseController@getByJaksa']);
+
 //BACKEND
 $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' => 'auth'], function($router){
 
@@ -51,7 +53,6 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
     $router->get('cases/{caseId}/check/{checklistId}', ['as' => 'backend.cases.checklist', 'uses' => 'CaseController@getChecklist']);
     $router->post('cases/{caseId}/check/{checklistId}', ['as' => 'backend.cases.checklist', 'uses' => 'CaseController@postChecklist']);
     $router->post('cases/{caseId}/uncheck/{checklistId}', ['as' => 'backend.cases.unchecklist', 'uses' => 'CaseController@postUnchecklist']);
-    $router->get('cases/byJaksa/{id}', ['as'=>'backend.cases.byJaksa', 'uses' => 'CaseController@getByJaksa']);
 
     $router->post('cases/{caseId}/activities', ['as' => 'backend.cases.activity', 'uses' => 'CaseController@postActivity']);
 
