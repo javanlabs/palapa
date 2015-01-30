@@ -13,12 +13,15 @@
 
 // home screen
 $router->get('/', ['as' => 'home', 'uses' => 'FrontendController@getIndex']);
-$router->get('slide', ['as' => 'slide', 'uses' => 'FrontendController@getSlide']);
-$router->get('slide/image', ['as' => 'slide.image', 'uses' => 'FrontendController@getSlideImage']);
-$router->get('slide/video', ['as' => 'slide.video', 'uses' => 'FrontendController@getSlideVideo']);
-$router->get('slide/sidang', ['as' => 'slide.sidang', 'uses' => 'FrontendController@getSlideSidang']);
-$router->get('slide/scroll', ['as' => 'slide.scroll', 'uses' => 'FrontendController@getSlideScroll']);
-$router->get('slide5', ['as' => 'slide5', 'uses' => 'FrontendController@getSlide5']);
+
+// slider
+$router->group(['prefix' => 'slide', 'namespace' => 'Slide'], function($router){
+    $router->get('/', ['as' => 'slide', 'uses' => 'SlideController@index']);
+    $router->get('image', ['as' => 'slide.image', 'uses' => 'SlideController@image']);
+    $router->get('video', ['as' => 'slide.video', 'uses' => 'SlideController@video']);
+    $router->get('sidang', ['as' => 'slide.sidang', 'uses' => 'SlideController@sidang']);
+    $router->get('scroll', ['as' => 'slide.scroll', 'uses' => 'SlideController@scroll']);
+});
 
 $router->get('frontend/post-by-case-type/{id?}', ['as'=>'frontend.post.byCaseType', 'uses'=>'FrontendController@getPost']);
 $router->get('frontend/case/{id}', ['as' => 'cases.view', 'uses' => 'FrontendController@getCase']);
