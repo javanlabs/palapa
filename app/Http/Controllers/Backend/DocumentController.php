@@ -76,7 +76,7 @@ class DocumentController extends Controller {
             $data['note'] = 'Dokumen '.$template->short_title;
             $this->sop->addChecklist($case, $checklist, $data);
         }
-		return redirect()->route('backend.document.edit', [$document->id]);
+		return redirect()->route('backend.document.edit', [$document->id])->with('flash.success', 'Dokumen berhasil dibuat');
 	}
 
 	public function edit($id)
@@ -95,8 +95,8 @@ class DocumentController extends Controller {
 		$template = $document->template;
 		$case = $document->cases;
 		$checklist = $template->checklist;
-		$this->sop->updateChecklist($case, $checklist,$template);
-		return redirect()->route('backend.cases.show', $document->cases->id);
+		$this->sop->updateChecklist($case, $checklist, $template);
+		return redirect()->route('backend.cases.show', $document->cases->id)->with('flash.success', 'Dokumen berhasil disimpan');
 	}
 
 	public function destroy($id)

@@ -1,60 +1,39 @@
-@extends('layouts.single')
+@extends('layouts.admin.empty')
 
 @section('style-head')
-    {{--@parent--}}
+    @parent
 
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/document.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <style>
-        body {background-color: #f8f8f8}
-        .paper {
-        background-color: #fff;
-        border: 1px solid #eee;
-        }
-    </style>
-
-    <style>
-        #previewContainer{
-            display: none;
-        }
-    </style>
-
-    <style media="print">
-        #previewContainer {
-            display: block;
-            margin:0;
-            padding: 0;
-        }
-
-    </style>
 @stop
 
-@section('content')
+@section('trails')
+    <div class="trail"><a href="{{ route('backend.cases.show', [$case['id']]) }}"><i class="ion-ios-arrow-back"></i> Kembali</a></div>
+@stop
 
+@section('content-admin')
 
-<div class="container-fluid">
-    <div class="col-md-10">
-        <div class="editor-f4">
-            <h2 class="hidden-print">{{ $document->title }}</h2>
-            {{ BootForm::open()->put()->action(route('backend.document.update', [$document->id]))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($document->content) }}
-            {{ BootForm::close() }}
+    <div class="hidden-print text-center pad">
 
-            <div id="previewContainer" class="preview-container"></div>
-
+        <a class="btn btn-primary btn-save" href="#">Simpan</a>
+        <div class="btn-group">
+            <a class="btn btn-default " href="#" id="btnPreview" data-toggle="modal" data-target=".modal-preview"><i class="ion-eye"></i> Preview</a>
+            <a class="btn btn-default btn-print" href="#"><i class="ion-printer"></i> Print</a>
         </div>
     </div>
-    <div class="col-md-2 hidden-print" style="padding-top: 100px">
-        <a class="btn btn-primary btn-block btn-save" href="#">Simpan</a>
-        <hr />
-        <a class="btn btn-default btn-block" href="#" id="btnPreview" data-toggle="modal" data-target=".modal-preview"><i class="fa fa-eye"></i> Preview</a>
-        <a class="btn btn-success btn-block btn-print" href="#"><i class="fa fa-print"></i> Print</a>
-        <hr />
-        <a class="btn btn-default btn-block" href="{{ $case['permalink_edit'] }}">Kembali</a>
-    </div>
+
+
+    <div class="editor-f4">
+    <h2 class="hidden-print">{{ $document->title }}</h2>
+    {{ BootForm::open()->put()->action(route('backend.document.update', [$document->id]))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+        {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($document->content) }}
+    {{ BootForm::close() }}
+
+    <div id="previewContainer" class="preview-container visible-print-block"></div>
+
 </div>
 
 <div class="modal fade modal-preview hidden-print" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -73,6 +52,7 @@
 @stop
 
 @section('script-end')
+    @parent
     <script src="{{ asset('vendor/redactor/redactor.min.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>
@@ -93,6 +73,7 @@
             $('.btn-print').on('click', function (e) {
                 e.preventDefault();
                 $('.preview-container').html($('#content').redactor('code.get'))
+                console.log();
                 window.print();
             })
 

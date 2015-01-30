@@ -86,6 +86,12 @@ class EloquentRepository implements RepositoryInterface {
     }
 
     public function updateChecklist($case, $checklist, $template){
+
+        if(!$checklist || !$case)
+        {
+            return false;
+        }
+
         $row = \DB::table('cases_checklist')->where('case_id', $case->id)->where('checklist_id', $checklist->id)->first();
 
         if($row){
@@ -106,7 +112,7 @@ class EloquentRepository implements RepositoryInterface {
         {
             return false;
         }
-        
+
         $case->checklist()->detach($checklist);
 
         $case->removeActivity($checklist);

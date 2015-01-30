@@ -26,7 +26,7 @@
     }
     *{
         margin: 0;
-        padding: 0;   
+        padding: 0;
         font-size: 18px;
         line-height: 1.3em;
     }
@@ -34,10 +34,15 @@
         width:168mm;
         margin: 0 auto;
     }
+    .preview-container {
+        display: block;
+        margin:0;
+        padding: 0;
+    }
     div{
         border: 0 none !important;
     }
-    footer {page-break-after: always;}    
+    footer {page-break-after: always;}
 }
 
 .nama-nip {
