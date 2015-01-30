@@ -1,7 +1,19 @@
 @if(Auth::check())
     <div class="navbar-user">
         <div class="container-fluid">
-            Login sebagai <strong>{{ Auth::user()->name }}</strong> <a href="{{ route('gapura.logout') }}" class="btn btn-xs btn-warning">Logout</a>
+            Login sebagai
+            <!-- Single button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <strong>{{ Auth::user()->name }}</strong> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    {{--<li><a href="#"><i class="ion-clock"></i> Log Aktivitas</a></li>--}}
+                    <li><a href="{{ route('me.profile') }}"><i class="ion-person"></i> Ganti Password</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{{ route('gapura.logout') }}"><i class="fa fa-circle-o-notch"></i> Logout</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 @endif

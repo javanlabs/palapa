@@ -64,10 +64,16 @@ class EloquentRepository implements RepositoryInterface{
 
         if($saved)
         {
-            $user->groups()->sync(array_get($input, 'groups'));
+            $user->groups()->sync(array_get($input, 'groups', []));
         }
 
         return $user;
+    }
+
+    public function updatePassword($id, $plainPassword)
+    {
+        $user = $this->user->findOrFail($id);
+        return $user->update(['password' => Hash::make($plainPassword)]);
     }
 
     public function deleteUser($id)

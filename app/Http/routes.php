@@ -81,6 +81,12 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
     $router->get('user/reset-password', ['as' => 'backend.user.reset_password', 'uses' => 'UserController@resetPassword']);
 
     $router->resource('files', 'FilesController');
+
+    // User Profile
+    $router->group(['prefix' => 'me'], function($router){
+        $router->get('/', ['as' => 'me.profile', 'uses' => 'MeController@index']);
+        $router->post('update-password', ['as' => 'me.update_password', 'uses' => 'MeController@updatePassword']);
+    });
 });
 
 // GLOBAL ROUTE
