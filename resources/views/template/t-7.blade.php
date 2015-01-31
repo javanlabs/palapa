@@ -16,27 +16,26 @@
 </table>
 
 <p style="text-align: center;">
-	<strong>SURAT PERINTAH PENAHANAN/</strong><b><br>
+	<strong>SURAT PERINTAH PENAHANAN/</strong><br>
 	<strong>PENGALIHAN JENIS PENAHANAN</strong><br>	
 	<strong><u data-redactor-tag="u">(TINGKAT PENUNTUTAN)</u><br>
-	</strong></b>
-	<strong>Nomor: Print - /0.5.12/Ep.1/ /2015</strong>
-</p>
-<p style="text-align: center;">
-	<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
+	</strong>
+	<strong>Nomor: Print - /0.5.12/Ep.1/ /2015</strong><br/>
+
+	<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 </p>
 <table>
 <tbody>
 <tr>
 	<td width="100px">
-		<p>
+		
 			Dasar
-		</p>
+		
 	</td>
 	<td width="20px">
-		<p>
+		
 			:
-		</p>
+		
 	</td>
 	<td>
 		<ol>			
@@ -51,14 +50,14 @@
 </tr>
 <tr>
 	<td>
-		<p>
+		
 			Pertimbangan
-		</p>
+		
 	</td>
 	<td>
-		<p>
+		
 			:
-		</p>
+		
 	</td>
 	<td>
 		<ol>
@@ -70,21 +69,21 @@
 			<li>Dari Penyidik, diperoleh bukti yang cukup, terdakwa diduga keras melakukan tinda pidana yang dapat dikenakan penahanan dan dikhawatirkan akan melarikan diri, merusak atau menghilangkan barang bukti, dan atau mengulangi tindak pidana.
 			<li>Oleh karena itu dianggap perlu untuk mengeluarkan Surat Perintah.</li>
 		</ol>
-		<p style="margin-left: 150px">
+		<center>
 			<b>MEMERINTAHKAN:</b>
-		</p>
+		</center>
 	</td>
 </tr>
 <tr>
 	<td>
-		<p>
+		
 			Kepada
-		</p>
+		
 	</td>
 	<td width="20px">
-		<p>
+		
 			:
-		</p>
+		
 	</td>
 	<td>
 		<table>
@@ -268,19 +267,14 @@
 					
 			</td>
 		</tr>
-		<tr>
-			<td colspan='3'></td>
-		</tr>
 		@endforeach
-		<tr>
-			<td colspan='3'>				
+					
+		
+		</tbody>
+		</table>
 				<p>
 					Dengan Ketentuan Bahwa ia ditahan di <strong>RUTAN/RUMAH/KOTA</strong> JEMBER selama 20 hari terhitung mulai tanggal {{strftime("%e %B %Y")}} sampai dengan tanggal {{ Carbon\Carbon::now()->addDays(20)->formatLocalized("%e %B %Y")}}
 				</p>
-			</td>
-		</tr>
-		</tbody>
-		</table>
 			</li>
 			<li>Membaca Berita Acara Penahanan/Pengalihan Jenis Tahanan</li>			
 		</ol>
@@ -293,6 +287,7 @@
 <tr>
 	<td width="50%" style='vertical-align: bottom'>
 		Kepada : yang bersangkutan <u>untuk dilaksanakan</u>
+		<br/><br/><br/><br/><br/><br/><br/>
 		<p>
 			<u><strong>TEMBUSAN:</strong></u>
 		</p>
@@ -305,8 +300,7 @@
 			<li>Arsip.</li>
 		</ol>
 	</td>
-	<td>
-		<br/>
+	<td>		
 		<table>
 			<tr>
 				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
@@ -324,7 +318,7 @@
 			<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
-			<br/><br/>
+			<br/>
 		</p>
         <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p><p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
 	</td>

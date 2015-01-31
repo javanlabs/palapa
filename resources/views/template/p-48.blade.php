@@ -72,9 +72,9 @@
 </tr>
 <tr>
 	<td colspan="2">
-		<p>
+		<center>
 			<b>MEMERINTAHKAN:</b>
-		</p>
+		</center>
 	</td>
 </tr>
 <tr>

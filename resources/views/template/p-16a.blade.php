@@ -162,9 +162,9 @@
 			<li>Bahwa dengan diterimanya berkas perkara, tersangka dan barang bukti, dipandang perlu untuk menugaskan seorang/beberapa orang Jaksa Penuntut Umum untuk melakukan penuntutan/penyelesaian perkara tindak pidana tersebut sesuai dengan peraturan perundang-undangan dan ketentuan administrasi perkara tindak pidana.</li>
 			<li>Bahwa sebagai pelaksanaannya perlu dikeluarkan Surat perintah Kepala Kejaksaan Negeri Jember.</li>
 		</ol>
-		<p style="margin-left: 150px">
+		<center>
 			<b>MEMERINTAHKAN:</b>
-		</p>
+		</center>
 	</td>
 </tr>
 <tr>
