@@ -3,7 +3,7 @@
 @section('breadcrumb')
     @parent
     <span class="trail"><i class="fa fa-angle-right"></i></span>
-    <span class="trail"><a href="{{ route('backend.cases.index') }}">Manajemen Kasus</a></span>
+    <span class="trail"><a href="{{ route('backend.cases.index') }}">Manajemen Perkara</a></span>
     <span class="trail"><i class="fa fa-angle-right"></i></span>
     <span class="trail">{{ $case['spdp_number'] }}</span>
 @stop

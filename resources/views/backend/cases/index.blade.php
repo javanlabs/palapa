@@ -3,12 +3,12 @@
 @section('breadcrumb')
     @parent
     <span class="trail"><i class="fa fa-angle-right"></i></span>
-    <span class="trail">Manajamen Kasus</span>
+    <span class="trail">Manajemen Perkara</span>
 @stop
 
 @section('content-admin')
     <div id="page-case-index">
-        <h2 class="page-title">Manajemen Kasus</h2>
+        <h2 class="page-title">Manajemen Perkara</h2>
 
         @include('backend.cases.tab', ['owner' => $owner])
 
