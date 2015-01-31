@@ -5,6 +5,7 @@ use App\Sop\Checklist;
 use App\Sop\Phase;
 use App\Sop\RepositoryInterface as SopRepo;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,6 +37,7 @@ class EloquentRepository implements RepositoryInterface {
         $this->phase = $phase;
         $this->sop = $sop;
         $this->lookupRepo = $lookupRepo;
+        $this->config = App::make('config');
     }
 
     public function all($keyword = null)
@@ -102,7 +104,7 @@ class EloquentRepository implements RepositoryInterface {
     {
         $query = $this->prepareSearch($keyword, $type, $includeDraft, $me);
 
-        return $query->paginate();
+        return $query->paginate($this->config->get('pagination.per_page'));
     }
 
     public function countSearch($keyword, $type = null, $includeDraft = false, $me=false)

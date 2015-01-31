@@ -98,7 +98,7 @@
                         @endforeach
                     </table>
                     <div class="panel-footer">
-                        {{ $cases->render() }}
+                        {{ $cases->appends('type', $type)->appends('q', INput::get('q'))->render() }}
                     </div>
                 </div>
             @else
