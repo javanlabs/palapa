@@ -19,8 +19,8 @@
 
         <a class="btn btn-primary btn-save" href="#">Simpan</a>
         <div class="btn-group">
-            <a class="btn btn-default " href="#" id="btnPreview" data-toggle="modal" data-target=".modal-preview"><i class="ion-eye"></i> Preview</a>
             <a class="btn btn-default btn-print" href="#"><i class="ion-printer"></i> Print</a>
+            <a class="btn btn-default" href="{{ route('backend.cases.show', [$case['id']]) }}"><i class="ion-ios-arrow-back"></i> Kembali</a>
         </div>
     </div>
 

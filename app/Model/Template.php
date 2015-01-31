@@ -9,6 +9,16 @@ class Template extends Model {
 
     protected $fillable = ['title', 'content', 'case_type_id', 'checklist_id'];
 
+    public function getCaseAttribute(){
+        switch($this->case_type_id){
+            case 201:
+                return 'PIDUM';
+            case 202:
+                return 'PIDSUS';
+
+        }
+    }
+
     public function checklist()
     {
         return $this->belongsTo('App\Sop\Checklist', 'checklist_id');

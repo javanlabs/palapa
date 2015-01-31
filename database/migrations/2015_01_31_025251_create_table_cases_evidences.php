@@ -18,7 +18,7 @@ class CreateTableCasesEvidences extends Migration {
             $table->unsignedInteger('case_id');
             $table->text('name');
             $table->timestamps();
-            $table->index(['cases_id']);
+            $table->index(['case_id']);
         });
 	}
 

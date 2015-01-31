@@ -5,7 +5,7 @@
 @stop
 
 @section('content-admin')
-    {{ BootForm::open()->put()->action(route('backend.witness.update', [$suspect['id']])) }}
+    {{ BootForm::open()->put()->action(route('backend.witness.update', [$witness['id']])) }}
     <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
     <input type="hidden" name="case_id" value="{{ $caseId }}"/>
 
@@ -15,44 +15,44 @@
         </div>
         <div class="panel-body">
 
-            <div class="">{{ BootForm::text('Nama', 'name')->value($suspect['name']) }}</div>
+            <div class="">{{ BootForm::text('Nama', 'name')->value($witness['name']) }}</div>
 
-            <div class="row suspect-type individu">
+            <div class="row witness-type individu">
                 <div class="col-md-3">
-                    {{ BootForm::select('Tempat Lahir', 'pob_id')->options($cities)->select($suspect['pob_id']) }}
+                    {{ BootForm::select('Tempat Lahir', 'pob_id')->options($cities)->select($witness['pob_id']) }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::text('Tanggal Lahir', 'dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2)->value($suspect['dob'])->id('dob') }}
+                    {{ BootForm::text('Tanggal Lahir', 'dob')->addClass('datepicker')->data('provide', 'datepicker')->data('date-start-view', 2)->value($witness['dob'])->id('dob') }}
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Umur</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" name="age" value="{{ Input::old('age', $suspect['age']) }}" id="age">
+                            <input type="text" class="form-control" name="age" value="{{ Input::old('age', $witness['age']) }}" id="age">
                             <span class="input-group-addon">tahun</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::select('Jenis Kelamin', 'sex')->options($jenisKelamins)->select($suspect['sex']) }}
+                    {{ BootForm::select('Jenis Kelamin', 'sex')->options($jenisKelamins)->select($witness['sex']) }}
                 </div>
             </div>
 
-            {{ BootForm::textarea('Alamat', 'address')->rows(3)->value($suspect['address']) }}
-            {{ BootForm::select('Kota', 'city_id')->options($cities)->select($suspect['city_id']) }}
+            {{ BootForm::textarea('Alamat', 'address')->rows(3)->value($witness['address']) }}
+            {{ BootForm::select('Kota', 'city_id')->options($cities)->select($witness['city_id']) }}
 
-            <div class="row suspect-type individu">
+            <div class="row witness-type individu">
                 <div class="col-md-3">
-                    {{ BootForm::text('Kewarganegaraan', 'nationality')->value($suspect['nationality']) }}
+                    {{ BootForm::text('Kewarganegaraan', 'nationality')->value($witness['nationality']) }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::text('Pendidikan', 'education')->value($suspect['education']) }}
+                    {{ BootForm::text('Pendidikan', 'education')->value($witness['education']) }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::text('Pekerjaan', 'job')->value($suspect['job']) }}
+                    {{ BootForm::text('Pekerjaan', 'job')->value($witness['job']) }}
                 </div>
                 <div class="col-md-3">
-                    {{ BootForm::select('Agama', 'religion')->options($religions)->select($suspect['religion']) }}
+                    {{ BootForm::select('Agama', 'religion')->options($religions)->select($witness['religion']) }}
                 </div>
             </div>
 

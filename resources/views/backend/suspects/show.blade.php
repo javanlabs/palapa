@@ -10,13 +10,13 @@
             <div class="modal-body ">
                 <div class="pad-lg">
                     <dl class="dl-horizontal dl-wide">
-                        @if($suspect['is_individu'])
-                        <dt>Jenis Kelamin</dt>
-                        <dd>{{$suspect->sex}}</dd>
+                        @if($suspect['is_individu'])                        
                         <dt>Tempat Lahir </dt>
                         <dd>{{$suspect['pob_name']}}</dd>
                         <dt>Umur/Tanggal Lahir </dt>
-                        <dd>{{$suspect->age}} / {{ $suspect['dob'] }}</dd>
+                        <dd>{{$suspect->age}} tahun/ {{ $suspect['dob_for_human'] }}</dd>
+                        <dt>Jenis Kelamin</dt>
+                        <dd>{{$suspect->sex}}</dd>                        
                         <dt>Agama </dt>
                         <dd>{{ $suspect->religion}}</dd>
                         @else

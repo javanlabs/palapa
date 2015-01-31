@@ -430,30 +430,32 @@ class GroupSeeder extends Seeder {
 
     public function run()
     {
-        // $groups = [
-        //     ['name' => 'root', 'description' => 'Super user'],
-        //     ['name' => 'pidum', 'description' => 'Staff Pidum'],
-        //     ['name' => 'pidsus', 'description' => 'Staff Pidsus'],
-        //     ['name' => 'datun', 'description' => 'Staff Datun'],
-        // ];
-        // DB::table('acl_groups')->truncate();
-        // return DB::table('acl_groups')->insert($groups);
+        $groups = [
+            ['name' => 'root', 'description' => 'Super user'],
+            ['name' => 'pidum', 'description' => 'Staff Pidum'],
+            ['name' => 'pidsus', 'description' => 'Staff Pidsus'],
+            ['name' => 'datun', 'description' => 'Staff Datun'],
+            ['name' => 'jaksa', 'description' => 'staff'],
+            ['name' => 'staff', 'description' => 'jaksa'],
+        ];
+        DB::table('acl_groups')->truncate();
+        return DB::table('acl_groups')->insert($groups);
     }
 
 }
 
 class RoleSeeder extends Seeder {
 
-    // public function run()
-    // {
-    //     $roles = [
-    //         ['user_id'  => 1, 'group_id'  => 1],
-    //         ['user_id'  => 2, 'group_id'  => 2],
-    //         ['user_id'  => 3, 'group_id'  => 3],
-    //     ];
-    //     DB::table('acl_users_groups')->truncate();
-    //     return DB::table('acl_users_groups')->insert($roles);
-    // }
+    public function run()
+    {
+        $roles = [
+            ['user_id'  => 1, 'group_id'  => 1],
+            ['user_id'  => 2, 'group_id'  => 2],
+            ['user_id'  => 3, 'group_id'  => 3],
+        ];
+        DB::table('acl_users_groups')->truncate();
+        return DB::table('acl_users_groups')->insert($roles);
+    }
 
 }
 
@@ -538,6 +540,7 @@ class JenisKasusSeeder extends Seeder {
         $pangkat = [
             ['id' => 201, 'name'  => 'Pidana Umum', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             ['id' => 202, 'name'  => 'Pidana Khusus', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
+            ['id' => 203, 'name'  => 'Datun', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
 
             // ['id' => 211, 'name'  => 'Perdata - BANKUM', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
             // ['id' => 212, 'name'  => 'Perdata - THL', 'type'  => $type, 'created_at' => $now, 'updated_at' => $now],
@@ -602,21 +605,6 @@ class SopSeeder extends Seeder {
                 ['id' => 32, 'case_type_id' => 211, 'name' => 'Pelaksanaan', 'duration' => 448, 'ordinal' => 2, 'icon' => '<i class="fa fa-institution"></i>'],
                 ['id' => 33, 'case_type_id' => 211, 'name' => 'Pelaporan', 'duration' => 60, 'ordinal' => 3, 'icon' => '<i class="fa fa-institution"></i>'],
 
-
-                /* Datun THL*/
-                ['id' => 9, 'case_type_id' => 212, 'name' => 'Persiapan', 'duration' => 54, 'ordinal' => 1, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 10, 'case_type_id' => 212, 'name' => 'Pelaksanaan', 'duration' => 118, 'ordinal' => 2, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 11, 'case_type_id' => 212, 'name' => 'Pelaporan', 'duration' => 180, 'ordinal' => 3, 'icon' => '<i class="fa fa-institution"></i>'],
-
-                /* Datun Tinkum*/
-                ['id' => 12, 'case_type_id' => 213, 'name' => 'Persiapan', 'duration' => 44, 'ordinal' => 1, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 13, 'case_type_id' => 213, 'name' => 'Pelaksanaan', 'duration' => 35, 'ordinal' => 2, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 14, 'case_type_id' => 213, 'name' => 'Pelaporan', 'duration' => 120, 'ordinal' => 3, 'icon' => '<i class="fa fa-institution"></i>'],
-
-                /* Datun Yankum*/
-                ['id' => 15, 'case_type_id' => 214, 'name' => 'Persiapan', 'duration' => 35, 'ordinal' => 1, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 16, 'case_type_id' => 214, 'name' => 'Pelaksanaan', 'duration' => 51, 'ordinal' => 2, 'icon' => '<i class="fa fa-institution"></i>'],
-                ['id' => 17, 'case_type_id' => 214, 'name' => 'Pelaporan', 'duration' => 20, 'ordinal' => 3, 'icon' => '<i class="fa fa-institution"></i>'],
             ]
         );
 

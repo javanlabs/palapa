@@ -97,4 +97,28 @@ class EloquentRepository implements RepositoryInterface {
 
         return $list;
     }
+
+    public function categoryPidsus($empty = null)
+    {
+        $list = ['korupsi' => 'Korupsi'];
+
+        if($empty)
+        {
+            $list = ['' => $empty] + $list;
+        }
+
+        return $list;
+    }
+
+    public function categoryDatun($empty = null)
+    {
+        $list = ['bankum' => 'BANKUM', 'timkum'=>"TIMKUM", 'yankum'=>"YANKUM", 'thl'=>"THL"];
+
+        if($empty)
+        {
+            $list = ['' => $empty] + $list;
+        }
+
+        return $list;
+    }
 }

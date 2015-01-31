@@ -12,14 +12,6 @@ class TemplatesController extends Controller {
     /**
      * @type RepositoryInterface
      */
-    private $repo;
-
-    function __construct(RepositoryInterface $repo)
-    {
-        $this->repo = $repo;
-
-        return parent::__construct();
-    }
 
     public function index()
     {
@@ -44,14 +36,10 @@ class TemplatesController extends Controller {
 
     public function edit($id)
     {
-        $template = Template::find($id);
+        $template = Template::find($id);   
+        echo public_path();     
 
-        if(!is_file($template->file))
-        {
-            File::put($template->file, '');
-        }
-
-        $content = file_get_contents($template->file);
+        $content = '';//file_get_contents($template->file);
 
         return view('backend.templates.edit', compact('template','content'));
     }

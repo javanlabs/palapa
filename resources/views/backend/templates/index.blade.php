@@ -8,6 +8,7 @@
         <tbody>
         @foreach($templates as $template)
         <tr>
+            <td>{{ $template->case }}</td>
             <td><h5><span class="badge">{{ $template->short_title }}</span> {{ $template->title }}</h5></td>
             <td>
                 <a href="{{ route('backend.templates.edit', [$template->id]) }}" class="btn btn-default btn-sm">Edit</a>
