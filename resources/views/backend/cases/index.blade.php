@@ -66,7 +66,7 @@
                 @endforeach
             </table>
             <div class="panel-footer">
-                {{ $cases->render() }}
+                {{ $cases->appends('q', Input::get('q'))->render() }}
             </div>
         </div>
     </div>
