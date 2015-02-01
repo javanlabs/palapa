@@ -56,4 +56,12 @@ class UsersController extends Controller {
 
         return redirect()->route('moderator.users.index')->with('flash.success', 'User telah berhasil dihapus');
     }
+
+    public function resetPassword($id)
+    {
+        $user = $this->repo->findUserById($id);
+        $password = $this->repo->resetPassword($user);
+
+        return json_encode(['status' => 1, 'password' => $password]);
+    }
 }

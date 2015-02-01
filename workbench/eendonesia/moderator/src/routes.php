@@ -17,6 +17,8 @@ Route::group(['namespace' => 'Eendonesia\Moderator\Controllers', 'prefix' => Con
     Route::group(['middleware' => ['auth']], function()
     {
         Route::resource('users', 'UsersController', ['names' => prefixedNames('moderator.users')]);
+        Route::get('users/{id}/reset-password', ['as' => 'moderator.users.reset_password', 'uses' => 'UsersController@resetPassword']);
+
         Route::resource('groups', 'GroupsController', ['names' => prefixedNames('moderator.groups')]);
         Route::resource('resources', 'ResourcesController', ['names' => prefixedNames('moderator.resources')]);
 
