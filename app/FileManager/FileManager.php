@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
 
 class FileManager
@@ -67,11 +68,18 @@ class FileManager
             'is_image'  => in_array(File::extension($filePath), ['jpg', 'png', 'gif']),
             'is_video'  => in_array(File::extension($filePath), ['mp4']),
             'file_count'    => $fileCount,
-            'permalink' => route('backend.files.index', ['path' => $file])
+            'permalink' => route('backend.files.index', ['path' => $file]),
+            'id'        => Crypt::encrypt($filePath)
         ];
     }
 
-    protected function filePath($path)
+    public function delete($id)
+    {
+        $path = Crypt::decrypt($id);
+        return unlink($path);
+    }
+
+    public function filePath($path)
     {
         return $this->baseDirectory . DIRECTORY_SEPARATOR . $path;
     }

@@ -16,6 +16,15 @@
             @endforeach
         </div>
         <table class="table table-bordered">
+            <tr>
+                <td colspan="4">
+                    {{ Form::open(['route' => 'backend.files.store', 'files' => true]) }}
+                    {{ Form::hidden('path', $path) }}
+                    {{ Form::file('file', ['style' => 'display:inline']) }}
+                    {{ Form::submit('Upload', ['class' => 'btn btn-default']) }}
+                    {{ Form::close() }}
+                </td>
+            </tr>
             @foreach($items as $item)
                 <tr>
                     <td>
@@ -27,10 +36,11 @@
                             @else
                                 <i class="fa fa-file-o"></i>
                             @endif
+                                {{ $item['name'] }}
                         @else
                             <i class="fa fa-folder-o"></i>
+                            <a href="{{ $item['permalink'] }}">{{ $item['name'] }}</a>
                         @endif
-                        <a href="{{ $item['permalink'] }}">{{ $item['name'] }}</a>
                     </td>
                     <td>
                         @if($item['is_directory'])
@@ -42,7 +52,11 @@
                     <td>
                         {{ $item['size_for_human'] }}
                     </td>
-
+                    <td width="100px">
+                        @if($item['is_file'])
+                            {{ Form::delete(route('backend.files.destroy', [$item['id']]), '<i class="ion-backspace-outline"></i> Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-link btn-delete']) }}
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </table>
