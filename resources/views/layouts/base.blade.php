@@ -56,7 +56,7 @@
                         window.location.href = data.redirect;
                     });
                 },
-                idle: 1000  * 60 * 3 // 3 minute
+                idle: {{ Config::get('preference.auto_logout_time')  }}
             })
             @endif
 
