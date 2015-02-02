@@ -171,6 +171,29 @@
         </div>
 
         <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="icon ion-person-stalker"></i> Jaksa Anggota
+                <a href="{{ route('backend.cases.member.add', [$case['id']]) }}" class="btn btn-default btn-xs pull-right"><i class="ion-android-add"></i> Tambah</a>
+            </div>
+            <table class="table table-list items">
+                @forelse($case->members as $item)
+                    <tr>
+                        <td>
+                            <h5 class="name ell">{{ $item['name'] }}</h5>
+                        </td>
+                        <td width="100px">
+                            {{ Form::delete(route('backend.cases.member.remove', [$case['id'], $item['id']]), '<i class="ion-backspace-outline"></i> Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-link btn-delete']) }}
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td><small class="empty">Belum Ada</small></td>
+                    </tr>
+                @endforelse
+            </table>
+        </div>
+
+        <div class="panel panel-default">
             <div class="panel-heading"><i class="ion-document-text icon"></i> Dokumen</div>
             @if($case['is_allow_create_document'])
             <table class="table table-list">

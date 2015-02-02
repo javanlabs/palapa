@@ -190,4 +190,36 @@ class CaseController extends BackendController {
 
         return view('backend.cases.byJaksa', compact('cases', 'officer'));
     }
+
+    public function addMember($caseId)
+    {
+        $case = $this->repo->find($caseId);
+        $members = $case->members;
+
+        $jaksa = $this->officer->listJaksa();
+        foreach($case->members()->lists('id') as $id)
+        {
+            unset($jaksa[$id]);
+        }
+
+        return view('backend.cases.member.add', compact('case', 'jaksa', 'members'));
+    }
+
+    public function storeMember($caseId, Request $request)
+    {
+        $case = $this->repo->find($caseId);
+        $jaksa = $this->officer->find($request->get('officer_id'));
+
+        $case->members()->attach($jaksa);
+
+        return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil ditambah');
+    }
+
+    public function removeMember($caseId, $officerId)
+    {
+        $case = $this->repo->find($caseId);
+
+        $case->members()->detach($officerId);
+        return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil dihapus');
+    }
 }
