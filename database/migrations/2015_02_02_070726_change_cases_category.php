@@ -12,7 +12,7 @@ class ChangeCasesCategory extends Migration {
 	 */
     public function up()
     {
-        DB::statement("ALTER TABLE cases CHANGE COLUMN category position ENUM(
+        DB::statement("ALTER TABLE cases CHANGE COLUMN category category ENUM(
           'tpul',
           'orharga',
           'kamtibum',
@@ -35,7 +35,7 @@ class ChangeCasesCategory extends Migration {
      */
     public function down()
     {
-        DB::statement("ALTER TABLE cases CHANGE COLUMN category position ENUM('main','manual','pembinaan','intelijen')");
+        DB::statement("ALTER TABLE cases CHANGE COLUMN category category ENUM('main','manual','pembinaan','intelijen')");
     }
 
 }
