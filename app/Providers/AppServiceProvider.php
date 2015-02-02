@@ -12,6 +12,7 @@ class AppServiceProvider extends ServiceProvider {
 	public function boot()
 	{
         setlocale(LC_TIME, 'id_ID.utf8');
+        include __DIR__.'/../helpers.php';
 	}
 
 	/**

@@ -50,6 +50,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
 
     $router->resource('officers', 'OfficerController');
 
+    $router->get('cases/alert', ['as' => 'backend.cases.alert', 'uses' => 'CaseController@alert']);
     $router->resource('cases', 'CaseController');
     $router->get('cases/edit/{id}', 'CaseController@edit');
     $router->get('cases/view/{id}', ['as' => 'backend.cases.view', 'uses' => 'CaseController@view']);

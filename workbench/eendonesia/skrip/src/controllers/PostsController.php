@@ -40,7 +40,7 @@ class PostsController extends Controller {
 
     public function store(Form $form)
     {
-        $this->repo->create($form->only('title', 'content'), Auth::user());
+        $this->repo->create($form->only('title', 'content', 'position', 'status'), Auth::user());
 
         return redirect()->route('skrip.posts.index');
     }

@@ -114,6 +114,29 @@ class EloquentRepository implements RepositoryInterface {
         return $query->count();
     }
 
+    public function alert($user)
+    {
+        $data = $this->prepareAlert($user)->get();
+
+        $case = [];
+        foreach($data as $item)
+        {
+            $dayRemaining = $item['standard_duration'] - $item['current_duration'];
+            if($dayRemaining <= 5)
+            {
+                $item['day_remaining'] = $dayRemaining;
+                $case[] = $item;
+            }
+        }
+
+        return $case;
+    }
+
+    public function countAlert($user)
+    {
+        return count($this->alert($user));
+    }
+
     public function activities($case)
     {
         $activities = [];
@@ -417,6 +440,17 @@ class EloquentRepository implements RepositoryInterface {
 
             });
         }
+
+        return $query;
+    }
+
+    protected function prepareAlert($user)
+    {
+        $query = $this->case->ownedBy($user);
+
+        $query->select('cases.*', 'v_cases_current_timeline.*')
+            ->join('v_cases_current_timeline', 'v_cases_current_timeline.id', '=', 'cases.id')
+        ;
 
         return $query;
     }

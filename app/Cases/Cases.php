@@ -30,6 +30,21 @@ class Cases extends Model {
         return $query->where('status', '<>', self::STATUS_DRAFT);
     }
 
+    public function scopeOwnedBy($query, $user)
+    {
+        $officer_id = -999;
+        if($user->officer)
+        {
+            $officer_id = $user->officer->id;
+        }
+        $user_id = $user->id;
+        $query->where(function($query2) use ($officer_id, $user_id){
+            $query2->where('jaksa_id',$officer_id)->orWhere('staff_id', $officer_id)->orWhere('author_id', $user_id);
+        });
+
+        return $query;
+    }
+
     public function suspects()
     {
         return $this->belongsToMany('App\Cases\Suspects');

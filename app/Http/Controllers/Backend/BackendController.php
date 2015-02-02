@@ -7,6 +7,6 @@ class BackendController extends Controller {
 
     function __construct()
     {
-	setlocale(LC_TIME,'id_ID.utf8');
+        return parent::__construct();
     }
 }
