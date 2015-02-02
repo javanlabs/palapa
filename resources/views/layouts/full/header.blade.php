@@ -1,22 +1,4 @@
-@if(Auth::check())
-    <div class="navbar-user">
-        <div class="container-fluid">
-            Login sebagai
-            <!-- Single button -->
-            <div class="btn-group">
-                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <strong>{{ Auth::user()->name }}</strong> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ route('admin.home') }}"><i class="ion-navicon"></i> Backend</a></li>
-                    <li><a href="{{ route('me.profile') }}"><i class="ion-person"></i> Ganti Password</a></li>
-                    <li class="divider"></li>
-                    <li><a href="{{ route('gapura.logout') }}"><i class="fa fa-circle-o-notch"></i> Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-@endif
+@include('layouts.elements.userbar')
 
 <nav class="navbar navbar-header" role="navigation">
     <div class="container-fluid">

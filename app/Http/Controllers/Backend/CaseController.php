@@ -222,4 +222,11 @@ class CaseController extends BackendController {
         $case->members()->detach($officerId);
         return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil dihapus');
     }
+
+    public function alert()
+    {
+        $cases = $this->repo->alert(Auth::user());
+
+        return view('backend.cases.alert', compact('cases'));
+    }
 }

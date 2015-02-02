@@ -49,7 +49,7 @@ class Install extends Command {
 //		Artisan::call('migrate', ['--path' => 'vendor/eendonesia/wilayah/src/migrations']);
 
 		$this->info('Database seeder...');
-		Artisan::call('db:seed', []);
+		//Artisan::call('db:seed', []);
 
 	}
 

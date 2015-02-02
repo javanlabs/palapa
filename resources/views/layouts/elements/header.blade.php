@@ -1,10 +1,4 @@
-@if(Auth::check())
-    <div class="navbar-user">
-        <div class="container-fluid">
-            Login sebagai <strong>{{ Auth::user()->name }}</strong> <a href="{{ route('gapura.logout') }}" class="btn btn-xs btn-warning">Logout</a>
-        </div>
-    </div>
-@endif
+@include('layouts.elements.userbar')
 
 <nav class="navbar navbar-header" role="navigation">
     <div class="container-fluid">
