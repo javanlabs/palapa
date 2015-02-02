@@ -6,7 +6,7 @@
             <small class="text-muted"><strong>No SPDP:</strong> {{ $case['spdp_number'] }}</small>
             <br/>
         </td>
-        <td colspan="3" rowspan="2">
+        <td colspan="4" rowspan="2">
             <dl>
                 <dt>Pasal</dt>
                 <dd>{{ nl2br($case['pasal']) }}</dd>
@@ -49,6 +49,12 @@
             <dl>
                 <dt>Staff Administrasi</dt>
                 <dd>{{ $case['staff_name'] }}</dd>
+            </dl>
+        </td>
+        <td>
+            <dl>
+                <dt>Kategori</dt>
+                <dd><span class="label label-default">{{ $case['category'] }}</span></dd>
             </dl>
         </td>
         <td>
