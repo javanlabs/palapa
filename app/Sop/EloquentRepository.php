@@ -66,7 +66,7 @@ class EloquentRepository implements RepositoryInterface {
 
         if($checklist->is_next)
         {
-            $this->incrementPhase($case, $checklist);
+            $this->incrementPhase($case, $checklist, $date);
         }
 
         if($checklist->is_first)
@@ -103,6 +103,41 @@ class EloquentRepository implements RepositoryInterface {
             $data['note'] = 'Dokumen '.$template->short_title;
             $this->addChecklist($case, $checklist, $data);
         }
+        return true;
+    }
+
+    public function updateChecklist2($case, $checklist, $attributes)
+    {
+        if(!$checklist || !$case)
+        {
+            return false;
+        }
+
+        $dmyDate = array_get($attributes, 'date');
+        $date = Carbon::createFromFormat('d-m-Y', $dmyDate)->toDateString();
+
+        $checklistAttributes = ['date' => $date, 'note' => array_get($attributes, 'note')];
+        $case->checklist()->where('checklist_id', '=', $checklist->id)->update($checklistAttributes);
+
+        // update phase date
+        if($checklist->is_first)
+        {
+            $case->updatePhaseStartDate($checklist->phase, $date);
+        }
+
+        if($checklist->is_next)
+        {
+            $case->updatePhaseFinishDate($checklist->phase, $date);
+        }
+
+        // update additional case data
+        $additionalCaseData = array_get($attributes, 'data', []);
+
+        if( ! empty($additionalCaseData))
+        {
+            $case->update($additionalCaseData);
+        }
+
         return true;
     }
 
@@ -150,7 +185,7 @@ class EloquentRepository implements RepositoryInterface {
         return true;
     }
 
-    public function incrementPhase($case, $checklist)
+    public function incrementPhase($case, $checklist, $date)
     {
         $currentPhase = $case->phase;
         $nextPhase = $currentPhase->nextPhase();
@@ -168,13 +203,13 @@ class EloquentRepository implements RepositoryInterface {
             }
 
             // close current phase
-            $case->closeCurrentPhase();
+            $case->closeCurrentPhase($date);
 
             // update current phase
             $case->phase()->associate($nextPhase)->save();
 
             // add new phase to history
-            $case->phaseHistory()->attach($nextPhase, ['start_date' => new Carbon()]);
+            $case->phaseHistory()->attach($nextPhase, ['start_date' => $date]);
         }
         else
         {
@@ -230,6 +265,35 @@ class EloquentRepository implements RepositoryInterface {
                 return $checklist->duration - $checklistAge;
             }
         }
+    }
+
+    public function getPhaseHistory($case)
+    {
+        $histories = [];
+        foreach($case->phaseHistory as $phase)
+        {
+            $item = $phase->toArray();
+            $item['start_date'] = $item['finish_date'] = null;
+
+            $startDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->start_date);
+            $item['start_date'] = $startDate->formatLocalized('%d %B %Y');
+
+            if($phase->pivot->finish_date)
+            {
+                $finishDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->finish_date);
+            }
+            else
+            {
+                $finishDate = Carbon::now();
+            }
+            $item['finish_date'] = $finishDate->formatLocalized('%d %B %Y');
+
+            $item['current_duration'] = $finishDate->diffInDays($startDate);
+
+            $histories[$phase->id] = $item;
+        }
+
+        return $histories;
     }
 
     protected function getChildTypeIds($type)

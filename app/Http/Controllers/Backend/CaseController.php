@@ -100,7 +100,7 @@ class CaseController extends BackendController {
     }
 
     public function update(Form $form, $id){
-        $this->repo->update($id, $form->all());
+        $this->repo->update($id, $form->all(), Auth::user());
         return redirect()->route('backend.cases.show', $id);
     }
 
@@ -128,19 +128,21 @@ class CaseController extends BackendController {
         $phases = $this->sopRepo->byType($case->type_id);
         $activities = $this->repo->activities($case);
         $checklistIds = $case->checklist->lists('id');
+        $phaseIds = $case->phaseHistory->lists('id');
         $templates = Template::byCaseType($case->type_id)->get();
         $documentsIds = $case->documents->lists('template_id', 'id');
         $sop = $this->sopRepo;
+        $phaseHistories = $this->sopRepo->getPhaseHistory($case);
         $evidences = $case->evidences;
 
-        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'templates', 'documentsIds', 'sop', 'evidences'));
+        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'templates', 'documentsIds', 'sop', 'evidences', 'phaseIds', 'phaseHistories'));
     }
 
     public function destroy($id)
     {
-        $this->repo->delete($id);
+        $this->repo->delete($id, Auth::user());
 
-        return redirect()->route('backend.cases.index');
+        return redirect()->route('backend.cases.index')->with('flash.warning', 'Kasus berhasil dihapus');
     }
 
     public function getChecklist($caseId, $checklistId)
@@ -229,4 +231,26 @@ class CaseController extends BackendController {
 
         return view('backend.cases.alert', compact('cases'));
     }
+
+    public function getChecklistEdit($caseId, $checklistId)
+    {
+        $case = $this->repo->find($caseId);
+        $checklist = $case->checklist()->where('checklist_id', '=', $checklistId)->firstOrFail();
+
+        $relatedData = $checklist->getRelatedData();
+
+        return view('backend.cases.checklist.edit', compact('case', 'checklist', 'relatedData'));
+    }
+
+    public function postChecklistUpdate(Request $request, $caseId, $checklistId)
+    {
+        $case = $this->repo->find($caseId);
+        $checklist = Checklist::findOrFail($checklistId);
+
+        $this->sopRepo->updateChecklist2($case, $checklist, $request->only('date', 'note', 'data'));
+
+        $data['status'] = 1;
+        return response()->json($data);
+    }
+
 }

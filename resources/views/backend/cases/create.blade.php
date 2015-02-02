@@ -8,7 +8,7 @@
 
     <h2 class="page-title">Register Perkara <span class="label label-info">{{ $type['name'] }}</span></h2>
     @include('backend.cases.form.' . $type['id'])
-    {{ BootForm::submit('Submit', 'btn-primary') }}
+    {{ BootForm::submit('Simpan', 'btn-primary') }}
 
 
 {{ BootForm::close() }}

@@ -1,4 +1,8 @@
 @if(Auth::check())
+
+<?php
+    $caseAlertCount = App::make('App\Cases\RepositoryInterface')->countAlert(Auth::user());
+?>
     <div class="navbar-user">
         <div class="container-fluid">
             <div class="col-md-4"></div>

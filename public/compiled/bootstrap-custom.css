@@ -6844,6 +6844,12 @@ body.login footer a {
     padding: 15px;
   }
 }
+.panel-checklist .items .btn-danger {
+  font-size: .7em;
+}
+.panel-checklist .items .btn-edit {
+  font-size: .8em;
+}
 #page-admin {
   margin-top: 50px;
 }

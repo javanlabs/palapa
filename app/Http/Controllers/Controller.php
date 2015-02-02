@@ -2,9 +2,6 @@
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\View;
 
 abstract class Controller extends BaseController {
 
@@ -14,11 +11,5 @@ abstract class Controller extends BaseController {
     function __construct()
     {
         setlocale(LC_TIME,'id_ID.utf8');
-
-        if(Auth::check())
-        {
-            $count = App::make('App\Cases\RepositoryInterface')->countAlert(Auth::user());
-            View::share('caseAlertCount', $count);
-        }
     }
 }
