@@ -8,11 +8,11 @@ interface RepositoryInterface {
 
     public function create($input, $user);
 
-    public function update($id, $input);
+    public function update($id, $input, $user);
 
     public function find($id);
 
-    public function delete($id);
+    public function delete($id, $user);
 
     public function search($keyword, $type = null, $includeDraft = false, $owner = null);
 

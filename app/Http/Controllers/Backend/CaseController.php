@@ -100,7 +100,7 @@ class CaseController extends BackendController {
     }
 
     public function update(Form $form, $id){
-        $this->repo->update($id, $form->all());
+        $this->repo->update($id, $form->all(), Auth::user());
         return redirect()->route('backend.cases.show', $id);
     }
 
@@ -138,9 +138,9 @@ class CaseController extends BackendController {
 
     public function destroy($id)
     {
-        $this->repo->delete($id);
+        $this->repo->delete($id, Auth::user());
 
-        return redirect()->route('backend.cases.index');
+        return redirect()->route('backend.cases.index')->with('flash.warning', 'Kasus berhasil dihapus');
     }
 
     public function getChecklist($caseId, $checklistId)

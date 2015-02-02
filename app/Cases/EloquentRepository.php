@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 
 class EloquentRepository implements RepositoryInterface {
 
@@ -82,12 +83,24 @@ class EloquentRepository implements RepositoryInterface {
 
         $case->author()->associate($user)->save();
 
+        Event::fire('case.created', [$case, $user]);
+
         return $case;
     }
 
-    public function update($id, $input)
+    public function update($id, $input, $user)
     {
-        return $this->case->findOrFail($id)->update($input);
+        $case = $this->case->findOrFail($id);
+
+        $updated = $case->update($input);
+
+        if($updated)
+        {
+            Event::fire('case.updated', [$case, $user]);
+            return $case;
+        }
+
+        return false;
     }
 
     public function find($id)
@@ -95,9 +108,18 @@ class EloquentRepository implements RepositoryInterface {
         return $this->case->findOrFail($id);
     }
 
-    public function delete($id)
+    public function delete($id, $user)
     {
-        return $this->case->findOrFail($id)->delete();
+        $case = $this->case->findOrFail($id);
+        $deleted = $case->delete();
+
+        if($deleted)
+        {
+            Event::fire('case.deleted', [$case, $user]);
+            return $case;
+        }
+
+        return false;
     }
 
     public function search($keyword, $type = null, $includeDraft = false, $me=false)
