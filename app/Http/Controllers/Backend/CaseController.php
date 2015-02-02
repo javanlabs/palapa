@@ -229,4 +229,26 @@ class CaseController extends BackendController {
 
         return view('backend.cases.alert', compact('cases'));
     }
+
+    public function getChecklistEdit($caseId, $checklistId)
+    {
+        $case = $this->repo->find($caseId);
+        $checklist = $case->checklist()->where('checklist_id', '=', $checklistId)->firstOrFail();
+
+        $relatedData = $checklist->getRelatedData();
+
+        return view('backend.cases.checklist.edit', compact('case', 'checklist', 'relatedData'));
+    }
+
+    public function postChecklistUpdate(Request $request, $caseId, $checklistId)
+    {
+        $case = $this->repo->find($caseId);
+        $checklist = Checklist::findOrFail($checklistId);
+
+        $this->sopRepo->updateChecklist2($case, $checklist, $request->only('date', 'note', 'data'));
+
+        $data['status'] = 1;
+        return response()->json($data);
+    }
+
 }

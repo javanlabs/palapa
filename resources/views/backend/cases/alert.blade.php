@@ -9,7 +9,7 @@
 @section('content-admin')
     <div id="page-case-index">
         <div class="panel panel-default">
-            <div class="panel-heading">{{ $caseAlertCount }} Perkara Perlu Penanganan</div>
+            <div class="panel-heading">{{ count($cases) }} Perkara Perlu Penanganan</div>
             <table class="table table-case">
                 @foreach($cases as $item)
                     <tr>

@@ -25,10 +25,10 @@
     <div class="container-fluid section-entry">
 
         <div class="col-md-6">
-            <div class="panel panel-default">
+            <div class="panel panel-default panel-checklist">
                 @foreach($phases as $phase)
                     <div class="panel-heading">{{ $phase['name'] }}</div>
-                    <ul class="list-group {{ (($phase->id > $case['phase']['id']) && $phase->id != $case['phase_id'])?'disabled':'' }}">
+                    <ul class="list-group items {{ (($phase->id > $case['phase']['id']) && $phase->id != $case['phase_id'])?'disabled':'' }}">
                         @foreach($phase['checklist'] as $item)
 
                             @if(in_array($item['id'], $checklistIds))
@@ -37,13 +37,15 @@
                                     @if($case->isLatestChecklist($item))
                                         {{ Form::open(['route' => ['backend.cases.unchecklist', $case->id, $item['id']], 'method' => 'post', 'class' => 'pull-right']) }}
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-                                        {{ Form::submit('Batal', ['class' => 'btn btn-link']) }}
+                                        {{ Form::submit('Batal', ['class' => 'btn btn-xs btn-danger']) }}
                                         {{ Form::close() }}
                                     @endif
 
                                     <i class="fa fa-check"></i>
                                     {{ $item['name'] }}<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;<span class='small'><i>{{$case->getChecklistDate($item['id'])}}</i></span>
+                                    <a href="{{ route('backend.cases.checklist.edit', [$case['id'], $item['id']]) }}" class="btn btn-xs btn-default btn-edit">Edit</a>
+
 
                                 </li>
                             @else
@@ -330,6 +332,51 @@
                 $.unblockUI();
                 var modal = $(response);
                 modal.modal();
+
+            });
+        });
+
+        $('.panel-checklist').on('click', '.btn-edit', function(e){
+
+            e.preventDefault();
+
+            $.blockUI(BLOCKUI_STYLE);
+
+            $.get($(this).attr('href'), '', function(response, status){
+                $.unblockUI();
+                var modal = $(response);
+
+                modal.find('#form-checklist-edit').on('submit', function(e){
+                    e.preventDefault();
+                    var form = $(this);
+                    var btn = form.find('button[type=submit]');
+                    btn.button('loading');
+                    $.ajax({
+                        url: form.attr('action'),
+                        type:'post',
+                        dataType:'json',
+                        data: form.serialize()
+                    })
+                            .success(function(response){
+                                if (response.status == 1) {
+                                    window.location.reload();
+                                } else {
+                                    alert(response.message);
+                                }
+                            })
+                            .always(function(){
+
+                                btn.button('reset');
+                            });
+                });
+
+                modal.modal();
+
+                modal.find('.datepicker').datepicker();
+
+                modal.on('hidden.bs.modal', function(e){
+                    modal.remove();
+                });
 
             });
         });

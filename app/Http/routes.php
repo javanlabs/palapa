@@ -58,6 +58,9 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
     $router->post('cases/{caseId}/check/{checklistId}', ['as' => 'backend.cases.checklist', 'uses' => 'CaseController@postChecklist']);
     $router->post('cases/{caseId}/uncheck/{checklistId}', ['as' => 'backend.cases.unchecklist', 'uses' => 'CaseController@postUnchecklist']);
 
+    $router->get('cases/{caseId}/check/{checklistId}/edit', ['as' => 'backend.cases.checklist.edit', 'uses' => 'CaseController@getChecklistEdit']);
+    $router->post('cases/{caseId}/check/{checklistId}/update', ['as' => 'backend.cases.checklist.update', 'uses' => 'CaseController@postChecklistUpdate']);
+
     $router->get('cases/{caseId}/member-add', ['as' => 'backend.cases.member.add', 'uses' => 'CaseController@addMember']);
     $router->post('cases/{caseId}/member-store', ['as' => 'backend.cases.member.store', 'uses' => 'CaseController@storeMember']);
     $router->delete('cases/{caseId}/member-remove/{officerId}', ['as' => 'backend.cases.member.remove', 'uses' => 'CaseController@removeMember']);

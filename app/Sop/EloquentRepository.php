@@ -106,6 +106,30 @@ class EloquentRepository implements RepositoryInterface {
         return true;
     }
 
+    public function updateChecklist2($case, $checklist, $attributes)
+    {
+        if(!$checklist || !$case)
+        {
+            return false;
+        }
+
+        $dmyDate = array_get($attributes, 'date');
+        $date = Carbon::createFromFormat('d-m-Y', $dmyDate)->toDateString();
+
+        $checklistAttributes = ['date' => $date, 'note' => array_get($attributes, 'note')];
+        $case->checklist()->where('checklist_id', '=', $checklist->id)->update($checklistAttributes);
+
+        // update additional case data
+        $additionalCaseData = array_get($attributes, 'data', []);
+
+        if( ! empty($additionalCaseData))
+        {
+            $case->update($additionalCaseData);
+        }
+
+        return true;
+    }
+
     public function removeChecklist($case, $checklist)
     {
         if(!$checklist)
