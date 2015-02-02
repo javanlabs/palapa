@@ -27,7 +27,23 @@
         <div class="col-md-6">
             <div class="panel panel-default panel-checklist">
                 @foreach($phases as $phase)
-                    <div class="panel-heading">{{ $phase['name'] }}</div>
+                    <div class="panel-heading">
+                        <h4>{{ $phase['name'] }}</h4>
+                        @if(isset($phaseHistories[$phase['id']]))
+                            <div class="text-muted">
+                                <span class="label label-default">{{ $phaseHistories[$phase['id']]['current_duration'] }} hari</span>
+                                <small>
+                                {{ $phaseHistories[$phase['id']]['start_date'] }}
+                                s/d
+                                @if($phaseHistories[$phase['id']]['finish_date'])
+                                    {{ $phaseHistories[$phase['id']]['finish_date'] }}
+                                @else
+                                    ...
+                                @endif
+                                </small>
+                            </div>
+                        @endif
+                    </div>
                     <ul class="list-group items {{ (($phase->id > $case['phase']['id']) && $phase->id != $case['phase_id'])?'disabled':'' }}">
                         @foreach($phase['checklist'] as $item)
 

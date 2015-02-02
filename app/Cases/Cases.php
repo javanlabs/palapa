@@ -165,7 +165,31 @@ class Cases extends Model {
             if($phase->pivot->finish_date === null)
             {
                 $phase->pivot->finish_date = $date;
-                $phase->pivot->save();
+                return $phase->pivot->save();
+            }
+        }
+    }
+
+    public function updatePhaseFinishDate($phase, $date)
+    {
+        foreach($this->phaseHistory as $history)
+        {
+            if($history->id === $phase->id)
+            {
+                $history->pivot->finish_date = $date;
+                return $history->pivot->save();
+            }
+        }
+    }
+
+    public function updatePhaseStartDate($phase, $date)
+    {
+        foreach($this->phaseHistory as $history)
+        {
+            if($history->id === $phase->id)
+            {
+                $history->pivot->start_date = $date;
+                return $history->pivot->save();
             }
         }
     }
@@ -177,7 +201,7 @@ class Cases extends Model {
             if($history->id === $phase->id)
             {
                 $history->pivot->finish_date = null;
-                $history->pivot->save();
+                return $history->pivot->save();
             }
         }
     }

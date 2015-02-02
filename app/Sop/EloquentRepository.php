@@ -119,6 +119,17 @@ class EloquentRepository implements RepositoryInterface {
         $checklistAttributes = ['date' => $date, 'note' => array_get($attributes, 'note')];
         $case->checklist()->where('checklist_id', '=', $checklist->id)->update($checklistAttributes);
 
+        // update phase date
+        if($checklist->is_first)
+        {
+            $case->updatePhaseStartDate($checklist->phase, $date);
+        }
+
+        if($checklist->is_next)
+        {
+            $case->updatePhaseFinishDate($checklist->phase, $date);
+        }
+
         // update additional case data
         $additionalCaseData = array_get($attributes, 'data', []);
 
@@ -254,6 +265,35 @@ class EloquentRepository implements RepositoryInterface {
                 return $checklist->duration - $checklistAge;
             }
         }
+    }
+
+    public function getPhaseHistory($case)
+    {
+        $histories = [];
+        foreach($case->phaseHistory as $phase)
+        {
+            $item = $phase->toArray();
+            $item['start_date'] = $item['finish_date'] = null;
+
+            $startDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->start_date);
+            $item['start_date'] = $startDate->formatLocalized('%d %B %Y');
+
+            if($phase->pivot->finish_date)
+            {
+                $finishDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->finish_date);
+            }
+            else
+            {
+                $finishDate = Carbon::now();
+            }
+            $item['finish_date'] = $finishDate->formatLocalized('%d %B %Y');
+
+            $item['current_duration'] = $finishDate->diffInDays($startDate);
+
+            $histories[$phase->id] = $item;
+        }
+
+        return $histories;
     }
 
     protected function getChildTypeIds($type)
