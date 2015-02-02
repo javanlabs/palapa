@@ -65,7 +65,7 @@
                         @foreach($cases as $item)
                             <tr>
                                 <td>
-                                    <h5 class="mb-0">{{ $item['name'] }}</h5>
+                                    <h4 class="mb-0">{{ $item['name'] }}</h4>
                                     <small class="text-muted">No SPDP {{ $item['spdp_number'] }}
                                         <br/>
                                         <strong>{{$item->category}}:</strong>
