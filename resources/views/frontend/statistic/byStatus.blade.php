@@ -49,7 +49,7 @@
 
     <script src="{{asset('vendor/chartjs.devexpress/globalize.js')}}"></script>
     <script src="{{asset('vendor/chartjs.devexpress/dx.chartjs.js')}}"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/globalize/0.1.1/cultures/globalize.culture.id-ID.min.js"></script>
+    <script src="{{asset('vendor/globalize.culture.id-ID.min.js')}}"></script>
     <script>
     $(function(){
         Globalize.culture( "id" );
