@@ -100,7 +100,13 @@ table.table-case-info {
   tbody {
     tr {
       td {
-        padding: 20px;
+        @media (min-width: @screen-lg-min) {
+          font-size: .9em;
+          padding: 20px;
+        }
+        @media (min-width: @screen-md-min) {
+          padding: 15px;
+        }
       }
     }
   }
