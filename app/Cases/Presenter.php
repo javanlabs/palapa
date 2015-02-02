@@ -72,7 +72,11 @@ trait Presenter {
             $msg = "<div>Mulai: " . $startDate->formatLocalized('%d %B %Y') . "</div>";
             $msg .= "<div>Selesai: " . $finishDateDisplayed . "</div>";
             $msg .= "<div>Durasi: <span class='label label-{$phaseStatus}'>" . $finishDate->diffInDays($startDate) . " hari</span></div>";
-            $msg .= "<div>Standard pelayanan: " . $phaseHistory->duration . " hari</div>";
+
+            if($phaseHistory->duration > 0)
+                $msg .= "<div>Standard pelayanan: " . $phaseHistory->duration . " hari</div>";
+            else
+                $msg .= "<div>Standard pelayanan:  tentatif</div>";
 
             return $msg;
         }
@@ -116,18 +120,25 @@ trait Presenter {
 
         $baseDuration = $phase->duration;
 
-        $delta = $baseDuration - $duration;
-        if($delta > 0)
+        if($baseDuration == 0)
         {
             $status = 'success';
         }
-        elseif($delta == 0)
-        {
-            $status = 'warning';
-        }
         else
         {
-            $status = 'danger';
+            $delta = $baseDuration - $duration;
+            if($delta > 0)
+            {
+                $status = 'success';
+            }
+            elseif($delta == 0)
+            {
+                $status = 'warning';
+            }
+            else
+            {
+                $status = 'danger';
+            }
         }
 
         return $status;

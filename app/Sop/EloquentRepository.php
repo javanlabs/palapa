@@ -198,7 +198,7 @@ class EloquentRepository implements RepositoryInterface {
             $case->phase()->associate($nextPhase)->save();
 
             // add new phase to history
-            $case->phaseHistory()->attach($nextPhase, ['start_date' => new Carbon()]);
+            $case->phaseHistory()->attach($nextPhase, ['start_date' => $date]);
         }
         else
         {
