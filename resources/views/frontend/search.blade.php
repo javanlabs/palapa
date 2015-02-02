@@ -87,9 +87,10 @@
                                         @endforeach
                                     </div>
                                     <small class="text-muted"><strong><?php echo ($item->getLatestActivityAttribute()?$item->getLatestActivityAttribute()->name:'');?></strong> : {{ $item['last_update'] }}</small>
-                                    <div>
 
-                                </div>
+                                    @if($item['is_suspend'])
+                                        <div class="alert alert-danger">Kasus Dihentikan</div>
+                                    @endif
                                 </td>
                                 <td class="text-center">
                                     <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info <i class="fa fa-chevron-right"></i></a>

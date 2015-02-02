@@ -2,9 +2,11 @@
     <tbody>
     <tr>
         <td colspan="3" width="50%">
+            @if($case['is_suspend'])
+                <div class="label label-danger label-lg">Perkara Dihentikan</div>
+            @endif
             <h3 class="mb-0">{{ $case['name'] }}</h3>
             <small class="text-muted"><strong>No SPDP:</strong> {{ $case['spdp_number'] }}</small>
-            <br/>
         </td>
         <td colspan="4" rowspan="2">
             <dl>
