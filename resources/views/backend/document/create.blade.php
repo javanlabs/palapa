@@ -1,10 +1,11 @@
-@extends('layouts.admin.empty')
+@extends('layouts.admin.full')
 
 @section('style-head')
     @parent
 
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/document.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/print/' . $template['orientation'] . '.css') }}" media="print">
 @stop
 
 @section('trails')
@@ -32,12 +33,12 @@
         {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($content) }}
     {{ BootForm::close() }}
 
-    <div id="previewContainer" class="preview-container visible-print-block"></div>
+    <div id="previewContainer" class="preview-container visible-print-block paper-f4 {{ $template->orientation }}">{{ $content }}</div>
 
 </div>
 
 <div class="modal fade modal-preview hidden-print" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg preview-f4 paper-f4 {{ $template->orientation }}">
+  <div class="modal-dialog modal-lg preview-f4 paper-f4">
     <div class="modal-content">
         <div class="modal-body preview-container">
 

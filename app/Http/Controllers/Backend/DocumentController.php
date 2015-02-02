@@ -83,8 +83,9 @@ class DocumentController extends Controller {
 	{
 		$document = Document::findOrFail($id);
 		$case = $document->cases;
+        $template = $document->template;
 
-		return view('backend.document.edit', compact('document', 'case'));
+		return view('backend.document.edit', compact('document', 'case', 'template'));
 	}
 
 

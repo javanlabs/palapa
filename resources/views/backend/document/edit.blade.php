@@ -1,16 +1,11 @@
-@extends('layouts.admin.empty')
+@extends('layouts.admin.full')
 
 @section('style-head')
     @parent
 
     <link rel="stylesheet" href="{{ asset('vendor/redactor/redactor.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/document.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-@stop
-
-@section('trails')
-    <div class="trail"><a href="{{ route('backend.cases.show', [$case['id']]) }}"><i class="ion-ios-arrow-back"></i> Kembali</a></div>
+    <link rel="stylesheet" href="{{ asset('css/print/' . $template['orientation'] . '.css') }}" media="print">
 @stop
 
 @section('content-admin')
@@ -25,14 +20,14 @@
     </div>
 
 
-    <div class="editor-f4">
-    <h2 class="hidden-print">{{ $document->title }}</h2>
+    <div class="editor-f4 {{ $template->orientation }}">
+    <h2 class="hidden-print text-center">{{ $document->title }}</h2>
     {{ BootForm::open()->put()->action(route('backend.document.update', [$document->id]))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         {{ BootForm::textarea('', 'content', ['id' => 'content'])->value($document->content) }}
     {{ BootForm::close() }}
 
-    <div id="previewContainer" class="preview-container visible-print-block"></div>
+        <div id="previewContainer" class="preview-container visible-print-block paper-f4 {{ $template->orientation }}">{{ $document->content }}</div>
 
 </div>
 

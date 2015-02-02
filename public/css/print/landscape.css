@@ -1,0 +1,10 @@
+@media print {
+    @page {
+        size: landscape;
+    }
+
+    .paper-f4 {
+        background-color: red;
+        border: 1px solid black;
+    }
+}
