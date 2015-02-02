@@ -6825,8 +6825,16 @@ body.login footer a {
   width: 30px;
   text-align: center;
 }
-table.table-case-info tbody tr td {
-  padding: 20px;
+@media (min-width: 1200px) {
+  table.table-case-info tbody tr td {
+    font-size: .9em;
+    padding: 20px;
+  }
+}
+@media (min-width: 992px) {
+  table.table-case-info tbody tr td {
+    padding: 15px;
+  }
 }
 #page-admin {
   margin-top: 50px;
@@ -6945,6 +6953,9 @@ span.empty {
 }
 .label-lg {
   font-size: 1em;
+}
+.modal-full {
+  width: 90%;
 }
 .alert {
   padding-left: 40px;

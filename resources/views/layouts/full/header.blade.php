@@ -8,7 +8,7 @@
                     <strong>{{ Auth::user()->name }}</strong> <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
-                    {{--<li><a href="#"><i class="ion-clock"></i> Log Aktivitas</a></li>--}}
+                    <li><a href="{{ route('admin.home') }}"><i class="ion-navicon"></i> Backend</a></li>
                     <li><a href="{{ route('me.profile') }}"><i class="ion-person"></i> Ganti Password</a></li>
                     <li class="divider"></li>
                     <li><a href="{{ route('gapura.logout') }}"><i class="fa fa-circle-o-notch"></i> Logout</a></li>

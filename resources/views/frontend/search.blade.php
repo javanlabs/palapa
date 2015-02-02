@@ -65,7 +65,7 @@
                         @foreach($cases as $item)
                             <tr>
                                 <td>
-                                    <h5 class="mb-0">{{ $item['name'] }}</h5>
+                                    <h4 class="mb-0">{{ $item['name'] }}</h4>
                                     <small class="text-muted">No SPDP {{ $item['spdp_number'] }}
                                         <br/>
                                         <strong>{{$item->category}}:</strong>
@@ -89,7 +89,7 @@
                                     <small class="text-muted"><strong><?php echo ($item->getLatestActivityAttribute()?$item->getLatestActivityAttribute()->name:'');?></strong> : {{ $item['last_update'] }}</small>
 
                                     @if($item['is_suspend'])
-                                        <div class="alert alert-danger">Kasus Dihentikan</div>
+                                        <div class="label label-danger label-lg">Kasus Dihentikan</div>
                                     @endif
                                 </td>
                                 <td class="text-center">
