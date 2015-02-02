@@ -14,6 +14,7 @@ class Cases extends Model {
 
     const TYPE_PIDUM    = 201;
     const TYPE_PIDSUS   = 202;
+    const TYPE_DATUN   = 203;
 
     use SoftDeletes, Presenter, DateSetter;
 

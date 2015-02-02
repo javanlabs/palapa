@@ -70,7 +70,10 @@ class EloquentRepository implements RepositoryInterface {
             $penyidikExternal['e' . $key] = $val;
             unset($penyidikExternal[$key]);
         }
-        $lists = ['Penyidik Eksternal' => $penyidikExternal];
+        if($penyidikExternal)
+        {
+            $lists = ['Penyidik Eksternal' => $penyidikExternal];
+        }
 
         if($type == Cases::TYPE_PIDSUS)
         {
@@ -80,7 +83,10 @@ class EloquentRepository implements RepositoryInterface {
                 $penyidikInternal['i' . $key] = $val;
                 unset($penyidikInternal[$key]);
             }
-            $lists['Penyidik Internal'] = $penyidikInternal;
+            if($penyidikInternal)
+            {
+                $lists['Penyidik Internal'] = $penyidikInternal;
+            }
         }
 
         return $lists;
@@ -117,6 +123,24 @@ class EloquentRepository implements RepositoryInterface {
         if($empty)
         {
             $list = ['' => $empty] + $list;
+        }
+
+        return $list;
+    }
+
+    public function caseCategoryByType($type, $empty = null)
+    {
+        switch($type)
+        {
+            case Cases::TYPE_PIDUM:
+                $list = $this->categoryPidum($empty);
+                break;
+            case Cases::TYPE_PIDSUS:
+                $list = $this->categoryPidsus($empty);
+                break;
+            case Cases::TYPE_DATUN:
+                $list = $this->categoryDatun($empty);
+                break;
         }
 
         return $list;
