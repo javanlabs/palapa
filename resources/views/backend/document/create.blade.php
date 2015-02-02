@@ -23,7 +23,7 @@
 </div>
 
 
-<div class="editor-f4">
+<div class="editor-f4 {{ $template->orientation }}">
     {{ BootForm::open()->action(route('backend.document.store'))->attribute('class', 'hidden-print')->attribute('id', 'formEditor') }}
         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
         <input type='hidden' name='case_id' value='{{$case->id}}'/>
@@ -37,7 +37,7 @@
 </div>
 
 <div class="modal fade modal-preview hidden-print" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg preview-f4 paper-f4">
+  <div class="modal-dialog modal-lg preview-f4 paper-f4 {{ $template->orientation }}">
     <div class="modal-content">
         <div class="modal-body preview-container">
 
