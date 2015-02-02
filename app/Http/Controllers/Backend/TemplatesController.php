@@ -19,27 +19,17 @@ class TemplatesController extends Controller {
         return view('backend.templates.index', compact('templates'));
     }
 
-//    public function create()
-//    {
-//        $template = new Template();
-//        $checklists = Checklist::availableChecklists();
-//        return view('backend.templates.create', compact('post','checklists'));
-//    }
-//
-//    public function store(Form $form)
-//    {
-//
-//        $template = Template::create($form->only('title', 'content', 'checklist_id'));
-//        $template->author()->associate(Auth::user())->save();
-//        return redirect()->route('backend.templates.index');
-//    }
 
     public function edit($id)
     {
         $template = Template::find($id);   
-        echo public_path();     
+        $filePath = base_path().'/resources/views/template/';
 
-        $content = '';//file_get_contents($template->file);
+        if($template->case_type_id != "201"){
+            $filePath .= $template->case_type_id."/";
+        }
+        $filePath .= strtolower($template->short_title).'.blade.php';        
+        $content = file_get_contents($filePath);
 
         return view('backend.templates.edit', compact('template','content'));
     }

@@ -5,12 +5,12 @@
         <div class="item">
         <table class="table">
                     <thead>
-                        <tr>
-                            <th>Nama Tersangka</th>
-                            <th>Kasus/Pasal</th>
-                            <th>Agenda</th>
-                            <th>Jaksa Penuntut Umum</th>
-                            <th>Tanggal</th>                            
+                        <tr style='background-color: black'>
+                            <td width='150px'>Nama Tersangka</td>
+                            <td>Kasus/Pasal</td>
+                            <td>Agenda</td>
+                            <td>Jaksa Penuntut Umum</td>
+                            <td>Tanggal</td>
                         </tr>
                     </thead>
                     <tbody>
