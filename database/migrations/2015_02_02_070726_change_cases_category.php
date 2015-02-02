@@ -14,7 +14,7 @@ class ChangeCasesCategory extends Migration {
     {
         DB::statement("ALTER TABLE cases CHANGE COLUMN category category ENUM(
           'tpul',
-          'orharga',
+          'oharda',
           'kamtibum',
           'perkara-anak-diversi',
           'perkara-anak-korban',
