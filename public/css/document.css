@@ -2,11 +2,20 @@
     width:175mm;
     margin: 0 auto;
 }
-
 .editor-f4 {
     width:205mm;
     margin: 0 auto;
 }
+
+.preview-f4.landscape {
+    width:288mm;
+    background-color: red;
+}
+.editor-f4.landscape {
+    width:337mm;
+}
+
+
 .preview-container, .redactor-editor {
     font-family: "Times New Roman", Arial, Sans-serif;
 }
@@ -33,6 +42,10 @@
     .print-f4 {
         width:168mm;
         margin: 0 auto;
+    }
+    .print-f4.landscape {
+        width:276mm;
+        background-color: red;
     }
     .preview-container {
         display: block;

@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-        //$this->call('RootSeeder');
-        //$this->call('StaffSeeder');
+        $this->call('RootSeeder');
+        $this->call('StaffSeeder');
         $this->call('GroupSeeder');
         $this->call('RoleSeeder');
         $this->call('PangkatSeeder');
@@ -389,15 +389,15 @@ class RootSeeder extends Seeder {
 
     public function run()
     {
-        // $user = [
-        //     [
-        //     'name'  => 'Root',
-        //     'email'  => 'root@palapa.dev',
-        //     'password'  => Hash::make('root')
-        //     ]
-        // ];
-        // DB::table('users')->truncate();
-        // return DB::table('users')->insert($user);
+         $user = [
+             [
+             'name'  => 'Root',
+             'email'  => 'root@palapa.dev',
+             'password'  => Hash::make('root')
+             ]
+         ];
+         DB::table('users')->truncate();
+         return DB::table('users')->insert($user);
     }
 
 }
@@ -406,22 +406,22 @@ class StaffSeeder extends Seeder {
 
     public function run()
     {
-        // $user = [
-        //     [
-        //         'id'    => 2,
-        //         'name'  => 'Pidana Umum',
-        //         'email'  => 'pidum',
-        //         'password'  => Hash::make('pidum1234')
-        //     ],
-        //     [
-        //         'id'    => 3,
-        //         'name'  => 'Pidana Khusus',
-        //         'email'  => 'pidsus',
-        //         'password'  => Hash::make('pidsus1234')
-        //     ]
+         $user = [
+             [
+                 'id'    => 2,
+                 'name'  => 'Pidana Umum',
+                 'email'  => 'pidum',
+                 'password'  => Hash::make('pidum1234')
+             ],
+             [
+                 'id'    => 3,
+                 'name'  => 'Pidana Khusus',
+                 'email'  => 'pidsus',
+                 'password'  => Hash::make('pidsus1234')
+             ]
 
-        // ];
-        // return DB::table('users')->insert($user);
+         ];
+         return DB::table('users')->insert($user);
     }
 
 }
@@ -568,9 +568,9 @@ class OfficerSeeder extends Seeder {
     {
         $now = Carbon::now()->toDateTimeString();
 
-        // DB::table('officers')->truncate();
+         DB::table('officers')->truncate();
 
-        // DB::insert(file_get_contents(base_path()."/database/seeds/officer.sql"));
+         DB::insert(file_get_contents(base_path()."/database/seeds/officer.sql"));
         return true;
     }
 }
