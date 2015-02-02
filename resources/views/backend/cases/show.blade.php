@@ -31,7 +31,12 @@
                         <h4>{{ $phase['name'] }}</h4>
                         @if(isset($phaseHistories[$phase['id']]))
                             <div class="text-muted">
-                                <span class="label label-default">{{ $phaseHistories[$phase['id']]['current_duration'] }} hari</span>
+                                @if($phaseHistories[$phase['id']]['current_duration'])
+                                    <span class="label label-default">{{ $phaseHistories[$phase['id']]['current_duration'] }} hari</span>
+                                @else
+                                    <span class="label label-danger">tanggal tidak valid</span>
+                                @endif
+
                                 <small>
                                 {{ $phaseHistories[$phase['id']]['start_date'] }}
                                 s/d

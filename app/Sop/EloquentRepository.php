@@ -128,6 +128,11 @@ class EloquentRepository implements RepositoryInterface {
         if($checklist->is_next)
         {
             $case->updatePhaseFinishDate($checklist->phase, $date);
+
+            if($checklist->phase->nextPhase())
+            {
+                $case->updatePhaseStartDate($checklist->phase->nextPhase(), $date);
+            }
         }
 
         // update additional case data
@@ -288,7 +293,14 @@ class EloquentRepository implements RepositoryInterface {
             }
             $item['finish_date'] = $finishDate->formatLocalized('%d %B %Y');
 
-            $item['current_duration'] = $finishDate->diffInDays($startDate);
+            if($finishDate < $startDate)
+            {
+                $item['current_duration'] = false;
+            }
+            else
+            {
+                $item['current_duration'] = $finishDate->diffInDays($startDate);
+            }
 
             $histories[$phase->id] = $item;
         }
