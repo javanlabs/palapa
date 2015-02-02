@@ -66,7 +66,7 @@ class EloquentRepository implements RepositoryInterface {
 
         if($checklist->is_next)
         {
-            $this->incrementPhase($case, $checklist);
+            $this->incrementPhase($case, $checklist, $date);
         }
 
         if($checklist->is_first)
@@ -174,7 +174,7 @@ class EloquentRepository implements RepositoryInterface {
         return true;
     }
 
-    public function incrementPhase($case, $checklist)
+    public function incrementPhase($case, $checklist, $date)
     {
         $currentPhase = $case->phase;
         $nextPhase = $currentPhase->nextPhase();
@@ -192,7 +192,7 @@ class EloquentRepository implements RepositoryInterface {
             }
 
             // close current phase
-            $case->closeCurrentPhase();
+            $case->closeCurrentPhase($date);
 
             // update current phase
             $case->phase()->associate($nextPhase)->save();
