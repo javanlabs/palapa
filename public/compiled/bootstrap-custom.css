@@ -6943,6 +6943,9 @@ span.empty {
 .checkbox label {
   text-transform: none;
 }
+.label-lg {
+  font-size: 1em;
+}
 .alert {
   padding-left: 40px;
 }

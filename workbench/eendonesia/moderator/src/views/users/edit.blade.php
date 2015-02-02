@@ -33,3 +33,29 @@
     </div>
     {{ BootForm::close() }}
 @stop
+
+
+@section('script-end')
+    @parent
+    <script>
+        $(function(){
+            $(document).on('click', '.btn-reset-password', function(e){
+                e.preventDefault();
+                var btn = $(e.currentTarget);
+
+                btn.button('loading');
+                $.ajax({
+                    url: btn.attr('href'),
+                    type: 'get',
+                    dataType: 'json'
+                }).done(function(response){
+                    bootbox.alert("Password baru: " + response.password);
+                }).fail(function(){
+                    alert('Oops, tidak bisa melakukan perubahan password saati ini. Coba lagi beberapa saat atau hubungi admin.');
+                }).always(function(){
+                    btn.button('reset');
+                });
+            });
+        });
+    </script>
+@stop

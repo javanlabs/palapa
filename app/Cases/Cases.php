@@ -1,5 +1,6 @@
 <?php namespace App\Cases;
 
+use App\Officer\Officer;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,6 +15,7 @@ class Cases extends Model {
 
     const TYPE_PIDUM    = 201;
     const TYPE_PIDSUS   = 202;
+    const TYPE_DATUN   = 203;
 
     use SoftDeletes, Presenter, DateSetter;
 
@@ -46,6 +48,11 @@ class Cases extends Model {
     public function evidences()
     {
         return $this->hasMany('App\Cases\Evidence\Evidence', 'case_id');
+    }
+
+    public function members()
+    {
+        return $this->belongsToMany('App\Officer\Officer', 'cases_officers', 'case_id', 'officer_id')->whereRole(Officer::ROLE_JAKSA);
     }
 
     public function suspectNames(){

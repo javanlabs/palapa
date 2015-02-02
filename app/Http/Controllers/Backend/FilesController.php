@@ -23,16 +23,22 @@ class FilesController extends BackendController {
         $paths = $this->buildBreadcrumbs($path);
         $items = $this->fileManager->all($path);
 
-        return view('backend.files.index', compact('items', 'paths'));
+        return view('backend.files.index', compact('items', 'paths', 'path'));
     }
 
-    public function create()
-    {
-    }
-
-    public function store()
+    public function store(Request $request)
     {
 
+        if($request->hasFile('file') && $request->file('file')->isValid())
+        {
+            $file = $request->file('file');
+            $destination = $this->fileManager->filePath($request->get('path'));
+            $file->move($destination, $file->getClientOriginalName());
+
+            return redirect()->back()->with('flash.success', 'Upload file berhasil');
+        }
+
+        return redirect()->back()->with('flash.error', 'Upload file gagal');
     }
 
     public function show($id)
@@ -41,6 +47,8 @@ class FilesController extends BackendController {
 
     public function destroy($id)
     {
+        $this->fileManager->delete($id);
+        return redirect()->back()->with('flash.success', 'File berhasil dihapus');
     }
 
     protected function buildBreadcrumbs($path)

@@ -43,8 +43,11 @@
 
                         </td>
                         <td width='100px'>
-                            <!-- <span class="badge badge-status {{ $item['status'] }}">{{ $item->getLatestActivityAttribute() }}</span> -->
-                            <span class="badge badge-type {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
+                            {{--<span class="badge badge-status {{ $item['status'] }}">{{ $item->getLatestActivityAttribute() }}</span>--}}
+                            @if($item['is_suspend'])
+                                <div class="label label-danger label-lg">Perkara Dihentikan</div>
+                            @endif
+                            <span class="label label-default {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
                             <small class="text-muted">
                             <i>{{ $item->getLatestActivityAttribute()?$item->getLatestActivityAttribute()->name:'' }}</i>
                         </small>

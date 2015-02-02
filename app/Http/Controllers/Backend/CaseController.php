@@ -76,7 +76,8 @@ class CaseController extends BackendController {
 
         $type = $this->lookup->find(Input::get('type', 201));
         $penyidikLookup = $this->lookup->penyidik($type->id);
-        $categories = $this->lookup->categoryPidum('-- Pilih Kategori --');
+
+        $categories = $this->lookup->caseCategoryByType($type->id, '-- Pilih Kategori --');
 
         return view('backend.cases.create', compact('penyidikLookup','jaksaLookup', 'staffLookup', 'cities', 'religions', 'type', 'categories'));
     }
@@ -93,7 +94,7 @@ class CaseController extends BackendController {
         $staffLookup = $this->officer->listStaff();
         $type = $this->lookup->find($case->type_id);
         $penyidikLookup = $this->lookup->penyidik($type->id);
-        $categories = $this->lookup->categoryPidum('-- Pilih Kategori --');
+        $categories = $this->lookup->caseCategoryByType($case->type_id, '-- Pilih Kategori --');
 
         return view('backend.cases.edit', compact('penyidikLookup','case', 'jaksaLookup', 'staffLookup', 'type', 'categories'));
     }
@@ -188,5 +189,37 @@ class CaseController extends BackendController {
         $officer = $this->officer->find($id);
 
         return view('backend.cases.byJaksa', compact('cases', 'officer'));
+    }
+
+    public function addMember($caseId)
+    {
+        $case = $this->repo->find($caseId);
+        $members = $case->members;
+
+        $jaksa = $this->officer->listJaksa();
+        foreach($case->members()->lists('id') as $id)
+        {
+            unset($jaksa[$id]);
+        }
+
+        return view('backend.cases.member.add', compact('case', 'jaksa', 'members'));
+    }
+
+    public function storeMember($caseId, Request $request)
+    {
+        $case = $this->repo->find($caseId);
+        $jaksa = $this->officer->find($request->get('officer_id'));
+
+        $case->members()->attach($jaksa);
+
+        return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil ditambah');
+    }
+
+    public function removeMember($caseId, $officerId)
+    {
+        $case = $this->repo->find($caseId);
+
+        $case->members()->detach($officerId);
+        return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil dihapus');
     }
 }

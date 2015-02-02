@@ -327,4 +327,9 @@ trait Presenter {
         return Carbon::createFromFormat('Y-m-d', $date)->formatLocalized('%d %B %Y');
         return strftime("%e %B %Y");
     }
+
+    public function getIsSuspendAttribute()
+    {
+        return $this->attributes['status'] == Cases::STATUS_SUSPEND;
+    }
 }
