@@ -20,7 +20,7 @@
                 <dt>Pasal</dt>
                 <dd>{{ $case['pasal'] }}</dd>
                 <dt>Tersangka</dt>
-                <dd>{{ $case->suspectNames() }}</dd>
+                <dd>{{$case?$case->suspectNames():'-'}}</dd>
             </dl>
 
             <hr/>

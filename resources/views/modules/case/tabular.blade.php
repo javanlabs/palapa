@@ -16,7 +16,7 @@
             <hr/>
             <dl>
                 <dt>Tersangka</dt>
-                <dd>{{ $case->suspectNames() }}</dd>
+                <dd>{{$case?$case->suspectNames():'-'}}</dd>
             </dl>
         </td>
     </tr>
