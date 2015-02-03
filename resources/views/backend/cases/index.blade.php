@@ -23,10 +23,17 @@
         </form>
 
         <div class="panel panel-default">
-            <div class="panel-heading">{{ count($cases) }} Perkara Perlu Penanganan</div>
             <table class="table table-case">
+                <thead>
+                <tr>
+                    <th>Kasus</th>
+                    <th width="200px">Jaksa/Penyidik</th>
+                    <th width="200px">Tahapan</th>
+                    <th width="100px">Aksi</th>
+                </tr>
+                </thead>
                 @foreach($cases as $item)
-                    @include('modules.case.row', ['item' => $item, 'phases' => $item->phases()])
+                    @include('modules.case.row2', ['item' => $item, 'phases' => $item->phases()])
                 @endforeach
             </table>
             <div class="panel-footer">

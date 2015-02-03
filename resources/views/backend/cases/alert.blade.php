@@ -12,7 +12,7 @@
             <div class="panel-heading">{{ count($cases) }} Perkara Perlu Penanganan</div>
             <table class="table table-case">
                 @foreach($cases as $item)
-                    @include('modules.case.row', ['item' => $item, 'phases' => $item->phases()])
+                    @include('modules.case.row2', ['item' => $item, 'phases' => $item->phases()])
                 @endforeach
             </table>
         </div>
