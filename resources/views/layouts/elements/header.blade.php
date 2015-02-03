@@ -2,15 +2,15 @@
 
 <nav class="navbar navbar-header" role="navigation">
     <div class="container-fluid">
-        <div class="col-sm-9 col-xs-9 col-md-5 col-lg-5">
+        <div class="col-sm-9 col-xs-9 col-md-10 col-lg-5">
             <div class="clock hidden animated fadeInDownBig">
                 <div class="block-date hidden-sm hidden-xs"><span class="day" id="clock-day"></span><span class="date" id="clock-date"></span></div>
                 <div class="time" id="clock-time"></div>
             </div>
         </div>
-        <div class="col-sm-3 col-xs-3 col-md-7 col-lg-7 text-right">
+        <div class="col-sm-3 col-xs-3 col-md-2 col-lg-7 text-right">
             <img class="logo" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
-            <h1 class="hidden-sm hidden-xs">PROFIL KEJAKSAAN NEGERI JEMBER</h1>
+            <h1 class="hidden-sm hidden-xs hidden-md">PROFIL KEJAKSAAN NEGERI JEMBER</h1>
             {{--<h3>Kejaksaan Negeri Jember</h3>--}}
         </div>
     </div>
