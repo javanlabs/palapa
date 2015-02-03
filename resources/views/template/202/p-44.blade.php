@@ -16,218 +16,223 @@
 </tr>
 </tbody>
 </table>
-<p>
-	LAPORAN JAKSA PENUNTUT UMUM SEGERA SETELAH PUTUSAN
-</p>
-<p>
-	NAMA JAKSA PU
-</p>
-<p>
-	Tanggal tuntutan pidana :……………
-</p>
-<p>
-	Tanggal Putusan :……………
-</p>
 <table>
+	<tr>
+<td width='65%'>
+	<strong>LAPORAN JAKSA PENUNTUT UMUM SEGERA SETELAH PUTUSAN PN</strong>
+</td>
+<td width='300px'>
+	TANGGAL TUNTUTAN PIDANA
+</td>
+<td width='5px'>:</td>
+<td>Januari 2015</td>
+	</tr>
+	<tr>
+		<td>
+	NAMA JAKSA PU : {{$case->jaksa->name}}
+</td>
+<td>
+	TANGAL PUTUSAN
+</td>
+
+<td width='5px'>:</td>
+<td>Januari 2015</td>
+</tr>
+</table>
+
+
+
+<table class="table table-bordered">
 <tbody>
-<tr>
+<tr style='font-weight: bold'>
 	<td rowspan="2">
-		<p>
+		
 			No.
-		</p>
+		
 	</td>
 	<td rowspan="2">
-		<p>
-			Nomor Register Perkara
-		</p>
+		
+			Reg. Perkara
+		
 	</td>
 	<td rowspan="2">
-		<p>
-			Identitas Lengkap Terdakwa
-		</p>
+		
+			Nama Lengkap Terdakwa
+		
 	</td>
 	<td rowspan="2">
-		<p>
+		
 			Pasal dakwaan
-		</p>
+		
 	</td>
 	<td rowspan="2">
-		<p>
+		
 			Dakwaan Yang dapat dibuktikan
-		</p>
+		
+	</td>
+	<td colspan="4">
+		
+			Tuntuan Jaksa Penuntut Umum
+		
 	</td>
 	<td colspan="5">
-		<p>
-			Tuntuan Jaksa PU
-		</p>
-	</td>
-	<td colspan="6">
-		<p>
-			Putusan Hakim P.N.
-		</p>
+		
+			Putusan Hakim Pengadilan Negeri
+		
 	</td>
 	<td rowspan="2">
-		<p>
+		
 			Sikap JPU /terdakwa
-		</p>
+		
 	</td>
 	<td rowspan="2">
-		<p>
-			Ket
-		</p>
+		
+			KET
+		
 	</td>
 </tr>
-<tr>
+<tr style='font-weight: bold'>
 	<td>
-		<p>
+		
 			Pidana Badan
-		</p>
+		
 	</td>
 	<td>
-		<p>
+		
 			Denda
-		</p>
+		
 	</td>
 	<td>
-		<p>
+		
 			Barang Bukti
-		</p>
+		
 	</td>
 	<td>
-		<p>
+		
 			Biaya Perkara
-		</p>
+		
 	</td>
 	<td>
-		<p>
-			Uang Pengganti
-		</p>
-	</td>
-	<td>
-		<p>
+		
 			Dakwaan Yang Terbukti
-		</p>
+		
 	</td>
 	<td>
-		<p>
+		
 			Pidanan Badan
-		</p>
+		
 	</td>
 	<td>
-		<p>
+		
 			Denda
-		</p>
+		
 	</td>
 	<td>
-		<p>
+		
 			Barang Bukti
-		</p>
+		
 	</td>
 	<td>
-		<p>
+		
 			Biaya Perkara
-		</p>
-	</td>
-	<td>
-		<p>
-			Uang Pengganti
-		</p>
+		
 	</td>
 </tr>
-<tr>
-	<td>
-		<p>
+<tr align='center' style='font-weight: bold'>
+	<td  width='2%'>
+		
 			1
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			2
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			3
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			4
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='10%'>
+		
 			5
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='10%'>
+		
 			6
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			7
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='10%'>
+		
 			8
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			9
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			10
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			11
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			12
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='10%'>
+		
 			13
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			14
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			15
-		</p>
+		
 	</td>
-	<td>
-		<p>
+	<td  width='5%'>
+		
 			16
-		</p>
-	</td>
-	<td>
-		<p>
-			17
-		</p>
-	</td>
-	<td>
-		<p>
-			18
-		</p>
-	</td>
+		
+	</td>	
 </tr>
 <tr>
+	<td>1.
+	</td>
 	<td>
+	</td>
+	<td>
+		{{$case->suspectNames()}}
+	</td>
+	<td>
+		{{$case->pasal}}
+	</td>
+	<td>
+		{{$case->pasal}}
 	</td>
 	<td>
 	</td>
@@ -250,56 +255,56 @@
 	<td>
 	</td>
 	<td>
-	</td>
-	<td>
-	</td>
-	<td>
-	</td>
-	<td>
-	</td>
-	<td>
-	</td>
-	<td>
-	</td>
-	<td>
-	</td>
+	</td>	
 </tr>
 </tbody>
 </table>
 <table>
 <tbody>
+	<tr align='center'>
+		<td></td>
+		<td><strong>Mengetahui:</strong></td>
+		<td>
+			<strong>Jember, {{strftime("%e %B %Y")}}</strong>
+		</td>
+	</tr>
 <tr align='center'>
 	<td>
-		<p>
-			Mengetahui
+		<p style="text-align:center;">
+			<strong>KASI TINDAK PIDANA KHUSUS</strong>		
 		</p>
 		<p>
-			KASI PIDUM/PIDSUS
+		<br/>
+		<br/>		
+	</p>
+		<p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">BUDI HARTONO, SH. MHum
 		</p>
-		<br/>
-		<br/>
-		<br/>
-		<p>
-			(……………………………….)
-		</p>
-		<p>
-			Pangkat/Nip .........
+		<p style="text-align: center">
+			Jaksa Muda/Nip. 19730508 199031003
 		</p>
 	</td>
 	<td>
-		<p>
-			Jember, {{strftime("%e %B %Y")}}
+<p style="text-align:center;">
+			<strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
 		<p>
-			JAKSA PENUNTUT UMUM
+			<br/><br/>
 		</p>
-		<br/>
-		<br/>
-		<br/>
-		<p>
-			({{$case->jaksa->name}})
+        <p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">{{$setting['kajari_name']}}</u></p>
+        <p style="text-align: center">{{$setting['kajari_jabatan']}} NIP.{{$setting['kajari_nip']}}</p>
+	</td>
+	<td>
+		
+		<p style="text-align:center;">
+			<strong>JAKSA PENUNTUT UMUM</strong>
 		</p>
 		<p>
+		<br/>
+		<br/>		
+	</p>
+		<p style="border-bottom: 1px solid #000; font-weight: bold; text-align: center; margin-bottom:0">({{$case->jaksa->name}})
+		</p>
+		<p style="text-align: center">
 			{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
 		</p>
 	</td>

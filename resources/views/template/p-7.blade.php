@@ -20,21 +20,18 @@
 </p>
 <p style="text-align: center;">
 
-	<strong>MATRIK PERKARA TINDAK PIDANA .................</strong><br/>
+	<strong>MATRIK PERKARA TINDAK PIDANA UMUM</strong><br/>
 
 
 	<strong>(PENYELIDIKAN, PENYIDIKAN, PENUNTUTAN)</strong>
 </p>
 
-<table border='1'>
+<table class="table table-bordered">
 <tbody>
-<tr>
+<tr style='font-weight: bold;text-align: center'>
 	<th>
 		
-			No.
-		
-		
-			Urut
+			No. Urut
 		
 	</th>
 	<th>
@@ -118,7 +115,7 @@
 		
 	</th>
 </tr>
-<tr>
+<tr style='font-weight: bold;text-align: center'>
 	<th>
 		
 			1
