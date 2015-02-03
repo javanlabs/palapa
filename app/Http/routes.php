@@ -60,6 +60,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
 
     $router->get('cases/{caseId}/check/{checklistId}/edit', ['as' => 'backend.cases.checklist.edit', 'uses' => 'CaseController@getChecklistEdit']);
     $router->post('cases/{caseId}/check/{checklistId}/update', ['as' => 'backend.cases.checklist.update', 'uses' => 'CaseController@postChecklistUpdate']);
+    $router->get('cases/{caseId}/phase/skip', ['as' => 'backend.cases.phase.skip', 'uses' => 'CaseController@skipPhase']);
 
     $router->get('cases/{caseId}/member-add', ['as' => 'backend.cases.member.add', 'uses' => 'CaseController@addMember']);
     $router->post('cases/{caseId}/member-store', ['as' => 'backend.cases.member.store', 'uses' => 'CaseController@storeMember']);

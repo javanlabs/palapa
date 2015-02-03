@@ -343,4 +343,19 @@ trait Presenter {
     {
         return $this->attributes['status'] == Cases::STATUS_SUSPEND;
     }
+
+    public function getIsPidumAttribute()
+    {
+        return $this->attributes['type_id'] == Cases::TYPE_PIDUM;
+    }
+
+    public function getIsPidsusAttribute()
+    {
+        return $this->attributes['type_id'] == Cases::TYPE_PIDSUS;
+    }
+
+    public function getIsDatunAttribute()
+    {
+        return $this->attributes['type_id'] == Cases::TYPE_DATUN;
+    }
 }

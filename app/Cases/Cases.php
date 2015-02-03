@@ -194,6 +194,11 @@ class Cases extends Model {
         }
     }
 
+    public function hasPhaseHistory($phase)
+    {
+        return $this->phaseHistory()->where('phase_id', '=', $phase->id)->exists();
+    }
+
     public function reopenPhase($phase)
     {
         foreach($this->phaseHistory as $history)
