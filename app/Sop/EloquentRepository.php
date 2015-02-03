@@ -292,8 +292,8 @@ class EloquentRepository implements RepositoryInterface {
             if($phase->pivot->finish_date)
             {
                 $finishDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->finish_date);
+                $item['finish_date'] = $finishDate->formatLocalized('%d %B %Y');
             }
-            $item['finish_date'] = $finishDate->formatLocalized('%d %B %Y');
 
             if($finishDate >= $startDate)
             {
