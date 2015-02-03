@@ -7,7 +7,7 @@
 @stop
 
 @section('content-admin')
-    <div id="page-case-index">
+    <div id="page-case-index" class="row">
         <h2 class="page-title">Manajemen Perkara</h2>
 
         @include('backend.cases.tab', ['owner' => $owner])
@@ -22,11 +22,9 @@
             <!-- /input-group -->
         </form>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">Kasus</div>
-            <table class="table table-case">
+        <div class="list-case">
                 @foreach($cases as $item)
-                    @include('modules.case.row', ['item' => $item, 'phases' => $item->phases()])
+                    @include('modules.case.list', ['item' => $item, 'phases' => $item->phases()])
                     {{--<tr>--}}
                         {{--<td>--}}
                             {{--<h5 class="mb-0">{{ $item['name'] }}</h5>--}}
@@ -68,8 +66,7 @@
                         {{--</td>--}}
                     {{--</tr>--}}
                 @endforeach
-            </table>
-            <div class="panel-footer">
+            <div class="pad text-center">
                 {{ $cases->appends('q', Input::get('q'))->render() }}
             </div>
         </div>

@@ -4,7 +4,7 @@
         {{ case_deadline($item['day_remaining']) }}
         @endif
 
-        <h4 class="name mb-0">{{ $item['name'] }}</h4>
+        <h3 class="name mb-0">{{ $item['name'] }}</h3>
         <small class="text-muted">No SPDP {{ $item['spdp_number'] }}
             <br/>
             <strong>{{$item->category}}:</strong>

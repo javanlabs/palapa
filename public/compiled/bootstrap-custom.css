@@ -6784,6 +6784,10 @@ body.login footer a {
 .box-tersangka .item .name {
   line-height: 2em;
 }
+.case-tracking .name {
+  font-weight: 300;
+  font-size: 1.3em;
+}
 .case-tracking .progress {
   height: 15px;
   cursor: pointer;
@@ -6831,6 +6835,18 @@ body.login footer a {
   width: 30px;
   text-align: center;
 }
+.list-case .item {
+  margin-bottom: 40px;
+}
+.list-case .item .name {
+  font-size: 1.5em;
+}
+.list-case .box-progress {
+  border-top: 1px solid #eeeeee;
+}
+.list-case .panel-footer .person {
+  font-size: .8em;
+}
 @media (min-width: 1200px) {
   table.table-case-info tbody tr td {
     font-size: .9em;
@@ -6877,6 +6893,26 @@ body.login footer a {
 .mb-0 {
   margin-bottom: 0px;
 }
+.mv-0 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.pad-sm {
+  padding: 10px;
+}
+.pad {
+  padding: 20px;
+}
+.pad-lg {
+  padding: 40px;
+}
+.pad-0 {
+  padding: 0;
+}
+.padv-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 .color-success {
   color: #16a085;
 }
@@ -6897,15 +6933,6 @@ h2.page-title {
 }
 .subtitle .icon {
   margin-right: 10px;
-}
-.pad-sm {
-  padding: 10px;
-}
-.pad {
-  padding: 20px;
-}
-.pad-lg {
-  padding: 40px;
 }
 .form-delete {
   display: inline-block;

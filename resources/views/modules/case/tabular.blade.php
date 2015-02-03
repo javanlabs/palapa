@@ -5,7 +5,7 @@
             @if($case['is_suspend'])
                 <div class="label label-danger label-lg">Perkara Dihentikan</div>
             @endif
-            <h3 class="mb-0">{{ $case['name'] }}</h3>
+            <h3 class="mb-0 name">{{ $case['name'] }}</h3>
             <small class="text-muted"><strong>No SPDP:</strong> {{ $case['spdp_number'] }}</small>
         </td>
         <td colspan="4" rowspan="2">
@@ -37,14 +37,14 @@
     <tr>
         <td>
             <dl>
-                <dt>Penyidik</dt>
-                <dd>{{ $case['penyidik_name'] }}</dd>
+                <dt>Jaksa</dt>
+                <dd>{{ $case['prosecutor_name'] }}</dd>
             </dl>
         </td>
         <td>
             <dl>
-                <dt>Jaksa</dt>
-                <dd>{{ $case['prosecutor_name'] }}</dd>
+                <dt>Penyidik</dt>
+                <dd>{{ $case['penyidik_name'] }}</dd>
             </dl>
         </td>
         <td>

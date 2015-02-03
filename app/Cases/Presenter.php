@@ -108,8 +108,9 @@ trait Presenter {
 
         if(!$phase->pivot->start_date)
         {
-            return 'default';
+            return false;
         }
+
 
         $startDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->start_date);
 
