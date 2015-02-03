@@ -253,4 +253,12 @@ class CaseController extends BackendController {
         return response()->json($data);
     }
 
+    public function skipPhase($caseId)
+    {
+        $case = $this->repo->find($caseId);
+        $this->sopRepo->skipPhase($case);
+
+        return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Kasus berhasil dilanjutkan ke tahap berikutnya');
+    }
+
 }

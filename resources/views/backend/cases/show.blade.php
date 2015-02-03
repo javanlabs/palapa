@@ -28,24 +28,37 @@
             <div class="panel panel-default panel-checklist">
                 @foreach($phases as $phase)
                     <div class="panel-heading">
-                        <h4>{{ $phase['name'] }}</h4>
+                        <h4>
+                            {{ $phase['name'] }}
+
+                            @if($case['is_pidsus'] && $phase['id'] == $case['phase_id'])
+                                <span><a href="{{ route('backend.cases.phase.skip', [$case['id']]) }}" class="btn btn-primary btn-xs">Skip</a></span>
+                            @endif
+                        </h4>
+
                         @if(isset($phaseHistories[$phase['id']]))
                             <div class="text-muted">
-                                @if($phaseHistories[$phase['id']]['current_duration'])
-                                    <span class="label label-default">{{ $phaseHistories[$phase['id']]['current_duration'] }} hari</span>
+                                @if($phaseHistories[$phase['id']]['skipped'])
+                                    @if($phase['id'] !== $case['phase_id'])
+                                    <span class="label label-default">skipped</span>
+                                    @endif
                                 @else
-                                    <span class="label label-danger">tanggal tidak valid</span>
-                                @endif
+                                    @if($phaseHistories[$phase['id']]['current_duration'] !== false)
+                                        <span class="label label-default">{{ $phaseHistories[$phase['id']]['current_duration'] }} hari</span>
+                                    @else
+                                        <span class="label label-danger">tanggal tidak valid</span>
+                                    @endif
 
-                                <small>
-                                {{ $phaseHistories[$phase['id']]['start_date'] }}
-                                s/d
-                                @if($phaseHistories[$phase['id']]['finish_date'])
-                                    {{ $phaseHistories[$phase['id']]['finish_date'] }}
-                                @else
-                                    ...
+                                    <small>
+                                        {{ $phaseHistories[$phase['id']]['start_date'] }}
+                                        s/d
+                                        @if($phaseHistories[$phase['id']]['finish_date'])
+                                            {{ $phaseHistories[$phase['id']]['finish_date'] }}
+                                        @else
+                                            ...
+                                        @endif
+                                    </small>
                                 @endif
-                                </small>
                             </div>
                         @endif
                     </div>

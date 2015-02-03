@@ -106,7 +106,7 @@ class EloquentRepository implements RepositoryInterface {
 
     public function categoryPidsus($empty = null)
     {
-        $list = ['korupsi' => 'Korupsi'];
+        $list = ['korupsi' => 'Korupsi', 'ham' => 'HAM', 'pajak' => 'Pajak'];
 
         if($empty)
         {

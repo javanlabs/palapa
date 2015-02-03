@@ -279,33 +279,67 @@ class EloquentRepository implements RepositoryInterface {
         {
             $item = $phase->toArray();
             $item['start_date'] = $item['finish_date'] = null;
+            $startDate = $finishDate = Carbon::now();
 
-            $startDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->start_date);
+            $item['skipped'] = ($phase->pivot->start_date === null && $phase->pivot->finish_date === null);
+
+            if($phase->pivot->start_date)
+            {
+                $startDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->start_date);
+            }
             $item['start_date'] = $startDate->formatLocalized('%d %B %Y');
 
             if($phase->pivot->finish_date)
             {
                 $finishDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->finish_date);
             }
-            else
-            {
-                $finishDate = Carbon::now();
-            }
             $item['finish_date'] = $finishDate->formatLocalized('%d %B %Y');
 
-            if($finishDate < $startDate)
+            if($finishDate >= $startDate)
             {
-                $item['current_duration'] = false;
+                $item['current_duration'] = $finishDate->diffInDays($startDate);
             }
             else
             {
-                $item['current_duration'] = $finishDate->diffInDays($startDate);
+                $item['current_duration'] = false;
             }
 
             $histories[$phase->id] = $item;
         }
 
         return $histories;
+    }
+
+    public function skipPhase($case)
+    {
+        $currentPhase = $case->phase;
+        $nextPhase = $currentPhase->nextPhase();
+
+        if($nextPhase)
+        {
+            // skip current phase
+            if($case->hasPhaseHistory($currentPhase))
+            {
+                $case->updatePhaseStartDate($currentPhase, null);
+                $case->updatePhaseFinishDate($currentPhase, null);
+            }
+            else
+            {
+                $case->phaseHistory()->attach($currentPhase, ['start_date' => null, 'finish_date' => null]);
+            }
+
+            // update current phase
+            $case->phase()->associate($nextPhase)->save();
+
+            // add new phase to history
+            $case->phaseHistory()->attach($nextPhase, ['start_date' => null]);
+        }
+        else
+        {
+            $case->close();
+        }
+
+        return true;
     }
 
     protected function getChildTypeIds($type)

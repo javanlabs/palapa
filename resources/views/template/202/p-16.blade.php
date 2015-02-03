@@ -24,9 +24,9 @@
 	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
 	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
 	</strong></b>
-	<?php 
+	<?php
 	$category = '';
-	switch($case->category){			
+	switch($case->category){
 		case 'kamtibum':
 		$category = 'Ep.1';
 		break;
@@ -64,7 +64,7 @@
 		</ol>
 		<table>
 		<tbody>
-		@foreach($case->suspects as $suspect)		
+		@foreach($case->suspects as $suspect)
 		<tr>
 			<td width="150px"  style="padding-left: 27px">
 					Nama Lengkap
@@ -227,7 +227,7 @@
 					:
 			</td>
 			<td>
-				{{$case->jaksa->name}}
+				{{$case->jaksa_name}}
 			</td>
 		</tr>
 		<tr>
@@ -240,7 +240,7 @@
 					:
 			</td>
 			<td>
-				{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
+				{{$case->jaksa_pangkat}}/{{$case->jaksa_nip}}
 			</td>
 		</tr>
 		<tr>
@@ -283,7 +283,7 @@
 <tr>
 	<td width="50%">
 	</td>
-	<td>		
+	<td>
 		<table>
 			<tr>
 				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
@@ -295,7 +295,7 @@
 				<td>:</td>
 				<td>{{$case->getChecklistDate(1)}}</td>
 			</tr>
-		</table>		
+		</table>
 		<hr/>
 		<br/>
 		<p style="text-align:center;">
