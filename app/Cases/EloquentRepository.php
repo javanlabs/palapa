@@ -56,6 +56,7 @@ class EloquentRepository implements RepositoryInterface {
 
         $case = $this->case->create($input);
 
+        $loggedCase = clone $case;
         $defaultPhase = $this->phase->where('case_type_id', '=', $case->type_id)->orderBy('ordinal')->first();
 
         if($defaultPhase)
@@ -83,7 +84,7 @@ class EloquentRepository implements RepositoryInterface {
 
         $case->author()->associate($user)->save();
 
-        Event::fire('case.created', [$case, $user]);
+        Event::fire('case.created', [$loggedCase, $user]);
 
         return $case;
     }

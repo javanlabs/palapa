@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Sop\Checklist;
-use Venturecraft\Revisionable\RevisionableTrait;
+use App\AuditTrail\RevisionableTrait;
 
 class Cases extends Model {
 

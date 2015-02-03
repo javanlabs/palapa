@@ -1,5 +1,6 @@
 <?php namespace App\Providers;
 
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider {
@@ -13,6 +14,8 @@ class AppServiceProvider extends ServiceProvider {
 	{
         setlocale(LC_TIME, 'id_ID.utf8');
         include __DIR__.'/../helpers.php';
+
+        Event::subscribe('App\AuditTrail\EventHandler');
 	}
 
 	/**
@@ -28,6 +31,7 @@ class AppServiceProvider extends ServiceProvider {
 		$this->app->bind('App\Cases\RepositoryInterface', 'App\Cases\EloquentRepository');
 		$this->app->bind('App\Sop\RepositoryInterface', 'App\Sop\EloquentRepository');
 		$this->app->bind('App\Menu\RepositoryInterface', 'App\Menu\EloquentRepository');
+        $this->app->bind('App\AuditTrail\Activity\RepositoryInterface', 'App\AuditTrail\Activity\EloquentRepository');
 
 		\Config::set('gapura::default_auth', 'admin.home');
 		\Config::set('gapura::default_guest', 'home');
