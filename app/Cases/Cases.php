@@ -232,7 +232,7 @@ class Cases extends Model {
 
     public function isLatestChecklist($checklist)
     {
-        $lastChecklist = $this->checklist()->orderBy('created_at', 'desc')->first();
+        $lastChecklist = $this->checklist()->orderBy('ordinal', 'desc')->first();
 
         if($lastChecklist)
         {

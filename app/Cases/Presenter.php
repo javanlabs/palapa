@@ -256,7 +256,7 @@ trait Presenter {
 
     public function getPersidanganDateAttribute()
     {
-        if($this->attributes['persidangan_date'])
+        if($this->attributes['persidangan_date'] && $this->attributes['persidangan_date'] != '0000-00-00')
         {
             return Carbon::createFromFormat('Y-m-d', $this->attributes['persidangan_date'])->format('d-m-Y');
         }
