@@ -1,46 +1,45 @@
+<table class="table table-slider-heading">
+    <thead>
+    <tr>
+        <td width='20%'>Nama Tersangka</td>
+        <td width='20%'>Kasus/Pasal</td>
+        <td width='30%'>Agenda</td>
+        <td width='20%'>Jaksa Penuntut Umum</td>
+        <td width='10%'>Tanggal</td>
+    </tr>
+    </thead>
+</table>
+
 <div id="slider">
     <div id="items-slider">
         <ul>
-            <li>
-        <div class="item">
-        <table class="table">
-                    <thead>
-                        <tr style='background-color: black'>
-                            <td width='150px'>Nama Tersangka</td>
-                            <td>Kasus/Pasal</td>
-                            <td>Agenda</td>
-                            <td>Jaksa Penuntut Umum</td>
-                            <td>Tanggal</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @forelse($items as $item)
+                    @foreach($items as $item)
                         @if($item->cases)
+                    <li>
+                        <div class="item">
+                    <table class="table">
                         <tr class='item'>
-                            <td>
+                            <td width='20%'>
                                 {{$item->cases->suspectNames()}}
                             </td>
-                            <td>
+                            <td width='20%'>
                                 {{$item->cases->kasus}}/{{$item->cases->pasal}}
                             </td>
-                            <td>
+                            <td width='30%'>
                                 {{ $item['agenda'] }}
                             </td>
-                            <td>
+                            <td width='20%'>
                                 {{$item->cases['jaksa_name']}}
                             </td>
-                            <td style="padding-top: 20px">
-                                {{$item['date_for_human']}}
+                            <td  width='10%'>
+                                <span class="date">{{$item['date_for_human']}}</span>
                             </td>
                         </tr>
+                    </table>
+                        </div>
+                    </li>
                         @endif
-                    @empty
-                        <tr><td><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
-                    @endforelse
-                    </tbody>
-                </table>
-            </div>
-        </li>
+                    @endforeach
     </ul>
     </div>
 </div>
