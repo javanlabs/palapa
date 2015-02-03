@@ -26,7 +26,7 @@
 	<strong>(PENYELIDIKAN, PENYIDIKAN, PENUNTUTAN)</strong>
 </p>
 
-<table>
+<table border='1'>
 <tbody>
 <tr>
 	<th>

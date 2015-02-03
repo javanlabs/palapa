@@ -40,9 +40,10 @@
                     </thead>
                     <tbody>
                     @forelse($courts as $item)
+			@if($item->cases)
                         <tr>
                             <td>
-                                {{$item->cases->suspectNames()}}
+                                {{$item->cases?$item->cases->suspectNames():'-'}}
                             </td>
                             <td>
                                 {{$item->cases->kasus}}/{{$item->cases->pasal}}
@@ -62,6 +63,7 @@
                                 </a>
                             </td>
                         </tr>
+			@endif
                     @empty
                         <tr><td colspan='6'><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
                     @endforelse
