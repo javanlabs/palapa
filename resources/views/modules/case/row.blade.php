@@ -1,6 +1,10 @@
 <tr class="case-tracking">
     <td>
-        <h4 class="mb-0">{{ $item['name'] }}</h4>
+        @if($item['day_remaining'])
+        {{ case_deadline($item['day_remaining']) }}
+        @endif
+
+        <h4 class="name mb-0">{{ $item['name'] }}</h4>
         <small class="text-muted">No SPDP {{ $item['spdp_number'] }}
             <br/>
             <strong>{{$item->category}}:</strong>
