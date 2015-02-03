@@ -6784,26 +6784,24 @@ body.login footer a {
 .box-tersangka .item .name {
   line-height: 2em;
 }
-.section-case-tracking .progress {
+.case-tracking .progress {
   height: 15px;
   cursor: pointer;
 }
-.section-case-tracking .progress-bar {
+.case-tracking .progress-bar {
   background-color: #eeeeee;
+  border-right: 1px dotted #ffffff;
 }
-.section-case-tracking .progress-bar-success {
+.case-tracking .progress-bar-success {
   background-color: #16a085;
 }
-.section-case-tracking .progress-bar-warning {
+.case-tracking .progress-bar-warning {
   background-color: #f39c12;
 }
-.section-case-tracking .progress-bar-danger {
+.case-tracking .progress-bar-danger {
   background-color: #c0392b;
 }
-.section-case-tracking .progress-bar- {
-  border-right: 1px dashed #ffffff;
-}
-.section-case-tracking .progress-bar-:last-child {
+.case-tracking .progress-bar-:last-child {
   border-right: 0 none;
 }
 .modal-case-info .modal-body {
@@ -7010,31 +7008,29 @@ body#screensaver .slide-title {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
 }
+body#screensaver .table-slider-heading tr {
+  background-color: #000000;
+}
+body#screensaver .table-slider-heading td {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+}
 #slider {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
-  top: 150px;
+  top: 200px;
   right: 0;
   z-index: 20;
 }
 #items-slider {
   color: #fff;
 }
-#items-slider .item {
-  padding: 20px 50px;
-}
-#items-slider .item .name {
-  font-size: 3em;
-  line-height: 1em;
-  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
-}
-#items-slider .item .time {
-  color: #f1a417;
-  font-size: 2em;
-  line-height: 1em;
-  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.9), 1px 2px 5px rgba(0, 0, 0, 0.5);
+#items-slider .item .date {
+  color: #f1a417 ;
 }
 #btn-stop {
   position: fixed;

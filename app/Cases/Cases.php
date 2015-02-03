@@ -1,6 +1,7 @@
 <?php namespace App\Cases;
 
 use App\Officer\Officer;
+use App\Sop\Phase;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -101,6 +102,11 @@ class Cases extends Model {
     public function phase()
     {
         return $this->belongsTo('App\Sop\Phase', 'phase_id');
+    }
+
+    public function phases()
+    {
+        return Phase::where('case_type_id', '=', $this->type_id)->get();
     }
 
     public function checklist()
