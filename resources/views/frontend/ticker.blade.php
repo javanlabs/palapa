@@ -15,6 +15,7 @@
                     </thead>
                     <tbody>
                     @forelse($items as $item)
+                        @if($item->cases)
                         <tr class='item'>
                             <td>
                                 {{$item->cases->suspectNames()}}
@@ -32,6 +33,7 @@
                                 {{$item['date_for_human']}}
                             </td>
                         </tr>
+                        @endif
                     @empty
                         <tr><td><div class="empty text-center">Saat ini belum ada jadwal sidang.</div></td></tr>
                     @endforelse
@@ -39,7 +41,7 @@
                 </table>
             </div>
         </li>
-    </ul>       
+    </ul>
     </div>
 </div>
 
