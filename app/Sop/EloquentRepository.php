@@ -159,7 +159,7 @@ class EloquentRepository implements RepositoryInterface {
 
         if($checklist->is_next)
         {
-            // cek apakah ada checklist lain dengan type yg sudah 'checked'
+            // cek apakah ada checklist lain dengan type next yg sudah 'checked'
             // jika ada, maka tidak perlu decrement phase
 
             $hasNext = false;
