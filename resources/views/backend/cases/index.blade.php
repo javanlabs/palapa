@@ -26,46 +26,47 @@
             <div class="panel-heading">Kasus</div>
             <table class="table table-case">
                 @foreach($cases as $item)
-                    <tr>
-                        <td>
-                            <h5 class="mb-0">{{ $item['name'] }}</h5>
-                            {{strtoupper($item->category)}} - <small class="text-muted">{{ $item['spdp_number'] }}</small>
-                            <br/>
-                            <strong>Tersangka</strong>
-                            @foreach($item->suspects as $suspect)
-                                {{$suspect->name}}
-                            @endforeach
-                        </td>
-                        <td>
-                            <div><i class="ion-person"></i> {{ $item['prosecutor_name'] }}</div>
-                            <hr style="margin-top: 10px; margin-bottom:10px; border-style: dashed none none"/>
-                            <div><i class="ion-ios-people"></i> {{ $item['penyidik_name'] }}</div>
+                    @include('modules.case.row', ['item' => $item, 'phases' => $item->phases()])
+                    {{--<tr>--}}
+                        {{--<td>--}}
+                            {{--<h5 class="mb-0">{{ $item['name'] }}</h5>--}}
+                            {{--{{strtoupper($item->category)}} - <small class="text-muted">{{ $item['spdp_number'] }}</small>--}}
+                            {{--<br/>--}}
+                            {{--<strong>Tersangka</strong>--}}
+                            {{--@foreach($item->suspects as $suspect)--}}
+                                {{--{{$suspect->name}}--}}
+                            {{--@endforeach--}}
+                        {{--</td>--}}
+                        {{--<td>--}}
+                            {{--<div><i class="ion-person"></i> {{ $item['prosecutor_name'] }}</div>--}}
+                            {{--<hr style="margin-top: 10px; margin-bottom:10px; border-style: dashed none none"/>--}}
+                            {{--<div><i class="ion-ios-people"></i> {{ $item['penyidik_name'] }}</div>--}}
 
-                        </td>
-                        <td width='100px'>
+                        {{--</td>--}}
+                        {{--<td width='100px'>--}}
                             {{--<span class="badge badge-status {{ $item['status'] }}">{{ $item->getLatestActivityAttribute() }}</span>--}}
-                            @if($item['is_suspend'])
-                                <div class="label label-danger label-lg">Perkara Dihentikan</div>
-                            @endif
-                            <span class="label label-default {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>
-                            <small class="text-muted">
-                            <i>{{ $item->getLatestActivityAttribute()?$item->getLatestActivityAttribute()->name:'' }}</i>
-                        </small>
-                        </td>
-                        <td class="text-right">
-                            <div class="btn-group">
-                                @if(Auth::user()->canManage($item))
-                                    <a class="btn btn-default btn-sm" href="{{ $item['permalink_edit'] }}">
-                                        Edit <i class="ion-ios-arrow-forward"></i>
-                                    </a>
-                                @else
-                                    <a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info</a>
-                                @endif
+                            {{--@if($item['is_suspend'])--}}
+                                {{--<div class="label label-danger label-lg">Perkara Dihentikan</div>--}}
+                            {{--@endif--}}
+                            {{--<span class="label label-default {{ $item['type_name'] }}">{{ $item['type_name'] }}</span>--}}
+                            {{--<small class="text-muted">--}}
+                            {{--<i>{{ $item->getLatestActivityAttribute()?$item->getLatestActivityAttribute()->name:'' }}</i>--}}
+                        {{--</small>--}}
+                        {{--</td>--}}
+                        {{--<td class="text-right">--}}
+                            {{--<div class="btn-group">--}}
+                                {{--@if(Auth::user()->canManage($item))--}}
+                                    {{--<a class="btn btn-default btn-sm" href="{{ $item['permalink_edit'] }}">--}}
+                                        {{--Edit <i class="ion-ios-arrow-forward"></i>--}}
+                                    {{--</a>--}}
+                                {{--@else--}}
+                                    {{--<a class="btn btn-default btn-sm btn-detail" href="{{ $item['permalink'] }}">Info</a>--}}
+                                {{--@endif--}}
 
 
-                            </div>
-                        </td>
-                    </tr>
+                            {{--</div>--}}
+                        {{--</td>--}}
+                    {{--</tr>--}}
                 @endforeach
             </table>
             <div class="panel-footer">

@@ -48,7 +48,7 @@ trait Presenter {
     {
         $phaseHistory = $this->phaseHistory()->where('phase_id', '=', $phaseId)->first();
 
-        if($phaseHistory)
+        if($phaseHistory && $phaseHistory->pivot->start_date)
         {
             $startDate = Carbon::createFromFormat('Y-m-d', $phaseHistory->pivot->start_date);
 
@@ -104,6 +104,11 @@ trait Presenter {
         if(!$phase)
         {
             return false;
+        }
+
+        if(!$phase->pivot->start_date)
+        {
+            return 'default';
         }
 
         $startDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->start_date);

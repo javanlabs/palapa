@@ -6784,26 +6784,24 @@ body.login footer a {
 .box-tersangka .item .name {
   line-height: 2em;
 }
-.section-case-tracking .progress {
+.case-tracking .progress {
   height: 15px;
   cursor: pointer;
 }
-.section-case-tracking .progress-bar {
+.case-tracking .progress-bar {
   background-color: #eeeeee;
+  border-right: 1px dotted #ffffff;
 }
-.section-case-tracking .progress-bar-success {
+.case-tracking .progress-bar-success {
   background-color: #16a085;
 }
-.section-case-tracking .progress-bar-warning {
+.case-tracking .progress-bar-warning {
   background-color: #f39c12;
 }
-.section-case-tracking .progress-bar-danger {
+.case-tracking .progress-bar-danger {
   background-color: #c0392b;
 }
-.section-case-tracking .progress-bar- {
-  border-right: 1px dashed #ffffff;
-}
-.section-case-tracking .progress-bar-:last-child {
+.case-tracking .progress-bar-:last-child {
   border-right: 0 none;
 }
 .modal-case-info .modal-body {

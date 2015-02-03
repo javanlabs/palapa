@@ -60,6 +60,8 @@
             })
             @endif
 
+            $('.progress-bar').popover({trigger: 'hover', placement:'top', html:true})
+
         });
 
     </script>
