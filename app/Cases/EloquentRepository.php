@@ -373,21 +373,28 @@ class EloquentRepository implements RepositoryInterface {
 
     public function countByOwner($owner)
     {
-        $officerId = -999;
-        if($owner->officer)
+        if($owner->hasGroup('root'))
         {
-            $officerId = $owner->officer->id;
+            $query = $this->case->newQuery();
         }
+        else
+        {
+            $officerId = -999;
+            if($owner->officer)
+            {
+                $officerId = $owner->officer->id;
+            }
 
-        $query = $this->case->where(function($query2) use ($owner, $officerId) {
-            return $query2->orWhere('author_id', '=', $owner->id)
-                          ->orWhere('staff_id', '=', $officerId)
-                          ->orWhere('jaksa_id', '=', $officerId)
-                          ->orWhere(function($query3) use ($owner, $officerId) {
-                              return $query3->where('penyidik_id', '=', $officerId)
-                                            ->where('penyidik_type', '=', 'internal');
-                          });
-        });
+            $query = $this->case->where(function($query2) use ($owner, $officerId) {
+                return $query2->orWhere('author_id', '=', $owner->id)
+                              ->orWhere('staff_id', '=', $officerId)
+                              ->orWhere('jaksa_id', '=', $officerId)
+                              ->orWhere(function($query3) use ($owner, $officerId) {
+                                  return $query3->where('penyidik_id', '=', $officerId)
+                                                ->where('penyidik_type', '=', 'internal');
+                              });
+            });
+        }
 
         return $query->count();
     }
@@ -468,7 +475,14 @@ class EloquentRepository implements RepositoryInterface {
 
     protected function prepareAlert($user)
     {
-        $query = $this->case->ownedBy($user);
+        if($user->hasGroup('root'))
+        {
+            $query = $this->case->newQuery();
+        }
+        else
+        {
+            $query = $this->case->ownedBy($user);
+        }
 
         $query->select('cases.*', 'v_cases_current_timeline.*')
             ->join('v_cases_current_timeline', 'v_cases_current_timeline.id', '=', 'cases.id')
