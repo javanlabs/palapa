@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Sop\Checklist;
+use Venturecraft\Revisionable\RevisionableTrait;
 
 class Cases extends Model {
 
@@ -19,6 +20,7 @@ class Cases extends Model {
     const TYPE_DATUN   = 203;
 
     use SoftDeletes, Presenter, DateSetter;
+    use RevisionableTrait;
 
     protected $table = 'cases';
 
