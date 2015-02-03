@@ -259,18 +259,20 @@
 
         </div>
 
-        <table class="table table-striped">
-            <caption><i class="icon ion-ios-shuffle-strong"></i> Riwayat Aktivitas</caption>
-            @foreach($activities as $item)
-            <tr>
-                <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
-                <td>
-                    <strong>{{ $item['name'] }}</strong>
-                    <p>{{ $item['note'] }}</p>
-                </td>
-            </tr>
-            @endforeach
-        </table>
+            <div class="panel panel-default">
+                <div class="panel-heading"><i class="icon ion-ios-shuffle-strong"></i> Riwayat Aktivitas</div>
+                <table class="table table-list">
+                    @foreach($activities as $item)
+                        <tr>
+                            <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
+                            <td>
+                                <strong>{{ $item['name'] }}</strong>
+                                <p>{{ $item['note'] }}</p>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
 
 
             {{ Form::open(['route' => ['backend.cases.activity', $case['id']], 'method' => 'post', 'role'=>'form']) }}
