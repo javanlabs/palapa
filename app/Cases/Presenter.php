@@ -246,7 +246,7 @@ trait Presenter {
 
     public function getSpdpDateAttribute()
     {
-        if($this->attributes['spdp_date'])
+        if($this->attributes['spdp_date'] && $this->attributes['spdp_date'] != '0000-00-00')
         {
             return Carbon::createFromFormat('Y-m-d', $this->attributes['spdp_date'])->format('d-m-Y');
         }
@@ -330,7 +330,7 @@ trait Presenter {
 
     public function getSpdpDateForHumanAttribute()
     {
-        if($this->attributes['spdp_date'])
+        if($this->attributes['spdp_date'] && $this->attributes['spdp_date'] != '0000-00-00')
         {
             return Carbon::createFromFormat('Y-m-d', $this->attributes['spdp_date'])->formatLocalized('%d %B %Y');
         }
