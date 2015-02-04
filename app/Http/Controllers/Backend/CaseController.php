@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use App\Model\Template;
 use Input;
+use Laracasts\Flash\Flash;
 
 class CaseController extends BackendController {
 
@@ -86,6 +87,8 @@ class CaseController extends BackendController {
     public function store(Form $form)
     {
         $case = $this->repo->create($form->all(), Auth::user());
+
+        Flash::success(trans('flash/case.created'));
         return redirect()->route('backend.cases.show', $case->id);
     }
 
@@ -100,8 +103,12 @@ class CaseController extends BackendController {
         return view('backend.cases.edit', compact('penyidikLookup','case', 'jaksaLookup', 'staffLookup', 'type', 'categories'));
     }
 
-    public function update(Form $form, $id){
+    public function update(Form $form, $id)
+    {
         $this->repo->update($id, $form->all(), Auth::user());
+
+        Flash::success(trans('flash/case.updated'));
+
         return redirect()->route('backend.cases.show', $id);
     }
 
@@ -123,7 +130,8 @@ class CaseController extends BackendController {
 
         if(!Auth::user()->canManage($case))
         {
-            return redirect()->route('backend.cases.index')->with('flash.warning', 'Anda tidak diijinkan untuk mengedit data kasus ini');
+            Flash::warning('flash/case.edit_not_allowed');
+            return redirect()->route('backend.cases.index');
         }
 
         $phases = $this->sopRepo->byType($case->type_id);
@@ -143,7 +151,9 @@ class CaseController extends BackendController {
     {
         $this->repo->delete($id, Auth::user());
 
-        return redirect()->route('backend.cases.index')->with('flash.warning', 'Kasus berhasil dihapus');
+        Flash::warning(trans('flash/case.deleted'));
+
+        return redirect()->route('backend.cases.index');
     }
 
     public function getChecklist($caseId, $checklistId)
@@ -163,6 +173,8 @@ class CaseController extends BackendController {
 
         $this->sopRepo->addChecklist($case, $checklist, $request->only('date', 'note', 'data'));
 
+        Flash::success(trans('flash/case.checklist.checked'));
+
         $data['status'] = 1;
 
         return response()->json($data);
@@ -174,6 +186,7 @@ class CaseController extends BackendController {
         $checklist = Checklist::findOrFail($checklistId);
 
         $this->sopRepo->removeChecklist($case, $checklist);
+        Flash::warning(trans('flash/case.checklist.unchecked'));
 
         return redirect()->back();
     }
@@ -182,6 +195,8 @@ class CaseController extends BackendController {
     {
         $case = $this->repo->find($caseId);
         $this->repo->addActivity($case, $request->only('content'));
+
+        Flash::success(trans('flash/case.activity.created'));
 
         return redirect()->back();
     }
@@ -214,9 +229,11 @@ class CaseController extends BackendController {
         $jaksa = $this->officer->find($request->get('officer_id'));
 
         $case->members()->attach($jaksa);
-        Event::fire('case.officer.added', [$jaksa]);
 
-        return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil ditambah');
+        Event::fire('case.officer.added', [$jaksa]);
+        Flash::success(trans('flash/case.officer.added'));
+
+        return redirect()->route('backend.cases.show', [$case->id]);
     }
 
     public function removeMember($caseId, $officerId)
@@ -226,8 +243,9 @@ class CaseController extends BackendController {
 
         $case->members()->detach($officerId);
         Event::fire('case.officer.removed', [$jaksa]);
+        Flash::warning(trans('flash/case.officer.removed'));
 
-        return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil dihapus');
+        return redirect()->route('backend.cases.show', [$case->id]);
     }
 
     public function alert()
@@ -263,7 +281,9 @@ class CaseController extends BackendController {
         $case = $this->repo->find($caseId);
         $this->sopRepo->skipPhase($case);
 
-        return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Kasus berhasil dilanjutkan ke tahap berikutnya');
+        Flash::success(trans('flash/case.skip'));
+
+        return redirect()->route('backend.cases.show', [$case->id]);
     }
 
 }

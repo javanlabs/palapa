@@ -156,6 +156,7 @@ return [
 		 */
         'AdamWathan\BootForms\BootFormsServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
+        'Laracasts\Flash\FlashServiceProvider',
 
 	],
 
@@ -217,6 +218,7 @@ return [
 
         'BootForm' => 'AdamWathan\BootForms\Facades\BootForm',
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
+        'Flash'    => 'Laracasts\Flash\Flash',
 	],
 
 ];

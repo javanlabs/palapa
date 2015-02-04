@@ -8,4 +8,5 @@ return array(
     'berkas_received_date' => 'Tanggal Diterima',
     'berkas_number' => 'Nomor Berkas',
     'berkas_date' => 'Tanggal Berkas',
+
 );
