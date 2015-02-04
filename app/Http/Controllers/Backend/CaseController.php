@@ -10,6 +10,7 @@ use Eendonesia\Moderator\RepositoryInterface as ModeratorRepository;
 use Eendonesia\Wilayah\Kabupaten;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\View;
 use App\Model\Template;
 use Input;
@@ -213,6 +214,7 @@ class CaseController extends BackendController {
         $jaksa = $this->officer->find($request->get('officer_id'));
 
         $case->members()->attach($jaksa);
+        Event::fire('case.officer.added', [$jaksa]);
 
         return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil ditambah');
     }
@@ -220,8 +222,11 @@ class CaseController extends BackendController {
     public function removeMember($caseId, $officerId)
     {
         $case = $this->repo->find($caseId);
+        $jaksa = $this->officer->find($officerId);
 
         $case->members()->detach($officerId);
+        Event::fire('case.officer.removed', [$jaksa]);
+
         return redirect()->route('backend.cases.show', [$case->id])->with('flash.success', 'Jaksa anggota berhasil dihapus');
     }
 

@@ -1,14 +1,16 @@
 <?php namespace App\Officer;
 
+use App\AuditTrail\Loggable;
+use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Officer extends Model {
+class Officer extends Model implements Loggable{
 
     const ROLE_STAFF = 'staff';
     const ROLE_JAKSA = 'jaksa';
 
-    use SoftDeletes;
+    use SoftDeletes, RevisionableTrait;
 
     protected $table = 'officers';
 
@@ -72,5 +74,10 @@ class Officer extends Model {
     public function getActiveCasesCountAttribute()
     {
         return $this->activeCases->count();
+    }
+
+    public function getNameAttribute()
+    {
+        return $this->attributes['name'];
     }
 }
