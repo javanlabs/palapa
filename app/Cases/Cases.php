@@ -22,6 +22,8 @@ class Cases extends Model {
     use SoftDeletes, Presenter, DateSetter;
     use RevisionableTrait;
 
+    protected  $dontKeepRevisionOf = ['deleted_at'];
+
     protected $table = 'cases';
 
     protected $fillable = ['name', 'spdp_number', 'pasal', 'category', 'kasus', 'crime_place', 'crime_time', 'start_date', 'spdp_date', 'spdp_number', 'persidangan_date',  'jaksa_id', 'staff_id', 'suspect_nationality', 'suspect_job', 'suspect_education', 'penyidik_id', 'type_id', 'berkas_number', 'berkas_date'];
