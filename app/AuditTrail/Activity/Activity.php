@@ -18,6 +18,27 @@ class Activity extends Model {
         return $this->morphTo('object', 'object_type', 'object_id')->withTrashed();
     }
 
+    public function getSubjectNameAttribute()
+    {
+        if($this->subject)
+        {
+            return $this->subject->name;
+        }
+
+        return null;
+    }
+
+    public function getObjectNameAttribute()
+    {
+        if($this->object)
+        {
+            return $this->object->name;
+        }
+
+        return null;
+
+    }
+
     public function getTimeForHumanAttribute()
     {
         return $this->created_at->diffForHumans();

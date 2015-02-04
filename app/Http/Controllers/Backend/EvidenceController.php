@@ -5,6 +5,7 @@ use App\Cases\RepositoryInterface;
 use App\Cases\Evidence\Evidence;
 use App\Cases\Evidence\EvidenceForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 
 
 class EvidenceController extends BackendController {
@@ -42,8 +43,9 @@ class EvidenceController extends BackendController {
         {
             if($name)
             {
-                $court = Evidence::create(['name' => $name]);
-                $case->evidences()->save($court);
+                $evidence = Evidence::create(['name' => $name]);
+                Event::fire('evidence.created', [$evidence]);
+                $case->evidences()->save($evidence);
             }
         }
 
@@ -75,6 +77,7 @@ class EvidenceController extends BackendController {
     {
         $evidence = Evidence::findOrFail($id);
         $evidence->update($request->all());
+        Event::fire('evidence.updated', [$evidence]);
 
         return redirect()->route('backend.evidences.show', [$evidence->case_id]);
     }
@@ -89,6 +92,8 @@ class EvidenceController extends BackendController {
     {
         $evidence = Evidence::findOrFail($id);
         $evidence->delete();
+        Event::fire('evidence.deleted', [$evidence]);
+
         return redirect()->route('backend.cases.show', [$evidence->case_id])->with('flash.success', 'Data barang bukti berhasil dihapus');
     }
 

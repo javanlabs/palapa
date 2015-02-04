@@ -13,9 +13,9 @@
         <table class="table">
             @foreach($logs as $item)
                 <tr>
-                    <td>{{ $item->subject->name }}</td>
+                    <td>{{ $item->subject_name }}</td>
                     <td>{{ trans('event.' . $item->predicate) }}</td>
-                    <td>{{ $item->object->name }}</td>
+                    <td>{{ $item->object_name }}</td>
                     <td class="text-right"><small class="text-muted">{{ $item['time_for_human'] }}</small></td>
                 </tr>
             @endforeach
