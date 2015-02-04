@@ -1,9 +1,13 @@
 <?php namespace App\Cases\Court;
 
+use App\AuditTrail\Loggable;
+use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Court extends Model {
+class Court extends Model implements Loggable{
+
+    use RevisionableTrait;
 
     protected $table = 'cases_courts';
 
@@ -91,4 +95,8 @@ class Court extends Model {
         }
     }
 
+    public function getNameAttribute()
+    {
+        return $this->agenda;
+    }
 }

@@ -31,6 +31,7 @@ class EventHandler {
                 'suspect.created', 'suspect.updated', 'suspect.removed',
                 'witness.created', 'witness.updated', 'witness.removed',
                 'evidence.created', 'evidence.updated', 'evidence.deleted',
+                'court.created', 'court.updated', 'court.deleted',
             ],
             'App\AuditTrail\EventHandler@auditTrail'
         );

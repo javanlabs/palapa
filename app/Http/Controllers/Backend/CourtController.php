@@ -7,6 +7,7 @@ use App\Cases\RepositoryInterface;
 use App\Cases\Court\Court;
 use App\Cases\Court\CourtForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 
 
 class CourtController extends BackendController {
@@ -50,6 +51,8 @@ class CourtController extends BackendController {
         $case = $this->repo->find($form->get('case_id'));
 
         $court = Court::create($form->all());
+        Event::fire('court.created', [$court]);
+
         $case->courts()->save($court);
         return redirect()->route('backend.cases.show', $case->id);
 
@@ -79,6 +82,7 @@ class CourtController extends BackendController {
     {
         $court = Court::findOrFail($id);
         $court->update($request->all());
+        Event::fire('court.updated', [$court]);
 
         return redirect()->route('backend.cases.show', [$court->case_id]);
     }
@@ -93,6 +97,8 @@ class CourtController extends BackendController {
     {
         $court = Court::findOrFail($id);
         $court->delete();
+        Event::fire('court.deleted', [$court]);
+
         return redirect()->route('backend.cases.show', [$court->case_id]);
     }
 
