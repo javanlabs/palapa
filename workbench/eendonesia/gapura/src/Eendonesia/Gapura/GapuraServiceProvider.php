@@ -1,7 +1,6 @@
 <?php namespace Eendonesia\Gapura;
 
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class GapuraServiceProvider extends ServiceProvider {
@@ -33,8 +32,6 @@ class GapuraServiceProvider extends ServiceProvider {
 	public function register()
 	{
         $this->registerBootstrapFormBuilder();
-
-        Blade::setRawTags('{{', '}}');
 	}
 
 	/**
