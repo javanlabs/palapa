@@ -32,7 +32,7 @@ class GapuraController extends Controller {
 
         if($login)
         {
-            return redirect()->intended($this->config->get('gapura::default_auth'));
+            return redirect()->intended(route($this->config->get('gapura::default_auth')));
         }
 
         return redirect()->back()->withInput()->withErrors(new MessageBag(['email' => 'invalid credentials', 'password' => 'invalid credentials']));
