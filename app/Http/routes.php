@@ -92,6 +92,8 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
 
     $router->resource('files', 'FilesController');
 
+    $router->resource('log', 'LogController', ['only' => ['index']]);
+
     // User Profile
     $router->group(['prefix' => 'me'], function($router){
         $router->get('/', ['as' => 'me.profile', 'uses' => 'MeController@index']);

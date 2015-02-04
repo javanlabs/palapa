@@ -67,4 +67,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
         return $this->hasGroup('root') || $isCaseCreator || $isCaseStaff || $isCaseJaksa;
     }
+
+    public function logableName()
+    {
+        return $this->name;
+    }
 }

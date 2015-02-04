@@ -347,4 +347,9 @@ class Cases extends Model {
         else
             return '';
     }
+
+    public function logableName()
+    {
+        return $this->name;
+    }
 }

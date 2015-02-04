@@ -28,4 +28,8 @@ class EloquentRepository implements RepositoryInterface {
         return $this->activity->create($data);
     }
 
+    public function paginate()
+    {
+        return $this->activity->orderBy('created_at' ,' desc')->paginate();
+    }
 }

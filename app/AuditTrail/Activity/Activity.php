@@ -8,4 +8,19 @@ class Activity extends Model {
 
     protected $fillable = ['subject_id', 'subject_type', 'predicate', 'object_id', 'object_type', 'note', 'parent_id'];
 
+    public function subject()
+    {
+        return $this->morphTo('subject', 'subject_type', 'subject_id');
+    }
+
+    public function object()
+    {
+        return $this->morphTo('object', 'object_type', 'object_id');
+    }
+
+    public function getTimeForHumanAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
 }
