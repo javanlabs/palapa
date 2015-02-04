@@ -1,9 +1,10 @@
 <?php namespace App\Cases;
 
+use App\AuditTrail\Loggable;
 use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Document extends Model {
+class Document extends Model implements Loggable{
 
     use RevisionableTrait;
 
@@ -19,6 +20,11 @@ class Document extends Model {
     public function template()
     {
         return $this->belongsTo('App\Model\Template', 'template_id');
+    }
+
+    public function getNameAttribute()
+    {
+        return $this->title;
     }
 }
 ?>
