@@ -66,6 +66,8 @@ class EloquentRepository implements RepositoryInterface {
         // update additional case data
         $additionalCaseData = array_get($attributes, 'data', []);
 
+        Event::fire('checklist.checked', [$checklist, $checklistAttributes, $additionalCaseData]);
+
         if( ! empty($additionalCaseData))
         {
             $case->update($additionalCaseData);
@@ -162,6 +164,7 @@ class EloquentRepository implements RepositoryInterface {
         }
 
         $case->checklist()->detach($checklist);
+        Event::fire('checklist.unchecked', [$checklist]);
 
         $case->removeActivity($checklist);
 

@@ -1,14 +1,18 @@
 <?php namespace App\Sop;
 
+use App\AuditTrail\Loggable;
+use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Checklist extends Model {
+class Checklist extends Model implements Loggable{
 
     const DIRECTION_STAY = 'stay';
     const DIRECTION_PREV = 'prev';
     const DIRECTION_NEXT = 'next';
     const DIRECTION_FINISH = 'finish';
     const DIRECTION_SUSPEND = 'suspend';
+
+    use RevisionableTrait;
 
     protected $table = 'sop_checklist';
 
@@ -66,7 +70,7 @@ class Checklist extends Model {
         {
             $data = json_decode($this->related_data);
             $columns = [];
-            
+
             foreach($data as $column)
             {
                 $item['name'] = $column;
@@ -89,5 +93,10 @@ class Checklist extends Model {
         }
 
         return 'string';
+    }
+
+    public function getNameAttribute()
+    {
+        return $this->attributes['name'];
     }
 }
