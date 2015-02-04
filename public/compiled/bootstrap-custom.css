@@ -6730,7 +6730,7 @@ footer a:hover {
   font-size: .75em;
 }
 body.login {
-  background: transparent url("../images/wallpaper.jpg") no-repeat center center;
+  background: #000000 url("") no-repeat center center;
 }
 body.login .navbar-header {
   background-color: #fff;

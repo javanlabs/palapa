@@ -1,5 +1,13 @@
 @extends('layouts.full.full')
 
+@section('style-head')
+    <style>
+        body.login {
+            background-image: url("{{ random_wallpaper() }}");
+        }
+    </style>
+@stop
+
 @section('body-class')
 login
 @stop
