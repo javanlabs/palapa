@@ -6,6 +6,6 @@ class Activity extends Model {
 
     protected $table = 'log_activities';
 
-    protected $fillable = ['subject', 'predicate', 'object', 'note', 'parent_id'];
+    protected $fillable = ['subject_id', 'subject_type', 'predicate', 'object_id', 'object_type', 'note', 'parent_id'];
 
 }

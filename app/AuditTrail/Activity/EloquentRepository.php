@@ -15,13 +15,17 @@ class EloquentRepository implements RepositoryInterface {
 
     public function insert($subject, $predicate, $object = null, $note = null, $parentId = null)
     {
-        return $this->activity->create([
-            'subject'   => $subject,
-            'predicate' => $predicate,
-            'object'    => $object,
-            'note'      => $note,
-            'parent_id' => $parentId,
-        ]);
+        $data = [
+            'subject_id'   => $subject->getKey(),
+            'subject_type' => get_class($subject),
+            'predicate'    => $predicate,
+            'object_id'    => $object->getKey(),
+            'object_type'  => get_class($object),
+            'note'         => $note,
+            'parent_id'    => $parentId,
+        ];
+
+        return $this->activity->create($data);
     }
 
 }

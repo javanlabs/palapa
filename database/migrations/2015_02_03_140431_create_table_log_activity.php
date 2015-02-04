@@ -16,14 +16,17 @@ class CreateTableLogActivity extends Migration {
 		{
 			$table->bigIncrements('id');
             $table->unsignedBigInteger('parent_id')->nullable();
-            $table->string('subject')->nullable();
+            $table->unsignedBigInteger('subject_id')->nullable();
+            $table->string('subject_type');
             $table->string('predicate')->nullable();
-            $table->string('object')->nullable();
+            $table->unsignedBigInteger('object_id')->nullable();
+            $table->string('object_type')->nullable();
             $table->text('note')->nullable();
             $table->timestamps();
 
-            $table->index('subject');
+            $table->index(['subject_id', 'subject_type']);
             $table->index('predicate');
+            $table->index(['object_id', 'object_type']);
 		});
 	}
 

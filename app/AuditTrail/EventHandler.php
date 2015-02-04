@@ -30,7 +30,7 @@ class EventHandler {
 
     public function onCaseCreated($case, $user)
     {
-        $activity = $this->activity->insert($user->id, Event::firing(), $case->id);
+        $activity = $this->activity->insert($user, Event::firing(), $case);
         if($activity)
         {
             $case->setActivityId($activity->id);
@@ -40,7 +40,7 @@ class EventHandler {
 
     public function onCaseUpdated($case, $user)
     {
-        $activity = $this->activity->insert($user->id, Event::firing(), $case->id);
+        $activity = $this->activity->insert($user, Event::firing(), $case);
         if($activity)
         {
             $case->setActivityId($activity->id);
@@ -50,7 +50,7 @@ class EventHandler {
 
     public function onCaseDeleted($case, $user)
     {
-        $activity = $this->activity->insert($user->id, Event::firing(), $case->id);
+        $activity = $this->activity->insert($user, Event::firing(), $case);
         if($activity)
         {
             $case->setActivityId($activity->id);
