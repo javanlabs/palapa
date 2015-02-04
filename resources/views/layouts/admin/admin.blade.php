@@ -26,6 +26,7 @@
                     <a class="list-group-item" href="{{ route('moderator.users.index') }}"><i class="ion-person fa"></i> Manajemen Pengguna</a>
                     <a class="list-group-item" href="{{ route('moderator.permissions.index') }}"><i class="ion-key fa"></i> ACL</a>
                     <a class="list-group-item" href="{{ route('backend.files.index') }}"><i class="fa fa-folder-o"></i> File Manager</a>
+                    <a class="list-group-item" href="{{ route('backend.log.index') }}"><i class="fa fa-clock-o"></i> Audit Trail</a>
                     <a class="list-group-item" href="{{ route('setting.index') }}"><i class="fa fa-gear"></i> Konfigurasi</a>
                     @endif
                     <a class="list-group-item" href="{{ route('gapura.logout') }}"><i class="fa fa-circle-o-notch"></i> Logout</a>
