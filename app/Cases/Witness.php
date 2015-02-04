@@ -1,12 +1,16 @@
 <?php namespace App\Cases;
 
+use App\AuditTrail\Loggable;
+use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Witness extends Model {
+class Witness extends Model implements Loggable{
 
     const SEX_MALE = 'Laki-laki';
     const SEX_FEMALE = 'Perempuan';
+
+    use RevisionableTrait;
 
     protected $table = 'witness';
 
@@ -88,4 +92,8 @@ class Witness extends Model {
         return false;
     }
 
+    public function getNameAttribute()
+    {
+        return $this->attributes['name'];
+    }
 }

@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Eendonesia\Wilayah\Kabupaten;
+use Illuminate\Support\Facades\Event;
 use Input, View;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Cases\RepositoryInterface;
@@ -61,6 +61,7 @@ class WitnessController extends BackendController {
 		$case = Cases::find($form->get('case_id'));
 
 		$witness = Witness::create($form->all());
+        Event::fire('witness.created', [$witness]);
 		$case->witness()->save($witness);
 		return redirect()->route('backend.cases.show', $case->id);
 
@@ -107,6 +108,7 @@ class WitnessController extends BackendController {
 	{
 		$witness = Witness::findOrFail($id);
 		$witness->update($form->all());
+        Event::fire('witness.updated', [$witness]);
 
 		return redirect()->route('backend.cases.show', [$form->get('case_id')]);
 	}
@@ -123,6 +125,8 @@ class WitnessController extends BackendController {
         $case = $witness->cases()->first();
 
 		$case->witness()->detach([$id]);
+        Event::fire('witness.removed', [$witness]);
+
 		return redirect()->route('backend.cases.show', [$case->id]);
 	}
 
