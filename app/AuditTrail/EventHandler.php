@@ -27,7 +27,8 @@ class EventHandler {
         $events->listen(
             [
                 'case.created', 'case.updated', 'case.deleted',
-                'document.created', 'document.updated', 'document.deleted'
+                'document.created', 'document.updated', 'document.deleted',
+                'suspect.created', 'suspect.updated', 'suspect.removed',
             ],
             'App\AuditTrail\EventHandler@auditTrail'
         );

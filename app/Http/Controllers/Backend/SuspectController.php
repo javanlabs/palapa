@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Eendonesia\Wilayah\Kabupaten;
+use Illuminate\Support\Facades\Event;
 use Input, View;
 use App\Lookup\RepositoryInterface as LookupRepository;
 use App\Cases\RepositoryInterface;
@@ -62,6 +63,7 @@ class SuspectController extends BackendController {
 	{
 		$case = Cases::find($form->get('case_id'));
 		$suspect = Suspects::create($form->all());
+        Event::fire('suspect.created', [$suspect]);
 		$case->suspects()->save($suspect);
 		return redirect()->route('backend.cases.show', $case->id);
 
@@ -110,6 +112,7 @@ class SuspectController extends BackendController {
 	{
 		$suspect = Suspects::findOrFail($id);
 		$suspect->update($form->all());
+        Event::fire('suspect.updated', [$suspect]);
 
 		return redirect()->route('backend.cases.show', [$form->get('case_id')]);
 	}
@@ -124,8 +127,10 @@ class SuspectController extends BackendController {
 	{
         $suspect = Suspects::findOrFail($id);
         $case = $suspect->cases()->first();
-
 		$case->suspects()->detach([$id]);
+
+        Event::fire('suspect.removed', [$suspect]);
+
 		return redirect()->route('backend.cases.show', [$case->id]);
 	}
 

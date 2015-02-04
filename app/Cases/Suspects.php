@@ -1,9 +1,11 @@
 <?php namespace App\Cases;
 
+use App\AuditTrail\Loggable;
+use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Suspects extends Model {
+class Suspects extends Model implements Loggable{
 
     const TYPE_INDIVIDU = 'individu';
     const TYPE_COMPANY = 'badan';
@@ -11,6 +13,8 @@ class Suspects extends Model {
     const SEX_MALE = 'Laki-laki';
     const SEX_FEMALE = 'Perempuan';
 
+    use RevisionableTrait;
+    
     protected $table = 'suspects';
 
     protected $fillable = ['type', 'name', 'pob_id', 'dob', 'age', 'religion', 'address', 'city_id', 'nationality', 'job', 'education', 'nama_pimpinan', 'tahanan', 'tgl_penahanan', 'nomor_penahanan', 'status', 'sex'];
@@ -141,4 +145,8 @@ class Suspects extends Model {
         return false;
     }
 
+    public function getNameAttribute()
+    {
+        return $this->attributes['name'];
+    }
 }
