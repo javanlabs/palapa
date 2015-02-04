@@ -1,5 +1,6 @@
 <?php namespace App\Cases;
 
+use App\AuditTrail\Loggable;
 use App\Officer\Officer;
 use App\Sop\Phase;
 use Carbon\Carbon;
@@ -8,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Sop\Checklist;
 use App\AuditTrail\RevisionableTrait;
 
-class Cases extends Model {
+class Cases extends Model implements Loggable{
 
     const STATUS_DRAFT      = 'draft';
     const STATUS_ONGOING    = 'ongoing';
@@ -21,8 +22,6 @@ class Cases extends Model {
 
     use SoftDeletes, Presenter, DateSetter;
     use RevisionableTrait;
-
-    protected  $dontKeepRevisionOf = ['deleted_at'];
 
     protected $table = 'cases';
 
@@ -348,8 +347,4 @@ class Cases extends Model {
             return '';
     }
 
-    public function logableName()
-    {
-        return $this->name;
-    }
 }

@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use App\AuditTrail\Loggable;
 use Eendonesia\Moderator\RoleTrait;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -8,7 +9,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract, Loggable {
 
 	use Authenticatable, CanResetPassword, RoleTrait, SoftDeletes;
 
@@ -68,8 +69,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasGroup('root') || $isCaseCreator || $isCaseStaff || $isCaseJaksa;
     }
 
-    public function logableName()
+    public function getNameAttribute()
     {
-        return $this->name;
+        return $this->attributes['name'];
     }
 }

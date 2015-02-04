@@ -10,12 +10,12 @@ class Activity extends Model {
 
     public function subject()
     {
-        return $this->morphTo('subject', 'subject_type', 'subject_id');
+        return $this->morphTo('subject', 'subject_type', 'subject_id')->withTrashed();
     }
 
     public function object()
     {
-        return $this->morphTo('object', 'object_type', 'object_id');
+        return $this->morphTo('object', 'object_type', 'object_id')->withTrashed();
     }
 
     public function getTimeForHumanAttribute()

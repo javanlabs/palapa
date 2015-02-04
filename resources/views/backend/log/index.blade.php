@@ -13,12 +13,13 @@
         <table class="table">
             @foreach($logs as $item)
                 <tr>
-                    <td>{{ $item->subject->logableName() }}</td>
+                    <td>{{ $item->subject->name }}</td>
                     <td>{{ trans('event.' . $item->predicate) }}</td>
-                    <td>{{ $item->object->logableName() }}</td>
+                    <td>{{ $item->object->name }}</td>
                     <td class="text-right"><small class="text-muted">{{ $item['time_for_human'] }}</small></td>
                 </tr>
             @endforeach
         </table>
+        <div class="panel-footer">{{ $logs->render() }}</div>
     </div>
 @stop

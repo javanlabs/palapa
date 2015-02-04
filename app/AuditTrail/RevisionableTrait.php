@@ -7,6 +7,8 @@ trait RevisionableTrait {
 
     protected $activityId = null;
 
+    protected  $dontKeepRevisionOf = ['deleted_at'];
+
     protected function revisionsLinkToActivity()
     {
         return true;
