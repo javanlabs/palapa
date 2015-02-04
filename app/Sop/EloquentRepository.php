@@ -1,7 +1,9 @@
 <?php namespace App\Sop;
 
 
+use App\Cases\Document;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Event;
 
 class EloquentRepository implements RepositoryInterface {
 
@@ -15,10 +17,16 @@ class EloquentRepository implements RepositoryInterface {
      */
     private $checklist;
 
-    function __construct(Phase $phase, Checklist $checklist)
+    /**
+     * @var Document
+     */
+    private $document;
+
+    function __construct(Phase $phase, Checklist $checklist, Document $document)
     {
         $this->phase = $phase;
         $this->checklist = $checklist;
+        $this->document = $document;
     }
 
     public function all()
@@ -340,6 +348,63 @@ class EloquentRepository implements RepositoryInterface {
         }
 
         return true;
+    }
+
+    public function addDocument($case, $template, $content)
+    {
+        $document = $this->document->create([
+            'title'		=> $template->name,
+            'content'	=> $content,
+        ]);
+
+        if(!$document)
+        {
+            return false;
+        }
+
+        Event::fire('document.created', [$document]);
+
+        $document->cases()->associate($case)->save();
+        $document->template()->associate($template)->save();
+
+        //Otomatis input ke checklist
+        $checklist = $this->checklist->find($template->checklist_id);
+
+        if($checklist)
+        {
+            $data['date'] = date('d-m-Y');
+            $data['note'] = 'Dokumen '.$template->short_title;
+            $this->addChecklist($case, $checklist, $data);
+        }
+
+        return $document;
+    }
+
+    public function updateDocument($id, $content)
+    {
+        $document = $this->document->findOrFail($id);
+        $document->update(['content' => $content]);
+
+        $template = $document->template;
+        $case = $document->cases;
+        $checklist = $template->checklist;
+        $this->updateChecklist($case, $checklist, $template);
+
+        Event::fire('document.updated', [$document]);
+
+        return $document;
+    }
+
+    public function deleteDocument($id)
+    {
+        $document = $this->document->findOrFail($id);
+        $template = $document->template;
+        $checklist = $template->checklist;
+        $case = $document->cases;
+        $this->removeChecklist($case, $checklist);
+
+        return $document->delete();
+
     }
 
     protected function getChildTypeIds($type)

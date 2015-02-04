@@ -61,21 +61,9 @@ class DocumentController extends Controller {
 	public function store(){
 		$case = Cases::findOrFail(Input::get('case_id'));
 		$template = Template::findOrFail(Input::get('template_id'));
-		$document = Document::create([
-			'title'		=> Input::get('title'),
-			'content'	=> Input::get('content'),
-		]);
-		$document->cases()->associate($case)->save();
-		$document->template()->associate($template)->save();
-		//Input ke checklist
-		$checklist = Checklist::find($template->checklist_id);
 
-        if($checklist)
-        {
-            $data['date'] = date('d-m-Y');
-            $data['note'] = 'Dokumen '.$template->short_title;
-            $this->sop->addChecklist($case, $checklist, $data);
-        }
+        $document = $this->sop->addDocument($case, $template, Input::get('content'));
+
 		return redirect()->route('backend.document.edit', [$document->id])->with('flash.success', 'Dokumen berhasil dibuat');
 	}
 
@@ -91,24 +79,21 @@ class DocumentController extends Controller {
 
 	public function update($id)
 	{
-		$document = Document::findOrFail($id);
-		$document->update(Input::only('content'));
-		$template = $document->template;
-		$case = $document->cases;
-		$checklist = $template->checklist;
-		$this->sop->updateChecklist($case, $checklist, $template);
-		return redirect()->route('backend.cases.show', $document->cases->id)->with('flash.success', 'Dokumen berhasil disimpan');
+		$document = $this->sop->updateDocument($id, Input::get('content'));
+
+        if($document)
+        {
+            return redirect()->route('backend.cases.show', $document->cases->id)->with('flash.success', 'Dokumen berhasil disimpan');
+        }
+
+        return redirect()->route('backend.cases.show', $document->cases->id)->with('flash.error', 'Gagal menyimpan dokumen');
+
 	}
 
 	public function destroy($id)
 	{
-		$document = Document::find($id);
-		$template = $document->template;
-		$checklist = $template->checklist;
-		$case = $document->cases;
-		$this->sop->removeChecklist($case, $checklist);
-		$document->delete();
-		return redirect()->back();
+        $this->sop->deleteDocument($id);
+		return redirect()->back()->with('flash.warning', 'Dokumen berhasil dihapus');
 	}
 
 }

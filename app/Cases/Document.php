@@ -1,8 +1,12 @@
 <?php namespace App\Cases;
 
+use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model {
+
+    use RevisionableTrait;
+
 	protected $table = 'cases_documents';
 
     protected $fillable = ['title', 'content'];

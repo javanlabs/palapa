@@ -1,6 +1,7 @@
 <?php namespace App\AuditTrail;
 
 use App\AuditTrail\Activity\RepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 
 class EventHandler {
@@ -23,38 +24,26 @@ class EventHandler {
      */
     public function subscribe($events)
     {
-        $events->listen('case.created', 'App\AuditTrail\EventHandler@onCaseCreated');
-        $events->listen('case.updated', 'App\AuditTrail\EventHandler@onCaseUpdated');
-        $events->listen('case.deleted', 'App\AuditTrail\EventHandler@onCaseDeleted');
+        $events->listen(
+            [
+                'case.created', 'case.updated', 'case.deleted',
+                'document.created', 'document.updated', 'document.deleted'
+            ],
+            'App\AuditTrail\EventHandler@auditTrail'
+        );
     }
 
-    public function onCaseCreated($case, $user)
+    public function auditTrail($loggable)
     {
-        $activity = $this->activity->insert($user, Event::firing(), $case);
+        $user = Auth::user();
+
+        $activity = $this->activity->insert($user, Event::firing(), $loggable);
+
         if($activity)
         {
-            $case->setActivityId($activity->id);
-            $case->postSave();
+            $loggable->setActivityId($activity->id);
+            $loggable->postSave();
         }
     }
 
-    public function onCaseUpdated($case, $user)
-    {
-        $activity = $this->activity->insert($user, Event::firing(), $case);
-        if($activity)
-        {
-            $case->setActivityId($activity->id);
-            $case->postSave();
-        }
-    }
-
-    public function onCaseDeleted($case, $user)
-    {
-        $activity = $this->activity->insert($user, Event::firing(), $case);
-        if($activity)
-        {
-            $case->setActivityId($activity->id);
-            $case->postSave();
-        }
-    }
 }

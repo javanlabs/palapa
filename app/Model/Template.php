@@ -44,4 +44,9 @@ class Template extends Model {
     	}
     	return $result;
     }
+
+    public function getNameAttribute()
+    {
+        return $this->short_title . ' ' . $this->title;
+    }
 }

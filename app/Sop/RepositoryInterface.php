@@ -16,4 +16,5 @@ interface RepositoryInterface {
 
     public function checklistRemainingDay($case, $checklist);
 
+    public function addDocument($case, $template, $content);
 }
