@@ -4,13 +4,14 @@ use App\AuditTrail\Loggable;
 use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Witness extends Model implements Loggable{
 
     const SEX_MALE = 'Laki-laki';
     const SEX_FEMALE = 'Perempuan';
 
-    use RevisionableTrait;
+    use RevisionableTrait, SoftDeletes;
 
     protected $table = 'witness';
 

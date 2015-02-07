@@ -4,10 +4,11 @@ use App\AuditTrail\Loggable;
 use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Court extends Model implements Loggable{
 
-    use RevisionableTrait;
+    use RevisionableTrait, SoftDeletes;
 
     protected $table = 'cases_courts';
 

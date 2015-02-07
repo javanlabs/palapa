@@ -4,6 +4,7 @@ use App\AuditTrail\Loggable;
 use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Suspects extends Model implements Loggable{
 
@@ -13,8 +14,8 @@ class Suspects extends Model implements Loggable{
     const SEX_MALE = 'Laki-laki';
     const SEX_FEMALE = 'Perempuan';
 
-    use RevisionableTrait;
-    
+    use RevisionableTrait, SoftDeletes;
+
     protected $table = 'suspects';
 
     protected $fillable = ['type', 'name', 'pob_id', 'dob', 'age', 'religion', 'address', 'city_id', 'nationality', 'job', 'education', 'nama_pimpinan', 'tahanan', 'tgl_penahanan', 'nomor_penahanan', 'status', 'sex'];
