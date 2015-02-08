@@ -32,9 +32,10 @@ class EloquentRepository implements RepositoryInterface {
     public function paginate($keyword)
     {
         $query = $this->activity
+            ->select('log_activities.*', 'cases.kasus', 'users.name')
             ->join('cases', 'case_id', '=', 'cases.id')
             ->join('users', 'subject_id', '=', 'users.id')
-            ->orderBy('log_activities.created_at' ,' desc');
+            ->orderBy('created_at' ,' desc');
 
         if($keyword)
         {
