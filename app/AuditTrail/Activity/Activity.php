@@ -6,7 +6,12 @@ class Activity extends Model {
 
     protected $table = 'log_activities';
 
-    protected $fillable = ['subject_id', 'subject_type', 'predicate', 'object_id', 'object_type', 'note', 'parent_id'];
+    protected $fillable = ['case_id', 'subject_id', 'subject_type', 'predicate', 'object_id', 'object_type', 'note', 'parent_id'];
+
+    public function cases()
+    {
+        return $this->belongsTo('App\Cases\Cases', 'case_id')->withTrashed();
+    }
 
     public function subject()
     {

@@ -7198,3 +7198,6 @@ body.frontend .content {
   background-color: #bbbbbb;
   border-radius: 50%;
 }
+#page-log-index .list-log td {
+  padding: 15px 30px;
+}

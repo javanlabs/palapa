@@ -13,9 +13,10 @@ class EloquentRepository implements RepositoryInterface {
         $this->activity = $activity;
     }
 
-    public function insert($subject, $predicate, $object = null, $note = null, $parentId = null)
+    public function insert($case, $subject, $predicate, $object = null, $note = null, $parentId = null)
     {
         $data = [
+            'case_id'      => $case->getKey(),
             'subject_id'   => $subject->getKey(),
             'subject_type' => get_class($subject),
             'predicate'    => $predicate,
@@ -28,8 +29,18 @@ class EloquentRepository implements RepositoryInterface {
         return $this->activity->create($data);
     }
 
-    public function paginate()
+    public function paginate($keyword)
     {
-        return $this->activity->orderBy('created_at' ,' desc')->paginate();
+        $query = $this->activity
+            ->join('cases', 'case_id', '=', 'cases.id')
+            ->join('users', 'subject_id', '=', 'users.id')
+            ->orderBy('log_activities.created_at' ,' desc');
+
+        if($keyword)
+        {
+            $query->where('cases.kasus', 'like', "%$keyword%")->orWhere('users.name', 'like', "%$keyword%");
+        }
+
+        return $query->paginate();
     }
 }

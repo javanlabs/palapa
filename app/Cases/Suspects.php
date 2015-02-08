@@ -27,6 +27,11 @@ class Suspects extends Model implements Loggable{
         return $this->belongsToMany('App\Cases\Cases');
     }
 
+    public function getCase()
+    {
+        return $this->cases()->first();
+    }
+
     public function city()
     {
         return $this->belongsTo('Eendonesia\Wilayah\Kabupaten', 'city_id');

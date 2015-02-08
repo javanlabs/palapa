@@ -63,7 +63,7 @@ class SuspectController extends BackendController {
 	{
 		$case = Cases::find($form->get('case_id'));
 		$suspect = Suspects::create($form->all());
-        Event::fire('suspect.created', [$suspect]);
+        Event::fire('suspect.created', [$case, $suspect]);
 		$case->suspects()->save($suspect);
 		return redirect()->route('backend.cases.show', $case->id);
 
@@ -91,7 +91,7 @@ class SuspectController extends BackendController {
 	public function edit($id)
 	{
 		$suspect = Suspects::findOrFail($id);
-        $caseId = $suspect->cases()->first()->id;
+        $caseId = $suspect->getCase()->id;
 
 		$cities = ['' => '--Pilih Kota--'] + Kabupaten::lists('nama', 'id');
 		$religions = $this->lookup->religions();
@@ -112,7 +112,7 @@ class SuspectController extends BackendController {
 	{
 		$suspect = Suspects::findOrFail($id);
 		$suspect->update($form->all());
-        Event::fire('suspect.updated', [$suspect]);
+        Event::fire('suspect.updated', [$suspect->getCase(), $suspect]);
 
 		return redirect()->route('backend.cases.show', [$form->get('case_id')]);
 	}
@@ -126,7 +126,7 @@ class SuspectController extends BackendController {
 	public function destroy($id)
 	{
         $suspect = Suspects::findOrFail($id);
-        $case = $suspect->cases()->first();
+        $case = $suspect->getCase();
 		$case->suspects()->detach([$id]);
 
         Event::fire('suspect.removed', [$suspect]);

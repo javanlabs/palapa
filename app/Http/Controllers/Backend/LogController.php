@@ -18,9 +18,9 @@ class LogController extends BackendController {
         parent::__construct();
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $logs = $this->repo->paginate();
+        $logs = $this->repo->paginate($request->get('q'));
         return view('backend.log.index', compact('logs'));
     }
 

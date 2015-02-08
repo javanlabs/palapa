@@ -39,11 +39,11 @@ class EventHandler {
         );
     }
 
-    public function auditTrail($loggable)
+    public function auditTrail($case, $loggable)
     {
         $user = Auth::user();
 
-        $activity = $this->activity->insert($user, Event::firing(), $loggable);
+        $activity = $this->activity->insert($case, $user, Event::firing(), $loggable);
 
         if($activity)
         {
