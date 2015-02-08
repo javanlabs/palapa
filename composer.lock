@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4a24ff1a4cc9cdd97b9d933414459a8e",
+    "hash": "35b098b8db0859a1d323dd7c38b82f5b",
     "packages": [
         {
             "name": "adamwathan/bootforms",
@@ -1130,12 +1130,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f0203bafbf151e815c125a6d77fe79e074af6c49"
+                "reference": "8865d2276be94f0a3497ba3bd26c906ae9e91e1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f0203bafbf151e815c125a6d77fe79e074af6c49",
-                "reference": "f0203bafbf151e815c125a6d77fe79e074af6c49",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/8865d2276be94f0a3497ba3bd26c906ae9e91e1c",
+                "reference": "8865d2276be94f0a3497ba3bd26c906ae9e91e1c",
                 "shasum": ""
             },
             "require": {
@@ -1247,7 +1247,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-02-03 22:45:05"
+            "time": "2015-02-04 14:00:11"
         },
         {
             "name": "league/flysystem",
@@ -1255,12 +1255,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "7c96b75441002fb6799a4e355f2190b9d905782d"
+                "reference": "0fd4d3d2dd97d5b1c937d4bb8f42f7a3776cf782"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7c96b75441002fb6799a4e355f2190b9d905782d",
-                "reference": "7c96b75441002fb6799a4e355f2190b9d905782d",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/0fd4d3d2dd97d5b1c937d4bb8f42f7a3776cf782",
+                "reference": "0fd4d3d2dd97d5b1c937d4bb8f42f7a3776cf782",
                 "shasum": ""
             },
             "require": {
@@ -1330,7 +1330,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-02-01 15:53:05"
+            "time": "2015-02-04 20:51:56"
         },
         {
             "name": "maximebf/debugbar",
@@ -2281,12 +2281,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "4603bcc66e20e23f018c67f7f9f3f8146a100c11"
+                "reference": "ae2ffe606ee824c29e910d4d2c7a6dc82fa9c3c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/4603bcc66e20e23f018c67f7f9f3f8146a100c11",
-                "reference": "4603bcc66e20e23f018c67f7f9f3f8146a100c11",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/ae2ffe606ee824c29e910d4d2c7a6dc82fa9c3c7",
+                "reference": "ae2ffe606ee824c29e910d4d2c7a6dc82fa9c3c7",
                 "shasum": ""
             },
             "require": {
@@ -2335,7 +2335,7 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:39:26"
+            "time": "2015-02-04 14:20:07"
         },
         {
             "name": "symfony/translation",
@@ -3621,7 +3621,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "laravel/framework": 20,
         "illuminate/workbench": 20,
         "barryvdh/laravel-debugbar": 20
     },
