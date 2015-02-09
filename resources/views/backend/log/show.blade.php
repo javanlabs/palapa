@@ -17,15 +17,13 @@
                     <thead>
                     <tr>
                         <th>Nama Field</th>
-                        <th>Isian Lama</th>
-                        <th>Isian Baru</th>
+                        <th>&nbsp;</th>
                     </tr>
                     </thead>
                     @foreach($revisions as $item)
                         <tr>
-                            <td>{{ $item->fieldName() }}</td>
-                            <td>{{ $item->oldValue() }}</td>
-                            <td>{{ $item->newValue() }}</td>
+                            <td>{{ trans('case.' . $item->fieldName()) }}</td>
+                            <td>{{ $item->oldValue() }} <i class="ion-android-arrow-dropright"></i> {{ $item->newValue() }}</td>
                         </tr>
                     @endforeach
                 </table>
