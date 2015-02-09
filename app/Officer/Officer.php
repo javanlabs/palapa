@@ -80,4 +80,10 @@ class Officer extends Model implements Loggable{
     {
         return $this->attributes['name'];
     }
+
+    public function identifiableName()
+    {
+        return $this->name;
+    }
+
 }

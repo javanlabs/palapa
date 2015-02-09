@@ -16,4 +16,9 @@ class Lookup extends Model {
 
     protected $fillable = ['name', 'type'];
 
+    public function identifiableName()
+    {
+        return $this->name;
+    }
+
 }
