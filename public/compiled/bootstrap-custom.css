@@ -6730,7 +6730,7 @@ footer a:hover {
   font-size: .75em;
 }
 body.login {
-  background: transparent url("../images/wallpaper.jpg") no-repeat center center;
+  background: #000000 url("") no-repeat center center;
 }
 body.login .navbar-header {
   background-color: #fff;
@@ -7197,4 +7197,12 @@ body.frontend .content {
 .nav-tabs .badge {
   background-color: #bbbbbb;
   border-radius: 50%;
+}
+#page-log-index .list-log .name {
+  font-weight: 600;
+  color: #555555;
+  border-bottom: 1px dotted #555555;
+}
+#page-log-index .list-log td {
+  padding: 15px 30px;
 }

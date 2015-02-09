@@ -13,9 +13,8 @@
             @yield('breadcrumb')
         </div>
         <div class="col-md-2 col-sm-2 col-xs-2 col-lg-6 text-right">
-            <img class="logo" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
+            <img class="logo" src="{{ asset('images/logo/logo-kejari.jpg') }}" alt=""/>
             <h1 class="hidden-xs hidden-sm hidden-md">PROFIL KEJAKSAAN NEGERI JEMBER</h1>
-            {{--<h3>Kejaksaan Negeri Jember</h3>--}}
         </div>
     </div>
 </nav>

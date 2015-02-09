@@ -7,19 +7,66 @@
 @stop
 
 @section('content-admin')
-    <h2 class="page-title">Log Aplikasi</h2>
+    <div id="page-log-index">
 
-    <div class="panel panel-default">
-        <table class="table">
-            @foreach($logs as $item)
-                <tr>
-                    <td>{{ $item->subject_name }}</td>
-                    <td>{{ trans('event.' . $item->predicate) }}</td>
-                    <td>{{ $item->object_name }}</td>
-                    <td class="text-right"><small class="text-muted">{{ $item['time_for_human'] }}</small></td>
-                </tr>
-            @endforeach
-        </table>
-        <div class="panel-footer">{{ $logs->render() }}</div>
+        <form action="" class="mb">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Cari berdasar nama pengguna atau kasus posisi ..." value="{{ Input::get('q') }}">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Cari</button>
+                </span>
+            </div>
+            <!-- /input-group -->
+        </form>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Log Aplikasi</div>
+            <table class="table table-bordered table-list list-log">
+                @forelse($logs as $item)
+                    <tr>
+                        <td class="pad">
+                            <div class="">
+                                {{ $item->subject_name }}
+                                <a href="{{ $item['permalink'] }}" class="name btn-ajax-modal">
+                                    {{ trans('event.' . $item->predicate) }}
+                                    {{ $item->object_name }}
+                                </a>
+                            </div>
+                            <div class="ell">
+                                <small class="text-muted"><i class="ion-clock"></i> {{ $item['time_for_human'] }}</small>
+                                <small class="text-muted">dalam perkara <a class="btn-ajax-modal" href="{{ $item->cases->permalink }}">{{ $item->cases->name }}</a></small>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr><td><span class="empty">Belum ada data</span></td></tr>
+                @endforelse
+            </table>
+            <div class="panel-footer">{{ $logs->appends(['q' => Input::get('q')])->render() }}</div>
+        </div>
+
     </div>
+
+@stop
+
+@section('script-end')
+    @parent
+    <script>
+        $(function(){
+            $('.btn-ajax-modal').on('click', function(e){
+                e.preventDefault();
+                $.blockUI(BLOCKUI_STYLE);
+
+                $.get($(this).attr('href'), '', function(response, status){
+                    $.unblockUI();
+                    $(response).modal('show');
+                    $(response).on('hidden.bs.modal', function(e){
+                        $(response).remove();
+                    });
+                });
+
+            });
+
+        });
+    </script>
 @stop

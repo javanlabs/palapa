@@ -230,7 +230,7 @@ class CaseController extends BackendController {
 
         $case->members()->attach($jaksa);
 
-        Event::fire('case.officer.added', [$jaksa]);
+        Event::fire('case.officer.added', [$case, $jaksa]);
         Flash::success(trans('flash/case.officer.added'));
 
         return redirect()->route('backend.cases.show', [$case->id]);
@@ -242,7 +242,7 @@ class CaseController extends BackendController {
         $jaksa = $this->officer->find($officerId);
 
         $case->members()->detach($officerId);
-        Event::fire('case.officer.removed', [$jaksa]);
+        Event::fire('case.officer.removed', [$case, $jaksa]);
         Flash::warning(trans('flash/case.officer.removed'));
 
         return redirect()->route('backend.cases.show', [$case->id]);

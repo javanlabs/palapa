@@ -51,7 +51,7 @@ class CourtController extends BackendController {
         $case = $this->repo->find($form->get('case_id'));
 
         $court = Court::create($form->all());
-        Event::fire('court.created', [$court]);
+        Event::fire('court.created', [$case, $court]);
 
         $case->courts()->save($court);
         return redirect()->route('backend.cases.show', $case->id);
@@ -82,7 +82,7 @@ class CourtController extends BackendController {
     {
         $court = Court::findOrFail($id);
         $court->update($request->all());
-        Event::fire('court.updated', [$court]);
+        Event::fire('court.updated', [$court->cases, $court]);
 
         return redirect()->route('backend.cases.show', [$court->case_id]);
     }
@@ -97,7 +97,7 @@ class CourtController extends BackendController {
     {
         $court = Court::findOrFail($id);
         $court->delete();
-        Event::fire('court.deleted', [$court]);
+        Event::fire('court.deleted', [$court->cases, $court]);
 
         return redirect()->route('backend.cases.show', [$court->case_id]);
     }

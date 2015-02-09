@@ -84,7 +84,7 @@ class EloquentRepository implements RepositoryInterface {
 
         $case->author()->associate($user)->save();
 
-        Event::fire('case.created', [$loggedCase, $user]);
+        Event::fire('case.created', [$loggedCase, $loggedCase]);
 
         return $case;
     }
@@ -97,7 +97,7 @@ class EloquentRepository implements RepositoryInterface {
 
         if($updated)
         {
-            Event::fire('case.updated', [$case, $user]);
+            Event::fire('case.updated', [$case, $case]);
             return $case;
         }
 
@@ -116,7 +116,7 @@ class EloquentRepository implements RepositoryInterface {
 
         if($deleted)
         {
-            Event::fire('case.deleted', [$case, $user]);
+            Event::fire('case.deleted', [$case, $case]);
             return $case;
         }
 

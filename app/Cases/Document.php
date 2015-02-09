@@ -3,10 +3,11 @@
 use App\AuditTrail\Loggable;
 use App\AuditTrail\RevisionableTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Document extends Model implements Loggable{
 
-    use RevisionableTrait;
+    use RevisionableTrait, SoftDeletes;
 
 	protected $table = 'cases_documents';
 

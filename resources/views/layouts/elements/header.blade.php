@@ -9,9 +9,8 @@
             </div>
         </div>
         <div class="col-sm-3 col-xs-3 col-md-2 col-lg-7 text-right">
-            <img class="logo" src="{{ asset('images/logo-kejari.jpg') }}" alt=""/>
+            <img class="logo img-responsive" src="{{ asset('images/logo/logo-kejari.jpg') }}" alt=""/>
             <h1 class="hidden-sm hidden-xs hidden-md">PROFIL KEJAKSAAN NEGERI JEMBER</h1>
-            {{--<h3>Kejaksaan Negeri Jember</h3>--}}
         </div>
     </div>
 </nav>

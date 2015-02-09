@@ -44,7 +44,7 @@ class EvidenceController extends BackendController {
             if($name)
             {
                 $evidence = Evidence::create(['name' => $name]);
-                Event::fire('evidence.created', [$evidence]);
+                Event::fire('evidence.created', [$case, $evidence]);
                 $case->evidences()->save($evidence);
             }
         }
@@ -77,7 +77,7 @@ class EvidenceController extends BackendController {
     {
         $evidence = Evidence::findOrFail($id);
         $evidence->update($request->all());
-        Event::fire('evidence.updated', [$evidence]);
+        Event::fire('evidence.updated', [$evidence->cases, $evidence]);
 
         return redirect()->route('backend.evidences.show', [$evidence->case_id]);
     }
@@ -92,7 +92,7 @@ class EvidenceController extends BackendController {
     {
         $evidence = Evidence::findOrFail($id);
         $evidence->delete();
-        Event::fire('evidence.deleted', [$evidence]);
+        Event::fire('evidence.deleted', [$evidence->cases, $evidence]);
 
         return redirect()->route('backend.cases.show', [$evidence->case_id])->with('flash.success', 'Data barang bukti berhasil dihapus');
     }
