@@ -23,6 +23,11 @@ class Activity extends Model {
         return $this->morphTo('object', 'object_type', 'object_id')->withTrashed();
     }
 
+    public function revisions()
+    {
+        return $this->hasMany('App\AuditTrail\Revision', 'activity_id');
+    }
+
     public function getSubjectNameAttribute()
     {
         if($this->subject)
@@ -49,4 +54,8 @@ class Activity extends Model {
         return $this->created_at->diffForHumans();
     }
 
+    public function getPermalinkAttribute()
+    {
+        return route('backend.log.show', [$this->id]);
+    }
 }

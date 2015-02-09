@@ -24,4 +24,10 @@ class LogController extends BackendController {
         return view('backend.log.index', compact('logs'));
     }
 
+    public function show($id)
+    {
+        $log = $this->repo->find($id);
+        $revisions = $log->revisions;
+        return view('backend.log.show', compact('log', 'revisions'));
+    }
 }

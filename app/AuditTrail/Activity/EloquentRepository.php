@@ -1,5 +1,7 @@
 <?php namespace App\AuditTrail\Activity;
 
+use App\AuditTrail\Revision;
+
 class EloquentRepository implements RepositoryInterface {
 
 
@@ -7,10 +9,15 @@ class EloquentRepository implements RepositoryInterface {
      * @var Activity
      */
     private $activity;
+    /**
+     * @var Revision
+     */
+    private $revision;
 
-    function __construct(Activity $activity)
+    function __construct(Activity $activity, Revision $revision)
     {
         $this->activity = $activity;
+        $this->revision = $revision;
     }
 
     public function insert($case, $subject, $predicate, $object = null, $note = null, $parentId = null)
@@ -44,4 +51,14 @@ class EloquentRepository implements RepositoryInterface {
 
         return $query->paginate();
     }
+
+    public function find($id)
+    {
+        return $this->activity->findOrFail($id);
+    }
+
+    //public function revisionsByActivity($id)
+    //{
+    //    return $this->revision->where('activity_id', '=', $id)->get();
+    //}
 }

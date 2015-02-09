@@ -92,7 +92,7 @@ $router->group(['prefix' => 'backend', 'namespace' => 'Backend', 'middleware' =>
 
     $router->resource('files', 'FilesController');
 
-    $router->resource('log', 'LogController', ['only' => ['index']]);
+    $router->resource('log', 'LogController', ['only' => ['index', 'show']]);
 
     // User Profile
     $router->group(['prefix' => 'me'], function($router){

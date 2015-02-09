@@ -27,17 +27,19 @@
                         <td class="pad">
                             <div class="">
                                 {{ $item->subject_name }}
-                                <strong>{{ trans('event.' . $item->predicate) }}</strong>
-                                {{ $item->object_name }}
+                                <a href="{{ $item['permalink'] }}" class="name btn-ajax-modal">
+                                    {{ trans('event.' . $item->predicate) }}
+                                    {{ $item->object_name }}
+                                </a>
                             </div>
                             <div class="ell">
                                 <small class="text-muted"><i class="ion-clock"></i> {{ $item['time_for_human'] }}</small>
-                                <small class="text-muted">dalam perkara <a class="btn-detail" href="{{ $item->cases->permalink }}">{{ $item->cases->name }}</a></small>
+                                <small class="text-muted">dalam perkara <a class="btn-ajax-modal" href="{{ $item->cases->permalink }}">{{ $item->cases->name }}</a></small>
                             </div>
                         </td>
                     </tr>
                 @empty
-                    <div class="empty">Belum ada data</div>
+                    <tr><td><span class="empty">Belum ada data</span></td></tr>
                 @endforelse
             </table>
             <div class="panel-footer">{{ $logs->appends(['q' => Input::get('q')])->render() }}</div>
@@ -51,7 +53,7 @@
     @parent
     <script>
         $(function(){
-            $('.btn-detail').on('click', function(e){
+            $('.btn-ajax-modal').on('click', function(e){
                 e.preventDefault();
                 $.blockUI(BLOCKUI_STYLE);
 
