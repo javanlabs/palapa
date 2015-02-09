@@ -584,6 +584,7 @@ class SopSeeder extends Seeder {
 
         DB::table('sop_phase')->insert(
             [
+                //PIDUM
                 ['id' => 1, 'case_type_id' => 201, 'name' => 'Pra Penuntutan', 'duration' => 30, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
                 ['id' => 2, 'case_type_id' => 201, 'name' => 'Tahap 1', 'duration' => 14, 'ordinal' => 2, 'icon' => '<strong>1</strong>'],
                 ['id' => 3, 'case_type_id' => 201, 'name' => 'Tahap 2', 'duration' => 20, 'ordinal' => 3, 'icon' => '<strong>2</strong>'],
@@ -592,6 +593,8 @@ class SopSeeder extends Seeder {
                 ['id' => 6, 'case_type_id' => 201, 'name' => 'Upaya Hukum', 'duration' => 0, 'ordinal' => 6, 'icon' => '<i class="fa fa-institution"></i>'],
                 ['id' => 7, 'case_type_id' => 201, 'name' => 'Eksekusi', 'duration' => 0, 'ordinal' => 7, 'icon' => '<i class="fa fa-institution"></i>'],
 
+
+                //PIDSUS
                 ['id' => 19, 'case_type_id' => 202, 'name' => 'Tahap Pra Penyelidikan', 'duration' => 11, 'ordinal' => 1, 'icon' => '<i class="fa fa-file-o"></i>'],
                 ['id' => 20, 'case_type_id' => 202, 'name' => 'Tahap Penyelidikan', 'duration' => 72, 'ordinal' => 2, 'icon' => '<i class="fa fa-file-o"></i>'],
                 ['id' => 21, 'case_type_id' => 202, 'name' => 'Tahap Penyidikan', 'duration' => 120, 'ordinal' => 3, 'icon' => '<i class="fa fa-file-o"></i>'],
@@ -600,7 +603,7 @@ class SopSeeder extends Seeder {
                 ['id' => 24, 'case_type_id' => 202, 'name' => 'Persidangan', 'duration' => 120, 'ordinal' => 6, 'icon' => '<i class="fa fa-legal"></i>'],
                 ['id' => 25, 'case_type_id' => 202, 'name' => 'Upaya Hukum dan Eksekusi', 'duration' => 0, 'ordinal' => 7, 'icon' => '<i class="fa fa-institution"></i>'],
 
-                /* Datun Bankum*/
+                /* Datun */
                 ['id' => 31, 'case_type_id' => 211, 'name' => 'Persiapan', 'duration' => 30, 'ordinal' => 1, 'icon' => '<i class="fa fa-institution"></i>'],
                 ['id' => 32, 'case_type_id' => 211, 'name' => 'Pelaksanaan', 'duration' => 448, 'ordinal' => 2, 'icon' => '<i class="fa fa-institution"></i>'],
                 ['id' => 33, 'case_type_id' => 211, 'name' => 'Pelaporan', 'duration' => 60, 'ordinal' => 3, 'icon' => '<i class="fa fa-institution"></i>'],
@@ -740,7 +743,7 @@ class SopSeeder extends Seeder {
                 ['id'=>100,'phase_id' => 24, 'name' => 'P-43 Laporan Tuntutan Pidana', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 58],
                 ['id'=>101,'phase_id' => 24, 'name' => 'Pembacaan Pledoi/Pembelaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 59],
                 ['id'=>102,'phase_id' => 24, 'name' => 'Pembacaan Tanggapan Pledoi/Pembelaan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 60],
-                ['id'=>103,'phase_id' => 24, 'name' => 'Putusan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 61],
+                ['id'=>103,'phase_id' => 24, 'name' => 'Putusan', 'duration' => 0, 'direction' => 'next', 'ordinal' => 61],
                 ['id'=>104,'phase_id' => 24, 'name' => 'P-44 Laporan Jaksa Penuntut Umum Segera Setelah Putusan', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 62],
                 ['id'=>105,'phase_id' => 24, 'name' => 'P-45 Laporan Putusan Pengadilan', 'duration' => 0, 'direction' => 'next', 'ordinal' => 63],
 
@@ -756,6 +759,42 @@ class SopSeeder extends Seeder {
                 ['id'=>114,'phase_id' => 25, 'name' => 'P-28 Riwayat Perkara', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 72],
                 ['id'=>115,'phase_id' => 25, 'name' => 'P-53', 'duration' => 0, 'direction' => 'stay', 'ordinal' => 73],
                 ['id'=>116,'phase_id' => 25, 'name' => 'Pengarsipan', 'duration' => 0, 'direction' => 'finish', 'ordinal' => 74],
+
+
+                //DATUN
+                ['id'=>317,'phase_id' =>  31,'name' => 'Menerima dan meregister permohonan', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   1   ],
+                ['id'=>318,'phase_id' =>  31,'name' => 'Meneruskan permohonan Pelayanan Hukum kepada JAM DATUN  ', 'duration' =>    1   , 'direction' => 'stay', 'ordinal' =>   2   ],
+                ['id'=>319,'phase_id' =>  31,'name' => 'Meneruskan permohonan Pelayanan Hukum dan pemberian arahan kepada Direktur Perdata  ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   3   ],
+                ['id'=>320,'phase_id' =>  31,'name' => 'Meneruskan permohonan Pelayanan Hukum dan pemberian arahan kepada Kasubdit Yankum Perdata   ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   4   ],
+                ['id'=>321,'phase_id' =>  31,'name' => 'Membuat net konsep surat perintah telaah kepada Unit Pelaksana  ', 'duration' =>    1   , 'direction' => 'stay', 'ordinal' =>   5   ],
+                ['id'=>322,'phase_id' =>  31,'name' => 'Menandatangani Surat Perintah telaah Permohonan Pelayanan Hukum ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   6   ],
+                ['id'=>323,'phase_id' =>  31,'name' => 'Mengundang pihak Pemohon Permintaan Pelayanan Hukum jika diperlukan guna melengkapi data-data yang diperlukan Tim JPN (Unit Pelaksana) yang ditunjuk berdasarkan Surat Perintah untuk menelaah. ', 'duration' =>    10  , 'direction' => 'stay', 'ordinal' =>   7   ],
+                ['id'=>324,'phase_id' =>  31,'name' => 'Membuat dan menyampaikan telaahan atas Permohonan Pelayanan  Hukum kepada JAM DATUN ', 'duration' =>    10  , 'direction' => 'stay', 'ordinal' =>   8   ],
+                ['id'=>325,'phase_id' =>  31,'name' => 'Melaporkan telaahan kepada Jaksa Agung RI dengan Surat yang ditandatangani oleh JAM DATUN   ', 'duration' =>    3   , 'direction' => 'stay', 'ordinal' =>   9   ],
+                ['id'=>326,'phase_id' =>  31,'name' => 'Memerintahkan Unit Pelaksana untuk melakukan pemaparan/ ekspose terhadap telaahan   ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   10  ],
+                                                
+                                                
+                ['id'=>327,'phase_id' =>  32,'name' => 'Unit Pelaksana membuat draft telaahan sebagai penjelasan atas permasalahan hukum yang disampaikan  Pemohon  ', 'duration' =>    7   , 'direction' => 'stay', 'ordinal' =>   1   ],
+                ['id'=>328,'phase_id' =>  32,'name' => 'Meneruskan permohonan Pelayanan Hukum kepada JAM DATUN  ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   2   ],
+                ['id'=>329,'phase_id' =>  32,'name' => 'Meneruskan permohonan Pelayanan Hukum dan pemberian arahan kepada Direktur Perdata  ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   3   ],
+                ['id'=>330,'phase_id' =>  32,'name' => 'Meneruskan permohonan Pelayanan Hukum dan pemberian arahan kepada Kasubdit Yankum Perdata   ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   4   ],
+                ['id'=>331,'phase_id' =>  32,'name' => 'Membuat net konsep surat perintah telaah kepada Unit Pelaksana  ', 'duration' =>    1   , 'direction' => 'stay', 'ordinal' =>   5   ],
+                ['id'=>332,'phase_id' =>  32,'name' => 'Menandatangani Surat Perintah telaah Permohonan Pelayanan Hukum ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   6   ],
+                ['id'=>333,'phase_id' =>  32,'name' => 'Mengundang pihak Pemohon Permintaan Pelayanan Hukum jika diperlukan guna melengkapi data-data yang diperlukan Tim JPN (Unit Pelaksana) yang ditunjuk berdasarkan Surat Perintah untuk menelaah. ', 'duration' =>    10  , 'direction' => 'stay', 'ordinal' =>   7   ],
+                ['id'=>334,'phase_id' =>  32,'name' => 'Membuat dan menyampaikan telaahan atas Permohonan Pelayanan  Hukum kepada JAM DATUN ', 'duration' =>    10  , 'direction' => 'stay', 'ordinal' =>   8   ],
+                ['id'=>335,'phase_id' =>  32,'name' => 'Melaporkan telaahan kepada Jaksa Agung RI dengan Surat yang ditandatangani oleh JAM DATUN   ', 'duration' =>    3   , 'direction' => 'stay', 'ordinal' =>   9   ],
+                ['id'=>336,'phase_id' =>  32,'name' => 'Memerintahkan Unit Pelaksana untuk melakukan pemaparan/ ekspose terhadap telaahan   ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   10  ],
+                ['id'=>337,'phase_id' =>  32,'name' => 'Melaksanakan ekspose telaahan   ', 'duration' =>    3   , 'direction' => 'stay', 'ordinal' =>   11  ],
+                ['id'=>338,'phase_id' =>  32,'name' => 'Memberi petunjuk terhadap hasil telaah  ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   12  ],
+                ['id'=>339,'phase_id' =>  32,'name' => 'Memberikan petunjuk untuk menyiapkan net konsep Surat Kuasa ', 'duration' =>    1   , 'direction' => 'stay', 'ordinal' =>   13  ],
+                ['id'=>340,'phase_id' =>  32,'name' => 'Membuat net konsep Surat Kuasa Substitusi oleh Staf TU Bankum Dit. PPH  ', 'duration' =>    0   , 'direction' => 'stay', 'ordinal' =>   14  ],
+                ['id'=>341,'phase_id' =>  32,'name' => 'Memeriksa net konsep Surat Kuasa substitusi ', 'duration' =>    1   , 'direction' => 'stay', 'ordinal' =>   15  ],
+                ['id'=>342,'phase_id' =>  32,'name' => 'Menandatangani Surat Kuasa Substitusi   ', 'duration' =>    1   , 'direction' => 'stay', 'ordinal' =>   32  ],
+                ['id'=>343,'phase_id' =>  32,'name' => 'Penandatanganan Surat Kuasa Substitusi oleh JPN pada Unit Pelaksana yang ditunjuk   ', 'duration' =>    2   , 'direction' => 'stay', 'ordinal' =>   17  ],
+                                                
+                                                
+                ['id'=>345,'phase_id' =>  33,'name' => 'Laporan akhir Pemberian Pelayanan Hukum Masyarakat  ', 'duration' =>    10  , 'direction' => 'stay', 'ordinal' =>   1   ],
+                ['id'=>346,'phase_id' =>  33,'name' => 'Pemberkasan /penjilidan ', 'duration' =>    10  , 'direction' => 'stay', 'ordinal' =>   2   ],
             ];
         foreach($checklists as $data)
         {

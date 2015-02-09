@@ -14,6 +14,7 @@
                                 @if(Auth::check())
                                 <a class="list-group-item" href="" data-id="201"><i class="fa fa-check"></i> PIDANA UMUM</a>
                                 <a class="list-group-item" href="" data-id="202"><i class="fa fa-check"></i> PIDANA KHUSUS</a>
+                                <a class="list-group-item" href="" data-id="211"><i class="fa fa-check"></i> DATUN</a>
                                 @endif
                             </div>
                         </div>
