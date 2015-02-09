@@ -10,10 +10,10 @@
 
     <div class="container-fluid hidden-print">
         <div class="editor-f4">
-            <h2 class="page-title">{{ $template->title }}</h2>{{$content}}
+            <h2 class="page-title">{{ $template->title }}</h2>
             {{ BootForm::open()->put()->action(route('backend.templates.update', [$template->id])) }}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>                
-                {{ BootForm::textarea('Template', 'content', ['id' => 'content'])->value('aaaa') }}
+                {{ BootForm::textarea('Template', 'content', ['id' => 'content'])->value($content) }}
                 {{ BootForm::submit('Simpan', 'btn-primary') }}
             {{ BootForm::close() }}
         </div>
@@ -43,27 +43,27 @@
     <script src="{{ asset('vendor/redactor/plugins/table.js') }}"></script>
     <script src="{{ asset('vendor/redactor/plugins/fullscreen.js') }}"></script>
     <script>
-        // $(function()
-        // {
-        //     $('#content').redactor({
-        //         minHeight: 400,
-        //         buttonSource: true,
-        //         plugins: ['underline', 'table', 'fullscreen'],
-        //         imageUpload: '/skrip/uploadImage?_token={{ csrf_token() }}',
-        //     });
+        $(function()
+        {
+            $('#content').redactor({
+                minHeight: 400,
+                buttonSource: true,
+                plugins: ['underline', 'table', 'fullscreen'],
+                imageUpload: '/skrip/uploadImage?_token={{ csrf_token() }}',
+            });
 
-        //     $('.preview-container').html($('#content').redactor('code.get'))
+            $('.preview-container').html($('#content').redactor('code.get'))
 
-        //     $('#btnPreview').on('click', function (e) {
-        //         e.preventDefault();
-        //         $('.preview-container').html($('#content').redactor('code.get'))
-        //     })
+            $('#btnPreview').on('click', function (e) {
+                e.preventDefault();
+                $('.preview-container').html($('#content').redactor('code.get'))
+            })
 
-        //     $('.btn-print').on('click', function (e) {
-        //         e.preventDefault();
-        //          window.print();
-        //     })
+            $('.btn-print').on('click', function (e) {
+                e.preventDefault();
+                 window.print();
+            })
 
-        // });
+        });
     </script>
 @stop

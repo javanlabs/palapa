@@ -24,20 +24,7 @@
 	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
 	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
 	</strong></b>
-	<?php
-	$category = '';
-	switch($case->category){
-		case 'kamtibum':
-		$category = 'Ep.1';
-		break;
-		case 'oharda':
-		$category = 'Epp.1';
-		break;
-		case 'tpul':
-		$category = 'Euh.1';
-		break;
-	}
-	?>
+	
 	<strong>Nomor: Print - /0.5.12/{{$category}}/ /2015</strong>
 </p>
 <p style="text-align: center;">

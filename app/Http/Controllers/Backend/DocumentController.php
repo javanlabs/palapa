@@ -51,8 +51,21 @@ class DocumentController extends Controller {
         $setting = Setting::lists('value', 'key');
         $today['day'] = date('l');
         $today['date'] = date('d-m-Y');
+    
+		$category = '';
+		switch($case->category){			
+			case 'kamtibum':
+			$category = 'Ep.1';
+			break;
+			case 'oharda':
+			$category = 'Epp.1';
+			break;
+			case 'tpul':
+			$category = 'Euh.1';
+			break;
+		}
 
-        $content = view($templateFile, compact('case', 'setting', 'today'));
+        $content = view($templateFile, compact('case', 'setting', 'today', 'category'));
 
 		return view('backend.document.create', compact('document', 'content', 'case', 'template'));
 

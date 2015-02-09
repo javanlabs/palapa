@@ -24,8 +24,8 @@
 	<b>PELAKSANAAN PUTUSAN PENGADILAN</b>
 </p>
 <p>
-	<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
-	Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}} saya:
+	
+	Pada hari ini {{strftime("%A")}} tanggal {{strftime("%e %B %Y")}} saya:
 </p>
 <p>
 	<strong>Nama :</strong> {{$case->jaksa->name}}
