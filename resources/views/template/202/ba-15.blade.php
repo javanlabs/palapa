@@ -26,9 +26,9 @@
 	<b>PENERIMAAN DAN PENELITIAN TERSANGKA</b>
 </p>
 <p>
-		<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
+		
 
-	 Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}} berdasarkan pasal 141, 8 (3) dan 13 8 (penjelasan) KUHAP saya:
+	 Pada hari ini {{strftime("%A")}} tanggal {{strftime("%e %B %Y")}} berdasarkan pasal 141, 8 (3) dan 13 8 (penjelasan) KUHAP saya:
 </p>
 <table>
 <tr><td width="200px">

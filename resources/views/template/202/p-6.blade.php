@@ -16,8 +16,8 @@
 </table>
 
 <p style="text-align: center"><strong>LAPORAN TERJADINYA TINDAK PIDANA</strong></p>
-<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
-<p>Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}}</p>
+
+<p>Pada hari ini {{strftime("%A")}} tanggal {{strftime("%e %B %Y")}}</p>
 <p>Saya :</p>
 
 <table>

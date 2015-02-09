@@ -17,97 +17,90 @@
 </tr>
 </tbody>
 </table>
+<br/>
 <p style="text-align: center;">
-	<b>BERITA ACARA</b>
-</p>
-<p style="text-align: center;">
+	<b>BERITA ACARA</b><br/>
 	<b>PELAKSANAAN PUTUSAN PENGADILAN</b>
 </p>
 <p>
-	<?php $days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu'];?>
-	Pada hari ini {{$days[date('w')]}} tanggal {{strftime("%e %B %Y")}} saya:
+	
+	Pada hari ini {{strftime("%A")}} tanggal {{strftime("%e %B %Y")}} saya:
 </p>
-<p>
-	<strong>Nama :</strong> {{$case->jaksa->name}}
-</p>
-<p>
-	<strong>Pangkat / NIP :</strong> {{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
-</p>
-<p>
-	<strong>Jabatan :</strong> {{$case->jaksa->jabatan->name}}
-</p>
+<table>
+<tr><td width='150px'>
+	<strong>Nama</strong></td><td width='5px'>:</td><td>{{$case->jaksa->name}}
+</td></tr>
+<tr><td>
+	<strong>Pangkat / NIP</strong></td><td width='5px'>:</td><td>{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
+</td></tr>
+<tr><td>
+	<strong>Jabatan</strong></td><td width='5px'>:</td><td>{{$case->jaksa->jabatan->name}}
+</td></tr>
+</table>
+
 <p>
 	(selaku Penuntut Umum)
 </p>
-<p>
-	berdasarkan Surat Perintah Kepala Kejaksaan : ....................tanggal ......................... No............................telah melaksanakan Putusan Pengadilan Negeri/Pengadilan Tinggi/MA *) ...............................tanggal.............................No.......................................dengan amar putusan .........................................dalam perkara atas nama terdakwa/terpidana *) ........................ dengan cara memasukkan ke Rutan/Lembaga, Pemasyarakatan *) .............................................
-</p>
-<p>
+<p class='indent'>
+	berdasarkan Surat Perintah Kepala Kejaksaan : ....................tanggal ......................... No............................telah melaksanakan Putusan Pengadilan Negeri/Pengadilan Tinggi/MA *) ...............................tanggal.............................No.......................................dengan amar putusan .........................................dalam perkara atas nama terdakwa {{$suspect->name}} dengan cara memasukkan ke Rutan/Lembaga, Pemasyarakatan *) ...........
 	untuk menjalani tahanan/pidana penjara/kurungan selama *) .....................................................
-</p>
-<p>
 	atau membebaskan/mengeluarkan terdakwa/terpidana dari tahanan *)
 </p>
-<p>
-	-------Demikian Berita Acara Pelaksanaan Putusan Pengadilan ini dibuat dengan sebenarnya atas kekuatan sumpah jabatan, ditutup dan ditanda tangani pada hari dan tanggal tersebut dalam Berita Acara ini.
+<p class='indent'>
+	Demikian Berita Acara Pelaksanaan Putusan Pengadilan ini dibuat dengan sebenarnya atas kekuatan sumpah jabatan, ditutup dan ditanda tangani pada hari dan tanggal tersebut dalam Berita Acara ini.
 </p>
 <table>
 <tbody>
 <tr align='center'>
 	<td>
-		<p>
-			Kepala Rutan
-		</p>
-		<br/><br/>
-		<p>
-			Kepala Lembaga Pemasyarakatan
-		</p>
-		<p>
-			(<u> </u>)
-		</p>
+
+			Tersangka
+
+				<br/><br/><br/>
+
+
+			<strong>({{$suspect->name}})</strong>
+
 	</td>
 	<td>
-		<p>
-			Jaksa Penuntut Umum,
-		</p>
-		<br/><br/>
-		<p>
-			<strong>({{$case->jaksa->name}})</strong>
-		</p>
-		<p>
+
+			Jaksa Penyidik/Penuntut Umum
+
+		<br/><br/><br/>
+
+			<strong>({{$case->jaksa->name}})</strong><br/>
+
 			{{$case->jaksa->pangkat->name}}/{{$case->jaksa->nip}}
-		</p>
+
 	</td>
 </tr>
-<tr align='center'>
-	<td colspan='2'>
-		<p>
-			Terdakwa/Terpidana
-		</p>
-				<br/><br/>
+<tr>
+	<td colspan='2' style='text-align: center'>
+		<br/>
+	KEPALA RUTAN
 
-		<p>
-			<strong>({{$suspect->name}})</strong>
-		</p>
+<br/><br/><br/>
 	</td>
 	</tr>
 </tbody>
 </table>
-<footer>
+
 <p>
 	<strong><u><strong>TEMBUSAN:</strong></u></strong>
 </p>
-<p>
-	1.Kajari
-</p>
-<p>
-	2.Ketua Pengadilan Negeri
-</p>
-<p>
-	3.Penyidik Polri
-</p>
-<p>
-	4.Arsip
-</p>
-</footer>
+<ol>
+<li>
+	Kajari
+</li>
+<li>
+	Ketua Pengadilan Negeri
+</li>
+<li>
+	Penyidik Polri
+</li>
+<li>
+	Arsip
+</li>
+</ol>
+<footer></footer>
 @endforeach
