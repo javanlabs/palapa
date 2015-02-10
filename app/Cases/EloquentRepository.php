@@ -463,7 +463,7 @@ class EloquentRepository implements RepositoryInterface {
         }
 
         $query->select('cases.*', 'officers.name');
-        $query->join('officers', 'jaksa_id', '=', 'officers.id');
+        $query->join('officers', 'jaksa_id', '=', 'officers.id', 'left');
 
         if($keyword)
         {

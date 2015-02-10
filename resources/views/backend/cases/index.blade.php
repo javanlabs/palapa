@@ -13,9 +13,9 @@
         @include('backend.cases.tab', ['owner' => $owner])
 
         <form action="" class="mb row">
-            <input type="hidden" name="owner" value="{{ Input::get('owner') }}"/>
+            <input type="hidden" name="owner" value="{{ Input::get('owner', 'all') }}"/>
             <div class="col-md-3">
-                {{ Form::select('type', $caseTypes, Input::get('type', 'all'), ['class' => 'form-control']) }}
+                {{ Form::select('type', $caseTypes, Input::get('type', ''), ['class' => 'form-control']) }}
             </div>
             <div class="col-md-9">
                 <div class="input-group">
