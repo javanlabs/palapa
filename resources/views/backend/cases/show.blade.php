@@ -31,7 +31,7 @@
                         <h4>
                             {{ $phase['name'] }}
 
-                            @if($case['is_pidsus'] && $phase['id'] == $case['phase_id'])
+                            @if(($case['is_pidsus'] || $case['is_datun']) && $phase['id'] == $case['phase_id'])
                                 <span><a href="{{ route('backend.cases.phase.skip', [$case['id']]) }}" class="btn btn-primary btn-xs">Skip</a></span>
                             @endif
                         </h4>
