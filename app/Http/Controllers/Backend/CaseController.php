@@ -60,13 +60,16 @@ class CaseController extends BackendController {
     public function index()
     {
         $owner = Input::get('owner', 'all');
+        $type = Input::get('type');
 
-        $cases = $this->repo->search(Input::get('q'), null, true, $owner=='me');
+        $cases = $this->repo->search(Input::get('q'), $type, true, $owner=='me');
 
         $count['all'] = $this->repo->count();
         $count['me'] = $this->repo->countByOwner(Auth::user());
 
-        return view('backend.cases.index', compact('cases', 'owner', 'count'));
+        $caseTypes = $this->lookup->lists('kasus', 'Semua Jenis Kasus');
+
+        return view('backend.cases.index', compact('cases', 'owner', 'count', 'caseTypes', 'type'));
     }
 
     public function create()

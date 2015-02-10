@@ -12,14 +12,20 @@
 
         @include('backend.cases.tab', ['owner' => $owner])
 
-        <form action="" class="mb">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Cari nama kasus, nomor SPDP atau nama tersangka..." value="{{ Input::get('q') }}">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit">Cari</button>
-                </span>
+        <form action="" class="mb row">
+            <input type="hidden" name="owner" value="{{ Input::get('owner') }}"/>
+            <div class="col-md-3">
+                {{ Form::select('type', $caseTypes, Input::get('type', 'all'), ['class' => 'form-control']) }}
             </div>
-            <!-- /input-group -->
+            <div class="col-md-9">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Cari nama kasus, nomor SPDP atau nama tersangka..." value="{{ Input::get('q') }}">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">Cari</button>
+                </span>
+                </div>
+                <!-- /input-group -->
+            </div>
         </form>
 
         <div class="panel panel-default">
@@ -32,12 +38,14 @@
                     <th width="100px">Aksi</th>
                 </tr>
                 </thead>
-                @foreach($cases as $item)
+                @forelse($cases as $item)
                     @include('modules.case.row2', ['item' => $item, 'phases' => $item->phases()])
-                @endforeach
+                @empty
+                    <tr><td colspan="4"><span class="empty">Tidak ada data</span></td></tr>
+                @endforelse
             </table>
             <div class="panel-footer">
-                {{ $cases->appends('q', Input::get('q'))->appends('owner', $owner)->render() }}
+                {{ $cases->appends('q', Input::get('q'))->appends('owner', $owner)->appends('type', $type)->render() }}
             </div>
         </div>
     </div>
