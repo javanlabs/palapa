@@ -28,6 +28,7 @@ class PostsController extends Controller {
         $count['intelijen'] = $this->repo->countByPosition('intelijen');
         $count['pidum'] = $this->repo->countByPosition('201');
         $count['pidsus'] = $this->repo->countByPosition('202');
+        $count['datun'] = $this->repo->countByPosition('203');
 
         return view('skrip::posts.index', compact('posts', 'count', 'position'));
     }

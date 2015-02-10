@@ -37,7 +37,8 @@ class Phase extends Model {
     public function getColorAttribute()
     {
         $colors = Config::get('color');
-        return $colors[array_rand(array_slice($colors, $this->id - 1, 1), 1)];
+
+        return $colors[array_rand(array_slice($colors, ($this->id - 1) % count($colors), 1), 1)];
     }
 
     public function isHigher($phase)
