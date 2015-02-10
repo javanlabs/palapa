@@ -64,18 +64,24 @@ class EloquentRepository implements RepositoryInterface {
 
     public function penyidik($type)
     {
-        $penyidikExternal = $this->lists('penyidik');
-        foreach($penyidikExternal as $key=>$val)
+        $lists = [];
+
+        if(in_array($type, [Cases::TYPE_PIDUM, Cases::TYPE_PIDSUS]))
         {
-            $penyidikExternal['e' . $key] = $val;
-            unset($penyidikExternal[$key]);
-        }
-        if($penyidikExternal)
-        {
-            $lists = ['Penyidik Eksternal' => $penyidikExternal];
+            $penyidikExternal = $this->lists('penyidik');
+            foreach($penyidikExternal as $key=>$val)
+            {
+                $penyidikExternal['e' . $key] = $val;
+                unset($penyidikExternal[$key]);
+            }
+            if($penyidikExternal)
+            {
+                $lists = ['Penyidik Eksternal' => $penyidikExternal];
+            }
+
         }
 
-        if($type == Cases::TYPE_PIDSUS)
+        if(in_array($type, [Cases::TYPE_PIDSUS, Cases::TYPE_DATUN]))
         {
             $penyidikInternal = $this->officer->listJaksa();
             foreach($penyidikInternal as $key=>$val)
