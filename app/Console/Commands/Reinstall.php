@@ -2,6 +2,7 @@
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -44,8 +45,31 @@ class Reinstall extends Command {
 		$db = DB::connection()->getDatabaseName();
 		$tables = DB::select(DB::raw("select * from information_schema.tables where table_schema = '$db'"));
 
-//		$dataTables = array('suspects', 'cases', 'cases_activities', 'cases_checklist', 'cases_documents', 'cases_phases_history', 'cases_suspects');
-        $dataTables = [];
+        if(App::environment() == 'production')
+        {
+            $dataTables = array(
+                'cases',
+                'cases_activities',
+                'cases_checklist',
+                'cases_courts',
+                'cases_documents',
+                'cases_evidences',
+                'cases_officers',
+                'cases_phases_history',
+                'cases_suspects',
+                'cases_witness',
+                'officers',
+                'posts',
+                'settings',
+                'suspects',
+                'users',
+                'witness',
+            );
+        }
+        else
+        {
+            $dataTables = [];
+        }
 
 		foreach($tables as $table)
 		{
