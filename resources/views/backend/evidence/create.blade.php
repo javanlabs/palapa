@@ -26,11 +26,11 @@
 
             <hr/>
 
-            {{ BootForm::text('Barang Bukti 1', 'name[]') }}
-            {{ BootForm::text('Barang Bukti 2', 'name[]') }}
-            {{ BootForm::text('Barang Bukti 3', 'name[]') }}
-            {{ BootForm::text('Barang Bukti 4', 'name[]') }}
-            {{ BootForm::text('Barang Bukti 5', 'name[]') }}
+            {{ BootForm::textarea('Barang Bukti 1', 'name[]')->rows(3) }}
+            {{ BootForm::textarea('Barang Bukti 2', 'name[]')->rows(3) }}
+            {{ BootForm::textarea('Barang Bukti 3', 'name[]')->rows(3) }}
+            {{ BootForm::textarea('Barang Bukti 4', 'name[]')->rows(3) }}
+            {{ BootForm::textarea('Barang Bukti 5', 'name[]')->rows(3) }}
         </div>
         <div class="panel-footer">
             <a class="btn btn-default" href="{{ route('backend.cases.show', [$case['id']]) }}">Batal</a>
