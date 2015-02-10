@@ -77,10 +77,9 @@
 
                                     <i class="fa fa-check"></i>
                                     {{ $item['name'] }}<br/>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class='small'><i>{{$case->getChecklistDate($item['id'])}}</i></span>
-                                    <a href="{{ route('backend.cases.checklist.edit', [$case['id'], $item['id']]) }}" class="btn btn-xs btn-default btn-edit">Edit</a>
-
-
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span class='small'><i>{{$case->getChecklistDate($item['id'])}}</i></span>
+                                        <a href="{{ route('backend.cases.checklist.edit', [$case['id'], $item['id']]) }}" class="btn btn-xs btn-default btn-edit">Edit</a>
                                 </li>
                             @else
                                 <li class="list-group-item item-checklist" data-id="{{ $item['id'] }}" data-url="{{ route('backend.cases.checklist', [$case['id'], $item['id']]) }}">
@@ -269,9 +268,12 @@
                 <table class="table table-list">
                     @foreach($activities as $item)
                         <tr>
-                            <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
+                            <td width="180px"><small class="text-muted">{{ $item['date_for_human'] }}</small></td>
                             <td>
                                 <strong>{{ $item['name'] }}</strong>
+                                @if($item['number'])
+                                <div class="text-muted">Nomor: {{ $item['number'] }}</div>
+                                @endif
                                 <p>{{ $item['note'] }}</p>
                             </td>
                         </tr>

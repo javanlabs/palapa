@@ -169,8 +169,9 @@ class EloquentRepository implements RepositoryInterface {
             $activities[] = [
                 'date_for_human' => Carbon::createFromFormat('Y-m-d', $checklist->pivot->date)->formatLocalized('%d %B %Y'),
                 'date'  => $checklist->pivot->date,
+                'number'  => $checklist->pivot->number,
                 'name'  => $checklist->name,
-                'note'  => $checklist->pivot->note
+                'note'  => $checklist->pivot->note,
             ];
         }
 

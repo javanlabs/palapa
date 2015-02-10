@@ -174,7 +174,7 @@ class CaseController extends BackendController {
         $case = $this->repo->find($caseId);
         $checklist = Checklist::findOrFail($checklistId);
 
-        $this->sopRepo->addChecklist($case, $checklist, $request->only('date', 'note', 'data'));
+        $this->sopRepo->addChecklist($case, $checklist, $request->only('date', 'note', 'data', 'number'));
 
         Flash::success(trans('flash/case.checklist.checked'));
 

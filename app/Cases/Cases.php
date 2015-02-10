@@ -119,7 +119,7 @@ class Cases extends Model implements Loggable{
 
     public function checklist()
     {
-        return $this->belongsToMany('App\Sop\Checklist', 'cases_checklist', 'case_id', 'checklist_id')->withPivot('date', 'note')->withTimestamps();
+        return $this->belongsToMany('App\Sop\Checklist', 'cases_checklist', 'case_id', 'checklist_id')->withPivot('date', 'number', 'note')->withTimestamps();
     }
 
     public function highestChecklist()

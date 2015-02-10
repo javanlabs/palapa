@@ -88,9 +88,12 @@
                         <tbody>
                         @forelse($activities as $item)
                             <tr>
-                                <td width="130px"><small class="text-muted">{{ $item['date'] }}</small></td>
+                                <td width="180px"><small class="text-muted">{{ $item['date'] }}</small></td>
                                 <td>
                                     <strong>{{ $item['name'] }}</strong>
+                                    @if($item['number'])
+                                        <div class="text-muted">Nomor: {{ $item['number'] }}</div>
+                                    @endif
                                     <p>{{ $item['note'] }}</p>
                                 </td>
                             </tr>

@@ -30,6 +30,10 @@
                         {{ Form::text('date', date('d-m-Y'), ['class' => 'form-control datepicker', 'id' => 'activity-date']) }}
                     </div>
                     <div class="form-group">
+                        <label for="">Nomor</label>
+                        {{ Form::text('number', '', ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
                         <label for="">Catatan</label>
                         {{ Form::textarea('note', '', ['class' => 'form-control', 'rows' => 3]) }}
                     </div>
