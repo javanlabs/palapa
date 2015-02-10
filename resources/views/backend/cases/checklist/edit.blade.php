@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nomor</label>
-                        {{ Form::text('number', $checklist['pivot']['note'], ['class' => 'form-control']) }}
+                        {{ Form::text('number', $checklist['pivot']['number'], ['class' => 'form-control']) }}
                     </div>
                     <div class="form-group">
                         <label for="">Catatan</label>
