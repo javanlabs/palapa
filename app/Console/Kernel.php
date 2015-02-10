@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel {
 		'App\Console\Commands\InspireCommand',
 		'App\Console\Commands\Install',
 		'App\Console\Commands\Reinstall',
+		'App\Console\Commands\DbBackup',
 	];
 
 	/**
@@ -25,8 +26,7 @@ class Kernel extends ConsoleKernel {
 	 */
 	protected function schedule(Schedule $schedule)
 	{
-		$schedule->command('inspire')
-				 ->hourly();
+        $schedule->command('app:db-backup')->everyFiveMinutes();
 	}
 
 }
