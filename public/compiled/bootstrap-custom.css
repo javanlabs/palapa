@@ -7206,3 +7206,6 @@ body.frontend .content {
 #page-log-index .list-log td {
   padding: 15px 30px;
 }
+.checklist-direction-suspend {
+  color: #c0392b;
+}

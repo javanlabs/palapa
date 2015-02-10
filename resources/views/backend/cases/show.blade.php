@@ -87,7 +87,12 @@
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" name="checklist[]" value="{{ $item['id'] }}"/>
-                                            {{ $item['name'] }}
+                                            <span class="checklist-direction-{{ $item['direction'] }}">
+                                                {{ $item['name'] }}
+                                                @if($item['is_suspend'])
+                                                    <i class="ion-alert"></i>
+                                                @endif
+                                            </span>
 
                                             @if($phase->id == $case['phase_id'])
                                                 <?php $remaining = $sop->checklistRemainingDay($case, $item) ?>

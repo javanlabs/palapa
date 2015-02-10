@@ -33,7 +33,11 @@
                         <label for="">Catatan</label>
                         {{ Form::textarea('note', '', ['class' => 'form-control', 'rows' => 3]) }}
                     </div>
-
+                    <div class="form-group">
+                        @if($checklist['is_suspend'])
+                            <div class="text text-danger">Perhatian: Checklist ini akan menyebabkan kasus dihentikan <i class="ion-alert"></i></div>
+                        @endif
+                    </div>
                 </div>
             </div>
 
