@@ -164,13 +164,13 @@ class EloquentRepository implements RepositoryInterface {
     public function activities($case)
     {
         $activities = [];
-        foreach($case->activities as $activity)
+        foreach($case->checklist as $checklist)
         {
             $activities[] = [
-                'date_for_human' => $activity['date_for_human'],
-                'date'  => $activity['date'],
-                'name'  => $activity['title'],
-                'note'  => $activity['content']
+                'date_for_human' => Carbon::createFromFormat('Y-m-d', $checklist->pivot->date)->formatLocalized('%d %B %Y'),
+                'date'  => $checklist->pivot->date,
+                'name'  => $checklist->name,
+                'note'  => $checklist->pivot->note
             ];
         }
 
@@ -462,6 +462,7 @@ class EloquentRepository implements RepositoryInterface {
             $cases_ids[] = $t->cases_id;
         }
 
+        $query->select('cases.*', 'officers.name');
         $query->join('officers', 'jaksa_id', '=', 'officers.id');
 
         if($keyword)

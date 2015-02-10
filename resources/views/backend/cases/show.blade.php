@@ -280,15 +280,16 @@
             </div>
 
 
-            {{ Form::open(['route' => ['backend.cases.activity', $case['id']], 'method' => 'post', 'role'=>'form']) }}
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-            <div class="form-group">
-                {{ Form::textarea('content', '', ['class' => 'form-control', 'rows' => 3]) }}
-            </div>
-            <div class="text-right">
-                {{ Form::submit('Tambah Catatan', ['class' => 'btn btn-primary']) }}
-            </div>
-            {{ Form::close() }}
+            {{--{{ Form::open(['route' => ['backend.cases.activity', $case['id']], 'method' => 'post', 'role'=>'form']) }}--}}
+            {{--<input type="hidden" name="_token" value="{{ csrf_token() }}"/>--}}
+            {{--<div class="form-group">--}}
+                {{--{{ Form::textarea('content', '', ['class' => 'form-control', 'rows' => 3]) }}--}}
+            {{--</div>--}}
+            {{--<div class="text-right">--}}
+                {{--{{ Form::submit('Tambah Catatan', ['class' => 'btn btn-primary']) }}--}}
+            {{--</div>--}}
+            {{--{{ Form::close() }}--}}
+
     </div>
     </div>
 
