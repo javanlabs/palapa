@@ -433,7 +433,7 @@ class EloquentRepository implements RepositoryInterface {
 
     protected function prepareSearch($keyword, $type, $includeDraft, $me)
     {
-        $query = $this->case->orderBy('updated_at', 'DESC');
+        $query = $this->case->orderBy('cases.updated_at', 'DESC');
 
         if(!$includeDraft)
         {
@@ -462,12 +462,18 @@ class EloquentRepository implements RepositoryInterface {
             $cases_ids[] = $t->cases_id;
         }
 
-
+        $query->join('officers', 'jaksa_id', '=', 'officers.id');
 
         if($keyword)
         {
             $query->where(function($query2) use ($keyword, $cases_ids){
-                $query2->where('kasus', 'LIKE', '%'.$keyword.'%')->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')->orWhereIn('id', $cases_ids);
+                $query2
+                    ->where('kasus', 'LIKE', '%'.$keyword.'%')
+                    ->orWhere('spdp_number', 'LIKE', '%'.$keyword.'%')
+                    ->orWhereIn('cases.id', $cases_ids)
+
+                    ->orWhere('officers.name', 'LIKE', "%$keyword%")
+                ;
 
             });
         }
