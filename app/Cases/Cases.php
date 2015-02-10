@@ -30,7 +30,8 @@ class Cases extends Model implements Loggable{
     protected $dates = ['start_date', 'finish_date', 'spdp_date', 'crime_time', 'persidangan_date', 'berkas_date'];
 
     protected $dontKeepRevisionOf = array(
-        'type'
+        'type',
+        'deleted_at'
     );
 
     public function scopePublished($query)
