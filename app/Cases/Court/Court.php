@@ -36,6 +36,16 @@ class Court extends Model implements Loggable{
         return $query;
     }
 
+    public function scopeByType($query, $caseTypeId)
+    {
+        if($caseTypeId)
+        {
+            $query->select('cases_courts.*')->join('cases', 'case_id', '=', 'cases.id')->where('cases.type_id', '=', $caseTypeId);
+        }
+
+        return $query;
+    }
+
     public function getDateAttribute()
     {
         if($this->attributes['date'])

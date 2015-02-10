@@ -74,7 +74,7 @@ class FrontendController extends Controller {
             $dateForHuman = Carbon::createFromFormat('d-m-Y', $date)->formatLocalized('%A, %d %B %Y');
         }
 
-        $courts = Court::with('cases')->upcoming()->byDate($date)->get();
+        $courts = Court::with('cases')->upcoming()->byDate($date)->byType($request->get('type'))->get();
 
         $type = $request->get('type');
         $allPostInCategory = $postRepo->getByPosition($type);
