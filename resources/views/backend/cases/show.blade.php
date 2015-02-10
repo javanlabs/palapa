@@ -173,10 +173,8 @@
                 @forelse($evidences as $item)
                     <tr>
                         <td>
-                            {{ $item['name'] }}
-                        </td>
-                        <td width="150px" class="text-center">
-                            {{ Form::delete(route('backend.evidences.destroy', [$item['id']]), '<i class="ion-backspace-outline"></i> Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-link btn-delete']) }}
+                            <div class="readmore">{{ $item['name'] }}</div>
+                            <div class="text-right">{{ Form::delete(route('backend.evidences.destroy', [$item['id']]), '<i class="ion-backspace-outline"></i> Hapus', ['class' => 'form-delete'], ['class' => 'btn btn-xs btn-link btn-delete']) }}</div>
                         </td>
                     </tr>
                 @empty
@@ -277,7 +275,7 @@
                                 @if($item['number'])
                                 <div class="text-muted">Nomor: {{ $item['number'] }}</div>
                                 @endif
-                                <p>{{ $item['note'] }}</p>
+                                <p class="readmore">{{ $item['note'] }}</p>
                             </td>
                         </tr>
                     @endforeach
@@ -319,6 +317,8 @@
 
 @section('script-end')
     @parent
+
+    <script src="{{ asset('vendor/readmore.min.js') }}"></script>
 
     <script>
     $(function(){
@@ -426,6 +426,12 @@
                 });
 
             });
+        });
+
+        $('.readmore').readmore({
+            moreLink: '<a href="#">More</a>',
+            lessLink: '<a href="#">Less</a>',
+            collapsedHeight: 70
         });
     });
     </script>
