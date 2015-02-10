@@ -273,7 +273,7 @@ class CaseController extends BackendController {
         $case = $this->repo->find($caseId);
         $checklist = Checklist::findOrFail($checklistId);
 
-        $this->sopRepo->updateChecklist2($case, $checklist, $request->only('date', 'note', 'data'));
+        $this->sopRepo->updateChecklist2($case, $checklist, $request->only('date', 'number', 'note', 'data'));
 
         $data['status'] = 1;
         return response()->json($data);

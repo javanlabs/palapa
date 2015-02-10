@@ -30,6 +30,10 @@
                         {{ Form::text('date', \Carbon\Carbon::createFromFormat('Y-m-d', $checklist['pivot']['date'])->format('d-m-Y'), ['class' => 'form-control datepicker', 'id' => 'activity-date']) }}
                     </div>
                     <div class="form-group">
+                        <label for="">Nomor</label>
+                        {{ Form::text('number', $checklist['pivot']['note'], ['class' => 'form-control']) }}
+                    </div>
+                    <div class="form-group">
                         <label for="">Catatan</label>
                         {{ Form::textarea('note', $checklist['pivot']['note'], ['class' => 'form-control', 'rows' => 3]) }}
                     </div>

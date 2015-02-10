@@ -126,7 +126,7 @@ class EloquentRepository implements RepositoryInterface {
         $dmyDate = array_get($attributes, 'date');
         $date = Carbon::createFromFormat('d-m-Y', $dmyDate)->toDateString();
 
-        $checklistAttributes = ['date' => $date, 'note' => array_get($attributes, 'note')];
+        $checklistAttributes = ['date' => $date, 'note' => array_get($attributes, 'note'), 'number' => array_get($attributes, 'number')];
         $case->checklist()->where('checklist_id', '=', $checklist->id)->update($checklistAttributes);
 
         // update phase date
