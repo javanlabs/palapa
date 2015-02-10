@@ -2,6 +2,7 @@
 
 use App\AuditTrail\Loggable;
 use App\AuditTrail\RevisionableTrait;
+use App\Cases\Cases;
 use Illuminate\Database\Eloquent\Model;
 
 class Checklist extends Model implements Loggable{
@@ -28,6 +29,15 @@ class Checklist extends Model implements Loggable{
 
     public function templates(){
     	return $this->hasMany('App\Model\Template','checklist_id');
+    }
+
+    public function newPivot(Model $parent, array $attributes, $table, $exists)
+    {
+        if($parent instanceof Cases)
+        {
+            return new CaseChecklistPivot($parent, $attributes, $table, $exists);
+        }
+        return parent::newPivot($parent, $attributes, $table, $exists);
     }
 
     public function getIsNextAttribute()
@@ -83,6 +93,22 @@ class Checklist extends Model implements Loggable{
         }
 
         return [];
+    }
+
+    public function getNumberFieldAttribute()
+    {
+        $relatedData = $this->getRelatedData();
+
+        foreach($relatedData as $column)
+        {
+            // jika nama kolom diakhir "_number", diasumsikan ini adalah isian nomor
+            if(substr($column['name'], 0 - strlen('_number')))
+            {
+                return $column['name'];
+            }
+        }
+
+        return false;
     }
 
     protected function getColumnType($column)

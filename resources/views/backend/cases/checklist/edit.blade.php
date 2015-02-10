@@ -29,10 +29,14 @@
                         <label for="">{{ $checklist['date_label'] or 'Tanggal Checklist' }}</label>
                         {{ Form::text('date', \Carbon\Carbon::createFromFormat('Y-m-d', $checklist['pivot']['date'])->format('d-m-Y'), ['class' => 'form-control datepicker', 'id' => 'activity-date']) }}
                     </div>
+
+                    @if( ! $checklist['contain_number'])
                     <div class="form-group">
                         <label for="">Nomor</label>
                         {{ Form::text('number', $checklist['pivot']['number'], ['class' => 'form-control']) }}
                     </div>
+                    @endif
+
                     <div class="form-group">
                         <label for="">Catatan</label>
                         {{ Form::textarea('note', $checklist['pivot']['note'], ['class' => 'form-control', 'rows' => 3]) }}
