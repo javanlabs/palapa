@@ -21,7 +21,38 @@ function case_deadline($day)
     {
         return '<span class="label label-danger">' . "lewat " . abs($day) . " hari" . '</span>';
     }
+}
 
+function checklist_checked($id, $checklists)
+{
+    foreach($checklists as $item)
+    {
+        if($item->id == $id)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+function checklist_data($id, $checklists, $field)
+{
+    foreach($checklists as $item)
+    {
+        if($item->id == $id)
+        {
+            $value = $item['pivot'][$field];
+
+            if($field == 'date')
+            {
+                $value = \Carbon\Carbon::createFromFormat('Y-m-d', $value)->formatLocalized('%d %B %Y');
+            }
+
+            return $value;
+        }
+    }
+
+    return false;
 }
 
 function random_wallpaper()

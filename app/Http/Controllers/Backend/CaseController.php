@@ -139,7 +139,7 @@ class CaseController extends BackendController {
 
         $phases = $this->sopRepo->byType($case->type_id);
         $activities = $this->repo->activities($case);
-        $checklistIds = $case->checklist->lists('id');
+        $checklists = $case->checklist;
         $phaseIds = $case->phaseHistory->lists('id');
         $templates = Template::byCaseType($case->type_id)->get();
         $documentsIds = $case->documents->lists('template_id', 'id');
@@ -147,7 +147,7 @@ class CaseController extends BackendController {
         $phaseHistories = $this->sopRepo->getPhaseHistory($case);
         $evidences = $case->evidences;
 
-        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklistIds', 'templates', 'templates', 'documentsIds', 'sop', 'evidences', 'phaseIds', 'phaseHistories'));
+        return view('backend.cases.show', compact('case', 'phases', 'activities', 'checklists', 'templates', 'templates', 'documentsIds', 'sop', 'evidences', 'phaseIds', 'phaseHistories'));
     }
 
     public function destroy($id)

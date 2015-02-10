@@ -65,7 +65,7 @@
                     <ul class="list-group items {{ (($phase->id > $case['phase']['id']) && $phase->id != $case['phase_id'])?'disabled':'' }}">
                         @foreach($phase['checklist'] as $item)
 
-                            @if(in_array($item['id'], $checklistIds))
+                            @if(checklist_checked($item['id'], $checklists))
                                 <li class="list-group-item list-group-item-success">
 
                                     @if($case->isLatestChecklist($item))
@@ -78,7 +78,10 @@
                                     <i class="fa fa-check"></i>
                                     {{ $item['name'] }}<br/>
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span class='small'><i>{{$case->getChecklistDate($item['id'])}}</i></span>
+                                        @if(checklist_data($item['id'], $checklists, 'number'))
+                                            <span class="label label-warning">Nomor: {{ checklist_data($item['id'], $checklists, 'number') }}</span>
+                                        @endif
+                                        <span class='small'><i>{{checklist_data($item['id'], $checklists, 'date')}}</i></span>
                                         <a href="{{ route('backend.cases.checklist.edit', [$case['id'], $item['id']]) }}" class="btn btn-xs btn-default btn-edit">Edit</a>
                                 </li>
                             @else
