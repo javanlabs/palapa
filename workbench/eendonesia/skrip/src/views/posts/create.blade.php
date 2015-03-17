@@ -7,12 +7,12 @@
 
 @section('content-admin')
     <div class="container-fluid">
-        <h2 class="page-title">Write Post</h2>
+        <h2 class="page-title">Tambah Halaman Informasi</h2>
         {{ BootForm::open()->action(route('skrip.posts.store')) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            <input type="hidden" name="position" value="{{ Input::get('position') }}"/>
             {{ BootForm::text('Title', 'title') }}
             {{ BootForm::textarea('Content', 'content', ['id' => 'content']) }}
-            {{ BootForm::select('Position', 'position')->options($post->getPossiblePosition())}}
             {{ BootForm::select('Status', 'status')->options($post->getPossibleStatus()) }}
             {{ BootForm::submit('Simpan', 'btn-primary') }}
         {{ BootForm::close() }}

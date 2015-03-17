@@ -7,7 +7,7 @@
 
 @section('content-admin')
     <div class="container-fluid">
-        <h2 class="page-title">Write Post</h2>
+        <h2 class="page-title">Edit Halaman Informasi</h2>
         {{ BootForm::open()->put()->action(route('skrip.posts.update', [$post->id])) }}
             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
             {{ BootForm::text('Title', 'title')->value($post->title) }}

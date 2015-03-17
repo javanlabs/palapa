@@ -43,7 +43,7 @@ class PostsController extends Controller {
     {
         $this->repo->create($form->only('title', 'content', 'position', 'status'), Auth::user());
 
-        return redirect()->route('skrip.posts.index');
+        return redirect()->route('skrip.posts.index', ['position' => $form->get('position')]);
     }
 
     public function edit($id)
@@ -56,7 +56,7 @@ class PostsController extends Controller {
     {
         $this->repo->update($id, $form->only('title', 'content', 'position', 'status'));
 
-        return redirect()->route('skrip.posts.index');
+        return redirect()->route('skrip.posts.index', ['position' => $form->get('position')]);
     }
 
     public function destroy($id)
