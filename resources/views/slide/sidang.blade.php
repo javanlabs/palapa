@@ -1,7 +1,17 @@
 @extends('slide.layout')
 
 @section('style-head')
-
+    <style>
+        table.table-slider-items tbody > tr > td {
+            padding-top: 30px;
+        }
+        table.table-slider-items tbody > tr > td.numbering {
+            padding-top: 40px;
+        }
+        table.table-slider-items tbody > tr > td h1 {
+            font-size: 1.5em;
+        }
+    </style>
 @endsection
 
 @section('script-head')
