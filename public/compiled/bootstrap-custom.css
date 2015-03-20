@@ -7179,7 +7179,7 @@ body.frontend .trail {
 body.frontend .content {
   padding: 0 50px;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   body.frontend {
     font-size: 2.5em;
   }
