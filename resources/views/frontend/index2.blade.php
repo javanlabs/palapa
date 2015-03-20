@@ -18,7 +18,7 @@
                     <a class="list-group-item item-2 hvr-sweep-to-right" href="{{ route('frontend.post', ['category' => 'intelijen']) }}">Intelijen <i class="ion-ios-arrow-forward icon"></i></a>
                     <a class="list-group-item item-3 hvr-sweep-to-right" href="{{ route('frontend.search') }}?type=201">Pidum <i class="ion-ios-arrow-forward icon"></i></a>
                     <a class="list-group-item item-4 hvr-sweep-to-right" href="{{ route('frontend.search') }}?type=202">Pidsus <i class="ion-ios-arrow-forward icon"></i></a>
-                    <a class="list-group-item item-5 hvr-sweep-to-right" href="{{ route('frontend.search') }}?type=203">Datun <i class="ion-ios-arrow-forward icon"></i></a>
+                    <a class="list-group-item item-5 hvr-sweep-to-right" href="{{ route('frontend.post', ['category' => '203']) }}">Datun <i class="ion-ios-arrow-forward icon"></i></a>
                 </div>
             </div>
         </div>

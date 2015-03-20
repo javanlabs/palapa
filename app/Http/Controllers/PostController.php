@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Cases\Cases;
 use Eendonesia\Skrip\Post\Post;
 use Eendonesia\Skrip\Post\RepositoryInterface;
 
@@ -24,6 +25,12 @@ class PostController extends Controller {
             $post = $this->repo->find($id);
         }
 
-        return view('frontend.post', compact('post', 'category', 'allPostInCategory', 'id'));
-    }    
+        $categoryName = $category;
+        if($category == Cases::TYPE_DATUN)
+        {
+            $categoryName = 'Datun';
+        }
+
+        return view('frontend.post', compact('post', 'category', 'categoryName', 'allPostInCategory', 'id'));
+    }
 }

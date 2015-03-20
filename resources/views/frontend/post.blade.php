@@ -5,7 +5,7 @@
 @stop
 
 @section('breadcrumb')
-    <span class="trail">{{ $category }}</span>
+    <span class="trail">{{ $categoryName }}</span>
 @stop
 
 @section('content')
