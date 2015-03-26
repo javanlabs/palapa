@@ -81,12 +81,16 @@
 
   .notification {
     a{
-      color: @brand-danger;
       font-size: .9em;
       font-weight: 700;
+      color: @brand-success;
+      padding-right: 15px;
+      &.danger {
+        color: @brand-danger;
+        span {
+          border-bottom: 1px dotted @brand-danger;
+        }
 
-      span {
-        border-bottom: 1px dotted @brand-danger;
       }
     }
   }

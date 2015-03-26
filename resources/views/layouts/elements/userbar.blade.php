@@ -5,8 +5,14 @@
 ?>
     <div class="navbar-user">
         <div class="container-fluid">
-            <div class="col-md-4"></div>
-            <div class="col-md-4 text-center">
+            <div class="col-md-6 text-right">
+                <div class="notification">
+                    <a href=""{{ route('backend.cases.index') }}?owner=me""><i class="fa fa-legal"></i> <strong>Perkara Saya</strong></a>
+                    <a href="{{ route('backend.cases.alert') }}" class="danger"><span>{{ $caseAlertCount }} Perkara Perlu Penanganan</span></a>
+                </div>
+            </div>
+
+            <div class="col-md-6 text-center">
                 Login sebagai
                 <div class="btn-group">
                     <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -20,11 +26,6 @@
                     </ul>
                 </div>
 
-            </div>
-            <div class="col-md-4">
-                <div class="notification">
-                    <a href="{{ route('backend.cases.alert') }}"><span>{{ $caseAlertCount }} Perkara Perlu Penanganan</span></a>
-                </div>
             </div>
         </div>
     </div>

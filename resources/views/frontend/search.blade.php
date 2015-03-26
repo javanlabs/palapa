@@ -9,7 +9,6 @@
 @stop
 
 @section('content')
-
     <div class="container-fluid">
         <div class="col-md-3">
             @include('frontend.tab', ['active' => 'perkara'])

@@ -6586,11 +6586,15 @@ button.close {
   text-align: center;
 }
 .navbar-user .notification a {
-  color: #c0392b;
   font-size: .9em;
   font-weight: 700;
+  color: #16a085;
+  padding-right: 15px;
 }
-.navbar-user .notification a span {
+.navbar-user .notification a.danger {
+  color: #c0392b;
+}
+.navbar-user .notification a.danger span {
   border-bottom: 1px dotted #c0392b;
 }
 footer {
