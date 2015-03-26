@@ -496,6 +496,7 @@ class EloquentRepository implements RepositoryInterface {
 
         $query->select('cases.*', 'v_cases_current_timeline.*')
             ->join('v_cases_current_timeline', 'v_cases_current_timeline.id', '=', 'cases.id')
+            ->where('v_cases_current_timeline.standard_duration', '>', 0)
         ;
 
         return $query;

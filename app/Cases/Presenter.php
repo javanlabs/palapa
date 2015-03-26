@@ -71,7 +71,7 @@ trait Presenter {
 
             $msg = "<div>Mulai: " . $startDate->formatLocalized('%d %B %Y') . "</div>";
             $msg .= "<div>Selesai: " . $finishDateDisplayed . "</div>";
-            $msg .= "<div>Durasi: <span class='label label-{$phaseStatus}'>" . $finishDate->diffInDays($startDate) . " hari</span></div>";
+            $msg .= "<div>Durasi: <span class='label label-{$phaseStatus}'>" . ($finishDate->diffInDays($startDate) + 1) . " hari</span></div>";
 
             if($phaseHistory->duration > 0)
                 $msg .= "<div>Standard pelayanan: " . $phaseHistory->duration . " hari</div>";
@@ -121,7 +121,7 @@ trait Presenter {
         else
         {
             $finishDate = Carbon::createFromFormat('Y-m-d', $phase->pivot->finish_date);
-            $duration = $startDate->diffInDays($finishDate);
+            $duration = $startDate->diffInDays($finishDate) + 1;
         }
 
         $baseDuration = $phase->duration;
