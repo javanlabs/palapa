@@ -6,3 +6,4 @@ config/local/*
 /.project
 public/upload
 storage/
+node_modules/
