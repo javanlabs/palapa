@@ -18,7 +18,7 @@ class SlideController extends Controller {
         foreach(File::allFiles(base_path('public/upload/slide/images')) as $file)
         {
             $info = getimagesize($file);
-            $images[] = ['name' => $file->getFilename(), 'url' => asset('upload/slide/images/' . $file->getFilename()), 'width'=>$info[0], 'height' => $info[1]];
+            $images[] = ['name' => $file->getFilename(), 'src' => asset('upload/slide/images/' . $file->getFilename()), 'w'=>$info[0], 'h' => $info[1]];
         }
 
         usort($images, function($a, $b){
