@@ -10,7 +10,7 @@ Sama seperti laravel, [cek disini](http://laravel.com/docs/master/installation#s
 ## Instalasi
 
 * Clone repository
-* Edit konfigurasi database. Copy file `config/database.php` ke `config/local/database.php`, edit sesuai settingan masing-masing.
+* Copy `.env.example` ke `.env`, sesuaikan isinya dengan konfigurasi di local.
 * Dari terminal, masuk ke folder proyek, jalankan command `php artisan app:install`.
 
 ## Kontribusi
