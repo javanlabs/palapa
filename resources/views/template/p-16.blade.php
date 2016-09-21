@@ -23,8 +23,8 @@
 	<strong>PENUNJUKAN JAKSA PENUNTUT UMUM</strong><br>
 	<strong>UNTUK MENGIKUTI PERKEMBANGAN</strong><br>
 	<strong><u data-redactor-tag="u">PENYIDIKAN PERKARA TINDAK PIDANA</u><br>
-	</strong></b>	
-	<strong>Nomor: Print - /0.5.12/{{$category}}/ /2015</strong>
+	</strong></b>
+	<strong>Nomor: Print - /0.5.12/{{$category}}/ /{{date('Y')}}</strong>
 </p>
 <p style="text-align: center;">
 	<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
@@ -50,7 +50,7 @@
 		</ol>
 		<table>
 		<tbody>
-		@foreach($case->suspects as $suspect)		
+		@foreach($case->suspects as $suspect)
 		<tr>
 			<td width="150px"  style="padding-left: 27px">
 					Nama Lengkap
@@ -269,7 +269,7 @@
 <tr>
 	<td width="50%">
 	</td>
-	<td>		
+	<td>
 		<table>
 			<tr>
 				<td width='140px' style='padding-left: 20px'>Dikeluarkan di</td>
@@ -281,8 +281,8 @@
 				<td>:</td>
 				<td>{{$case->getChecklistDate(1)}}</td>
 			</tr>
-		</table>		
-		<hr/>		
+		</table>
+		<hr/>
 		<p style="text-align:center;">
 			<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
 		</p>
@@ -321,7 +321,7 @@
 <p style="text-align: center;">
 	<strong>SURAT PERINTAH</strong><b><br>
 	<strong><U>PENUNJUKAN PETUGAS ADMINISTRASI</U><br>
-	 Nomor: Print - /0.5.12/{{$category}}/ /2015
+	 Nomor: Print - /0.5.12/{{$category}}/ /{{date('Y')}}
 	</strong></b>
 </p>
 <p style="text-align: center;">
@@ -358,7 +358,7 @@ Dasar
 	</td>
 	<td>
 		<ol>
-			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tindak Pidana Kepala Kejaksaan Negeri Jember Nomor: Print- /0.5.12/{{$category}}/ /2015 Tanggal {{$case->getChecklistDate(1)}}</li>
+			<li>Dengan diterbitkannya Surat Perintah Penunjukan Jaksa Penuntut Umum Untuk mengikuti Perkembangan Penyidikan Perkara Tindak Pidana Kepala Kejaksaan Negeri Jember Nomor: Print- /0.5.12/{{$category}}/ /{{date('Y')}} Tanggal {{$case->getChecklistDate(1)}}</li>
 			<li>Dalam rangka melaksanakan fungsi administrasi perkara tindak pidana umum, dipandang perlu menunjuk Pegawai Tata Usaha Kejaksaan</li>
 			<li>Sebagai perwujudannya perlu menerbitkan Surat Perintah</li>
 		</ol>

@@ -11,7 +11,7 @@
 	</td>
 	<td style="text-align: right;">
 		<strong>
-			
+
 		</strong>
 	</td>
 </tr>
@@ -22,9 +22,9 @@
 			<tr>
 				<td width="100px">Nomor</td>
 				<td width="15px">:</td>
-				<td width="250px">B- /0.5.12/Ep.1/I/2015</td>
+				<td width="250px">B- /0.5.12/Ep.1/I/{{date('Y')}}</td>
 				<td width="90px" rowspan='4'></td>
-				<td>Jember, {{strftime("%e %B %Y")}}</td>				
+				<td>Jember, {{strftime("%e %B %Y")}}</td>
 			</tr>
 			<tr>
 				<td>Sifat</td>
@@ -33,12 +33,12 @@
 				<td rowspan='3'><p>
 			KEPADA YTH.
 		</p>
-		
+
 		<p>
 			KEPALA KEPOLISIAN SEKTOR KALIWATES<BR/>
-		
+
 			DI - <BR/>
-		
+
 			 <CENTER><u>JEMBER</u></CENTER>
 		</p></td>
 			</tr>
@@ -66,7 +66,7 @@
 				<td colspan='3'><br/><br/><br/>
 <p class='indent'>
 	Sehubungan dengan penyerahan Surat Perintah Penyidikan (SPDP) perkara pidana atas nama tersangka {{implode(', ', $suspects)}} Nomor: {{$case->spdp_number}} tanggal
-	{{$case->spdp_date_for_human}} yang kami terima tanggal {{$case->getChecklistDate(1)}} hingga saat ini kami belum menerima hasil Penyidikan Berkas Perkara tersebut, oleh karna itu mengingat dalam 
+	{{$case->spdp_date_for_human}} yang kami terima tanggal {{$case->getChecklistDate(1)}} hingga saat ini kami belum menerima hasil Penyidikan Berkas Perkara tersebut, oleh karna itu mengingat dalam
 	Jangka Waktu yang cukup lama yaitu 90 (Sembilan Puluh) hari jesak diterbitkannya SPDP Penyidik belum menyerahkan Hasil Penyidikannya, maka dengan ini kami
 	kembalikan Surat Pemberitahuan di mulainya Penyidikan (SPDP) tersebut.
 </p>
@@ -80,13 +80,13 @@
 				</td>
 			</tr>
 
-		</table>		
-	
+		</table>
+
 <table>
 <tbody>
 <tr>
 	<td style='width:400px'>
-		
+
 	</td>
 	<td>
 		<br/><br/><br/><br/>

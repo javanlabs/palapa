@@ -26,9 +26,9 @@
 	<tr>
 				<td width="100px">Nomor</td>
 				<td width="15px">:</td>
-				<td width="250px">B- /0.5.12/Ep.1/I/2015</td>
+				<td width="250px">B- /0.5.12/Ep.1/I/{{date('Y')}}</td>
 				<td width="90px" rowspan='4'></td>
-				<td>Jember, {{strftime("%e %B %Y")}}</td>				
+				<td>Jember, {{strftime("%e %B %Y")}}</td>
 			</tr>
 </tr>
 <tr>
@@ -44,12 +44,12 @@
 	<td rowspan='3'><p>
 			KEPADA YTH.
 		</p>
-		
+
 		<p>
 			KEPALA KEPOLISIAN SEKTOR KALIWATES<BR/>
-		
+
 			DI - <BR/>
-		
+
 			 <CENTER><u>JEMBER</u></CENTER>
 		</p></td>
 </tr>
@@ -104,7 +104,7 @@
 <tbody>
 <tr>
 	<td style='width:400px'>
-		
+
 	</td>
 	<td>
 		<br/>

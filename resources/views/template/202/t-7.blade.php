@@ -17,10 +17,10 @@
 
 <p style="text-align: center;">
 	<strong>SURAT PERINTAH PENAHANAN/</strong><b><br>
-	<strong>PENGALIHAN JENIS PENAHANAN</strong><br>	
+	<strong>PENGALIHAN JENIS PENAHANAN</strong><br>
 	<strong><u data-redactor-tag="u">(TINGKAT PENUNTUTAN)</u><br>
 	</strong></b>
-	<strong>Nomor: Print - /0.5.12/Ep.1/ /2015</strong>
+	<strong>Nomor: Print - /0.5.12/Ep.1/ /{{date('Y')}}</strong>
 </p>
 <p style="text-align: center;">
 	<br/><strong>KEPALA KEJAKSAAN NEGERI JEMBER</strong>
@@ -39,14 +39,14 @@
 		</p>
 	</td>
 	<td>
-		<ol>			
+		<ol>
 			<li>Undang-Undang No. 8 Tahun 1981 tentang Hukum Acara Pidana Pasal 14c, 20 (2), 21, 22, 23, 25</li>
 			<li>Undang-Undang Nomor: 16 Tahun 2004 tentang Kejaksaan Republik Indonesia.</li>
 			<li>Undang-Undang No. 1 Tahun 1964 Tentang KUHP</li>
-			<li>Berkas Perkara dari Penyidik Nomer BP/13/IX/2014/Polsek. Tgl. 23 September 2014 dalam perkara atas nama tersangka {{$case->suspectNames()}}, Nomor: SPP/16/IX/2014/Reskrim tanggal ..... 2015		
+			<li>Berkas Perkara dari Penyidik Nomer BP/13/IX/2014/Polsek. Tgl. 23 September 2014 dalam perkara atas nama tersangka {{$case->suspectNames()}}, Nomor: SPP/16/IX/2014/Reskrim tanggal ..... 2015
 			<li>Surat Perintah Penahanan dari {{$case->penyidik->name}} atas nama tersangka {{$case->suspectNames()}} Nomor: SPP/16/IX/2014/Reskrim tanggal .... 2015</li>
 			<li>Saran dari Jaksa Penuntut Umum {{$case->jaksa->name}}, NIP. {{$case->jaksa->nip}} Pangkat {{$case->jaksa->pangkat->name}} pada Kejaksan Negeri Jember.</li>
-		</ol>		
+		</ol>
 	</td>
 </tr>
 <tr>
@@ -130,7 +130,7 @@
 			</td>
 		</tr>
 		</tbody>
-		</table>		
+		</table>
 	</td>
 </tr>
 <tr>
@@ -146,7 +146,7 @@
 				Menahan/Melanjutkan Penahanan/Pengalihan Jenis Penahanan terdakwa:
 <table >
 		<tbody>
-		@foreach($case->suspects as $suspect)		
+		@foreach($case->suspects as $suspect)
 		<tr>
 			<td>
 					Nama Lengkap
@@ -254,7 +254,7 @@
 					:
 			</td>
 			<td>
-					
+
 			</td>
 		</tr>
 <tr>
@@ -265,7 +265,7 @@
 					:
 			</td>
 			<td>
-					
+
 			</td>
 		</tr>
 		<tr>
@@ -273,7 +273,7 @@
 		</tr>
 		@endforeach
 		<tr>
-			<td colspan='3'>				
+			<td colspan='3'>
 				<p>
 					Dengan Ketentuan Bahwa ia ditahan di <strong>RUTAN/RUMAH/KOTA</strong> JEMBER selama 20 hari terhitung mulai tanggal {{strftime("%e %B %Y")}} sampai dengan tanggal {{ Carbon\Carbon::now()->addDays(20)->formatLocalized("%e %B %Y")}}
 				</p>
@@ -282,7 +282,7 @@
 		</tbody>
 		</table>
 			</li>
-			<li>Membaca Berita Acara Penahanan/Pengalihan Jenis Tahanan</li>			
+			<li>Membaca Berita Acara Penahanan/Pengalihan Jenis Tahanan</li>
 		</ol>
 	</td>
 </tr>
