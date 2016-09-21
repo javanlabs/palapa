@@ -46,7 +46,8 @@
 
             $('.datetimepicker').combodate({
                 format: 'YYYY-MM-DD HH:mm:00',
-                template: 'DD - MMM - YYYY HH : mm'
+                template: 'DD - MMM - YYYY HH : mm',
+                maxYear:{{ date('Y') }}
             });
 
         });
