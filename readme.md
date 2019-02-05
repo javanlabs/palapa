@@ -11,6 +11,8 @@ Sama seperti laravel, [cek disini](http://laravel.com/docs/master/installation#s
 
 * Clone repository
 * Copy `.env.example` ke `.env`, sesuaikan isinya dengan konfigurasi di local.
+* `composer install`
+* `php artisan key:generate`
 * Dari terminal, masuk ke folder proyek, jalankan command `php artisan app:install`.
 
 ## Sampel Data
